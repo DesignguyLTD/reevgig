@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/powerreev-frontend/static/css/main.d54bbd4a.css",
-    "main.js": "/powerreev-frontend/static/js/main.11874554.js",
-    "static/js/453.989f038b.chunk.js": "/powerreev-frontend/static/js/453.989f038b.chunk.js",
-    "index.html": "/powerreev-frontend/index.html",
-    "main.d54bbd4a.css.map": "/powerreev-frontend/static/css/main.d54bbd4a.css.map",
-    "main.11874554.js.map": "/powerreev-frontend/static/js/main.11874554.js.map",
-    "453.989f038b.chunk.js.map": "/powerreev-frontend/static/js/453.989f038b.chunk.js.map"
+    "main.css": "/reevgig/static/css/main.d54bbd4a.css",
+    "main.js": "/reevgig/static/js/main.aba67455.js",
+    "static/js/453.989f038b.chunk.js": "/reevgig/static/js/453.989f038b.chunk.js",
+    "index.html": "/reevgig/index.html",
+    "main.d54bbd4a.css.map": "/reevgig/static/css/main.d54bbd4a.css.map",
+    "main.aba67455.js.map": "/reevgig/static/js/main.aba67455.js.map",
+    "453.989f038b.chunk.js.map": "/reevgig/static/js/453.989f038b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d54bbd4a.css",
-    "static/js/main.11874554.js"
+    "static/js/main.aba67455.js"
   ]
 }
