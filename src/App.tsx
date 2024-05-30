@@ -6,7 +6,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png' className="App-logo" alt="logo" />
-          <p>reev</p>
       </header>
     </div>
   );
