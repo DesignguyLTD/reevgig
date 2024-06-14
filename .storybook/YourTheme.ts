@@ -3,8 +3,8 @@ import { create } from '@storybook/theming/create';
 export default create({
     base: 'light',
     // Typography
-    fontBase: '"Open Sans", sans-serif',
-    fontCode: 'poppins',
+    fontBase: '"PP Neue Montreal"',
+    fontCode: 'PP Neue Montreal',
 
     brandTitle: 'ReevGig Storybook',
     brandUrl: 'https://DesignguyLTD.github.io/reevgig',
@@ -13,13 +13,13 @@ export default create({
 
     //
     colorPrimary: '#f7cf31',
-    colorSecondary: '#585C6D',
+    colorSecondary: '#f7cf31',
 
     // UI
     appBg: '#ffffff',
     appContentBg: '#ffffff',
     appPreviewBg: '#ffffff',
-    appBorderColor: '#585C6D',
+    appBorderColor: '#f7cf31',
     appBorderRadius: 8,
 
     // Text colors
@@ -27,9 +27,9 @@ export default create({
     textInverseColor: '#ffffff',
 
     // Toolbar default and active colors
-    barTextColor: '#9E9E9E',
-    barSelectedColor: '#585C6D',
-    barHoverColor: '#585C6D',
+    barTextColor: '#f7cf31',
+    barSelectedColor: '#f7cf31',
+    barHoverColor: '#f7cf31',
     barBg: '#ffffff',
 
     // Form colors

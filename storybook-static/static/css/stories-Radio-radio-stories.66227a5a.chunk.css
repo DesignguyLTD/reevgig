@@ -1,0 +1,96 @@
+.storybook-radio-container {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.storybook-radio {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.storybook-radio input {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+.storybook-radio--small input + .checkmark {
+    width: 12px;
+    height: 12px;
+}
+
+.storybook-radio--medium input + .checkmark {
+    width: 16px;
+    height: 16px;
+}
+
+.storybook-radio--large input + .checkmark {
+    width: 20px;
+    height: 20px;
+}
+
+.checkmark {
+    display: inline-block;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    position: relative;
+}
+
+
+input:checked + .checkmark {
+    background-color: rgb(8, 56, 130);
+    border-color: rgb(8, 56, 130);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+input:checked + .checkmark:after {
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+}
+
+.radio-label {
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    cursor: pointer;
+}
+
+.radio-label--small {
+    font-size: 10px;
+}
+
+.radio-label--medium {
+    font-size: 12px;
+}
+
+.radio-label--large {
+    font-size: 14px;
+}
+
+.storybook-radio--disabled input + .checkmark {
+    background-color: #ffffff;
+    border-color: rgb(217, 217, 217);;
+}
+
+.disabled , .storybook-radio--disabled{
+    color: rgb(217, 217, 217);
+    cursor: not-allowed;
+}
+
+
+/*# sourceMappingURL=stories-Radio-radio-stories.66227a5a.chunk.css.map*/

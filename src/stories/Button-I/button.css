@@ -1,0 +1,54 @@
+.storybook-button {
+  font-family: 'PP Neue Montreal', 'sans-serif';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: 0.32px;
+  text-align: center;
+  border: 0;
+  border-radius: 160px;
+  padding: 4px 30px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.storybook-button:hover{
+  background: rgba(30, 30, 30, 0.85);
+  color: rgb(217, 217, 217);
+}
+.storybook-button--primary {
+  color: rgb(217, 217, 217);
+  background: rgb(30, 30, 30);
+}
+.storybook-button--secondary {
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 160px;
+  background: rgb(255, 255, 255);
+}
+.storybook-button--secondary:hover{
+  border: none;
+}
+
+.storybook-button--small {
+  font-size: 10px;
+}
+.storybook-button--medium {
+  font-size: 12px;
+}
+.storybook-button--large {
+  font-size: 14px;
+}
+
+.storybook-button--disabled{
+  color: rgb(255, 255, 255);
+  background: rgb(217, 217, 217);
+  border: none;
+}
+
+.storybook-button--disabled:hover{
+  color: rgb(255, 255, 255);
+  background: rgb(217, 217, 217);
+  border: none;
+  cursor: not-allowed;
+}
