@@ -32,11 +32,11 @@ interface RadioProps {
 }
 
 export const Radio = ({ disabled , size = 'small', label, onChange, checked, id, labelColour }: RadioProps) => {
-    const disableClass = disabled ? 'storybook-radio--disabled' : '';
-    const labelClass = disabled ? 'disabled' : '';
+    const disableClass :string = disabled ? 'storybook-radio--disabled' : '';
+    const labelClass :string = disabled ? 'disabled' : '';
 
     return (
-        <label style={{ color: disabled ? '' : labelColour }} className={`storybook-radio-container radio-label--${size} ${labelClass}`} htmlFor={id}>
+        <label style={{ color: disabled ? '' : labelColour }} className={`storybook-radio-container radio-label radio-label--${size} ${labelClass}`} htmlFor={id}>
             <span className={`storybook-radio storybook-radio--${size} ${disableClass}`}>
                 <input
                     type="radio"

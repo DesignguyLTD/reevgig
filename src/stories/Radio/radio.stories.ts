@@ -29,3 +29,33 @@ export const radio: Story = {
         checked: false
     },
 };
+
+
+export const checked: Story = {
+    args: {
+        label: 'Radio 1',
+        disabled: false,
+        id: 'radio-1',
+        checked: true
+    },
+};
+
+
+export const disabled: Story = {
+    args: {
+        label: 'Radio 1',
+        disabled: true,
+        id: 'radio-1',
+        checked: true
+    },
+};
+
+export const disabledUnchecked: Story = {
+    args: {
+        label: 'Radio 1',
+        disabled: true,
+        id: 'radio-1',
+        checked: false
+    },
+};
+

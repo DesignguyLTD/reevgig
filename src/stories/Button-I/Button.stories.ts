@@ -28,28 +28,20 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: 'Create my account',
-    disabled: true
+    disabled: false
   },
 };
 
 export const Secondary: Story = {
   args: {
     label: 'Create my account',
-    disabled: true
+    disabled: false
 
   },
 };
 
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Create my account',
-    disabled: true
 
-  },
-};
-
-export const Small: Story = {
+export const disabled: Story = {
   args: {
     size: 'small',
     label: 'Create my account',
