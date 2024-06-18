@@ -1,0 +1,134 @@
+.sb-show-main.sb-main-padded {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.navContainer {
+    max-width: 100%;
+    width: 100%;
+}
+
+.upperSec {
+    background: rgb(39, 39, 39);
+    padding: 19px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    cursor: pointer;
+    width: 80px;
+    height: 26px;
+}
+
+.Item2 {
+    cursor: pointer;
+}
+
+.menuIcon, .averterIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.helpIcon {
+    width: 19px;
+    height: 19px;
+}
+
+.Items1 {
+    color: rgb(128, 126, 126);
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.6px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.Items1:hover {
+    color: black;
+    text-decoration: underline 1px solid black;
+}
+
+.menuMobile {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    position: relative;
+}
+
+.menuMobileToggle {
+    position: absolute;
+    color: rgb(128, 126, 126);
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    background: #cccccc;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.LowerSec, .menuTabDesk {
+    display: none;
+}
+
+@media (min-width: 760px) {
+    .LowerSec {
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 21px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgb(217, 217, 217);
+        background: rgb(255, 255, 255);
+    }
+
+    .menuMobile {
+        display: none;
+    }
+
+    .menuTabDesk {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo {
+        height: 26px;
+    }
+
+    .upperSec {
+        padding: 19px 34px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo {
+        height: 33px;
+        width: 101px;
+    }
+
+    .upperSec {
+        padding: 24px 120px;
+    }
+
+    .menuTabDesk {
+        gap: 31px;
+    }
+
+    .Items1 {
+        font-size: 16px;
+    }
+}

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { ButtonII } from './ButtonII';
+import type {Meta, StoryObj} from '@storybook/react';
+import {fn} from '@storybook/test';
+import {ButtonII} from './ButtonII';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -13,7 +13,7 @@ const meta = {
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
     // Use `userEvent` to simulate user actions, which will appear in the actions panel once invoked: https://storybook.js.org/docs/react/essentials/actions#action-args
-    args: { onClick: fn() },
+    args: {onClick: fn()},
 } satisfies Meta<typeof ButtonII>;
 
 export default meta;
@@ -66,7 +66,8 @@ export const SecondaryLabel: Story = {
         hasIcon: false,
         isLabelVisible: true
     },
-};export const SecondaryIcon: Story = {
+};
+export const SecondaryIcon: Story = {
     args: {
         primary: false,
         label: 'Secondary Button',

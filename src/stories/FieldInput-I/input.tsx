@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import styles from './input.module.css'; // Import CSS module
 
 interface InputProps {
@@ -106,11 +106,12 @@ const Input: React.FC<InputProps> = ({
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => setIsFocused(false);
 
-    const labelStyle = error ? styles.error : disabled ? styles.disabled :  defaultProp ? styles.default : '';
+    const labelStyle = error ? styles.error : disabled ? styles.disabled : defaultProp ? styles.default : '';
 
     return (
         <>
-            {label && <div className={`${styles.InputLabel} ${labelStyle} ${styles[`InputLabel--${size}`]}`}>{label}</div>}
+            {label &&
+                <div className={`${styles.InputLabel} ${labelStyle} ${styles[`InputLabel--${size}`]}`}>{label}</div>}
 
             {isTextArea ?
                 <textarea
@@ -124,8 +125,15 @@ const Input: React.FC<InputProps> = ({
                         styles['storybook-input'],
                         styles[`storybook-input--${size}`],
                         error ? styles['storybook-input--error'] : disabled ? styles['storybook-input--disabled'] : ''
-                        ].join(' ')}
-                    style={{ resize: 'vertical',maxHeight: '100%',  maxWidth: '100%', minWidth: '100%', padding: '10px', height: '106px' }}
+                    ].join(' ')}
+                    style={{
+                        resize: 'vertical',
+                        maxHeight: '100%',
+                        maxWidth: '100%',
+                        minWidth: '100%',
+                        padding: '10px',
+                        height: '106px'
+                    }}
                     onChange={onChange}
                     maxLength={maxContent}
                 ></textarea>

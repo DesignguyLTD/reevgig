@@ -1,12 +1,12 @@
 @import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
 
 body {
-  margin: 0;
-  font-family: 'PP Neue Montreal';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'PP Neue Montreal';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'PP Neue Montreal';
+    font-family: 'PP Neue Montreal';
 }

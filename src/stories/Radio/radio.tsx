@@ -60,7 +60,7 @@ export const Radio = ({
 
     return (
         <label
-            style={{ color: disabled ? '' : labelColour }}
+            style={{color: disabled ? '' : labelColour}}
             className={`${styles['storybook-radio-container']} ${styles['radio-label']} ${styles[`radio-label--${size}`]} ${labelClass}`}
             htmlFor={id}
         >

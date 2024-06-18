@@ -55,7 +55,7 @@ export const ButtonII = ({
                              primary,
                              size = 'medium',
                              label,
-                             disabled ,
+                             disabled,
                              ...props
                          }: ButtonIIProps) => {
     const mode = primary ? styles.storybookButtonPrimary : styles.storybookButtonSecondary;
@@ -72,11 +72,11 @@ export const ButtonII = ({
                 styles.storybookButton,
                 styles[`storybookButton${size.charAt(0).toUpperCase() + size.slice(1)}`],
                 mode,
-            ].join(' ') : [ styles.noLabel,styles[`noLabel${size.charAt(0).toUpperCase() + size.slice(1)}`], modeNoLabel, disabled ? disabledClassNoLabel : '' ].join(' ')}
+            ].join(' ') : [styles.noLabel, styles[`noLabel${size.charAt(0).toUpperCase() + size.slice(1)}`], modeNoLabel, disabled ? disabledClassNoLabel : ''].join(' ')}
             {...props}
         >
-            {isLabelVisible && <div>{label}</div> }
-            {hasIcon &&  <i style={{height: '34px'}} className="fi fi-bs-plus"></i>}
+            {isLabelVisible && <div>{label}</div>}
+            {hasIcon && <i style={{height: '34px'}} className="fi fi-bs-plus"></i>}
         </button>
     );
 };
