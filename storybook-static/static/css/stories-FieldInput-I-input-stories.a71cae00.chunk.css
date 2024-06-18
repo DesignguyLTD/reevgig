@@ -1,0 +1,116 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+.input_InputLabel__P3hkk {
+    font-family: 'Neue Montreal', 'sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.input_InputError__RPHAZ {
+    font-family: 'Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: red;
+}
+
+.input_storybook-input__UM1we {
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    outline: none;
+    font-family: Neue Montreal;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    width: 530px;
+    height: 44px;
+}
+
+.input_storybook-input__UM1we:focus {
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 8px;
+    background: rgb(254, 194, 0);
+    color: black;
+}
+
+.input_storybook-input--small__KS2dT {
+    width: 260px;
+    height: 44px;
+    padding: 0 10px;
+}
+
+.input_storybook-input--medium__KYzmP {
+    width: 504px;
+    height: 44px;
+    padding: 0 15px;
+}
+
+.input_storybook-input--large__X5H9V {
+    width: 530px;
+    height: 44px;
+    padding: 0 20px;
+}
+
+.input_storybook-input--error__n36Fc {
+    box-sizing: border-box;
+    border: 1px solid rgb(216, 73, 16);
+    border-radius: 8px;
+    background: rgb(255, 235, 170);
+}
+
+.input_storybook-input--disabled__QvTdn {
+    cursor: not-allowed;
+    color: rgb(217, 217, 217);
+    box-sizing: border-box;
+    /* primary color/6001 */
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background: white;
+
+}
+
+.input_storybook-input--disabled__QvTdn::placeholder {
+    color: rgb(217, 217, 217);
+}
+
+.input_InputLabel--small__3ljH0 {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.input_InputLabel--medium__Ole16 {
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.input_InputLabel--large__Le30H {
+    font-size: 16px;
+}
+
+.input_error__rstCh {
+    color: red;
+}
+
+.input_disabled__T3xQi {
+    color: rgb(217, 217, 217);
+    cursor: not-allowed;
+}
+
+.input_default__wxul\+ {
+    color: rgb(24, 24, 24);
+}
+
+.input_focused__YTQm3 {
+    color: rgb(254, 194, 0);
+}
+
+
+/*# sourceMappingURL=stories-FieldInput-I-input-stories.a71cae00.chunk.css.map*/

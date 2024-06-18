@@ -1,0 +1,158 @@
+@import url(https://cdn-uicons.flaticon.com/2.4.1/uicons-bold-straight/css/uicons-bold-straight.css);
+@import url(https://cdn-uicons.flaticon.com/2.4.1/uicons-thin-straight/css/uicons-thin-straight.css);
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+.ButtonII_storybookButton__U3rBF {
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    border: 0;
+    border-radius: 160px;
+    padding: 10px 35px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ButtonII_noLabel__XYitv {
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    border: 0;
+    padding: 16px;
+    border-radius: 160px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
+
+.ButtonII_storybookButton__U3rBF:hover, .ButtonII_noLabel__XYitv:hover {
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    color: rgb(19, 19, 19);
+    background: rgb(254, 194, 0);
+}
+
+.ButtonII_storybookButton__U3rBF:active, .ButtonII_noLabel__XYitv:active {
+    color: rgb(254, 194, 0);
+    box-sizing: border-box;
+    border: 2px solid rgb(254, 194, 0);
+    border-radius: 160px;
+    background: rgb(43, 43, 43);
+}
+
+.ButtonII_storybookButtonPrimary__B4X5C, .ButtonII_noLabelButtonPrimary__wCYE8 {
+    color: rgb(217, 217, 217);
+    background: rgb(43, 43, 43);
+}
+
+
+.ButtonII_storybookButtonSecondary__LYEVH, .ButtonII_noLabelButtonSecondary__Tc3hh {
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    background: rgb(255, 255, 255);
+}
+
+.ButtonII_storybookButtonSecondary__LYEVH:hover, .ButtonII_noLabelButtonSecondary__Tc3hh:hover {
+    border: 1px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    color: rgb(19, 19, 19);
+    background: rgb(255, 255, 255);
+}
+
+
+.ButtonII_storybookButtonSecondary__LYEVH:active, .ButtonII_noLabelButtonSecondary__Tc3hh:active {
+    border-radius: 160px;
+    background: rgb(254, 194, 0);
+    color: rgb(19, 19, 19);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.ButtonII_storybookButtonSmall__lfBT9 {
+    font-size: 14px;
+    padding: 4px 18px;
+}
+
+.ButtonII_noLabelPrimary__OAafH {
+    font-size: 14px;
+}
+
+.ButtonII_storybookButtonMedium__IFDVA {
+    font-size: 16px;
+    padding: 4px 22px;
+}
+
+.ButtonII_noLabelMedium__vvQWZ {
+    font-size: 16px;
+
+}
+
+.ButtonII_storybookButtonLarge__pzh9J {
+    font-size: 16px;
+}
+
+.ButtonII_noLabelLarge__jurfa {
+    font-size: 16px;
+
+}
+
+.ButtonII_storybookButtonDisabled__26I1F, .ButtonII_noLabelButtonDisabled__p9Hzb {
+    color: rgba(39, 39, 39, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+}
+
+.ButtonII_storybookButtonDisabled__26I1F:hover, .ButtonII_noLabelButtonDisabled__p9Hzb:hover {
+    color: rgba(39, 39, 39, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+}
+
+.ButtonII_storybookButtonSecondaryDisabled__2m3se, .ButtonII_noLabelButtonSecondaryDisabled__7ytGy {
+    box-sizing: border-box;
+    border: 1px solid rgb(125, 125, 125);
+    border-radius: 160px;
+    cursor: not-allowed;
+    color: rgba(39, 39, 39, 0.5);
+}
+
+
+.ButtonII_storybookButtonSecondaryDisabled__2m3se:hover, .ButtonII_storybookButtonSecondaryDisabled__2m3se:active, .ButtonII_noLabelButtonSecondaryDisabled__7ytGy:hover, .ButtonII_noLabelButtonSecondaryDisabled__7ytGy:active {
+    box-sizing: border-box;
+    border: 1px solid rgb(125, 125, 125);
+    border-radius: 160px;
+    cursor: not-allowed;
+    background: white;
+    color: rgba(39, 39, 39, 0.5);
+}
+
+/*.storybookButtonSecondaryDisabled:active {*/
+/*    box-sizing: border-box;*/
+/*    border: 1px solid rgb(125, 125, 125);*/
+/*    border-radius: 160px;*/
+/*    cursor: not-allowed;*/
+/*    color: rgba(39, 39, 39, 0.5);*/
+/*    background: rgb(255, 255, 255);*/
+/*}*/
+
+
+
+
+/*# sourceMappingURL=stories-Button-II-ButttonII-stories.cf9d2461.chunk.css.map*/

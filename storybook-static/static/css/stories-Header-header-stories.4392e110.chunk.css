@@ -1,16 +1,14 @@
-.sb-show-main.sb-main-padded {
+.header_sb-show-main__NuL-z.header_sb-main-padded__SbAUR {
     padding: 0 !important;
     margin: 0 !important;
 }
 
-.navContainer {
+.header_navContainer__whKJR {
     max-width: 100%;
     width: 100%;
-    position: fixed;
-    top: 0;
 }
 
-.upperSec {
+.header_upperSec__F2TOZ {
     background: rgb(39, 39, 39);
     padding: 19px;
     display: flex;
@@ -19,27 +17,27 @@
     align-items: center;
 }
 
-.logo {
+.header_logo__VtFYD {
     cursor: pointer;
     width: 80px;
     height: 26px;
 }
 
-.Item2 {
+.header_Item2__L1pIi {
     cursor: pointer;
 }
 
-.menuIcon, .averterIcon {
+.header_menuIcon__VXIlb, .header_averterIcon__t0HU7 {
     width: 24px;
     height: 24px;
 }
 
-.helpIcon {
+.header_helpIcon__2m\+vQ {
     width: 19px;
     height: 19px;
 }
 
-.Items1 {
+.header_Items1__Q1lpI {
     color: rgb(128, 126, 126);
     font-family: Neue Montreal;
     font-size: 14px;
@@ -50,12 +48,13 @@
     cursor: pointer;
 }
 
-.Items1:hover {
+.header_Items1__Q1lpI:hover {
     color: black;
-    text-decoration: underline 1px solid black;
+    -webkit-text-decoration: underline 1px solid black;
+            text-decoration: underline 1px solid black;
 }
 
-.menuMobile {
+.header_menuMobile__nM7Am {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -64,7 +63,7 @@
     position: relative;
 }
 
-.menuMobileToggle {
+.header_menuMobileToggle__ITfdn {
     position: absolute;
     color: rgb(128, 126, 126);
     font-family: Neue Montreal;
@@ -78,12 +77,12 @@
     border-radius: 8px;
 }
 
-.LowerSec, .menuTabDesk {
+.header_LowerSec__5covO, .header_menuTabDesk__fycLH {
     display: none;
 }
 
 @media (min-width: 760px) {
-    .LowerSec {
+    .header_LowerSec__5covO {
         display: inline-flex;
         flex-direction: row;
         width: 100%;
@@ -96,41 +95,43 @@
         background: rgb(255, 255, 255);
     }
 
-    .menuMobile {
+    .header_menuMobile__nM7Am {
         display: none;
     }
 
-    .menuTabDesk {
+    .header_menuTabDesk__fycLH {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
     }
 
-    .logo {
+    .header_logo__VtFYD {
         height: 26px;
     }
 
-    .upperSec {
+    .header_upperSec__F2TOZ {
         padding: 19px 34px;
     }
 }
 
 @media (min-width: 1024px) {
-    .logo {
+    .header_logo__VtFYD {
         height: 33px;
         width: 101px;
     }
 
-    .upperSec {
+    .header_upperSec__F2TOZ {
         padding: 24px 120px;
     }
 
-    .menuTabDesk {
+    .header_menuTabDesk__fycLH {
         gap: 31px;
     }
 
-    .Items1 {
+    .header_Items1__Q1lpI {
         font-size: 16px;
     }
 }
+
+/*# sourceMappingURL=stories-Header-header-stories.4392e110.chunk.css.map*/
