@@ -1,94 +1,102 @@
 import React, { useState, useEffect } from "react";
-import './input.css';
+import styles from './input.module.css'; // Import CSS module
 
 interface InputProps {
     /**
-     * Set the input to its default state
+     * Sets the input to its default value or state.
      */
     default?: boolean;
 
     /**
-     * Make the input field focused initially
+     * Determines if the input field should be focused initially.
      */
     focused?: boolean;
 
     /**
-     * Display an error message and style the input as an error
+     * Indicates that the input has an error, displaying an error message and styling accordingly.
      */
     error?: boolean;
 
     /**
-     * Disable the input field
+     * Disables the input field if true.
      */
     disabled?: boolean;
 
     /**
-     * Label text for the input field
+     * Label text for the input field.
      */
     label?: string;
 
     /**
-     * Optional change handler for the input field
+     * Optional function called when the input value changes.
      */
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 
     /**
-     * Error message to display when there is an error
+     * Error message to display when `error` is true.
      */
     errorMessage?: string;
 
     /**
-     * Placeholder text for the input field
+     * Placeholder text displayed when the input is empty.
      */
     placeholder?: string;
 
     /**
-     * Set the size of the input field
+     * Size of the input field ('small', 'medium', 'large').
      */
     size?: 'small' | 'medium' | 'large';
 
     /**
-     * Background color of the input field
-     */
-    backgroundColor?: string;
-
-    /**
-     * Type of the input field (e.g., text, password)
+     * Type of the input field (e.g., 'text', 'password').
      */
     type?: string;
+
+    /**
+     * Indicates whether the input field is a textarea (true) or not (false).
+     */
+    isTextArea: boolean;
+
+    /**
+     * Maximum number of characters allowed in the input field.
+     */
+    maxContent?: number;
 }
 
+/**
+ * Input component for user input, styled using CSS modules.
+ *
+ * Props:
+ * - `default`: Sets the input to its default value or state.
+ * - `focused`: Determines if the input field should be focused initially.
+ * - `error`: Indicates that the input has an error, displaying an error message and styling accordingly.
+ * - `disabled`: Disables the input field if true.
+ * - `label`: Label text for the input field.
+ * - `onChange`: Optional function called when the input value changes.
+ * - `errorMessage`: Error message to display when `error` is true.
+ * - `placeholder`: Placeholder text displayed when the input is empty.
+ * - `size`: Size of the input field ('small', 'medium', 'large').
+ * - `type`: Type of the input field (e.g., 'text', 'password').
+ * - `isTextArea`: Indicates whether the input field is a textarea (true) or not (false).
+ * - `maxContent`: Maximum number of characters allowed in the input field (only applicable if `isTextArea` is true).
+ *
+ * This component uses CSS modules for scoped styles, ensuring encapsulation and minimizing global CSS conflicts.
+ */
 
-const errorStyle: React.CSSProperties = {
-    color: 'red'
-};
-
-const disabledStyle: React.CSSProperties = {
-    color: 'rgb(217, 217, 217)',
-    cursor: 'not-allowed'
-};
-
-const defaultStyle: React.CSSProperties = {
-    color: 'rgb(24, 24, 24)'
-};
-
-const focusedStyle: React.CSSProperties = {
-    color: 'rgb(254, 194, 0)'
-};
-
-export const Input: React.FC<InputProps> = ({
-                                                default: defaultProp,
-                                                focused,
-                                                error,
-                                                disabled,
-                                                label,
-                                                onChange,
-                                                errorMessage,
-                                                placeholder,
-                                                size = 'small',
-                                                backgroundColor,
-                                                type = 'text'
-                                            }: InputProps) => {
+const Input: React.FC<InputProps> = ({
+                                         default: defaultProp,
+                                         focused,
+                                         error,
+                                         disabled,
+                                         label,
+                                         onChange,
+                                         errorMessage,
+                                         placeholder,
+                                         size = 'small',
+                                         type = 'text',
+                                         isTextArea,
+                                         maxContent
+                                     }: InputProps) => {
     const [isFocused, setIsFocused] = useState(focused);
 
     useEffect(() => {
@@ -98,26 +106,48 @@ export const Input: React.FC<InputProps> = ({
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => setIsFocused(false);
 
-    const labelStyle = error ? errorStyle : disabled ? disabledStyle : isFocused ? focusedStyle : defaultProp ? defaultStyle : {};
+    const labelStyle = error ? styles.error : disabled ? styles.disabled :  defaultProp ? styles.default : '';
 
     return (
         <>
-            {label && <div style={labelStyle} className={`InputLabel InputLabel--${size}`} >{label}</div>}
-            <input
-                disabled={disabled}
-                type={type}
-                placeholder={placeholder}
-                className={[
-                    'storybook-input',
-                    `storybook-input--${size}`,
-                    error ? 'storybook-input--error' : disabled ? 'storybook-input--disabled' : ''
-                ].join(' ')}
-                style={{ backgroundColor }}
-                onChange={onChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-            />
-            {error && <div style={errorStyle} className={`InputError InputLabel--${size}`}>{errorMessage}</div>}
+            {label && <div className={`${styles.InputLabel} ${labelStyle} ${styles[`InputLabel--${size}`]}`}>{label}</div>}
+
+            {isTextArea ?
+                <textarea
+                    cols={30}
+                    rows={10}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    disabled={disabled}
+                    placeholder={placeholder}
+                    className={[
+                        styles['storybook-input'],
+                        styles[`storybook-input--${size}`],
+                        error ? styles['storybook-input--error'] : disabled ? styles['storybook-input--disabled'] : ''
+                        ].join(' ')}
+                    style={{ resize: 'vertical',maxHeight: '100%',  maxWidth: '100%', minWidth: '100%', padding: '10px', height: '106px' }}
+                    onChange={onChange}
+                    maxLength={maxContent}
+                ></textarea>
+                :
+                <input
+                    disabled={disabled}
+                    type={type}
+                    placeholder={placeholder}
+                    className={[
+                        styles['storybook-input'],
+                        styles[`storybook-input--${size}`],
+                        error ? styles['storybook-input--error'] : disabled ? styles['storybook-input--disabled'] : ''
+                    ].join(' ')}
+                    onChange={onChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                />
+            }
+
+            {error && <div className={`${styles.InputError} ${styles[`InputLabel--${size}`]}`}>{errorMessage}</div>}
         </>
     );
 };
+
+export default Input;

@@ -1,0 +1,114 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+.InputLabel {
+    font-family: 'Neue Montreal', 'sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.InputError {
+    font-family: 'Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: red;
+}
+
+.storybook-input {
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    outline: none;
+    font-family: Neue Montreal;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    width: 530px;
+    height: 44px;
+}
+
+.storybook-input:focus {
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 8px;
+    background: rgb(254, 194, 0);
+    color: black;
+}
+
+.storybook-input--small {
+    width: 260px;
+    height: 44px;
+    padding: 0 10px;
+}
+
+.storybook-input--medium {
+    width: 504px;
+    height: 44px;
+    padding: 0 15px;
+}
+
+.storybook-input--large {
+    width: 530px;
+    height: 44px;
+    padding: 0 20px;
+}
+
+.storybook-input--error {
+    box-sizing: border-box;
+    border: 1px solid rgb(216, 73, 16);
+    border-radius: 8px;
+    background: rgb(255, 235, 170);
+}
+
+.storybook-input--disabled {
+    cursor: not-allowed;
+    color: rgb(217, 217, 217);
+    box-sizing: border-box;
+    /* primary color/6001 */
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background: white;
+
+}
+
+.storybook-input--disabled::placeholder {
+    color: rgb(217, 217, 217);
+}
+
+.InputLabel--small {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.InputLabel--medium {
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.InputLabel--large {
+    font-size: 16px;
+}
+
+.error {
+    color: red;
+}
+
+.disabled {
+    color: rgb(217, 217, 217);
+    cursor: not-allowed;
+}
+
+.default {
+    color: rgb(24, 24, 24);
+}
+
+.focused {
+    color: rgb(254, 194, 0);
+}

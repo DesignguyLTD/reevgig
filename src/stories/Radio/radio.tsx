@@ -1,5 +1,5 @@
 import React from 'react';
-import './radio.css';
+import styles from './radio.module.css';
 
 interface RadioProps {
     /**
@@ -25,29 +25,58 @@ interface RadioProps {
     /**
      * ID for the radio button
      */
-    id: string;/**
-     * ID for the radio button
+    id: string;
+    /**
+     * Color for the label (if not disabled)
      */
     labelColour?: string;
 }
 
-export const Radio = ({ disabled , size = 'small', label, onChange, checked, id, labelColour }: RadioProps) => {
-    const disableClass :string = disabled ? 'storybook-radio--disabled' : '';
-    const labelClass :string = disabled ? 'disabled' : '';
+/**
+ * Radio component for user selection, styled using CSS modules.
+ *
+ * Props:
+ * - `disabled`: If true, disables the radio button.
+ * - `size`: Size of the radio button ('small', 'medium', 'large').
+ * - `label`: Label text for the radio button.
+ * - `onChange`: Optional change handler for when the radio button state changes.
+ * - `checked`: If true, marks the radio button as checked.
+ * - `id`: Unique ID for the radio button.
+ * - `labelColour`: Color of the label text (if not disabled).
+ *
+ * This component uses CSS modules for scoped styles, ensuring encapsulation and minimizing global CSS conflicts.
+ */
+export const Radio = ({
+                          disabled,
+                          size = 'small',
+                          label,
+                          onChange,
+                          checked,
+                          id,
+                          labelColour
+                      }: RadioProps) => {
+    const disableClass = disabled ? styles['storybook-radio--disabled'] : '';
+    const labelClass = disabled ? styles.disabled : '';
 
     return (
-        <label style={{ color: disabled ? '' : labelColour }} className={`storybook-radio-container radio-label radio-label--${size} ${labelClass}`} htmlFor={id}>
-            <span className={`storybook-radio storybook-radio--${size} ${disableClass}`}>
-                <input
-                    type="radio"
-                    id={id}
-                    disabled={disabled}
-                    onChange={onChange}
-                    checked={checked}
-                />
-                <span className="checkmark"></span>
-            </span>
+        <label
+            style={{ color: disabled ? '' : labelColour }}
+            className={`${styles['storybook-radio-container']} ${styles['radio-label']} ${styles[`radio-label--${size}`]} ${labelClass}`}
+            htmlFor={id}
+        >
+      <span className={`${styles['storybook-radio']} ${styles[`storybook-radio--${size}`]} ${disableClass}`}>
+        <input
+            type="radio"
+            id={id}
+            disabled={disabled}
+            onChange={onChange}
+            checked={checked}
+        />
+        <span className={styles.checkmark}></span>
+      </span>
             {label}
         </label>
     );
 };
+
+export default Radio;

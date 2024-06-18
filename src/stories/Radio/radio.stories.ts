@@ -3,7 +3,7 @@ import { fn } from '@storybook/test';
 import { Radio } from './radio';
 
 const meta = {
-    title: 'Components/Radio',
+    title: 'Components/Radio-I',
     component: Radio,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

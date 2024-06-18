@@ -1,3 +1,6 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+
 .storybook-radio-container {
     display: flex;
     align-items: center;
@@ -39,7 +42,6 @@
     border: 2px solid #ccc;
     position: relative;
 }
-
 
 input:checked + .checkmark {
     background-color: rgb(8, 56, 130);
@@ -87,7 +89,7 @@ input:checked + .checkmark:after {
     border-color: rgb(217, 217, 217);
 }
 
-.disabled , .storybook-radio--disabled{
+.disabled {
     color: rgb(217, 217, 217);
     cursor: not-allowed;
 }

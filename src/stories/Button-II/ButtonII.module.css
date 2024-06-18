@@ -1,0 +1,158 @@
+@import url(https://cdn-uicons.flaticon.com/2.4.1/uicons-bold-straight/css/uicons-bold-straight.css);
+@import url(https://cdn-uicons.flaticon.com/2.4.1/uicons-thin-straight/css/uicons-thin-straight.css);
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+
+.storybookButton {
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    border: 0;
+    border-radius: 160px;
+    padding: 10px 35px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.noLabel{
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    border: 0;
+    padding: 16px;
+    border-radius: 160px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
+
+.storybookButton:hover, .noLabel:hover {
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    color: rgb(19, 19, 19);
+    background: rgb(254, 194, 0);
+}
+
+.storybookButton:active, .noLabel:active {
+    color: rgb(254, 194, 0);
+    box-sizing: border-box;
+    border: 2px solid rgb(254, 194, 0);
+    border-radius: 160px;
+    background: rgb(43, 43, 43);
+}
+
+.storybookButtonPrimary, .noLabelButtonPrimary {
+    color: rgb(217, 217, 217);
+    background: rgb(43, 43, 43);
+}
+
+
+
+.storybookButtonSecondary, .noLabelButtonSecondary {
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    background: rgb(255, 255, 255);
+}
+
+.storybookButtonSecondary:hover, .noLabelButtonSecondary:hover {
+    border: 1px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    color: rgb(19, 19, 19);
+    background: rgb(255, 255, 255);
+}
+
+
+.storybookButtonSecondary:active, .noLabelButtonSecondary:active {
+    border-radius: 160px;
+    background: rgb(254, 194, 0);
+    color: rgb(19, 19, 19);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.storybookButtonSmall {
+    font-size: 14px;
+    padding: 4px 18px;
+}
+
+.noLabelPrimary{
+    font-size: 14px;
+}
+
+.storybookButtonMedium {
+    font-size: 16px;
+    padding: 4px 22px;
+}
+
+.noLabelMedium{
+    font-size: 16px;
+
+}
+
+.storybookButtonLarge {
+    font-size: 16px;
+}
+
+.noLabelLarge{
+    font-size: 16px;
+
+}
+
+.storybookButtonDisabled, .noLabelButtonDisabled {
+    color: rgba(39, 39, 39, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+}
+
+.storybookButtonDisabled:hover, .noLabelButtonDisabled:hover{
+    color: rgba(39, 39, 39, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+}
+
+.storybookButtonSecondaryDisabled, .noLabelButtonSecondaryDisabled {
+    box-sizing: border-box;
+    border: 1px solid rgb(125, 125, 125);
+    border-radius: 160px;
+    cursor: not-allowed;
+    color: rgba(39, 39, 39, 0.5);
+}
+
+
+.storybookButtonSecondaryDisabled:hover, .storybookButtonSecondaryDisabled:active, .noLabelButtonSecondaryDisabled:hover, .noLabelButtonSecondaryDisabled:active {
+    box-sizing: border-box;
+    border: 1px solid rgb(125, 125, 125);
+    border-radius: 160px;
+    cursor: not-allowed;
+    background: white;
+    color: rgba(39, 39, 39, 0.5);
+}
+
+/*.storybookButtonSecondaryDisabled:active {*/
+/*    box-sizing: border-box;*/
+/*    border: 1px solid rgb(125, 125, 125);*/
+/*    border-radius: 160px;*/
+/*    cursor: not-allowed;*/
+/*    color: rgba(39, 39, 39, 0.5);*/
+/*    background: rgb(255, 255, 255);*/
+/*}*/
+
+

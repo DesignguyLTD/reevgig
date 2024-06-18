@@ -1,3 +1,6 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+
 .storybook-button {
   font-family: 'PP Neue Montreal', 'sans-serif';
   font-size: 14px;
@@ -12,46 +15,42 @@
   display: inline-block;
 }
 
-.storybook-button:hover{
+.storybook-button:hover {
   background: rgba(30, 30, 30, 0.85);
   color: rgb(217, 217, 217);
 }
+
 .storybook-button--primary {
   color: rgb(217, 217, 217);
   background: rgb(30, 30, 30);
 }
+
 .storybook-button--secondary {
   color: rgb(0, 0, 0);
   border: 1px solid rgb(0, 0, 0);
   border-radius: 160px;
   background: rgb(255, 255, 255);
 }
-.storybook-button--secondary:hover{
+
+.storybook-button--secondary:hover {
   border: none;
 }
 
 .storybook-button--small {
   font-size: 10px;
 }
+
 .storybook-button--medium {
   font-size: 12px;
 }
+
 .storybook-button--large {
   font-size: 14px;
 }
 
-.storybook-button--disabled{
-  color: rgb(255, 255, 255);
-  background: rgb(217, 217, 217);
-  border: none;
-}
-
-.storybook-button--disabled:hover{
+.storybook-button--disabled {
   color: rgb(255, 255, 255);
   background: rgb(217, 217, 217);
   border: none;
   cursor: not-allowed;
 }
-
-
-/*# sourceMappingURL=stories-Button-I-Button-stories.4f03ed04.chunk.css.map*/

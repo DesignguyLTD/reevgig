@@ -41,7 +41,7 @@ export const Secondary: Story = {
 };
 
 
-export const disabled: Story = {
+export const DisabledBtn: Story = {
   args: {
     size: 'small',
     label: 'Create my account',
