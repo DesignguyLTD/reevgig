@@ -38,3 +38,8 @@ export default create({
     inputTextColor: '#070700',
     inputBorderRadius: 5,
 });
+
+const link = document.createElement('link');
+link.href = 'https://fonts.cdnfonts.com/css/pp-neue-montreal';
+link.rel = 'stylesheet';
+document.head.appendChild(link);

@@ -42,7 +42,7 @@ export const Password: Story = {
     }
 };
 
-export const error: Story = {
+export const Error: Story = {
     args: {
         size: 'large',
         label: 'Username',
@@ -56,7 +56,7 @@ export const error: Story = {
 };
 
 
-export const disabled: Story = {
+export const Disabled: Story = {
     args: {
         size: 'large',
         label: 'Create my account',

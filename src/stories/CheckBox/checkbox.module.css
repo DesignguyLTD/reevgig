@@ -1,0 +1,46 @@
+.storybookcheckBox {
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: rgba(254, 194, 0, 0);
+    width: 14px;
+    height: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.storybookcheckBox:checked {
+    background: rgb(254, 194, 0);
+    border-color: rgb(0, 0, 0);
+}
+
+.storybookcheckBox:focus {
+    outline: none;
+}
+
+.storybook-checkBox--focused {
+    border: 1px solid rgb(0, 0, 0);
+    background: rgb(254, 194, 0);
+}
+
+.storybook-checkBox--small {
+    width: 14px;
+    height: 14px;
+}
+
+.storybook-checkBox--medium {
+    width: 16px;
+    height: 16px;
+}
+
+.storybook-checkBox--large {
+    width: 20px;
+    height: 20px;
+}
+
+.storybook-radio--disabledcheckBox {
+    background: #ddd;
+    border-color: #aaa;
+    cursor: not-allowed;
+}

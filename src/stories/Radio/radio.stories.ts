@@ -21,7 +21,7 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-export const radio: Story = {
+export const Default: Story = {
     args: {
         label: 'Radio 1',
         disabled: false,
@@ -31,7 +31,7 @@ export const radio: Story = {
 };
 
 
-export const checked: Story = {
+export const Checked: Story = {
     args: {
         label: 'Radio 1',
         disabled: false,
@@ -41,7 +41,7 @@ export const checked: Story = {
 };
 
 
-export const disabled: Story = {
+export const Disabled: Story = {
     args: {
         label: 'Radio 1',
         disabled: true,
@@ -50,7 +50,7 @@ export const disabled: Story = {
     },
 };
 
-export const disabledUnchecked: Story = {
+export const DisabledUnchecked: Story = {
     args: {
         label: 'Radio 1',
         disabled: true,

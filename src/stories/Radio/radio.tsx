@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './radio.module.css';
 
 interface RadioProps {
@@ -58,6 +58,16 @@ export const Radio = ({
     const disableClass = disabled ? styles['storybook-radio--disabled'] : '';
     const labelClass = disabled ? styles.disabled : '';
 
+    const [isChecked, setIsChecked] = useState(checked);
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIsChecked(e.target.checked);
+        if (onChange) {
+            onChange(e);
+        }
+    };
+
     return (
         <label
             style={{color: disabled ? '' : labelColour}}
@@ -69,8 +79,8 @@ export const Radio = ({
             type="radio"
             id={id}
             disabled={disabled}
-            onChange={onChange}
-            checked={checked}
+            onChange={handleChange}
+            checked={isChecked}
         />
         <span className={styles.checkmark}></span>
       </span>
