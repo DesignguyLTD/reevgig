@@ -9,6 +9,8 @@ const preview: Preview = {
             },
         },
     },
+
+    tags: ["autodocs"]
 };
 
 const link = document.createElement('link');

@@ -19,6 +19,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-
+        disabled: false,
+        onChange: fn(),
+        size: 'medium',
+        checked: false
     }
 };

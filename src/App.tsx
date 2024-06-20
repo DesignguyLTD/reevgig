@@ -4,13 +4,11 @@ import React from 'react';
 // } from "react-router-dom";
 import './App.css';
 import Header from "./stories/Header/header";
-import Sidebar from "./playground/sidebat";
 
 function App() {
     return (
         <div className="App">
-            <Header auth={true}/>
-            <Sidebar/>
+            <Header auth={false}/>
             <header className="App-header">
                 <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png'
                      className="App-logo" alt="logo"/>

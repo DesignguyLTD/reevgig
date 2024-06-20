@@ -1,0 +1,217 @@
+@import url('https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+.sidebar {
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all .3s ease;
+    background-color: #252525;
+    color: #7d7d7d;
+    padding: 15px 0 15px 0;
+}
+
+.logo {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebarOpen {
+    width: 280px;
+    transition: all .3s ease;
+    z-index: 1000;
+}
+
+.usertypeOpen {
+    color: rgb(241, 241, 241);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.usertypeClose {
+    color: rgb(241, 241, 241);
+    font-family: Satoshi;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.toggleBtnOpen {
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-left: 257px;
+    z-index: 1000;
+    transition: all .3s ease;
+    border-radius: 50%;
+    display: inline-flex;
+    padding: 10px;
+    height: 45px;
+    width: 45px;
+    justify-content: center;
+    align-items: center;
+    /*border-radius: 17px;*/
+    box-shadow: 3px 5px 7px 3px rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+}
+
+
+.toggleBtnClose {
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-left: 58px;
+    z-index: 1000;
+    transition: all .3s ease;
+    border-radius: 50%;
+    display: inline-flex;
+    padding: 10px;
+    height: 45px;
+    width: 45px;
+    justify-content: center;
+    align-items: center;
+    /*border-radius: 17px;*/
+    box-shadow: 3px 5px 7px 3px rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+}
+
+
+
+.upperSideBar {
+    transition: all .3s ease;
+    list-style-type: none;
+    /*gap: 10px;*/
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "PP Neue Montreal";
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 0 80px 0;
+    border-bottom: 1px solid rgb(125, 125, 125);
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    letter-spacing: 1.5px;
+}
+
+li {
+    display: inline-flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.deskTabIcon:hover, .deskTabIcon:active {
+    color: #242424;
+    background-color: #f7cf31;
+    border-left: 2px solid #060606;
+    flex-direction: column;
+    width: 99%;
+    align-items: center;
+}
+
+.dodo {
+    display: inline-flex;
+    width: 90%;
+    gap: 10px;
+    padding: 13px 0 13px 10px;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: row;
+    /*padding-bottom: 8px;*/
+}
+
+.dodom {
+    gap: 40px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.mobileIcon:hover {
+    color: #f7cf31;
+    border-left: 2px solid #f7cf31;
+
+}
+
+.mobileIcon{
+    padding: 10px 0;
+
+}
+
+i {
+    height: 19px;
+    font-size: 20px;
+}
+
+.lowerSideBar {
+    list-style-type: none;
+    padding: 0;
+    /*gap: 10px;*/
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "PP Neue Montreal";
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 5px;
+    letter-spacing: 1.5px;
+
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 74px;
+    background-color: #242424;
+    color: #f7cf31;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    left: 115px;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    font-family: "PP Neue Montreal";
+    letter-spacing: 1px;
+
+}
+
+.dodom:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (min-width: 760px) {
+    .upperSideBar {
+        padding: 0 0 260px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .upperSideBar {
+        padding: 0 0 250px 0;
+    }
+}
+
+/*@media (min-height: 800px) and (min-width: 1280px) {*/
+/*    .upperSideBar {*/
+/*        padding: 0 0 100px 0;*/
+/*    }*/
+/*}*/
+
+
