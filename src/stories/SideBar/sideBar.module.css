@@ -114,8 +114,8 @@ li {
 }
 
 .deskTabIcon:hover, .deskTabIcon:active {
-    color: #242424;
-    background-color: #f7cf31;
+    color: #000000;
+    background-color: #F3CF57;
     border-left: 2px solid #060606;
     flex-direction: column;
     width: 99%;
