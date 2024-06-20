@@ -61,6 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-user"></i>
+                                <span className={styles.tooltiptext}>Profile</span>
                             </div>
                         }
                     </li>
@@ -73,6 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-add"></i>
+                                <span className={styles.tooltiptext}>Post a Job</span>
                             </div>
                         }
                     </li>
@@ -86,6 +88,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-envelope"></i>
+                                <span className={styles.tooltiptext}>Message</span>
                             </div>
                         }
                     </li>
@@ -99,6 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-users"></i>
+                                <span className={styles.tooltiptext}>Saved Employee</span>
                             </div>
                         }
                     </li>
@@ -112,6 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-receipt"></i>
+                                <span className={styles.tooltiptext}>Plan & Billings</span>
                             </div>
                         }
                     </li>
@@ -125,6 +130,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-settings"></i>
+                                <span className={styles.tooltiptext}>Settings</span>
                             </div>
                         }
                     </li>
@@ -141,6 +147,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-interrogation"></i>
+                                <span className={styles.tooltiptext}>Help</span>
                             </div>
                         }
                     </li>
@@ -154,6 +161,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse}) => {
                             :
                             <div className={styles.dodom}>
                                 <i className="fi fi-sr-exit"></i>
+                                <span className={styles.tooltiptext}>Log out</span>
                             </div>
                         }
                     </li>
