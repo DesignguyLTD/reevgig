@@ -1,16 +1,19 @@
 @import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
-
+@import url(https://cdn-uicons.flaticon.com/2.4.1/uicons-bold-straight/css/uicons-bold-straight.css);
+@import url(https://cdn-uicons.flaticon.com/2.4.1/uicons-thin-straight/css/uicons-thin-straight.css);
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+@import url(https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css);
 
 .storybook-button {
     font-family: 'PP Neue Montreal', 'sans-serif';
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 39px;
-    letter-spacing: 0.32px;
+    letter-spacing: 1.5px;
     text-align: center;
     border: 0;
     border-radius: 160px;
-    padding: 4px 30px;
+    padding: 4px 50px;
     cursor: pointer;
     display: inline-block;
 }
@@ -28,8 +31,11 @@
 .storybook-button--secondary {
     color: rgb(0, 0, 0);
     border: 1px solid rgb(0, 0, 0);
+    display: inline-flex;
     border-radius: 160px;
     background: rgb(255, 255, 255);
+    flex-direction: row;
+    align-items: center;
 }
 
 .storybook-button--secondary:hover {
@@ -37,15 +43,15 @@
 }
 
 .storybook-button--small {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .storybook-button--medium {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .storybook-button--large {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .storybook-button--disabled {
@@ -53,4 +59,13 @@
     background: rgb(217, 217, 217);
     border: none;
     cursor: not-allowed;
+}
+
+.storybook-button--disabled:hover {
+    background: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+}
+
+.icon{
+    margin-right: 10px;
 }

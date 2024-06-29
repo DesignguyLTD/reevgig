@@ -1,0 +1,201 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+.DropdownLabel {
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.DropdownError {
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: red;
+}
+
+.storybook-dropdown {
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    outline: none;
+    font-family: Montserrat,PP Neue Montreal;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    width: 530px;
+    height: 44px;
+    appearance: none;
+    background-size: 25px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK9SURBVHgB7dtNbtNAGAbgb5wiQVGrIAU1dOVVZSISWekBSJfsumTX3IAj0CP0CMmOJZyA3gCDUPEuYUWgkTC7qlI9eDqqiBAhzvjvG+d9VpGdzDjvG/8sJkQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGC7BmXgun6znZjPZxFtGPXdH++3vd2H7asoml2RIYcMeb3+6wc7zk9xz5k87fYnB13/mDbEQffweHvHmWw1nA8qg06SBRkyOgO8bn8oiM4WNjUdEi9b7b3p/PvsI9WY1zs8cUi+SV7eX9g8aO09+Tr/8S2gNRmeAXLwr61COiOv559QTanwhZSjJbufkwGjAoQU0fJ99SxhRfjJ96ZfZMCsgDgeJZegjSlhZfgkI7kVn5EBowIuLoKAbuKjTSghTfjUkEdhEEzJgKAMOh3fp4bzXiY34WXvkSIehp+CMVkobfjJ73Htm++fMTKqawllhK/HyUHdSigrfD1WTupSQpnh6/FyZHsJZYevx8yZrSVUEb4etwC2lVBV+HrsgthSQpXh6/ELxL2EqsPXcxSMawkcwtfzlIBbCVzC13OVhEsJnMLX85Wo6hK4ha/nLFlVJXAMX89bgbJL4Bq+nrsiZZXAOXw9f4WKLoF7+PoYKlZUCTaEr4+DgbxLsCV8fSxM5FWCTeErbApQspZgW/gKqwKUNCUIQafxdTwOQ70SQa3T3N51XklJp0s/wzB8hV0BSpoSbgmpwmwmp4X737cxDV9hWYCSuoQVOIevsC1AyVoC9/AV4+XpZbhbgZfceqe0JhvCVzL9QaMMl5ezWWu//Y4kPRIk/DSfkVKeyy354ksQhMQc60vQ37xn/iB5BBqK26Xgwl3cp37xN1KMBcVvw8/BOVnCqgIWuX7y6HlNrnodxxTdPZICAAAAAAAAAAAAAAAAAAAAAAAAAABU5TdcKzF8ZhtK1gAAAABJRU5ErkJggg==') no-repeat right 10px center;
+    background-color: white;
+}
+
+.storybook-dropdown:focus {
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 8px;
+    background-size: 25px;
+    background: rgb(254, 194, 0)  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK9SURBVHgB7dtNbtNAGAbgb5wiQVGrIAU1dOVVZSISWekBSJfsumTX3IAj0CP0CMmOJZyA3gCDUPEuYUWgkTC7qlI9eDqqiBAhzvjvG+d9VpGdzDjvG/8sJkQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGC7BmXgun6znZjPZxFtGPXdH++3vd2H7asoml2RIYcMeb3+6wc7zk9xz5k87fYnB13/mDbEQffweHvHmWw1nA8qg06SBRkyOgO8bn8oiM4WNjUdEi9b7b3p/PvsI9WY1zs8cUi+SV7eX9g8aO09+Tr/8S2gNRmeAXLwr61COiOv559QTanwhZSjJbufkwGjAoQU0fJ99SxhRfjJ96ZfZMCsgDgeJZegjSlhZfgkI7kVn5EBowIuLoKAbuKjTSghTfjUkEdhEEzJgKAMOh3fp4bzXiY34WXvkSIehp+CMVkobfjJ73Htm++fMTKqawllhK/HyUHdSigrfD1WTupSQpnh6/FyZHsJZYevx8yZrSVUEb4etwC2lVBV+HrsgthSQpXh6/ELxL2EqsPXcxSMawkcwtfzlIBbCVzC13OVhEsJnMLX85Wo6hK4ha/nLFlVJXAMX89bgbJL4Bq+nrsiZZXAOXw9f4WKLoF7+PoYKlZUCTaEr4+DgbxLsCV8fSxM5FWCTeErbApQspZgW/gKqwKUNCUIQafxdTwOQ70SQa3T3N51XklJp0s/wzB8hV0BSpoSbgmpwmwmp4X737cxDV9hWYCSuoQVOIevsC1AyVoC9/AV4+XpZbhbgZfceqe0JhvCVzL9QaMMl5ezWWu//Y4kPRIk/DSfkVKeyy354ksQhMQc60vQ37xn/iB5BBqK26Xgwl3cp37xN1KMBcVvw8/BOVnCqgIWuX7y6HlNrnodxxTdPZICAAAAAAAAAAAAAAAAAAAAAAAAAABU5TdcKzF8ZhtK1gAAAABJRU5ErkJggg==') no-repeat right 10px center;
+    color: black;
+}
+
+.storybook-dropdown--small {
+    width: 260px;
+    height: 44px;
+    padding: 0 10px;
+}
+
+.storybook-dropdown--medium {
+    width: 504px;
+    height: 44px;
+    padding: 0 15px;
+}
+
+.storybook-dropdown--large {
+    width: 530px;
+    height: 44px;
+    padding: 0 20px;
+}
+
+.storybook-dropdown--error {
+    box-sizing: border-box;
+    border: 1px solid rgb(216, 73, 16);
+    border-radius: 8px;
+    background-size: 25px;
+    background: rgb(255, 235, 170) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK9SURBVHgB7dtNbtNAGAbgb5wiQVGrIAU1dOVVZSISWekBSJfsumTX3IAj0CP0CMmOJZyA3gCDUPEuYUWgkTC7qlI9eDqqiBAhzvjvG+d9VpGdzDjvG/8sJkQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGC7BmXgun6znZjPZxFtGPXdH++3vd2H7asoml2RIYcMeb3+6wc7zk9xz5k87fYnB13/mDbEQffweHvHmWw1nA8qg06SBRkyOgO8bn8oiM4WNjUdEi9b7b3p/PvsI9WY1zs8cUi+SV7eX9g8aO09+Tr/8S2gNRmeAXLwr61COiOv559QTanwhZSjJbufkwGjAoQU0fJ99SxhRfjJ96ZfZMCsgDgeJZegjSlhZfgkI7kVn5EBowIuLoKAbuKjTSghTfjUkEdhEEzJgKAMOh3fp4bzXiY34WXvkSIehp+CMVkobfjJ73Htm++fMTKqawllhK/HyUHdSigrfD1WTupSQpnh6/FyZHsJZYevx8yZrSVUEb4etwC2lVBV+HrsgthSQpXh6/ELxL2EqsPXcxSMawkcwtfzlIBbCVzC13OVhEsJnMLX85Wo6hK4ha/nLFlVJXAMX89bgbJL4Bq+nrsiZZXAOXw9f4WKLoF7+PoYKlZUCTaEr4+DgbxLsCV8fSxM5FWCTeErbApQspZgW/gKqwKUNCUIQafxdTwOQ70SQa3T3N51XklJp0s/wzB8hV0BSpoSbgmpwmwmp4X737cxDV9hWYCSuoQVOIevsC1AyVoC9/AV4+XpZbhbgZfceqe0JhvCVzL9QaMMl5ezWWu//Y4kPRIk/DSfkVKeyy354ksQhMQc60vQ37xn/iB5BBqK26Xgwl3cp37xN1KMBcVvw8/BOVnCqgIWuX7y6HlNrnodxxTdPZICAAAAAAAAAAAAAAAAAAAAAAAAAABU5TdcKzF8ZhtK1gAAAABJRU5ErkJggg==') no-repeat right 10px center;
+}
+
+.storybook-dropdown--disabled {
+    cursor: not-allowed;
+    color: rgb(217, 217, 217);
+    box-sizing: border-box;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background-size: 25px;
+    background: white   url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK9SURBVHgB7dtNbtNAGAbgb5wiQVGrIAU1dOVVZSISWekBSJfsumTX3IAj0CP0CMmOJZyA3gCDUPEuYUWgkTC7qlI9eDqqiBAhzvjvG+d9VpGdzDjvG/8sJkQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGC7BmXgun6znZjPZxFtGPXdH++3vd2H7asoml2RIYcMeb3+6wc7zk9xz5k87fYnB13/mDbEQffweHvHmWw1nA8qg06SBRkyOgO8bn8oiM4WNjUdEi9b7b3p/PvsI9WY1zs8cUi+SV7eX9g8aO09+Tr/8S2gNRmeAXLwr61COiOv559QTanwhZSjJbufkwGjAoQU0fJ99SxhRfjJ96ZfZMCsgDgeJZegjSlhZfgkI7kVn5EBowIuLoKAbuKjTSghTfjUkEdhEEzJgKAMOh3fp4bzXiY34WXvkSIehp+CMVkobfjJ73Htm++fMTKqawllhK/HyUHdSigrfD1WTupSQpnh6/FyZHsJZYevx8yZrSVUEb4etwC2lVBV+HrsgthSQpXh6/ELxL2EqsPXcxSMawkcwtfzlIBbCVzC13OVhEsJnMLX85Wo6hK4ha/nLFlVJXAMX89bgbJL4Bq+nrsiZZXAOXw9f4WKLoF7+PoYKlZUCTaEr4+DgbxLsCV8fSxM5FWCTeErbApQspZgW/gKqwKUNCUIQafxdTwOQ70SQa3T3N51XklJp0s/wzB8hV0BSpoSbgmpwmwmp4X737cxDV9hWYCSuoQVOIevsC1AyVoC9/AV4+XpZbhbgZfceqe0JhvCVzL9QaMMl5ezWWu//Y4kPRIk/DSfkVKeyy354ksQhMQc60vQ37xn/iB5BBqK26Xgwl3cp37xN1KMBcVvw8/BOVnCqgIWuX7y6HlNrnodxxTdPZICAAAAAAAAAAAAAAAAAAAAAAAAAABU5TdcKzF8ZhtK1gAAAABJRU5ErkJggg==') no-repeat right 10px center ;
+}
+
+.storybook-dropdown--disabled::placeholder {
+    color: rgb(217, 217, 217);
+}
+
+.storybook-dropdown option:hover {
+    background-color: rgba(254, 194, 0, 0.2);
+}
+
+.DropdownLabel--small {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.DropdownLabel--medium {
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.DropdownLabel--large {
+    font-size: 16px;
+}
+
+.error {
+    color: red;
+}
+
+.disabled {
+    color: rgb(217, 217, 217);
+    cursor: not-allowed;
+}
+
+.default {
+    color: rgb(24, 24, 24);
+}
+
+/*.focused {*/
+/*    color: rgb(254, 194, 0);*/
+/*}*/
+
+.storybook-dropdown option:hover{
+    background: black;
+    color: white;
+}
+.customDropdown {
+    color: black;
+    background-color: white;
+    font-size: 16px;
+    /* Add more custom styles as needed */
+}
+
+
+.dropdownHeader{
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    border: black 1px solid;
+    border-radius: 8px;
+    height: 44px;
+    display: inline-flex;
+    padding: 0 10px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.dropdownList{
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    width: 502px;
+    border-radius: 8px;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdownHeader.error {
+    border-color: red;
+}
+
+.dropdownHeader.focused {
+   background: rgb(254, 194, 0);
+}
+
+.dropdownItem{
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.dropdownItem:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+.Dropdown--small{
+    width: 232px;
+}
+
+.Dropdown--medium{
+    width: 397px;
+
+}
+
+.Dropdown--large{
+    width: 480px;
+}

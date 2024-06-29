@@ -28,15 +28,16 @@ export const Primary: Story = {
     args: {
         primary: true,
         label: 'Create my account',
-        disabled: false
+        disabled: false,
+        icon: false
     },
 };
 
 export const Secondary: Story = {
     args: {
         label: 'Create my account',
-        disabled: false
-
+        disabled: false,
+        icon: false
     },
 };
 
@@ -45,7 +46,16 @@ export const DisabledBtn: Story = {
     args: {
         size: 'small',
         label: 'Create my account',
-        disabled: true
+        disabled: true,
+        icon: false
+    },
+};
 
+export const IconBtn: Story = {
+    args: {
+        size: 'small',
+        label: 'Create my account',
+        disabled: false,
+        icon: true
     },
 };

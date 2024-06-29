@@ -29,6 +29,11 @@ interface ButtonProps {
     label: string;
 
     /**
+     * The text displayed on the button.
+     */
+    icon: boolean;
+
+    /**
      * Optional click handler for the button.
      */
     onClick?: () => void;
@@ -53,6 +58,7 @@ export const Button = ({
                            backgroundColor,
                            label,
                            disabled = false,
+                            icon,
                            ...props
                        }: ButtonProps) => {
     const mode = primary ? styles['storybook-button--primary'] : styles['storybook-button--secondary'];
@@ -73,6 +79,7 @@ export const Button = ({
             style={{backgroundColor}}
             {...props}
         >
+            {icon && <span className={styles['icon']}><i className="fi fi-brands-apple"></i></span>}
             {label}
         </button>
     );

@@ -1,11 +1,18 @@
 import React from 'react';
+import './App.css';
+import Header from "./stories/Header/header";
 // import {
 //     HashRouter as Router, Route, Routes
 // } from "react-router-dom";
-import './App.css';
-import Header from "./stories/Header/header";
+
+
 
 function App() {
+
+    const handleOtpComplete = (otp: string) => {
+        console.log('Entered OTP:', otp);
+        // Handle the OTP here (e.g., verify it)
+    };
     return (
         <div className="App">
             <Header auth={false}/>
