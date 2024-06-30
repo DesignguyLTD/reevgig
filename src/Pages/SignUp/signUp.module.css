@@ -38,7 +38,106 @@
     justify-content: center;
 }
 
+.ThirdPartiesAuthContainer{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.orText{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    border: none;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.orText hr{
+    border: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #5b5656;
+}
+
+.orText span{
+    color: rgb(24, 24, 24);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin:0 3px;
+}
+
+.stage2Cont{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
+
+.upperForm{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.formContainer{
+    margin-bottom: 15px;
+}
+
+.Stage2lowerText{
+    display: inline-flex;
+    width: 100%;
+    color: rgb(24, 24, 24);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.6px;
+    text-align: left;
+    align-items: flex-start;
+    gap: 10px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.checkBoxtext{
+    width: 100%;
+}
+
+.checkBoxtext span{
+    text-decoration: underline 1px solid rgb(254, 194, 0);
+}
+
+
 @media (min-width: 768px){
+    .ThirdPartiesAuthContainer{
+        display: inline-flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .Stage2lowerText{
+        font-size: 16px;
+    }
+
+    .stage2Cont{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 530px;
+        width: 100%;
+        align-items: center;
+
+    }
+
     .RadioCont{
         width: 100%;
         flex-direction: row;
@@ -81,5 +180,16 @@
 
     .btn{
         margin-top: 46px;
+    }
+
+
+    .stage2Cont{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 574px;
+        width: 100%;
+        align-items: center;
+
     }
 }

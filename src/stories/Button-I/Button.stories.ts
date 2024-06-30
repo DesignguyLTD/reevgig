@@ -14,7 +14,7 @@ const meta = {
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        backgroundColor: {control: 'color'},
+        BorderColor: {control: 'color'},
     },
     // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     args: {onClick: fn()},
@@ -53,9 +53,11 @@ export const DisabledBtn: Story = {
 
 export const IconBtn: Story = {
     args: {
+        BorderColor: 'yellow',
         size: 'small',
         label: 'Create my account',
         disabled: false,
-        icon: true
+        icon: true,
+        imgLink: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/apple_wj0xsn.svg'
     },
 };

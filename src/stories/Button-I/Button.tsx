@@ -15,7 +15,7 @@ interface ButtonProps {
     /**
      * Specifies the background color of the button.
      */
-    backgroundColor?: string;
+    BorderColor?: string;
 
     /**
      * Sets the size of the button.
@@ -37,6 +37,8 @@ interface ButtonProps {
      * Optional click handler for the button.
      */
     onClick?: () => void;
+
+    imgLink?: string;
 }
 
 /**
@@ -55,10 +57,11 @@ interface ButtonProps {
 export const Button = ({
                            primary = false,
                            size = 'medium',
-                           backgroundColor,
+                           BorderColor,
                            label,
                            disabled = false,
                             icon,
+                            imgLink,
                            ...props
                        }: ButtonProps) => {
     const mode = primary ? styles['storybook-button--primary'] : styles['storybook-button--secondary'];
@@ -74,12 +77,13 @@ export const Button = ({
 
     return (
         <button
+            disabled={disabled}
             type="button"
             className={buttonClasses}
-            style={{backgroundColor}}
+            style={{borderColor: BorderColor}}
             {...props}
         >
-            {icon && <span className={styles['icon']}><i className="fi fi-brands-apple"></i></span>}
+            {icon && <span className={styles['icon']}><img src={imgLink} alt="btn icon"/></span>}
             {label}
         </button>
     );

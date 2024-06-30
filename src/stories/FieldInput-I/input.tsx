@@ -109,7 +109,7 @@ const Input: React.FC<InputProps> = ({
     const labelStyle = error ? styles.error : disabled ? styles.disabled : defaultProp ? styles.default : '';
 
     return (
-        <>
+        <div className={styles.container}>
             {label &&
                 <div className={`${styles.InputLabel} ${labelStyle} ${styles[`InputLabel--${size}`]}`}>{label}</div>}
 
@@ -138,23 +138,27 @@ const Input: React.FC<InputProps> = ({
                     maxLength={maxContent}
                 ></textarea>
                 :
-                <input
-                    disabled={disabled}
-                    type={type}
-                    placeholder={placeholder}
-                    className={[
-                        styles['storybook-input'],
-                        styles[`storybook-input--${size}`],
-                        error ? styles['storybook-input--error'] : disabled ? styles['storybook-input--disabled'] : ''
-                    ].join(' ')}
-                    onChange={onChange}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                />
+                <>
+                    <input
+                        disabled={disabled}
+                        type={type}
+                        placeholder={placeholder}
+                        className={[
+                            styles['storybook-input'],
+                            styles[`storybook-input--${size}`],
+                            error ? styles['storybook-input--error'] : disabled ? styles['storybook-input--disabled'] : ''
+                        ].join(' ')}
+                        onChange={onChange}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                    />
+                </>
+
             }
 
             {error && <div className={`${styles.InputError} ${styles[`InputLabel--${size}`]}`}>{errorMessage}</div>}
-        </>
+            <br/>
+        </div>
     );
 };
 

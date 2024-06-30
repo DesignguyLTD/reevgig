@@ -5,7 +5,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
-    letter-spacing: 0px;
+    letter-spacing: 0.6px;
     text-align: left;
 }
 
@@ -14,7 +14,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 30px;
-    letter-spacing: 0px;
+    letter-spacing: 0.6px;
     text-align: left;
     color: red;
 }
@@ -29,7 +29,7 @@
     outline: none;
     font-family: Montserrat,PP Neue Montreal;
     line-height: 140%;
-    letter-spacing: 0;
+    letter-spacing: 0.6px;
     text-align: left;
     width: 530px;
     height: 44px;
@@ -139,8 +139,8 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
-    letter-spacing: 0px;
-    border: black 1px solid;
+    letter-spacing: 0.6px;
+    border: #d7d7d7 1px solid;
     border-radius: 8px;
     height: 44px;
     display: inline-flex;
@@ -155,13 +155,14 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
-    letter-spacing: 0px;
+    letter-spacing: 0.6px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 10px;
     position: absolute;
     top: 50px;
     width: 502px;
     border-radius: 8px;
+    background: white;
 }
 
 .dropdown{
@@ -174,6 +175,7 @@
 
 .dropdownHeader.focused {
    background: rgb(254, 194, 0);
+    border: black 1px solid;
 }
 
 .dropdownItem{
@@ -188,7 +190,7 @@
 }
 
 .Dropdown--small{
-    width: 232px;
+    width: 262px;
 }
 
 .Dropdown--medium{
@@ -198,4 +200,16 @@
 
 .Dropdown--large{
     width: 480px;
+}
+
+@media (min-width: 768px){
+    .Dropdown--small{
+        width: 508px;
+    }
+}
+
+@media (min-width: 1024px){
+    .Dropdown--small{
+        width: 548px;
+    }
 }
