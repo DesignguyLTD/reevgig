@@ -28,7 +28,6 @@ export const Default: Story = {
             { value: 'Male', label: 'Male' },
             { value: 'Female', label: 'Female' },
         ],
-        onChange: fn(),
         defaultText: 'Gender',
         error: false,
         focused: true,

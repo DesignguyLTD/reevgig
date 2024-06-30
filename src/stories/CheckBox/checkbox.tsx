@@ -22,6 +22,8 @@ interface CheckBoxProps {
      * If true, the checkbox is checked by default.
      */
     checked?: boolean;
+    name?: string;
+    value?: string;
 }
 
 /**
@@ -35,7 +37,9 @@ const CheckBox = ({
                       size = 'medium',
                       disabled,
                       onChange,
-                      checked = false,
+                      checked,
+                        name,
+                        value,
                       ...props
                   }: CheckBoxProps) => {
     const [isChecked, setIsChecked] = useState(checked);
@@ -56,10 +60,12 @@ const CheckBox = ({
     return (
         <input
             type="checkbox"
+            name={name}
             className={`${styles.storybookcheckBox} ${styles[`storybook-checkBox--${size}`]} ${disableClass}`}
             onChange={handleChange}
             checked={isChecked}
             disabled={disabled}
+            value={value}
             {...props}
         />
     );

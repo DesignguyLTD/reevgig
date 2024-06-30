@@ -61,6 +61,8 @@ interface InputProps {
      * Maximum number of characters allowed in the input field.
      */
     maxContent?: number;
+    name?: string;
+    value?: string;
 }
 
 /**
@@ -95,7 +97,8 @@ const Input: React.FC<InputProps> = ({
                                          size = 'small',
                                          type = 'text',
                                          isTextArea,
-                                         maxContent
+                                        value,
+                                         maxContent, name,
                                      }: InputProps) => {
     const [isFocused, setIsFocused] = useState(focused);
 
@@ -121,6 +124,8 @@ const Input: React.FC<InputProps> = ({
                     onBlur={handleBlur}
                     disabled={disabled}
                     placeholder={placeholder}
+                    name={name}
+                    value={value}
                     className={[
                         styles['storybook-input'],
                         styles[`storybook-input--${size}`],
@@ -143,6 +148,8 @@ const Input: React.FC<InputProps> = ({
                         disabled={disabled}
                         type={type}
                         placeholder={placeholder}
+                        name={name}
+                        value={value}
                         className={[
                             styles['storybook-input'],
                             styles[`storybook-input--${size}`],
@@ -155,9 +162,7 @@ const Input: React.FC<InputProps> = ({
                 </>
 
             }
-
             {error && <div className={`${styles.InputError} ${styles[`InputLabel--${size}`]}`}>{errorMessage}</div>}
-            <br/>
         </div>
     );
 };
