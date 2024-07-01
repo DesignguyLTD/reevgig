@@ -5,6 +5,7 @@ import {
     HashRouter as Router, Route, Routes
 } from "react-router-dom";
 import SignUp from "./Pages/SignUp/signUp";
+import Login from "./Pages/login/login";
 
 
 
@@ -26,6 +27,7 @@ function App() {
                         </h1>}
                     />
                     <Route path="/signup" element={<SignUp/>}/>
+                    <Route path="/login" element={<Login/>}/>
                 </Routes>
             </Router>
 

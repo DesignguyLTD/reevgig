@@ -7,13 +7,14 @@ import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
 import CheckBox from "../../stories/CheckBox/checkbox";
 import Modal from "../../Components/modals/modal";
 import {countries} from "./countries";
+import {Link} from "react-router-dom";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
     const [stage, setStage] = React.useState(1);
     const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedOption(e.target.value);
-        console.log(e.target.value)
+        localStorage.setItem('userType',e.target.value)
     }
 
     const handleNext = () => {
@@ -26,8 +27,12 @@ const SignUp = () => {
 
     const Countries = countries;
 
-    const goToGmail = () => {
-        window.open('https://mail.google.com', '_blank');
+   const goToGmail = () => {
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = 'googlegmail://';
+        } else {
+            window.open('https://mail.google.com', '_blank');
+        }
     };
 
     const [formValues, setFormValues] = useState({
@@ -39,6 +44,11 @@ const SignUp = () => {
         sendMails: '',
         TermsAndConditon: '',
     } || JSON.parse(localStorage.getItem('signUpForm') || '{}'));
+
+
+    let formValuesCopy: Partial<typeof formValues> = {...formValues};
+    delete formValuesCopy.password;
+    localStorage.setItem('signUpForm', JSON.stringify(formValuesCopy));
 
     const [formErrors, setFormErrors] = useState({
         firstName: '',
@@ -94,13 +104,25 @@ const SignUp = () => {
             newErrors.email = 'Email is invalid';
         }
 
-        // Validate password
+               // Validate password
         if (!formValues.password) {
-            newErrors.password = 'Password is required';
-        } else if (formValues.password.length < 8) {
-            newErrors.password = 'Password must be at least 8 characters';
-        } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(formValues.password)) {
-            newErrors.password = 'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character';
+            newErrors.password = 'Required';
+        } else {
+            if (formValues.password.length < 8) {
+                newErrors.password = 'Min. 8 characters';
+            }
+            if (!/[a-z]/.test(formValues.password)) {
+                newErrors.password = 'Needs lowercase';
+            }
+            if (!/[A-Z]/.test(formValues.password)) {
+                newErrors.password = 'Needs uppercase';
+            }
+            if (!/\d/.test(formValues.password)) {
+                newErrors.password = 'Needs a digit';
+            }
+            if (!/[@$!%*?&]/.test(formValues.password)) {
+                newErrors.password = 'Needs special character';
+            }
         }
 
 
@@ -125,9 +147,6 @@ const SignUp = () => {
     //     return validateForm();
     // }
 
-    // let formValuesCopy: Partial<typeof formValues> = {...formValues};
-    // delete formValuesCopy.password;
-    // localStorage.setItem('signUpForm', JSON.stringify(formValuesCopy));
     const handleSubmit = () => {
         const isFormValid = validateForm();
 
@@ -179,7 +198,7 @@ const SignUp = () => {
                     </div>
 
                     <div className={signUp.lowerText}>
-                        Already have an account? <span className={signUp.makeYellow}>Log In</span>
+                        Already have an account? <Link style={{textDecoration: 'none'}} to='/login'><span className={signUp.makeYellow}>Log In</span></Link>
                     </div>
                 </div>
             }
@@ -257,14 +276,14 @@ const SignUp = () => {
                     </form>
 
                     <div className={signUp.lowerText}>
-                        Already have an account? <span className={signUp.makeYellow} onClick={handleBack}>Log In</span>
+                        Already have an account? <Link to='/login' style={{textDecoration: 'none'}}><span className={signUp.makeYellow}>Log In</span></Link>
                     </div>
                 </div>
             }
 
             {stage === 3 &&
                 <div className={signUp.stage3container}>
-                    <Modal handleGmail={goToGmail} handleSendAgain={handleBack} email='reev@dsu.com'/>
+                    <Modal handleGmail={goToGmail} handleSendAgain={handleBack} email={formValues.email}/>
                 </div>
             }
         </div>
