@@ -15,7 +15,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header auth={true}/>
+            <Header auth={false}/>
 
             <Router basename="/">
                 <Routes>
