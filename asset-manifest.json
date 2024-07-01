@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/reevgig/static/css/main.0a409d1f.css",
-    "main.js": "/reevgig/static/js/main.e64d0087.js",
+    "main.js": "/reevgig/static/js/main.cbe6b745.js",
     "static/js/453.989f038b.chunk.js": "/reevgig/static/js/453.989f038b.chunk.js",
     "index.html": "/reevgig/index.html",
     "main.0a409d1f.css.map": "/reevgig/static/css/main.0a409d1f.css.map",
-    "main.e64d0087.js.map": "/reevgig/static/js/main.e64d0087.js.map",
+    "main.cbe6b745.js.map": "/reevgig/static/js/main.cbe6b745.js.map",
     "453.989f038b.chunk.js.map": "/reevgig/static/js/453.989f038b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0a409d1f.css",
-    "static/js/main.e64d0087.js"
+    "static/js/main.cbe6b745.js"
   ]
 }
