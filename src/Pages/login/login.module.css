@@ -94,6 +94,7 @@
     line-height: 24px;
     letter-spacing: 0.6px;
     text-align: center;
+    text-decoration: none;
 }
 
 .headEmail{
@@ -116,6 +117,10 @@
         width: 100%;
         margin: 0 auto;
 
+    }
+
+    .forgotPword{
+        color: rgb(254, 194, 0);
     }
 
     .forgotPword, .checkBoxtext .lowerText2{

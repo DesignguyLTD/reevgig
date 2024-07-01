@@ -1,7 +1,10 @@
 .otpContainer {
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    justify-content: center;
 }
+
+
 
 .otpInput {
     width: 40px;
@@ -23,4 +26,35 @@
 .otpInput.error {
     border-color: rgb(216, 73, 16);
     background-color: rgb(255, 235, 170);
+}
+
+
+.InputError {
+    box-sizing: border-box;
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: red;
+}
+
+.InputLabel {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 675px) {
+    .otpInput {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
 }

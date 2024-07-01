@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import SignUp from "./Pages/SignUp/signUp";
 import Login from "./Pages/login/login";
+import ResetPassword from "./Pages/resetPassword/resetPassword";
 
 
 
@@ -14,7 +15,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header auth={false}/>
+            <Header auth={true}/>
 
             <Router basename="/">
                 <Routes>
@@ -28,6 +29,7 @@ function App() {
                     />
                     <Route path="/signup" element={<SignUp/>}/>
                     <Route path="/login" element={<Login/>}/>
+                    <Route path="/resetpassword" element={<ResetPassword/>}/>
                 </Routes>
             </Router>
 

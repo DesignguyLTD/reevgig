@@ -166,7 +166,7 @@ const Login = () => {
                                 Keep me logged in
                             </div>
                         </div>
-                        <div className={login.forgotPword}>Forgot Password?</div>
+                        <div className={login.forgotPword}><Link style={{textDecoration: 'none', color: 'rgb(254, 194, 0)'}} to='/resetpassword'>Forgot Password?</Link></div>
                     </div>
 
                     <br/>
