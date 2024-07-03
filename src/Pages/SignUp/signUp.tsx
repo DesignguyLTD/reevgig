@@ -8,6 +8,7 @@ import CheckBox from "../../stories/CheckBox/checkbox";
 import Modal from "../../Components/modals/modal";
 import {countries} from "./countries";
 import {Link} from "react-router-dom";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
@@ -193,8 +194,8 @@ const SignUp = () => {
                     </div>
 
                     <div className={signUp.btn}>
-                        <Button label={selectedOption ? `Apply as a ${selectedOption}` : 'Create Account'}
-                                primary={true} icon={false} disabled={!selectedOption} onClick={handleNext}/>
+                        <ButtonII label={selectedOption ? `Apply as a ${selectedOption}` : 'Create Account'}
+                                primary={true} hasIcon={false} disabled={!selectedOption} onClick={handleNext} isLabelVisible={true}/>
                     </div>
 
                     <div className={signUp.lowerText}>
@@ -265,12 +266,13 @@ const SignUp = () => {
                             </div>
                         </div>
                         <div className={signUp.btn}>
-                            <Button
+                            <ButtonII
                                 label='Create Account'
                                 primary={true}
-                                icon={false}
+                                hasIcon={false}
                                 disabled={false}
                                 onClick={handleSubmit}
+                                isLabelVisible={true}
                             />
                         </div>
                     </form>

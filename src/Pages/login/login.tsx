@@ -4,6 +4,7 @@ import Input from "../../stories/FieldInput-I/input";
 import {Button} from "../../stories/Button-I/Button";
 import {Link, useNavigate} from "react-router-dom";
 import CheckBox from "../../stories/CheckBox/checkbox";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -112,12 +113,13 @@ const Login = () => {
                     <br/>
 
                     <div className={login.btn}>
-                        <Button
+                        <ButtonII
                             label='Continue'
                             primary={true}
-                            icon={false}
+                            hasIcon={false}
                             disabled={false}
                             onClick={handleSubmit}
+                            isLabelVisible={true}
                         />
                     </div>
 
@@ -174,12 +176,13 @@ const Login = () => {
 
 
                     <div className={login.btn}>
-                        <Button
+                        <ButtonII
                             label='Log in'
                             primary={true}
-                            icon={false}
+                            hasIcon={false}
                             disabled={false}
                             onClick={handleSubmit}
+                            isLabelVisible={true}
                         />
                     </div>
 

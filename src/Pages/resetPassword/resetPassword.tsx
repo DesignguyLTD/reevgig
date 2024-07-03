@@ -6,6 +6,7 @@ import login from "../login/login.module.css";
 import {Button} from "../../stories/Button-I/Button";
 import OTPInput from "../../stories/OtherInputsType/OTPInput/OTPInput";
 import signUp from "../SignUp/signUp.module.css";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
 
 const ResetPassword = () => {
     const navigate = useNavigate()
@@ -155,10 +156,11 @@ const ResetPassword = () => {
                         <br/>
 
                         <div className={login.btn}>
-                            <Button
+                            <ButtonII
                                 label='Send'
                                 primary={true}
-                                icon={false}
+                                hasIcon={false}
+                                isLabelVisible={true}
                                 disabled={false}
                                 onClick={handleSubmit}
                             />
@@ -188,10 +190,11 @@ const ResetPassword = () => {
                             Haven’t gotten a mail yet? <span onClick={handleBack} className={signUp.makeYellow}>Resend email</span>
                         </div>
                         <div className={login.btn}>
-                            <Button
-                                label='Send'
+                            <ButtonII
+                                label='Verify code'
                                 primary={true}
-                                icon={false}
+                                hasIcon={false}
+                                isLabelVisible={true}
                                 disabled={false}
                                 onClick={handleSubmit}
                             />
@@ -223,12 +226,13 @@ const ResetPassword = () => {
                         <br/>
                         <br/>
                         <div className={login.btn}>
-                            <Button
+                            <ButtonII
                                 label='Reset Password'
                                 primary={true}
-                                icon={false}
+                                hasIcon={false}
                                 disabled={false}
                                 onClick={handleSubmit}
+                                isLabelVisible={true}
                             />
                         </div>
                     </form>

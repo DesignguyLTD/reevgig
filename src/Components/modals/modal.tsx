@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from "../../stories/Button-I/Button";
 import style from "./modal.module.css";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
 
 
 interface modalProps{
@@ -26,8 +27,8 @@ const Modal = ({handleGmail, handleSendAgain, email}:modalProps) => {
             </div>
 
             <div className={style.btnCont}>
-                <Button label='Send again' primary={false} icon={false} disabled={false} BorderColor='black' onClick={handleSendAgain}/>
-                <Button label='Go to Gmail Inbox' primary={true} icon={false} disabled={false} onClick={handleGmail}/>
+                <ButtonII label='Send again' primary={false} hasIcon={false} disabled={false}  isLabelVisible={true} onClick={handleSendAgain}/>
+                <ButtonII label='Go to Gmail Inbox' primary={true} hasIcon={false} disabled={false} isLabelVisible={true} onClick={handleGmail}/>
             </div>
 
             <div className={style.lowerText} onClick={handleSendAgain}>

@@ -54,6 +54,7 @@ interface ButtonProps {
  *
  * The styling is managed using CSS modules to ensure scoped styles and prevent global CSS conflicts.
  */
+
 export const Button = ({
                            primary = false,
                            size = 'medium',
