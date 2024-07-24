@@ -4,9 +4,9 @@ import Header from "./stories/Header/header";
 import {
     HashRouter as Router, Route, Routes
 } from "react-router-dom";
-import SignUp from "./Pages/SignUp/signUp";
-import Login from "./Pages/login/login";
-import ResetPassword from "./Pages/resetPassword/resetPassword";
+import SignUp from "./Pages/Onboarding/SignUp/signUp";
+import Login from "./Pages/Onboarding/login/login";
+import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 
 
 
@@ -15,7 +15,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header auth={false}/>
+            <Header auth={true}/>
 
             <Router basename="/">
                 <Routes>

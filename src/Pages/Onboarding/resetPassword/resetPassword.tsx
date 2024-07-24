@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import reset from './resetPassword.module.css'
 import {useNavigate} from "react-router-dom";
-import Input from "../../stories/FieldInput-I/input";
+import Input from "../../../stories/FieldInput-I/input";
 import login from "../login/login.module.css";
-import {Button} from "../../stories/Button-I/Button";
-import OTPInput from "../../stories/OtherInputsType/OTPInput/OTPInput";
+import OTPInput from "../../../stories/OtherInputsType/OTPInput/OTPInput";
 import signUp from "../SignUp/signUp.module.css";
-import {ButtonII} from "../../stories/Button-II/ButtonII";
+import {ButtonII} from "../../../stories/Button-II/ButtonII";
 
 const ResetPassword = () => {
     const navigate = useNavigate()

@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import signUp from './signUp.module.css'
-import {Button} from "../../stories/Button-I/Button";
-import RadioTextIcon from "../../Components/RadioTextIcon/RadioTextIcon";
-import Input from "../../stories/FieldInput-I/input";
-import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
-import CheckBox from "../../stories/CheckBox/checkbox";
-import Modal from "../../Components/modals/modal";
+import {Button} from "../../../stories/Button-I/Button";
+import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
+import Input from "../../../stories/FieldInput-I/input";
+import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
+import CheckBox from "../../../stories/CheckBox/checkbox";
+import Modal from "../../../Components/modals/modal";
 import {countries} from "./countries";
 import {Link} from "react-router-dom";
-import {ButtonII} from "../../stories/Button-II/ButtonII";
+import {ButtonII} from "../../../stories/Button-II/ButtonII";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
@@ -157,11 +157,6 @@ const SignUp = () => {
         }
     };
 
-    // const [isFormValid, setIsFormValid] = useState(false);
-    //
-    // useEffect(() => {
-    //     setIsFormValid(validateForm());
-    // }, [formValues]);
 
 
     return (

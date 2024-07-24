@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import login from './login.module.css';
-import Input from "../../stories/FieldInput-I/input";
-import {Button} from "../../stories/Button-I/Button";
+import Input from "../../../stories/FieldInput-I/input";
+import {Button} from "../../../stories/Button-I/Button";
 import {Link, useNavigate} from "react-router-dom";
-import CheckBox from "../../stories/CheckBox/checkbox";
-import {ButtonII} from "../../stories/Button-II/ButtonII";
+import CheckBox from "../../../stories/CheckBox/checkbox";
+import {ButtonII} from "../../../stories/Button-II/ButtonII";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -187,7 +187,7 @@ const Login = () => {
                     </div>
 
                     <div className={login.lowerText2}>
-                         <span className={login.makeYellow}>Not You?</span>
+                         <span className={login.makeYellow} onClick={handleBack}>Not You?</span>
                     </div>
                 </div>
             )}
