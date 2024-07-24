@@ -9,6 +9,7 @@ import Modal from "../../../Components/modals/modal";
 import {countries} from "./countries";
 import {Link} from "react-router-dom";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
+import PhoneInput from "../../../stories/OtherInputsType/PhoneInput/PhoneInput";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
@@ -19,7 +20,9 @@ const SignUp = () => {
     }
 
     const handleNext = () => {
-        setStage(stage + 1);
+        if(stage !== 3) {
+            setStage(stage + 1);
+        }
     }
 
     const handleBack = () => {
@@ -44,6 +47,7 @@ const SignUp = () => {
         country: '',
         sendMails: '',
         TermsAndConditon: '',
+        phone: ''
     } || JSON.parse(localStorage.getItem('signUpForm') || '{}'));
 
 
@@ -59,6 +63,8 @@ const SignUp = () => {
         country: '',
         sendMails: '',
         TermsAndConditon: '',
+        phone: ''
+
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,6 +92,8 @@ const SignUp = () => {
             country: '',
             sendMails: '',
             TermsAndConditon: '',
+            phone: ''
+
         };
 
         // Validate first name
@@ -281,6 +289,12 @@ const SignUp = () => {
             {stage === 3 &&
                 <div className={signUp.stage3container}>
                     <Modal handleGmail={goToGmail} handleSendAgain={handleBack} email={formValues.email}/>
+                </div>
+            }
+
+            {stage === 4 &&
+                <div className={signUp.stage3container}>
+
                 </div>
             }
         </div>

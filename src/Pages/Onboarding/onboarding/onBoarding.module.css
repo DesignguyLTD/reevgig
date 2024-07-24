@@ -1,0 +1,160 @@
+.container{
+    margin-top: 100px;
+}
+
+.progressContainer{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s linear;
+
+}
+
+
+
+.circle{
+    cursor: pointer;
+    width: 20px;
+    font-size: 10px;
+    height: 20px;
+    border-radius: 50%;
+    background: transparent;
+    color: #95979d;
+    border: 1px solid #95979d;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s linear;
+
+}
+.line{
+    width: 40px;
+    height: 2px;
+    background: #404145;
+    transition: width 1s ease-in-out;
+}
+
+.stageCont{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+
+
+}
+
+.avaterCont{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.avaterimg{
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    border: 2px solid #272727;
+
+
+}
+
+.camera{
+    position: absolute;
+    top: 96px;
+    /* right: 41px; */
+    left: 107px;
+    background-image: url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/solar_camera-outline_jcyfvv.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.formContainer{
+    margin-bottom: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn{
+    margin-top: 32px;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@media (min-width: 768px){
+    .container{
+        margin-top: 172px;
+    }
+
+    .circle{
+        cursor: pointer;
+        width: 30px;
+        font-size: 16px;
+        height: 30px;
+        border-radius: 50%;
+        background: transparent;
+        color: #95979d;
+        border: 1px solid #95979d;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s linear;
+
+    }
+
+    .line{
+        width: 100px;
+        height: 2px;
+        background: #404145;
+        transition: width 1s ease-in-out;
+
+    }
+
+    .stageCont{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 530px;
+        width: 100%;
+        align-items: center;
+
+    }
+
+}
+
+
+@media (min-width: 1024px){
+    .container{
+        margin-top: 200px;
+    }
+
+    .stageCont{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 574px;
+        width: 100%;
+        align-items: center;
+
+    }
+}
