@@ -5,7 +5,7 @@ import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
 import Input from "../../../stories/FieldInput-I/input";
 import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
 import CheckBox from "../../../stories/CheckBox/checkbox";
-import Modal from "../../../Components/modals/modal";
+import Modal from "../../../Components/modals/mailModal/modal";
 import {countries} from "./countries";
 import {Link} from "react-router-dom";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";

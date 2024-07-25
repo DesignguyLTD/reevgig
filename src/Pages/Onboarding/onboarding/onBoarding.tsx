@@ -1,20 +1,50 @@
 import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
 import styles from './onBoarding.module.css';
+import {useNavigate} from "react-router-dom";
 import Input from "../../../stories/FieldInput-I/input";
 import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
 import PhoneInput from "../../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
 import {states} from "./state";
 import {cities} from "./city";
+import TagUi from "../../../Components/TagUI/tagUI";
+import SuccessModal from "../../../Components/modals/successModal/successModal";
+
 const OnBoarding = () => {
+    let navigate = useNavigate();
+    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') :  'Client';
     const [stage, setStage] = React.useState(1);
     const [doneStage, setDoneStage] = React.useState({stage1: false, stage2: false, stage3: false});
     const [avatar, setAvatar] = useState<string>("https://res.cloudinary.com/do5wu6ikf/image/upload/v1721847923/Reev/Avatar09fff_wn6wgf.svg");
+    const tagData = [
+        { isActive: false, content: 'Hardware' },
+        { isActive: false, content: 'Simulation' },
+        { isActive: false, content: 'Robotics/Embedded' },
+        { isActive: false, content: 'Consultancy' },
+        { isActive: false, content: 'IoT Devices' },
+        { isActive: false, content: 'Circuit Design' },
+        { isActive: false, content: 'PCB Design' },
+        { isActive: false, content: 'Prototyping' },
+        { isActive: false, content: '3D Printing' },
+        { isActive: false, content: 'FPGA Development' },
+        { isActive: false, content: 'Sensor Integration' },
+        { isActive: false, content: 'Automotive Electronics' },
+        { isActive: false, content: 'Industrial Automation' },
+        { isActive: false, content: 'Power Electronics' },
+        { isActive: false, content: 'Embedded Software' },
+        { isActive: false, content: 'Networking Hardware' },
+    ];
 
+
+
+    const [tags, setTags] = useState(() => {
+        const savedTags = localStorage.getItem('ClientSkillTags');
+        return savedTags ? JSON.parse(savedTags) : tagData;
+    });
 
     const targetDivRef = useRef<HTMLDivElement>(null);
-
-    const scrollToDiv = () => {
+    const targetDivRef2 = useRef<HTMLDivElement>(null);
+    const VibrateDiv = () => {
         if (targetDivRef.current) {
             targetDivRef.current.classList.add(styles.shake);
             setTimeout(() => {
@@ -22,9 +52,49 @@ const OnBoarding = () => {
             }, 500); // Duration of the shake animation
         }
     };
+
+    const VibrateDiv2 = () => {
+        if (targetDivRef2.current) {
+            targetDivRef2.current.classList.add(styles.shake);
+            setTimeout(() => {
+                targetDivRef2.current?.classList.remove(styles.shake);
+            }, 500); // Duration of the shake animation
+        }
+    };
+
+    function areAtLeastThreeTagsActive(tags: { isActive: boolean, content: string }[]): boolean {
+        let activeCount = 0;
+
+        for (const tag of tags) {
+            if (tag.isActive) {
+                activeCount++;
+            }
+            if (activeCount >= 3) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     const handleNext = () => {
-        if(stage !== 3) {
-            setStage(stage + 1);
+        if(stage !== 4) {
+            if(stage===2){
+                const isTagValid = areAtLeastThreeTagsActive(tags);
+                // console.log(isTagValid, 'isTagValid')
+                if(!isTagValid){
+                    VibrateDiv2();
+                }else{
+                    setStage(stage + 1);
+                    handleDone()
+                }
+            }else {
+                if(stage===3 && UserType === 'Freelancer'){
+                    setStage(stage + 1);
+                    handleDone()
+                } else {
+                    setStage(stage + 1);
+                }
+            }
         }
     }
 
@@ -45,15 +115,28 @@ useEffect(() => {
     }
 }, []);
 
+    interface FormValues {
+        DisplayName: string;
+        State: string;
+        City: string;
+        ContactNumber: string;
+        countryCode: string;
+        avater: string;
+    }
 
-    const [formValues, setFormValues] = useState({
+    const defaultFormValues :FormValues = {
         DisplayName: '',
         State: '',
         City: '',
         ContactNumber: '',
         countryCode: countryCode,
-        avater: avatar
-    } || JSON.parse(localStorage.getItem('onboardingForm') || '{}'));
+        avater: avatar,
+    };
+
+    const [formValues, setFormValues] = useState<FormValues>(() => {
+        const savedFormValues = localStorage.getItem('onboardingForm');
+        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+    });
 
 
 
@@ -75,13 +158,18 @@ useEffect(() => {
         });
     };
 
-    const handleDropdown = (option: any) => {
-        setFormValues(prevState => ({
+    interface DropdownOption {
+        value: string;
+        label: string;
+    }
+
+    const handleDropdown = (option: DropdownOption) => {
+        setFormValues((prevState) => ({
             ...prevState,
             State: option.value,
-            City: option.value
+            City: option.value,
         }));
-    }
+    };
 
 
     const validateForm = () => {
@@ -91,8 +179,6 @@ useEffect(() => {
             City: '',
             ContactNumber: '',
             avater: ''
-
-
         };
 
         if (!formValues.DisplayName) {
@@ -118,7 +204,9 @@ useEffect(() => {
         return !Object.values(newErrors).some(error => error !== '');
     };
 
-const handleStage1 = () => {
+
+
+    const handleStage1 = () => {
     const isFormValid = true;
     if(isFormValid){
 
@@ -130,7 +218,7 @@ const handleStage1 = () => {
     const handleStage2 = () => {
         const isFormValid = validateForm();
         if(isFormValid){
-            scrollToDiv()
+            VibrateDiv()
             // setStage(2)
 
         }
@@ -138,9 +226,11 @@ const handleStage1 = () => {
 
 
     const handleStage3 = () => {
-        const isFormValid = true;
-        if(isFormValid){
-            setStage(3)
+        const isTagValid = areAtLeastThreeTagsActive(tags);
+        if(!isTagValid){
+            // setStage(3)
+            // handleDone()
+            VibrateDiv2()
 
         }
     }
@@ -162,12 +252,12 @@ const handleStage1 = () => {
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const file = e.target.files?.[0];
         if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
-            const maxSize = 1 * 1024 * 1024; // 1 MB
+            const maxSize = (1024 * 1024) / 2; // 0.5 MB
             if (file.size > maxSize) {
                 compressImage(file).then(({ compressedImage, size }) => {
                     setAvatar(compressedImage);
                     setCompressedSize(size);
-                    console.log(compressedSize, file.size/1024/1024)
+                    console.log( compressedSize ? compressedSize/1024/1024 :'n', file.size/1024/1024)
 
                 });
             } else {
@@ -201,7 +291,7 @@ const handleStage1 = () => {
                         ctx.drawImage(img, 0, 0);
 
                         // Compress image
-                        const quality = 0.6; // Adjust quality (0.0 to 1.0)
+                        const quality = 0.4; // Adjust quality (0.0 to 1.0)
                         const compressedDataURL = canvas.toDataURL('image/jpeg', quality);
 
                         // Convert data URL to Blob to get the size
@@ -224,34 +314,62 @@ const handleStage1 = () => {
     };
 
 
+
+    const handleTagClick = (index: number) => {
+        const newTags = tags.map((tag: { isActive: boolean, content: string }, i: number) =>
+            i === index ? { ...tag, isActive: !tag.isActive } : tag
+        );
+        setTags(newTags);
+
+        localStorage.setItem('ClientSkillTags', JSON.stringify(newTags));
+    };
+
+
+
+
     return (
         <div className={styles.container}>
-            <div className={styles.progressContainer}>
-                <div
-                    className={styles.circle}
-                    style={{background: stage === 1 ? '#404145' :doneStage.stage1 ? '#404145' : '' , color: doneStage.stage1 ? '#fec200' : ''  }}
-                    onClick={handleStage1}
-                >
-                    {doneStage.stage1 ? '✔' : '1'}
+            {UserType === 'Client' && stage=== 3 ?
+                    <>
+                    </>
+                     :
+
+                    <div className={styles.progressContainer}>
+                    <div
+                        className={styles.circle}
+                        style={{background: stage === 1 ? '#404145' :doneStage.stage1 ? '#404145' : '' , color: doneStage.stage1 ? '#fec200' : ''  }}
+                        onClick={handleStage1}
+                    >
+                        {doneStage.stage1 ? '✔' : '1'}
+
+                    </div>
+                    <div className={styles.line} style={{visibility: (stage === 2 || stage === 3) ? 'visible' :  doneStage.stage1 ? 'visible' : 'hidden'}}></div>
+                    <div
+                        className={styles.circle}
+                        style={{background: stage === 2 ? '#404145' : doneStage.stage2 ? '#404145' : '' , color: doneStage.stage2 ? '#fec200' : ''  }}
+                        onClick={handleStage2}
+                    >
+                        {doneStage.stage2 ? '✔' : '2'}
+                    </div>
+                    {UserType === 'Freelancer' &&
+
+                        <>
+                            <div className={styles.line} style={{visibility: stage === 3  ? 'visible' :  doneStage.stage2 ? 'visible' : 'hidden'}}></div>
+                            <div
+                                className={styles.circle}
+                                style={{background: stage === 3 ? '#404145' : doneStage.stage3 ? '#404145' : '' , color: doneStage.stage3 ? '#fec200' : ''  }}
+                                onClick={handleStage3}
+                            >
+                                {doneStage.stage3 ? '✔' : '3'}
+                            </div>
+                        </>
+
+                    }
 
                 </div>
-                <div className={styles.line} style={{visibility: (stage === 2 || stage === 3) ? 'visible' :  doneStage.stage1 ? 'visible' : 'hidden'}}></div>
-                <div
-                    className={styles.circle}
-                    style={{background: stage === 2 ? '#404145' : doneStage.stage2 ? '#404145' : '' , color: doneStage.stage2 ? '#fec200' : ''  }}
-                    onClick={handleStage2}
-                >
-                    {doneStage.stage2 ? '✔' : '2'}
-                </div>
-                <div className={styles.line} style={{visibility: stage === 3  ? 'visible' :  doneStage.stage2 ? 'visible' : 'hidden'}}></div>
-                <div
-                    className={styles.circle}
-                    style={{background: stage === 3 ? '#404145' : doneStage.stage3 ? '#404145' : '' , color: doneStage.stage3 ? '#fec200' : ''  }}
-                    onClick={handleStage3}
-                >
-                    {doneStage.stage3 ? '✔' : '3'}
-                </div>
-            </div>
+
+
+            }
             {stage === 1 &&
                 <div className={styles.stageCont}>
                     <div className={styles.avaterCont} >
@@ -308,24 +426,121 @@ const handleStage1 = () => {
                     </form>
                 </div>
             }
+            {/* Client*/}
+            {(stage === 2 && UserType === 'Client') &&
+                <div className={styles.headerText}>
+                    <h1>What would you be looking for?</h1>
+                    <p className={styles.headSubText}>This would help us organize your feed and give you the best experience</p>
 
-            {stage === 2 &&
-               <div>
-                   <h1>Stage 2</h1>
-                   <button onClick={handleNext}>Next</button>
-                   <button onClick={handleBack}>Back</button>
-                   <div onClick={handleDone}>done</div>
+                    <div className={styles.LowerContainer}>
+                        <p className={styles.tagHeader}>What are your interests</p>
+
+                        <div>
+                            <p className={styles.tagLabel}>Select Skill tags:</p>
+                            <div className={styles.tagContainer} ref={targetDivRef2}>
+                                {tags.map((tag: { isActive: boolean, content: string }, index: number) => (
+                                    <TagUi
+                                        key={index}
+                                        isActive={tag.isActive}
+                                        content={tag.content}
+                                        onClick={() => handleTagClick(index)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div className={styles.btnCont}>
+                        <ButtonII
+                            label='Save         '
+                            primary={true}
+                            hasIcon={false}
+                            disabled={false}
+                            onClick={handleNext}
+                            isLabelVisible={true}
+                        />
+
+                        <ButtonII
+                            label='Back'
+                            primary={false}
+                            hasIcon={false}
+                            disabled={false}
+                            onClick={handleBack}
+                            isLabelVisible={true}
+                        />
+                    </div>
 
                </div>
             }
 
-            {stage === 3 &&
+            {(stage === 3 && UserType === 'Client') &&
                 <div>
-                    <h1>Stage 3</h1>
-                    <button onClick={handleNext}>Next</button>
-                    <button onClick={handleBack}>Back</button>
-                    <div onClick={handleDone}>done</div>
+                    <SuccessModal Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
+                        'Your profile is complete'}/>
+                </div>
+            }
 
+            {/* Freelancer*/}
+
+            {(stage === 2 && UserType === 'Freelancer') &&
+                <div className={styles.headerText}>
+                    <br/>
+                    <h1> Freelancer Stage 2</h1>
+                    <div className={styles.btnCont}>
+                        <ButtonII
+                            label='Next'
+                            primary={true}
+                            hasIcon={false}
+                            disabled={false}
+                            onClick={handleNext}
+                            isLabelVisible={true}
+                        />
+
+                        <ButtonII
+                            label='Back'
+                            primary={false}
+                            hasIcon={false}
+                            disabled={false}
+                            onClick={handleBack}
+                            isLabelVisible={true}
+                        />
+                    </div>
+
+                </div>
+            }
+
+            {(stage === 3 && UserType === 'Freelancer') &&
+                <div className={styles.headerText}>
+                    <br/>
+                    <h1> Freelancer Stage 3</h1>
+                    <div className={styles.btnCont}>
+                        <ButtonII
+                            label='Next'
+                            primary={true}
+                            hasIcon={false}
+                            disabled={false}
+                            onClick={handleNext}
+                            isLabelVisible={true}
+                        />
+
+                        <ButtonII
+                            label='Back'
+                            primary={false}
+                            hasIcon={false}
+                            disabled={false}
+                            onClick={handleBack}
+                            isLabelVisible={true}
+                        />
+                    </div>
+                </div>
+            }
+
+            {(stage === 4 && UserType === 'Freelancer') &&
+                <div>
+                    <SuccessModal Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
+                        'Your profile is complete'}/>
                 </div>
             }
         </div>
