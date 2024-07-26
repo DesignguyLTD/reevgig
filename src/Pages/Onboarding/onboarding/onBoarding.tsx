@@ -9,38 +9,134 @@ import {states} from "./state";
 import {cities} from "./city";
 import TagUi from "../../../Components/TagUI/tagUI";
 import SuccessModal from "../../../Components/modals/successModal/successModal";
+import TagInput from "../../../Components/TagInput/tagInput";
+
+import {tagData, recommendedLanguages, recommendedSkills, Experience} from "./dataset";
+import FileUpload from "../../../Components/FileUpload/fileUpload";
 
 const OnBoarding = () => {
+    interface FormValues {
+        DisplayName: string;
+        State: string;
+        City: string;
+        ContactNumber: string;
+        countryCode: string;
+        avater: string;
+    }
+
+    interface FormValues2 {
+        ProfessionalRole: string;
+        Experience: string;
+        LanguageSpoken: string[];
+        SkillSet: string[];
+        PortfolioLink_1: string;
+        PortfolioLink_2: string;
+    }
+
+
+
+
+
     let navigate = useNavigate();
     const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') :  'Client';
     const [stage, setStage] = React.useState(1);
     const [doneStage, setDoneStage] = React.useState({stage1: false, stage2: false, stage3: false});
     const [avatar, setAvatar] = useState<string>("https://res.cloudinary.com/do5wu6ikf/image/upload/v1721847923/Reev/Avatar09fff_wn6wgf.svg");
-    const tagData = [
-        { isActive: false, content: 'Hardware' },
-        { isActive: false, content: 'Simulation' },
-        { isActive: false, content: 'Robotics/Embedded' },
-        { isActive: false, content: 'Consultancy' },
-        { isActive: false, content: 'IoT Devices' },
-        { isActive: false, content: 'Circuit Design' },
-        { isActive: false, content: 'PCB Design' },
-        { isActive: false, content: 'Prototyping' },
-        { isActive: false, content: '3D Printing' },
-        { isActive: false, content: 'FPGA Development' },
-        { isActive: false, content: 'Sensor Integration' },
-        { isActive: false, content: 'Automotive Electronics' },
-        { isActive: false, content: 'Industrial Automation' },
-        { isActive: false, content: 'Power Electronics' },
-        { isActive: false, content: 'Embedded Software' },
-        { isActive: false, content: 'Networking Hardware' },
-    ];
-
-
-
+    const [langtags, setLangTags] = useState<string[]>(()=>{
+        const savedFormValues2 = localStorage.getItem('onboardingForm2');
+        return savedFormValues2 ? JSON.parse(savedFormValues2).LanguageSpoken : [];
+    });
+    const [skilltags, setSkilltags] = useState<string[]>(()=>{
+            const savedFormValues2 = localStorage.getItem('onboardingForm2');
+            return savedFormValues2 ? JSON.parse(savedFormValues2).SkillSet : [];
+        }
+    );
     const [tags, setTags] = useState(() => {
         const savedTags = localStorage.getItem('ClientSkillTags');
         return savedTags ? JSON.parse(savedTags) : tagData;
     });
+    const [countryCode, setCountryCode] = useState('+234');
+
+    const defaultFormValues2 :FormValues2 = {
+        ProfessionalRole: '',
+        Experience: '',
+        LanguageSpoken: [],
+        SkillSet: [],
+        PortfolioLink_1: '',
+        PortfolioLink_2: '',
+    };
+
+
+    const defaultFormValues :FormValues = {
+        DisplayName: '',
+        State: '',
+        City: '',
+        ContactNumber: '',
+        countryCode: '',
+        avater: '',
+    };
+    const [formValues, setFormValues] = useState<FormValues>(() => {
+        const savedFormValues = localStorage.getItem('onboardingForm');
+        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+    });
+
+
+
+    const [formErrors, setFormErrors] = useState({
+        DisplayName: '',
+        State: '',
+        City: '',
+        ContactNumber: '',
+        avater: ''
+    });
+
+
+    const [formValues2, setFormValues2] = useState<FormValues2>(() => {
+        const savedFormValues2 = localStorage.getItem('onboardingForm2');
+        return savedFormValues2 ? JSON.parse(savedFormValues2) : defaultFormValues2;
+    });
+    const [formErrors2, setFormErrors2] = useState({
+        ProfessionalRole: '',
+        Experience: '',
+        LanguageSpoken: '',
+        SkillSet: '',
+        PortfolioLink_1: '',
+        PortfolioLink_2: '',
+    });
+
+    const [compressedSize, setCompressedSize] = useState<number | null>(null);
+
+    console.log(langtags, 'langtags')
+    console.log(JSON.stringify(formValues2), 'formValues2')
+
+    useEffect(() => {
+        setFormValues2(prevValues => ({
+            ...prevValues,
+            LanguageSpoken: langtags
+        }));
+    }, [langtags]);
+
+    useEffect(() => {
+        setFormValues2(prevValues => ({
+            ...prevValues,
+            SkillSet: skilltags
+        }));
+    }, [skilltags]);
+
+
+    useEffect(() => {
+        setFormValues(prevValues => ({
+            ...prevValues,
+            countryCode: countryCode
+        }));
+    }, [countryCode]);
+
+    useEffect(() => {
+        setFormValues(prevValues => ({
+            ...prevValues,
+            avater: avatar
+        }));
+    }, [avatar]);
 
     const targetDivRef = useRef<HTMLDivElement>(null);
     const targetDivRef2 = useRef<HTMLDivElement>(null);
@@ -76,28 +172,30 @@ const OnBoarding = () => {
 
         return false;
     }
-    const handleNext = () => {
-        if(stage !== 4) {
-            if(stage===2){
-                const isTagValid = areAtLeastThreeTagsActive(tags);
-                // console.log(isTagValid, 'isTagValid')
-                if(!isTagValid){
-                    VibrateDiv2();
-                }else{
+   const handleNext = () => {
+    if (stage !== 4) {
+        if (stage === 2) {
+            if (UserType === 'Freelancer') {
+                const formValues2 = validateForm2();
+                console.log(formValues2, 'formValues2');
+                if (formValues2) {
                     setStage(stage + 1);
-                    handleDone()
+                    handleDone();
                 }
-            }else {
-                if(stage===3 && UserType === 'Freelancer'){
-                    setStage(stage + 1);
-                    handleDone()
+            } else {
+                const isTagValid = areAtLeastThreeTagsActive(tags);
+                if (!isTagValid) {
+                    VibrateDiv2();
                 } else {
                     setStage(stage + 1);
+                    handleDone();
                 }
             }
+        } else {
+            setStage(stage + 1);
         }
     }
-
+}
     const handleDone = () => {
         setDoneStage(prevState => ({...prevState, [`stage${stage}`]: true}));
     }
@@ -106,54 +204,32 @@ const OnBoarding = () => {
         setStage(stage - 1);
     }
 
-    const [countryCode, setCountryCode] = useState('+234');
 
-useEffect(() => {
-    const storedCountryCode = localStorage.getItem('countryCode');
-    if (storedCountryCode) {
-        setCountryCode(storedCountryCode);
-    }
-}, []);
 
-    interface FormValues {
-        DisplayName: string;
-        State: string;
-        City: string;
-        ContactNumber: string;
-        countryCode: string;
-        avater: string;
-    }
-
-    const defaultFormValues :FormValues = {
-        DisplayName: '',
-        State: '',
-        City: '',
-        ContactNumber: '',
-        countryCode: countryCode,
-        avater: avatar,
-    };
-
-    const [formValues, setFormValues] = useState<FormValues>(() => {
-        const savedFormValues = localStorage.getItem('onboardingForm');
-        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
-    });
 
 
 
     localStorage.setItem('onboardingForm', JSON.stringify(formValues));
 
-    const [formErrors, setFormErrors] = useState({
-        DisplayName: '',
-        State: '',
-        City: '',
-        ContactNumber: '',
-        avater: ''
-    });
+    useEffect(() => {
+        localStorage.setItem('onboardingForm2', JSON.stringify(formValues2));
+    }, [formValues2]);
+
+
+
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         setFormValues({
             ...formValues,
+            [e.target.name]: value,
+        });
+    };
+
+    const handleInputChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+        setFormValues2({
+            ...formValues2,
             [e.target.name]: value,
         });
     };
@@ -171,8 +247,16 @@ useEffect(() => {
         }));
     };
 
+    const handleDropdown2 = (option: DropdownOption) => {
+        setFormValues2((prevState) => ({
+            ...prevState,
+            Experience: option.value,
 
-    const validateForm = () => {
+        }));
+    };
+
+
+    const validateForm1 = () => {
         let newErrors = {
             DisplayName: '',
             State: '',
@@ -204,6 +288,55 @@ useEffect(() => {
         return !Object.values(newErrors).some(error => error !== '');
     };
 
+    const validateForm2 = () => {
+        console.log(formValues2, 'formValues2')
+        let newErrors = {
+            ProfessionalRole: '',
+            Experience: '',
+            LanguageSpoken: '',
+            SkillSet: '',
+            PortfolioLink_1: '',
+            PortfolioLink_2: '',
+        };
+
+        const urlPattern = new RegExp(
+            '^(https?:\\/\\/)?' + // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$', 'i' // fragment locator
+        );
+
+        if (!formValues2.ProfessionalRole) {
+            newErrors.ProfessionalRole = 'Professional Role is required';
+        }
+
+        if (!formValues2.Experience) {
+            newErrors.Experience = 'Experience is required';
+        }
+
+        if (!formValues2.LanguageSpoken.length) {
+            newErrors.LanguageSpoken = 'Language Spoken is required';
+        }
+
+        if (!formValues2.SkillSet.length) {
+            newErrors.SkillSet = 'Skill Set is required';
+        }
+
+        if (!formValues2.PortfolioLink_1 || !urlPattern.test(formValues2.PortfolioLink_1)) {
+            newErrors.PortfolioLink_1 = 'Valid Portfolio Link 1 is required';
+        }
+
+        if (!formValues2.PortfolioLink_2 || !urlPattern.test(formValues2.PortfolioLink_2)) {
+            newErrors.PortfolioLink_2 = 'Valid Portfolio Link 2 is required';
+        }
+
+        setFormErrors2(newErrors);
+
+        // If all values are valid, return true
+        return !Object.values(newErrors).some(error => error !== '');
+    };
 
 
     const handleStage1 = () => {
@@ -216,7 +349,7 @@ useEffect(() => {
 }
 
     const handleStage2 = () => {
-        const isFormValid = validateForm();
+        const isFormValid = validateForm1();
         if(isFormValid){
             VibrateDiv()
             // setStage(2)
@@ -237,7 +370,7 @@ useEffect(() => {
 
 
     const handleSubmit = () => {
-        const isFormValid = validateForm();
+        const isFormValid = validateForm1();
 
         if (isFormValid) {
             console.log(formValues)
@@ -247,7 +380,6 @@ useEffect(() => {
     };
 
 
-    const [compressedSize, setCompressedSize] = useState<number | null>(null);
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const file = e.target.files?.[0];
@@ -323,7 +455,16 @@ useEffect(() => {
 
         localStorage.setItem('ClientSkillTags', JSON.stringify(newTags));
     };
+    useEffect(() => {
+        const storedCountryCode = localStorage.getItem('countryCode');
+        if (storedCountryCode) {
+            setCountryCode(storedCountryCode);
+        }
+    }, [countryCode, langtags, skilltags, avatar, handleSubmit]);
 
+
+
+    const [first, setFirst] = useState<File | null>(null);
 
 
 
@@ -487,10 +628,46 @@ useEffect(() => {
             {(stage === 2 && UserType === 'Freelancer') &&
                 <div className={styles.headerText}>
                     <br/>
-                    <h1> Freelancer Stage 2</h1>
+
+                    <Input isTextArea={false} type={'text'} label='Professional Role' placeholder='PCB Design, Project Management, Drone Development'
+                    size='small' onChange={handleInputChange2} name={'ProfessionalRole'} error={!!formErrors2.ProfessionalRole}
+                    errorMessage={formErrors2.ProfessionalRole}
+                    value={formValues2.ProfessionalRole}
+                    />
+
+                    <Dropdown options={Experience} defaultText='Expert'
+                              label='Experience' size='small' onChange={handleDropdown2} error={!!formErrors2.Experience}
+                              errorMessage={formErrors2.Experience}/>
+
+                    <TagInput
+                        error={!!formErrors2.LanguageSpoken}
+                        errorMessage={formErrors2.LanguageSpoken}
+                        label={'Language Spoken'} recommendedTags={recommendedLanguages} placeholder={'Enter preferred Languages'} maxTags={5} setTags={setLangTags} tags={langtags}/>
+                    <TagInput
+                        error={!!formErrors2.SkillSet}
+                        errorMessage={formErrors2.SkillSet}
+                        label='Skill Set' recommendedTags={recommendedSkills} placeholder={'Enter preferred Languages'} maxTags={10} setTags={setSkilltags} tags={skilltags}/>
+
+                    <br/>
+
+                    <Input isTextArea={false} type={'text'} label='Prortfolio Link 1' placeholder='Add URL Link'
+                           size='small' onChange={handleInputChange2} name={'PortfolioLink_1'} error={!!formErrors2.PortfolioLink_1}
+                           errorMessage={formErrors2.PortfolioLink_1}
+                           value={formValues2.PortfolioLink_1}
+                    />
+
+                    <Input isTextArea={false} type={'text'} label='Portfolio Link 2' placeholder='Add URL Link'
+                           size='small' onChange={handleInputChange2} name={'PortfolioLink_2'} error={!!formErrors2.PortfolioLink_2}
+                           errorMessage={formErrors2.PortfolioLink_2}
+                           value={formValues2.PortfolioLink_2}
+                    />
+
+                    <br/>
+                    <br/>
+
                     <div className={styles.btnCont}>
                         <ButtonII
-                            label='Next'
+                            label='Continue'
                             primary={true}
                             hasIcon={false}
                             disabled={false}
@@ -512,12 +689,33 @@ useEffect(() => {
             }
 
             {(stage === 3 && UserType === 'Freelancer') &&
-                <div className={styles.headerText}>
+                <div className={styles.stageCont}>
+                    <div className={styles.randCont}>
+                        <div className={styles.fileHeader}>Valid Identification</div>
+
+                        <FileUpload id={'pngjpg'} label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'} allowedTypes={['image/png', 'image/jpeg']}/>
+
+                    </div>
+
+                    <div className={styles.randCont}>
+                        <div className={styles.fileHeader}>CV/Resume</div>
+
+                        <Input isTextArea={false} type={'text'} label='CV/Resume Name' placeholder='Circuit Design CV'
+                               size='small' onChange={handleInputChange2} name={'ProfessionalRole'} error={!!formErrors2.ProfessionalRole}
+                               errorMessage={formErrors2.ProfessionalRole}
+                               value={formValues2.ProfessionalRole}
+                        />
+                        <FileUpload id={'pdfdocx'} label={'Drag and Drop to Upload your CV/Resume'} allowedTypes={['application/pdf']}/>
+
+                    </div>
+
+
+
                     <br/>
-                    <h1> Freelancer Stage 3</h1>
+                    <br/>
                     <div className={styles.btnCont}>
                         <ButtonII
-                            label='Next'
+                            label='Save'
                             primary={true}
                             hasIcon={false}
                             disabled={false}

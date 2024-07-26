@@ -1,4 +1,10 @@
-export const cities: any = [
+interface cityType {
+    value: string;
+    label: string;
+
+}
+
+export const cities: cityType[] = [
     { value: 'Kabul', label: 'Kabul' },
     { value: 'Herat', label: 'Herat' },
     { value: 'Kandahar', label: 'Kandahar' },
