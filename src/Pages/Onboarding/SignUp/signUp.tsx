@@ -39,7 +39,18 @@ const SignUp = () => {
         }
     };
 
-    const [formValues, setFormValues] = useState({
+    interface FormValues {
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        country: string,
+        sendMails: string,
+        TermsAndConditon: string,
+        phone: string
+    }
+
+    const defaultFormValues :FormValues = {
         firstName: '',
         lastName: '',
         email: '',
@@ -48,7 +59,12 @@ const SignUp = () => {
         sendMails: '',
         TermsAndConditon: '',
         phone: ''
-    } || JSON.parse(localStorage.getItem('signUpForm') || '{}'));
+    };
+
+    const [formValues, setFormValues] = useState<FormValues>(()=>{
+        const savedFormValues = localStorage.getItem('signUpForm');
+        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+    });
 
 
     let formValuesCopy: Partial<typeof formValues> = {...formValues};

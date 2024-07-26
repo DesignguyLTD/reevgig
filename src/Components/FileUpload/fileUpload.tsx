@@ -2,16 +2,19 @@ import React, { useState, ChangeEvent, DragEvent } from 'react';
 import styles from './fileUpload.module.css';
 
 interface FileUploadProps {
+    file: string | null;
+    setFile: React.Dispatch<React.SetStateAction<string | null>>;
     allowedTypes: string[];
     id: string,
     label?: string;
+    vibrate?: any;
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ allowedTypes, id , label}) => {
-    const [file, setFile] = useState<File | null>(null);
+const FileUpload: React.FC<FileUploadProps> = ({ vibrate,allowedTypes, id , label, file , setFile}) => {
     const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [isDragging, setIsDragging] = useState<boolean>(false);
+    const [fileLabel , setFileLabel] = useState<string>(localStorage.getItem(`fileLabel${id}`)||'');
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0];
@@ -20,6 +23,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ allowedTypes, id , label}) => {
             validateFile(selectedFile);
         }
     };
+
 
     const handleDrop = (event: DragEvent<HTMLDivElement>) => {
         event.preventDefault();
@@ -40,23 +44,32 @@ const FileUpload: React.FC<FileUploadProps> = ({ allowedTypes, id , label}) => {
         setIsDragging(false);
     };
 
-    const validateFile = (file: File) => {
-        const maxSize = 1024 * 1024; // 1MB in bytes
-        setLoading(true);
+  const validateFile = (file: File) => {
+    const maxSize = 1024 * 1024; // 1MB in bytes
+    setLoading(true);
 
-        if (!allowedTypes.includes(file.type)) {
-            setError(`File should be in ${allowedTypes.join(', ')} format.`);
-            setFile(null);
-        } else if (file.size > maxSize) {
-            setError('File should not be more than 1MB.');
-            setFile(null);
-        } else {
-            setError('');
-            setFile(file);
-        }
+    if (!allowedTypes.includes(file.type)) {
+        setError(`File should be in ${allowedTypes.join(', ')} format.`);
+        setFile(null);
+    } else if (file.size > maxSize) {
+        setError('File should not be more than 1MB.');
+        setFile(null);
+    } else {
+        setError('');
+        const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '');
+        setFileLabel(sanitizedFileName);
+        localStorage.setItem(`fileLabel${id}`, sanitizedFileName);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            if (reader.result) {
+                setFile(reader.result as string);
+            }
+        };
+        reader.readAsDataURL(file);
+    }
 
-        setLoading(false);
-    };
+    setLoading(false);
+};
 
     const removeFile = () => {
         setFile(null);
@@ -80,6 +93,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ allowedTypes, id , label}) => {
 
     return (
         <div
+            ref={vibrate}
             className={`${styles.fileContainer} ${isDragging ? styles.dragging : ''}`}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -105,7 +119,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ allowedTypes, id , label}) => {
             }
 
             {file && <div className={styles.fileUploadedCont}>
-                <p className={styles.fileUploaded}>{truncateFileName(file.name, 30)} <img onClick={removeFile} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg" alt="close"/></p>
+                <p className={styles.fileUploaded}>{truncateFileName(fileLabel, 20)} <img onClick={removeFile} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg" alt="close"/></p>
                 <div className={styles.yellowunderline}></div>
             </div>}
             <div className={styles.secText}>File should be in {filteredTypes.join(', ')} format and not more than 5mb</div>

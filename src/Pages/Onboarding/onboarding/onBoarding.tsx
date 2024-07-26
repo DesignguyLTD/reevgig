@@ -33,6 +33,13 @@ const OnBoarding = () => {
         PortfolioLink_2: string;
     }
 
+interface FormValues3 {
+    UserVerification: string | null;
+    CVName: string;
+    CV_PDF: string | null;
+}
+
+
 
 
 
@@ -56,6 +63,16 @@ const OnBoarding = () => {
         return savedTags ? JSON.parse(savedTags) : tagData;
     });
     const [countryCode, setCountryCode] = useState('+234');
+    const [first, setFirst] = useState<string | null>(()=>{
+        const savedFormValues2 = localStorage.getItem('onboardingForm3');
+        return savedFormValues2 ? JSON.parse(savedFormValues2).UserVerification : '';
+    });
+    const [second, setSecond] = useState<string | null>(
+        ()=>{
+            const savedFormValues2 = localStorage.getItem('onboardingForm3');
+            return savedFormValues2 ? JSON.parse(savedFormValues2).CV_PDF : '';
+        }
+    );
 
     const defaultFormValues2 :FormValues2 = {
         ProfessionalRole: '',
@@ -74,6 +91,12 @@ const OnBoarding = () => {
         ContactNumber: '',
         countryCode: '',
         avater: '',
+    };
+
+    const defaultFormValues3 :FormValues3 = {
+        UserVerification: '',
+        CVName: '',
+        CV_PDF: '',
     };
     const [formValues, setFormValues] = useState<FormValues>(() => {
         const savedFormValues = localStorage.getItem('onboardingForm');
@@ -104,10 +127,17 @@ const OnBoarding = () => {
         PortfolioLink_2: '',
     });
 
-    const [compressedSize, setCompressedSize] = useState<number | null>(null);
+    const [formValues3, setFormValues3] = useState<FormValues3>(() => {
+        const savedFormValues3 = localStorage.getItem('onboardingForm3');
+        return savedFormValues3 ? JSON.parse(savedFormValues3) : defaultFormValues3;
+    });
+    const [formErrors3, setFormErrors3] = useState({
+        UserVerification: '',
+        CVName: '',
+        CV_PDF: '',
+    });
 
-    console.log(langtags, 'langtags')
-    console.log(JSON.stringify(formValues2), 'formValues2')
+    const [compressedSize, setCompressedSize] = useState<number | null>(null);
 
     useEffect(() => {
         setFormValues2(prevValues => ({
@@ -122,6 +152,15 @@ const OnBoarding = () => {
             SkillSet: skilltags
         }));
     }, [skilltags]);
+
+useEffect(() => {
+    setFormValues3(prevValues => ({
+        ...prevValues,
+        UserVerification: first,
+        CV_PDF: second
+    }));
+}, [first, second]);
+
 
 
     useEffect(() => {
@@ -140,6 +179,8 @@ const OnBoarding = () => {
 
     const targetDivRef = useRef<HTMLDivElement>(null);
     const targetDivRef2 = useRef<HTMLDivElement>(null);
+    const targetDivRef3 = useRef<HTMLDivElement>(null);
+    const targetDivRef4 = useRef<HTMLDivElement>(null);
     const VibrateDiv = () => {
         if (targetDivRef.current) {
             targetDivRef.current.classList.add(styles.shake);
@@ -154,6 +195,24 @@ const OnBoarding = () => {
             targetDivRef2.current.classList.add(styles.shake);
             setTimeout(() => {
                 targetDivRef2.current?.classList.remove(styles.shake);
+            }, 500); // Duration of the shake animation
+        }
+    };
+
+    const VibrateDiv3 = () => {
+        if (targetDivRef3.current) {
+            targetDivRef3.current.classList.add(styles.shake);
+            setTimeout(() => {
+                targetDivRef3.current?.classList.remove(styles.shake);
+            }, 500); // Duration of the shake animation
+        }
+    };
+
+    const VibrateDiv4 = () => {
+        if (targetDivRef4.current) {
+            targetDivRef4.current.classList.add(styles.shake);
+            setTimeout(() => {
+                targetDivRef4.current?.classList.remove(styles.shake);
             }, 500); // Duration of the shake animation
         }
     };
@@ -177,7 +236,6 @@ const OnBoarding = () => {
         if (stage === 2) {
             if (UserType === 'Freelancer') {
                 const formValues2 = validateForm2();
-                console.log(formValues2, 'formValues2');
                 if (formValues2) {
                     setStage(stage + 1);
                     handleDone();
@@ -191,6 +249,14 @@ const OnBoarding = () => {
                     handleDone();
                 }
             }
+        }else if(stage === 3 && UserType === 'Freelancer'){
+            const formValues3 = validateForm3();
+            console.log(formValues3, 'formValues3');
+            if (formValues3) {
+                setStage(stage + 1);
+                handleDone();
+            }
+
         } else {
             setStage(stage + 1);
         }
@@ -209,11 +275,13 @@ const OnBoarding = () => {
 
 
 
-    localStorage.setItem('onboardingForm', JSON.stringify(formValues));
+
 
     useEffect(() => {
+        localStorage.setItem('onboardingForm', JSON.stringify(formValues));
         localStorage.setItem('onboardingForm2', JSON.stringify(formValues2));
-    }, [formValues2]);
+        localStorage.setItem('onboardingForm3', JSON.stringify(formValues3));
+    }, [formValues,formValues2,formValues3]);
 
 
 
@@ -233,6 +301,15 @@ const OnBoarding = () => {
             [e.target.name]: value,
         });
     };
+
+    const handleInputChange3 = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+        setFormValues3({
+            ...formValues3,
+            [e.target.name]: value,
+        });
+    };
+
 
     interface DropdownOption {
         value: string;
@@ -289,7 +366,6 @@ const OnBoarding = () => {
     };
 
     const validateForm2 = () => {
-        console.log(formValues2, 'formValues2')
         let newErrors = {
             ProfessionalRole: '',
             Experience: '',
@@ -337,6 +413,38 @@ const OnBoarding = () => {
         // If all values are valid, return true
         return !Object.values(newErrors).some(error => error !== '');
     };
+
+    const validateForm3 = () => {
+
+        let newErrors = {
+            UserVerification: '',
+            CVName: '',
+            CV_PDF: '',
+        };
+
+
+        if (!formValues3.UserVerification) {
+            newErrors.UserVerification = 'Verification is required';
+            VibrateDiv3()
+        }
+
+        if (!formValues3.CVName) {
+            newErrors.CVName = 'Field is required';
+
+        }
+
+        if (!formValues3.CV_PDF) {
+            newErrors.CV_PDF = 'CV/Resume  is required';
+            VibrateDiv4()
+        }
+
+
+        setFormErrors3(newErrors);
+
+        // If all values are valid, return true
+        return !Object.values(newErrors).some(error => error !== '');
+    };
+
 
 
     const handleStage1 = () => {
@@ -425,6 +533,7 @@ const OnBoarding = () => {
                         // Compress image
                         const quality = 0.4; // Adjust quality (0.0 to 1.0)
                         const compressedDataURL = canvas.toDataURL('image/jpeg', quality);
+                        console.log(compressedDataURL, 'compressedDataURL')
 
                         // Convert data URL to Blob to get the size
                         fetch(compressedDataURL)
@@ -464,7 +573,7 @@ const OnBoarding = () => {
 
 
 
-    const [first, setFirst] = useState<File | null>(null);
+
 
 
 
@@ -618,7 +727,7 @@ const OnBoarding = () => {
 
             {(stage === 3 && UserType === 'Client') &&
                 <div>
-                    <SuccessModal Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
+                    <SuccessModal Btnlabel2={'Find Freelancer'} Btnlabel1={'View Dashboard'} Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
                         'Your profile is complete'}/>
                 </div>
             }
@@ -693,7 +802,7 @@ const OnBoarding = () => {
                     <div className={styles.randCont}>
                         <div className={styles.fileHeader}>Valid Identification</div>
 
-                        <FileUpload id={'pngjpg'} label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'} allowedTypes={['image/png', 'image/jpeg']}/>
+                        <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'} label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'} allowedTypes={['image/png', 'image/jpeg']}/>
 
                     </div>
 
@@ -701,11 +810,11 @@ const OnBoarding = () => {
                         <div className={styles.fileHeader}>CV/Resume</div>
 
                         <Input isTextArea={false} type={'text'} label='CV/Resume Name' placeholder='Circuit Design CV'
-                               size='small' onChange={handleInputChange2} name={'ProfessionalRole'} error={!!formErrors2.ProfessionalRole}
-                               errorMessage={formErrors2.ProfessionalRole}
-                               value={formValues2.ProfessionalRole}
+                               size='small' onChange={handleInputChange3} name={'CVName'} error={!!formErrors3.CVName}
+                               errorMessage={formErrors3.CVName}
+                               value={formValues3.CVName}
                         />
-                        <FileUpload id={'pdfdocx'} label={'Drag and Drop to Upload your CV/Resume'} allowedTypes={['application/pdf']}/>
+                        <FileUpload vibrate={targetDivRef4} setFile={setSecond} file={second} id={'pdfdocx'} label={'Drag and Drop to Upload your CV/Resume'} allowedTypes={['application/pdf']}/>
 
                     </div>
 
@@ -737,7 +846,7 @@ const OnBoarding = () => {
 
             {(stage === 4 && UserType === 'Freelancer') &&
                 <div>
-                    <SuccessModal Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
+                    <SuccessModal Btnlabel2={'Find Client'} Btnlabel1={'View Dashboard'} Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
                         'Your profile is complete'}/>
                 </div>
             }

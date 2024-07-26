@@ -7,8 +7,10 @@ interface modalProps{
     Forward: () => void;
     Backward: () => void;
     text: string;
+    Btnlabel1: string;
+    Btnlabel2: string;
 }
-const SuccessModal = ({Forward, Backward, text}:modalProps) => {
+const SuccessModal = ({Forward, Backward, text, Btnlabel2, Btnlabel1}:modalProps) => {
     return (
         <div className={style.container}>
             <br/>
@@ -25,8 +27,8 @@ const SuccessModal = ({Forward, Backward, text}:modalProps) => {
             <br/>
             <br/>
             <div className={style.btnCont}>
-                <ButtonII label='Veiw DashBoard' primary={false} hasIcon={false} disabled={false}  isLabelVisible={true} onClick={Backward}/>
-                <ButtonII label='Find Freelancer' primary={true} hasIcon={false} disabled={false} isLabelVisible={true} onClick={Forward}/>
+                <ButtonII label={Btnlabel1} primary={false} hasIcon={false} disabled={false}  isLabelVisible={true} onClick={Backward}/>
+                <ButtonII label={Btnlabel2} primary={true} hasIcon={false} disabled={false} isLabelVisible={true} onClick={Forward}/>
             </div>
         </div>
     );
