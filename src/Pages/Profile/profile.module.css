@@ -1,0 +1,63 @@
+.container {
+    margin-top: 8rem;
+    text-align: left;
+    padding: 10px 0px 20px 20px;
+    background-color: #FCFDFF;
+    color: #181818;
+    font-family: PP Neue Montreal;
+
+}
+
+.holder {
+    z-index: 10000;
+}
+
+.holder div {
+    padding: 4px 0px 4px 0px;
+}
+
+.names {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+}
+
+.names div {
+    width: 100%;
+}
+
+.avatar {
+    padding-bottom: 0;
+}
+
+.avatar_container {
+    padding-bottom: 20px;
+}
+
+
+.secondary {
+    font-size: 14px;
+    opacity: 60%;
+    color: #1e1e1e;
+    font-family: PP Neue Montreal;
+    letter-spacing: .32px;
+}
+
+.edit {
+    width: 220px;
+    background-color: #2b2b2b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 160px;
+    padding: 16px;
+    margin-top: 40px;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .holder {
+        width: 480px;
+    }
+}
