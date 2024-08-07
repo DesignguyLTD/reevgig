@@ -17,8 +17,10 @@ const Profile = () => {
         </div>
         <div>
           <div>
-            <label htmlFor="Display Name"> Display Name</label>
-            <p className={style.secondary}>James Mark</p>
+            <label htmlFor="Display Name">Display Name</label>
+            <p className={style.secondary} style={{ backgroundColor: "white" }}>
+              James Mark
+            </p>
           </div>
           <div className={style.names}>
             <div>
@@ -36,24 +38,38 @@ const Profile = () => {
           </div>
           <div>
             <label htmlFor="Country">Country</label>
-            <p className={style.secondary}>Nigeria</p>
+            <p className={style.secondary} style={{ backgroundColor: "white" }}>
+              Nigeria
+            </p>
           </div>
           <div className={style.names}>
             <div>
               <label htmlFor="State">State</label>
-              <p className={style.secondary}>Lagos</p>
+              <p
+                className={style.secondary}
+                style={{ backgroundColor: "white" }}>
+                Lagos
+              </p>
             </div>
             <div>
               <label htmlFor="City">City</label>
-              <p className={style.secondary}>Ikeja</p>
+              <p
+                className={style.secondary}
+                style={{ backgroundColor: "white" }}>
+                Ikeja
+              </p>
             </div>
           </div>
           <div>
             <label htmlFor="Number">Office/Work Contact Number</label>
-            <p className={style.secondary}>+2348109226536</p>
+            <p className={style.secondary} style={{ backgroundColor: "white" }}>
+              +2348109226536
+            </p>
           </div>
         </div>
-        <button className={style.edit}>Edit Profile</button>
+        <div className={style.edit_holder}>
+          <button className={style.edit}>Edit Profile</button>
+        </div>
       </div>
     </section>
   );
