@@ -7,7 +7,10 @@ import {
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Login from "./Pages/Onboarding/login/login";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
-
+import Settings from "./Pages/Dashboard/settings/settings";
+import AccountSettings from "./Pages/Dashboard/settings/account settings/accountSettings";
+import Notification from './Pages/Dashboard/settings/notification/notification';
+import DashboardRoutes from './Pages/Dashboard';
 
 
 function App() {
@@ -30,6 +33,12 @@ function App() {
                     <Route path="/signup" element={<SignUp/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/resetpassword" element={<ResetPassword/>}/>
+                    <Route element={<DashboardRoutes />}>
+
+                    <Route path="/settings" element={<Settings/>}/>
+                    <Route path="/accountSettings" element={<AccountSettings/>}/>
+                    <Route path="/notification" element={<Notification/>}/>
+                    </Route>
                 </Routes>
             </Router>
 

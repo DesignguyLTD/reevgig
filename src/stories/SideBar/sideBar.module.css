@@ -4,6 +4,7 @@
     width: 80px;
     height: 100%;
     position: fixed;
+    z-index: 2; /*Matthew placed this z-index to ensure the specificity of the settings component*/
     top: 0;
     left: 0;
     transition: all .3s ease;
