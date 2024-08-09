@@ -5,10 +5,11 @@ import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
 import Input from "../../../stories/FieldInput-I/input";
 import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
 import CheckBox from "../../../stories/CheckBox/checkbox";
-import Modal from "../../../Components/modals/modal";
+import Modal from "../../../Components/modals/mailModal/modal";
 import {countries} from "./countries";
 import {Link} from "react-router-dom";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
+import PhoneInput from "../../../stories/OtherInputsType/PhoneInput/PhoneInput";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
@@ -19,7 +20,9 @@ const SignUp = () => {
     }
 
     const handleNext = () => {
-        setStage(stage + 1);
+        if(stage !== 3) {
+            setStage(stage + 1);
+        }
     }
 
     const handleBack = () => {
@@ -36,7 +39,18 @@ const SignUp = () => {
         }
     };
 
-    const [formValues, setFormValues] = useState({
+    interface FormValues {
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        country: string,
+        sendMails: string,
+        TermsAndConditon: string,
+        phone: string
+    }
+
+    const defaultFormValues :FormValues = {
         firstName: '',
         lastName: '',
         email: '',
@@ -44,7 +58,13 @@ const SignUp = () => {
         country: '',
         sendMails: '',
         TermsAndConditon: '',
-    } || JSON.parse(localStorage.getItem('signUpForm') || '{}'));
+        phone: ''
+    };
+
+    const [formValues, setFormValues] = useState<FormValues>(()=>{
+        const savedFormValues = localStorage.getItem('signUpForm');
+        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+    });
 
 
     let formValuesCopy: Partial<typeof formValues> = {...formValues};
@@ -59,6 +79,8 @@ const SignUp = () => {
         country: '',
         sendMails: '',
         TermsAndConditon: '',
+        phone: ''
+
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,6 +108,8 @@ const SignUp = () => {
             country: '',
             sendMails: '',
             TermsAndConditon: '',
+            phone: ''
+
         };
 
         // Validate first name
@@ -281,6 +305,12 @@ const SignUp = () => {
             {stage === 3 &&
                 <div className={signUp.stage3container}>
                     <Modal handleGmail={goToGmail} handleSendAgain={handleBack} email={formValues.email}/>
+                </div>
+            }
+
+            {stage === 4 &&
+                <div className={signUp.stage3container}>
+
                 </div>
             }
         </div>
