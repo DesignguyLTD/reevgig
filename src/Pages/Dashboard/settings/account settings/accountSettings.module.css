@@ -3,7 +3,8 @@
     margin-top: 120px;
     width: 60dvw;
     padding-left: 80px;
-    
+    position: relative;
+    z-index: 0;
 }
 
 .settingPages {
@@ -31,10 +32,6 @@
     color: #97979D;
 }
 
-.settingFormCtn {
-    position: relative;
-    
-}
 
 /* Image upload styling */
 
@@ -69,22 +66,14 @@
 .formCtn {
     width: 41dvw;
     padding-bottom: 80px;
-    position: relative;
     z-index: 0;
     border-bottom: 1px solid #B5B6BA;
 }
 
-.displayName p,
-.mail p,
-.firstName p,
-.lastName p,
-.password p,
-.phone p, 
-.crtPassword p,
-.newPassword p,
-.cfmPassword p,
-h4 {
+label, h4 {
+    display: block;
     text-align: start;
+    margin: 12px auto;
 }
 
 .btnCtn {
@@ -98,21 +87,29 @@ h4 {
 .crtPassword, .newPassword, .cfmPassword {
     width: 41dvw;
 }
-/* .displayName input, .mail input {
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.32px;
-    border: 1px light #D9D9D9;
-} */
 
-/* .names {
-    display: flex;
-    gap: 110px;
-} */
+.dropdown {
+    position: relative;
+    z-index: 12;
+}
 
-/* .firstName input, .lastName input {
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.32px;
-    border: 1px light #D9D9D9;
-} */
+.state {
+    position: relative;
+    z-index: 11;
+}
+
+.city {
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .ctn {
+        margin: auto;
+        margin-top: 120px;
+        width: 60dvw;
+        padding-left: 0px;
+        position: relative;
+        z-index: 0;
+    }
+}

@@ -9,6 +9,7 @@ import Login from "./Pages/Onboarding/login/login";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import Settings from "./Pages/Dashboard/settings/settings";
 import AccountSettings from "./Pages/Dashboard/settings/account settings/accountSettings";
+import Notification from './Pages/Dashboard/settings/notification/notification';
 import DashboardRoutes from './Pages/Dashboard';
 
 
@@ -36,6 +37,7 @@ function App() {
 
                     <Route path="/settings" element={<Settings/>}/>
                     <Route path="/accountSettings" element={<AccountSettings/>}/>
+                    <Route path="/notification" element={<Notification/>}/>
                     </Route>
                 </Routes>
             </Router>

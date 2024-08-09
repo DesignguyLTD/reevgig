@@ -1,5 +1,6 @@
 import React from "react"
 import Sidebar from "../../stories/SideBar/sideBar"
+import Notification from "./settings/notification/notification"
 import { Outlet } from "react-router-dom"
 import styles from "./index.module.css"
 

@@ -1,0 +1,31 @@
+.ctn {
+    margin: auto;
+    margin-top: 150px;
+    padding-left: 80px;
+    width: 48.75dvw;
+}
+
+.settingPages {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.backToSettings,
+.currentPage {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    gap: 15px;
+}
+
+.backToSettings {
+    text-decoration: none;
+    color: #000000;
+}
+
+.currentPage {
+    color: #97979D;
+}

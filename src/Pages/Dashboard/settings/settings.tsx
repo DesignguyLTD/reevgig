@@ -10,7 +10,7 @@ interface SettingList {
 
 const settingLists: SettingList[] = [
     { name: 'Account Settings', path: '/accountSettings' },
-    { name: 'Notification', path: '/settings' },
+    { name: 'Notification', path: '/notification' },
     { name: 'Privacy Policy', path: '/settings' },
     { name: 'About Us', path: '/settings' }
 ];
