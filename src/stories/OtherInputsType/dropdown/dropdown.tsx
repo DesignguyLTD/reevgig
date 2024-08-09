@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import React, {useState, useEffect, useCallback, memo, useRef} from 'react';
 import styles from './dropdown.module.css';
 
 interface OptionType {
@@ -31,11 +31,24 @@ const CustomDropdown = memo(({ options, onChange, defaultText, error, focused, s
     setIsOpen(false);
     onChange(option);
   }, [onChange]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const dropdownHeaderClass = `${styles.dropdownHeader} ${isFocused ? styles.focused : ''} ${error ? styles.error : ''}`;
 
   const filteredOptions = options.filter(option => option.label.toLowerCase().includes(searchTerm.toLowerCase()));
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
   return (
     <div className={styles.dropdown} tabIndex={0} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)}>
       <div  className={`${dropdownHeaderClass}  ${styles[`Dropdown--${size}`]}`} onClick={() => setIsOpen(!isOpen)}>
@@ -45,7 +58,7 @@ const CustomDropdown = memo(({ options, onChange, defaultText, error, focused, s
         </span>
       </div>
       {isOpen && (
-        <div className={`${styles.dropdownList}  ${styles[`Dropdown--${size}`]}`}>
+        <div ref={dropdownRef}  className={`${styles.dropdownList}  ${styles[`Dropdown--${size}`]}`}>
           <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search..." />
           {filteredOptions.map((option: OptionType) => (
             <div

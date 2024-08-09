@@ -7,6 +7,7 @@ import {
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Login from "./Pages/Onboarding/login/login";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
+import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 
 
 
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/signup" element={<SignUp/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/resetpassword" element={<ResetPassword/>}/>
+                    <Route path="/onboarding" element={<OnBoarding/>}/>
                 </Routes>
             </Router>
 

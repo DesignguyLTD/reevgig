@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from "../../stories/Button-I/Button";
+import {Button} from "../../../stories/Button-I/Button";
 import style from "./modal.module.css";
-import {ButtonII} from "../../stories/Button-II/ButtonII";
+import {ButtonII} from "../../../stories/Button-II/ButtonII";
 
 
 interface modalProps{
