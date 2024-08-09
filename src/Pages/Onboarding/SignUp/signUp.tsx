@@ -4,12 +4,10 @@ import { Button } from "../../../stories/Button-I/Button";
 import { ButtonII } from "../../../stories/Button-II/ButtonII";
 import CheckBox from "../../../stories/CheckBox/checkbox";
 import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
-import Input from "../../../stories/FieldInput-I/input";
-import { Link } from "react-router-dom";
-import Modal from "../../../Components/modals/modal";
-import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
-import { countries } from "./countries";
-import signUp from "./signUp.module.css";
+import Modal from "../../../Components/modals/mailModal/modal";
+import {countries} from "./countries";
+import {Link} from "react-router-dom";
+import PhoneInput from "../../../stories/OtherInputsType/PhoneInput/PhoneInput";
 
 const SignUp = () => {
   const [selectedOption, setSelectedOption] = React.useState("");
@@ -19,9 +17,11 @@ const SignUp = () => {
     localStorage.setItem("userType", e.target.value);
   };
 
-  const handleNext = () => {
-    setStage(stage + 1);
-  };
+    const handleNext = () => {
+        if(stage !== 3) {
+            setStage(stage + 1);
+        }
+    }
 
   const handleBack = () => {
     setStage(stage - 1);
@@ -41,31 +41,48 @@ const SignUp = () => {
     }
   };
 
-  const [formValues, setFormValues] = useState(
-    {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      country: "",
-      sendMails: "",
-      TermsAndConditon: "",
-    } || JSON.parse(localStorage.getItem("signUpForm") || "{}")
-  );
+    interface FormValues {
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        country: string,
+        sendMails: string,
+        TermsAndConditon: string,
+        phone: string
+    }
+
+    const defaultFormValues :FormValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        country: '',
+        sendMails: '',
+        TermsAndConditon: '',
+        phone: ''
+    };
+
+    const [formValues, setFormValues] = useState<FormValues>(()=>{
+        const savedFormValues = localStorage.getItem('signUpForm');
+        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+    });
 
   let formValuesCopy: Partial<typeof formValues> = { ...formValues };
   delete formValuesCopy.password;
   localStorage.setItem("signUpForm", JSON.stringify(formValuesCopy));
 
-  const [formErrors, setFormErrors] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    country: "",
-    sendMails: "",
-    TermsAndConditon: "",
-  });
+    const [formErrors, setFormErrors] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        country: '',
+        sendMails: '',
+        TermsAndConditon: '',
+        phone: ''
+
+    });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value =
@@ -83,16 +100,18 @@ const SignUp = () => {
     }));
   };
 
-  const validateForm = () => {
-    let newErrors = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      country: "",
-      sendMails: "",
-      TermsAndConditon: "",
-    };
+    const validateForm = () => {
+        let newErrors = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            country: '',
+            sendMails: '',
+            TermsAndConditon: '',
+            phone: ''
+
+        };
 
     // Validate first name
     if (!formValues.firstName) {
@@ -352,13 +371,17 @@ const SignUp = () => {
         </div>
       )}
 
-      {stage === 3 && (
-        <div className={signUp.stage3container}>
-          <Modal
-            handleGmail={goToGmail}
-            handleSendAgain={handleBack}
-            email={formValues.email}
-          />
+            {stage === 3 &&
+                <div className={signUp.stage3container}>
+                    <Modal handleGmail={goToGmail} handleSendAgain={handleBack} email={formValues.email}/>
+                </div>
+            }
+
+            {stage === 4 &&
+                <div className={signUp.stage3container}>
+
+                </div>
+            }
         </div>
       )}
     </div>

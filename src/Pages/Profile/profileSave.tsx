@@ -336,7 +336,7 @@ export default function ProfileSave() {
 
             <div>
               <label htmlFor="Number">Office/Work Contact Number</label>
-              <div className={style.phone_cover}>
+              {/* <div className={style.phone_cover}>
                 <div
                   className={style.phone}
                   onClick={() => setNumberDropdown(!numberDropdown)}>
@@ -379,7 +379,7 @@ export default function ProfileSave() {
                 <div>
                   <Input isTextArea={false} />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={style.edit_holder}>
