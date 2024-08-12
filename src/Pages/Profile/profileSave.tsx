@@ -1,5 +1,5 @@
 import { City, Country, ICity, IState, State } from "country-state-city";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button } from "../../stories/Button-I/Button";
 import Input from "../../stories/FieldInput-I/input";
@@ -43,6 +43,12 @@ export default function ProfileSave() {
   const [states, setState] = useState<IState[]>([]);
   const [cities, setCities] = useState<ICity[]>([]);
 
+  useEffect(() => {
+    if (selectNumber && !selectNumber.startsWith("+")) {
+      setSelectNumber(`+${selectNumber}`);
+    }
+  }, [selectNumber]);
+
   const handleCountrySelected = (countryCode: string) => {
     const country = Country.getCountryByCode(countryCode);
     if (country) {
@@ -53,6 +59,7 @@ export default function ProfileSave() {
       setSelectState(null);
       setSelectCity(null);
       setCities([]);
+      setSelectNumber(country.phonecode);
     }
     setCountryDropdown(false);
     setIsCountryActive(false);
@@ -336,18 +343,18 @@ export default function ProfileSave() {
 
             <div>
               <label htmlFor="Number">Office/Work Contact Number</label>
-              {/* <div className={style.phone_cover}>
+              <div className={style.phone_cover}>
                 <div
                   className={style.phone}
                   onClick={() => setNumberDropdown(!numberDropdown)}>
-                  {selectNumber ? <p> {selectNumber}</p> : <p>phone</p>}
-                  <div>
-                    <img
-                      className={style.img4}
-                      src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                      alt=""
-                    />
-                  </div>
+                  <p className={style.phone_number}>
+                    {`${selectNumber} (${countryCode})`}
+                  </p>
+                  <img
+                    className={style.img4}
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
+                    alt=""
+                  />
                 </div>
                 {numberDropdown && (
                   <ScrollableComponent
@@ -368,18 +375,21 @@ export default function ProfileSave() {
                         key={index}
                         className={style.phone_number}
                         onClick={() => handleNumbers(number.phonecode)}>
-                        <p style={{ border: "1px solid ash", height: "0rem" }}>
-                          {`${number.phonecode}`}
-                        </p>
+                        <p>{`${number.phonecode} (${number.isoCode})`}</p>
                       </div>
                     ))}
                   </ScrollableComponent>
                 )}
 
                 <div>
-                  <Input isTextArea={false} />
+                  <input
+                    type="text"
+                    className={style.number_input}
+                    name=""
+                    id=""
+                  />
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className={style.edit_holder}>
