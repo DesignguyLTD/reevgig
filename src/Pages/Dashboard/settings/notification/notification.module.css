@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 150px;
     padding-left: 80px;
-    width: 48.75dvw;
+    width: 60.75dvw;
 }
 
 .settingPages {
@@ -28,4 +28,115 @@
 
 .currentPage {
     color: #97979D;
+}
+
+.notify_sect {
+    margin-top: 30px;
+    ;
+    text-align: left;
+}
+
+.notify_title,
+.jobNotify_title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.32px;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+.notify_title p,
+.jobNotify_title p {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.32px;
+    color: #000000;
+    margin: 0px;
+}
+
+
+.notify_info1,
+.notify_info2,
+.notify_info3,
+.notify_info4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.notify_info1 p,
+.notify_info2 p,
+.notify_info3 p,
+.notify_info4 p {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    color: #797979;
+}
+
+.notify_alert {
+    padding-left: 15px;
+}
+
+.notify_alert h5 {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    color: black;
+}
+
+.notify_alert p {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.32px;
+    color: #797979;
+}
+
+.switch {
+    font-weight: 400;
+    font-size: 13px;
+    color: #1E1E1E;
+}
+
+@media (max-width: 768px) {
+    .ctn {
+        padding-left: 0px;
+        width: 70.75dvw;
+    }
+
+    .notify_info1,
+    .notify_info2,
+    .notify_info3,
+    .notify_info4 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 15px;
+        width: 79vw;
+    }
+}
+
+@media (max-width: 320px) {
+    .ctn {
+        margin-top: 100px;
+        padding-left: 0px;
+        width: 100.75dvw;
+    }
+
+    .notify_info1,
+    .notify_info2,
+    .notify_info3,
+    .notify_info4 {
+        padding-left: 15px;
+        width: 94vw;
+    }
 }

@@ -1,0 +1,24 @@
+.toggleCtn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 64px;
+    height:32px;
+    border: 1px solid #000000;
+    padding: 4px;
+    border-radius: 100px;
+    cursor: pointer;
+    background: #272727;
+}
+
+.toggle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50px;
+    background: #FEC200;
+}
+
+.active {
+    align-self: flex-end;
+}
