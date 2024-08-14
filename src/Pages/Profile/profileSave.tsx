@@ -36,9 +36,9 @@ export default function ProfileSave() {
 
   const [numberDropdown, setNumberDropdown] = useState<boolean>(false);
   const [selectNumber, setSelectNumber] = useState<string | null>(null);
-  const [isCountryActive, setIsCountryActive] = useState<boolean>(false);
-  const [isStateActive, setIsStateActive] = useState<boolean>(false);
-  const [isCityActive, setIsCityActive] = useState<boolean>(false);
+  // const [isCountryActive, setIsCountryActive] = useState<boolean>(false);
+  // const [isStateActive, setIsStateActive] = useState<boolean>(false);
+  // const [isCityActive, setIsCityActive] = useState<boolean>(false);
 
   const [states, setState] = useState<IState[]>([]);
   const [cities, setCities] = useState<ICity[]>([]);
@@ -62,7 +62,7 @@ export default function ProfileSave() {
       setSelectNumber(country.phonecode);
     }
     setCountryDropdown(false);
-    setIsCountryActive(false);
+    // setIsCountryActive(false);
   };
 
   const handleStateSelected = (stateCode: string) => {
@@ -112,11 +112,13 @@ export default function ProfileSave() {
               </div>
             </div>
           </div>
-          <div>
+          <div className={style.contain}>
             <div>
-              <label htmlFor="Display Name">Display Name</label>
+              <label className={style.label} htmlFor="Display Name">
+                Display Name
+              </label>
               <Input
-                size="medium"
+                size="small"
                 isTextArea={false}
                 name="Display name"
                 placeholder="Others will see this name"
@@ -124,18 +126,24 @@ export default function ProfileSave() {
             </div>
             <div className={style.names}>
               <div>
-                <label htmlFor="First Name"> First Name</label>
+                <label className={style.label} htmlFor="First Name">
+                  {" "}
+                  First Name
+                </label>
                 <Input
                   size="small"
                   isTextArea={false}
-                  name="Display name"
+                  name="First name"
                   placeholder="First name"
                 />
               </div>
               <div>
-                <label htmlFor="Last Name"> Last Name</label>
+                <label className={style.label} htmlFor="Last Name">
+                  {" "}
+                  Last Name
+                </label>
                 <Input
-                  size="medium"
+                  size="small"
                   isTextArea={false}
                   name="Display name"
                   placeholder="Last name"
@@ -143,9 +151,11 @@ export default function ProfileSave() {
               </div>
             </div>
             <div>
-              <label htmlFor="Email">Work email address</label>
+              <label className={style.label} htmlFor="Email">
+                Work email address
+              </label>
               <Input
-                size="medium"
+                size="small"
                 type="email"
                 isTextArea={false}
                 name="email"
@@ -171,25 +181,24 @@ export default function ProfileSave() {
                 }}
                 onClick={() => {
                   setCountryDropdown(!countryDropdown);
-                  setIsCountryActive(!isCountryActive);
                 }}>
                 {selectCountry ? (
-                  <div
-                    className={`${style.data} ${
-                      isCountryActive ? style.data_active : ""
-                    }`}>
-                    <p className={style.specified_data}> {selectCountry}</p>
+                  <div className={style.data} tabIndex={0}>
+                    <p className={style.specified_data} tabIndex={0}>
+                      {selectCountry}
+                    </p>
                   </div>
                 ) : (
-                  <p className={style.data}>Select Country</p>
+                  <p className={style.data} tabIndex={0}>
+                    Select Country
+                  </p>
                 )}
-                <div>
-                  <img
-                    className={style.img1}
-                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                    alt=""
-                  />
-                </div>
+
+                <img
+                  className={style.img1}
+                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
+                  alt=""
+                />
               </div>
               {countryDropdown && (
                 <ScrollableComponent
@@ -236,25 +245,26 @@ export default function ProfileSave() {
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     setStateDropdown(!stateDropdown);
-                    setIsStateActive(!isStateActive);
+                    // setIsStateActive(!isStateActive);
                   }}>
                   {selectState ? (
-                    <div
-                      className={`${style.data} ${
-                        isStateActive ? style.data_active : ""
-                      }`}>
-                      <p className={style.specified_data}> {selectState}</p>
+                    <div className={style.data} tabIndex={0}>
+                      <p className={style.specified_data} tabIndex={0}>
+                        {" "}
+                        {selectState}
+                      </p>
                     </div>
                   ) : (
-                    <p className={style.data}>Select State</p>
+                    <p className={style.data} tabIndex={0}>
+                      Select State
+                    </p>
                   )}
-                  <div>
-                    <img
-                      className={style.img2}
-                      src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                      alt=""
-                    />
-                  </div>
+
+                  <img
+                    className={style.img2}
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
+                    alt=""
+                  />
                 </div>
                 {stateDropdown && (
                   <ScrollableComponent
@@ -295,25 +305,26 @@ export default function ProfileSave() {
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     setCityDropdown(!cityDropdown);
-                    setIsCityActive(!isCityActive);
+                    // setIsCityActive(!isCityActive);
                   }}>
                   {selectCity ? (
-                    <div
-                      className={`${style.data} ${
-                        isCityActive ? style.data_active : ""
-                      }`}>
-                      <p className={style.specified_data}> {selectCity}</p>
+                    <div className={style.data} tabIndex={0}>
+                      <p className={style.specified_data} tabIndex={0}>
+                        {" "}
+                        {selectCity}
+                      </p>
                     </div>
                   ) : (
-                    <p className={style.data}>Select City</p>
+                    <p className={style.data} tabIndex={0}>
+                      Select City
+                    </p>
                   )}
-                  <div>
-                    <img
-                      className={style.img3}
-                      src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                      alt=""
-                    />
-                  </div>
+
+                  <img
+                    className={style.img3}
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
+                    alt=""
+                  />
                 </div>
                 {cityDropdown && (
                   <ScrollableComponent
@@ -381,7 +392,7 @@ export default function ProfileSave() {
                   </ScrollableComponent>
                 )}
 
-                <div>
+                <div className={style.ph_cover}>
                   <input
                     type="text"
                     className={style.number_input}

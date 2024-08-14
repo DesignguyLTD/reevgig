@@ -8,12 +8,20 @@
 
 }
 
+
+.contain {
+    width: 100%;
+
+}
+
 .holder {
     padding: 8px 12px 8px 8px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .holder div {
-    padding: 4px 0px 4px 0px;
+    padding: 4px 0px 3px 0px;
 }
 
 .names {
@@ -25,6 +33,10 @@
 
 .names div {
     width: 100%;
+}
+
+.label {
+    display: block;
 }
 
 .avatar {
@@ -59,19 +71,14 @@
     border-radius: 8px;
     border: 1px solid #d9d9d9;
     background-color: rgb(255, 255, 255);
-    height: 40px;
+    height: 44px;
 }
 
-.data_active {
+
+.data:focus {
     background-color: #fec200;
     opacity: 1;
     color: #1e1e1e;
-    font-family: PP Neue Montreal;
-    letter-spacing: .32px;
-    padding: 0px 8px;
-    height: 40px;
-    display: flex;
-    align-items: center;
     border-radius: 8px;
     border: 1px solid black;
 
@@ -81,11 +88,17 @@
 .inner_container {
 
     position: relative;
+    width: 16.2rem;
 
 }
 
+.img2 {
+    position: absolute;
+    top: 2rem;
+    right: 20px;
+}
 
-.img2,
+
 .img3 {
     position: absolute;
     top: 2rem;
@@ -112,6 +125,10 @@
     padding: 0 8px;
 }
 
+.specified_data:focus {
+    background-color: #fec200;
+}
+
 .edit {
     width: 220px;
     background-color: #2b2b2b;
@@ -124,7 +141,7 @@
 }
 
 .edit_holder {
-    margin: 0 auto;
+    margin: 2rem auto;
     width: fit-content;
 }
 
@@ -163,6 +180,8 @@ label~input {
     width: 32px;
 }
 
+
+
 .phone_cover {
     display: flex;
     align-items: center;
@@ -173,12 +192,19 @@ label~input {
 .phone {
     border: 1px solid #d9d9d9;
     border-radius: 8px 0px 0px 8px;
-    height: 40px;
     display: flex;
     position: relative;
     width: 20%;
     text-align: center;
     align-items: center;
+    font-size: 14px;
+    opacity: 60%;
+    color: #1e1e1e;
+    font-family: PP Neue Montreal;
+    letter-spacing: .32px;
+    padding: 0px 8px;
+    background-color: rgb(255, 255, 255);
+    height: 39px;
 }
 
 .img4 {
@@ -211,6 +237,7 @@ label~input {
 
 .scroll_container {
     position: relative;
+    width: max-content;
 }
 
 .scn_container {
@@ -220,15 +247,34 @@ label~input {
 }
 
 .number_input {
-    height: 45px;
+    height: 44px;
     border: 1px solid #d9d9d9;
-    width: 100%;
     border-radius: 0px 8px 8px 0px;
+    padding-left: 2rem;
+    width: 90%;
 }
 
-@media screen and (min-width: 768px) {
+.number_input:focus {
+    border: 1px solid #272727;
+    background-color: #fec200;
+}
+
+
+
+.ph_cover {
+    width: 11rem;
+}
+
+
+
+
+@media screen and (min-width: 765px) {
     .edit_holder {
         margin: initial;
+    }
+
+    .ph_cover {
+        width: 100%;
     }
 
     .container {
@@ -246,6 +292,15 @@ label~input {
         padding-top: 1rem;
     }
 
+    .inner_container {
+
+        width: 100%;
+
+    }
+
+    .scroll_container {
+        width: 100%;
+    }
 
 }
 
