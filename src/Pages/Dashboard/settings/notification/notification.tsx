@@ -40,7 +40,7 @@ const Notification = () => {
                     <div className={styles.notify_info2}>
                         <span>
                             <h5>Career tips</h5>
-                            <p>Get visible insights and tips to help navigate your personal journey</p>
+                            <p>Get visible insights and tips to help navigate your professional journey</p>
                         </span>
                         <span>
                             <Toggle />

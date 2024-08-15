@@ -32,15 +32,21 @@
 
 .notify_sect {
     margin-top: 30px;
-    ;
     text-align: left;
 }
 
-.notify_title,
+.notify_title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
 .jobNotify_title {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 30px;
     gap: 10px;
 }
 
@@ -83,6 +89,7 @@ h5 {
 }
 
 .notify_alert {
+    margin-top: 25px;
     padding-left: 15px;
 }
 
@@ -105,6 +112,7 @@ h5 {
     font-weight: 400;
     font-size: 13px;
     color: #1E1E1E;
+    letter-spacing: 0.32px;
 }
 
 @media (max-width: 768px) {
@@ -123,13 +131,44 @@ h5 {
         padding-left: 15px;
         width: 79vw;
     }
+
+    .notify_info1 p,
+    .notify_info2 p,
+    .notify_info3 p,
+    .notify_info4 p {
+        letter-spacing: 0px;
+    }
+
+    .notify_alert p {
+        letter-spacing: 0px;
+    }
+
+    .switch {
+        letter-spacing: 0px;
+    }
+
+    .jobNotify_title {
+        margin-top: 35px;
+    }
 }
 
 @media (max-width: 320px) {
+    h5 {
+        font-size: 14px;
+    }
+
     .ctn {
         margin-top: 100px;
-        padding-left: 0px;
         width: 100.75dvw;
+        padding-bottom: 50px;
+    }
+
+    /* .settingPages {
+        padding-left: 10px;
+    } */
+
+    .notify_sect {
+        margin-top: 15px;
     }
 
     .notify_info1,
@@ -138,5 +177,48 @@ h5 {
     .notify_info4 {
         padding-left: 15px;
         width: 94vw;
+    }
+
+    .notify_alert h5 {
+        font-size: 14px;
+    }
+
+    .backToSettings,
+    .currentPage {
+        font-size: 14px;
+    }
+
+    .notify_title p,
+    .jobNotify_title p {
+        font-size: 14px;
+    }
+
+    .notify_info1 p,
+    .notify_info3 p,
+    .notify_info4 p {
+        font-size: 13px;
+        width: 183px;
+        line-height: 20px;
+    }
+
+    .notify_info2 p {
+        font-size: 13px;
+        width: 180px;
+        line-height: 20px;
+    }
+
+    .jobNotify_title {
+        margin-top: 25px;
+    }
+
+    .notify_alert {
+        margin-top: 15px;
+    }
+
+    .notify_alert p {
+        margin: 5px 0px 0px 0px;
+        font-size: 13px;
+        letter-spacing: 0px;
+        line-height: 20px;
     }
 }

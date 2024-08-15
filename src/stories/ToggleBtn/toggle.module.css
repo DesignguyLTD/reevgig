@@ -3,22 +3,46 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 64px;
-    height:32px;
-    border: 1px solid #000000;
+    width: 43px;
+    height: 20px;
+    /* width: 64px;
+    height:30px; */
+    border: 1px solid grey;
+    margin-top: 15px;
     padding: 4px;
     border-radius: 100px;
     cursor: pointer;
-    background: #272727;
+}
+
+.activeToggleCtn {
+    border: 1px solid #000000;
+    background: #000000; 
 }
 
 .toggle {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     border-radius: 50px;
-    background: #FEC200;
-}
+    background: grey;
+} 
 
 .active {
     align-self: flex-end;
+    background: #FEC200;
+}
+
+@media (max-width: 320px) {
+    .toggleCtn {
+        width: 40px;
+        height:20px;
+        margin-top: 20px;
+        padding: 4px;
+        border-radius: 100px;
+    }
+
+    .toggle {
+        width: 18px;
+        height: 18px;
+        border-radius: 50px;
+    } 
 }
