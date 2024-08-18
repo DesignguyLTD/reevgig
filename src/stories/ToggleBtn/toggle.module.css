@@ -3,10 +3,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 43px;
-    height: 20px;
-    /* width: 64px;
-    height:30px; */
+    width: 50px;
+    height: 25px;
     border: 1px solid grey;
     margin-top: 15px;
     padding: 4px;
@@ -20,8 +18,8 @@
 }
 
 .toggle {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     border-radius: 50px;
     background: grey;
 } 
@@ -31,9 +29,9 @@
     background: #FEC200;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
     .toggleCtn {
-        width: 40px;
+        width: 43px;
         height:20px;
         margin-top: 20px;
         padding: 4px;
@@ -43,6 +41,22 @@
     .toggle {
         width: 18px;
         height: 18px;
+        border-radius: 50px;
+    } 
+}
+
+@media (max-width: 320px) {
+    .toggleCtn {
+        width: 40px;
+        height:18px;
+        margin-top: 20px;
+        padding: 4px;
+        border-radius: 100px;
+    }
+
+    .toggle {
+        width: 16px;
+        height: 16px;
         border-radius: 50px;
     } 
 }

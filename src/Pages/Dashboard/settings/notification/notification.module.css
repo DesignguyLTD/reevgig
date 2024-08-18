@@ -1,7 +1,7 @@
 .ctn {
     margin: auto;
     margin-top: 150px;
-    padding-left: 80px;
+    padding: 0px 0px 40px 80px;
     width: 60.75dvw;
 }
 
@@ -116,71 +116,10 @@ h5 {
 }
 
 @media (max-width: 768px) {
-    .ctn {
-        padding-left: 0px;
-        width: 70.75dvw;
-    }
-
-    .notify_info1,
-    .notify_info2,
-    .notify_info3,
-    .notify_info4 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 15px;
-        width: 79vw;
-    }
-
-    .notify_info1 p,
-    .notify_info2 p,
-    .notify_info3 p,
-    .notify_info4 p {
-        letter-spacing: 0px;
-    }
-
-    .notify_alert p {
-        letter-spacing: 0px;
-    }
-
-    .switch {
-        letter-spacing: 0px;
-    }
-
-    .jobNotify_title {
-        margin-top: 35px;
-    }
-}
-
-@media (max-width: 320px) {
-    h5 {
-        font-size: 14px;
-    }
 
     .ctn {
-        margin-top: 100px;
-        width: 100.75dvw;
-        padding-bottom: 50px;
-    }
-
-    /* .settingPages {
-        padding-left: 10px;
-    } */
-
-    .notify_sect {
-        margin-top: 15px;
-    }
-
-    .notify_info1,
-    .notify_info2,
-    .notify_info3,
-    .notify_info4 {
-        padding-left: 15px;
-        width: 94vw;
-    }
-
-    .notify_alert h5 {
-        font-size: 14px;
+        padding: 0px 0px 40px 30px;
+        width: 80.75dvw;
     }
 
     .backToSettings,
@@ -193,32 +132,65 @@ h5 {
         font-size: 14px;
     }
 
-    .notify_info1 p,
-    .notify_info3 p,
-    .notify_info4 p {
-        font-size: 13px;
-        width: 183px;
-        line-height: 20px;
-    }
-
-    .notify_info2 p {
-        font-size: 13px;
-        width: 180px;
-        line-height: 20px;
-    }
-
-    .jobNotify_title {
-        margin-top: 25px;
+    h5 {
+        font-size: 14px;
     }
 
     .notify_alert {
         margin-top: 15px;
     }
 
-    .notify_alert p {
-        margin: 5px 0px 0px 0px;
-        font-size: 13px;
-        letter-spacing: 0px;
-        line-height: 20px;
+    .notify_alert h5 {
+        font-size: 14px;
     }
+
+    .notify_alert p {
+        margin-bottom: 8px;
+        font-size: 14px;
+
+    }
+}
+
+@media (max-width: 320px) {
+
+    .ctn {
+        margin: auto;
+        margin-top: 90px;
+        padding-left: 0px;
+        width: 90dvw;
+    }
+
+    .notify_sect {
+        margin-top: 15px;
+    }
+
+    h5 {
+        margin-top: 15px;
+    }
+
+    .notify_info1,
+    .notify_info2,
+    .notify_info3,
+    .notify_info4 {
+        gap: 30px;
+    }
+
+    .notify_info1 p,
+    .notify_info2 p,
+    .notify_info3 p,
+    .notify_info4 p,
+    .notify_alert p {
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 22px;
+    }
+
+    .jobNotify_title {
+        margin-top: 25px;
+    }
+
+    .switch {
+        font-size: 12px;
+    }
+    
 }
