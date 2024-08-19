@@ -1,6 +1,6 @@
 import React from "react"
-import Sidebar from "../../stories/SideBar/sideBar"
-import Notification from "./settings/notification/notification"
+// import Sidebar from "../../stories/SideBar/sideBar"
+// import Notification from "./settings/notification/notification"
 import { Outlet } from "react-router-dom"
 import styles from "./index.module.css"
 
@@ -8,7 +8,7 @@ const DashboardRoutes: React.FC = () => {
     return (
         <div>
             <div className={styles.sidebarCollapse}>
-                <Sidebar collapse={false} />
+                {/* <Sidebar collapse={false} /> */}
             </div>
             <Outlet />
         </div>

@@ -1,6 +1,6 @@
 .ctn {
     margin: auto;
-    margin-top: 120px;
+    margin-top: 150px;
     width: 60dvw;
     padding-left: 80px;
     position: relative;
@@ -32,6 +32,15 @@
     color: #97979D;
 }
 
+.formCtn {
+    padding: 30px 0px 30px 0px;
+    z-index: 0;
+    border-bottom: 1px solid #B5B6BA;
+}
+
+.profileDetails {
+    width: 530px;
+}
 
 /* Image upload styling */
 
@@ -63,12 +72,13 @@
     color: white;
 }
 
-.formCtn {
-    width: 41dvw;
-    padding-bottom: 80px;
-    z-index: 0;
-    border-bottom: 1px solid #B5B6BA;
+
+/* display name */
+
+.profileDetails {
+    padding: 20px 0px 50px 0px;
 }
+
 
 label, h4 {
     display: block;
@@ -76,6 +86,28 @@ label, h4 {
     margin: 12px auto;
 }
 
+.names {
+    display: flex;
+    gap: 20px;
+}
+
+.firstName input, .lastName input {
+    width: 255px;
+}
+
+.country {
+    margin-top: 8px;
+}
+
+.stateCity {
+    margin-top: 15px;
+}
+
+.phone {
+    margin-top: 15px;
+}
+
+/* 
 .btnCtn {
     float: right;
 }
@@ -101,7 +133,7 @@ label, h4 {
 .city {
     position: relative;
     z-index: 10;
-}
+} */
 
 @media (max-width: 768px) {
     /* .ctn {

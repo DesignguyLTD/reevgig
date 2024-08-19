@@ -3,26 +3,54 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 50px;
-    height: 25px;
-    border: 1px solid grey;
+    border-width: 1px;
+    border-style: solid;
     margin-top: 15px;
     padding: 4px;
-    border-radius: 100px;
     cursor: pointer;
+    border-radius: 100px;
+}
+
+.toggleCtn--small {
+    width: 50px;
+    height: 25px;
+}
+
+.toggleCtn--medium {
+    width: 50px;
+    height: 25px;
+}
+
+.toggleCtn--large {
+    width: 50px;
+    height: 25px;
 }
 
 .activeToggleCtn {
     border: 1px solid #000000;
-    background: #000000; 
+    background: #000000;
 }
 
 .toggle {
-    width: 22px;
-    height: 22px;
     border-radius: 50px;
     background: grey;
-} 
+}
+
+.toggleCtn--small .toggle {
+    width: 22px;
+    height: 22px;
+}
+
+.toggleCtn--medium .toggle {
+    width: 22px;
+    height: 22px;
+}
+
+.toggleCtn--large .toggle {
+    width: 22px;
+    height: 22px;
+}
+
 
 .active {
     align-self: flex-end;
@@ -30,33 +58,67 @@
 }
 
 @media (max-width: 768px) {
-    .toggleCtn {
+    .toggleCtn--small {
         width: 43px;
-        height:20px;
-        margin-top: 20px;
-        padding: 4px;
-        border-radius: 100px;
+        height: 20px;
     }
 
-    .toggle {
+    .toggleCtn--medium {
+        width: 50px;
+        height: 25px;
+    }
+
+    .toggleCtn--large {
+        width: 50px;
+        height: 25px;
+    }
+
+    .toggleCtn--small .toggle {
         width: 18px;
         height: 18px;
-        border-radius: 50px;
-    } 
+    }
+
+
+    .toggleCtn--medium .toggle {
+        width: 22px;
+        height: 22px;
+    }
+
+    .toggleCtn--large .toggle {
+        width: 22px;
+        height: 22px;
+    }
 }
 
 @media (max-width: 320px) {
-    .toggleCtn {
+    .toggleCtn--small {
         width: 40px;
-        height:18px;
-        margin-top: 20px;
-        padding: 4px;
-        border-radius: 100px;
+        height: 18px;
     }
 
-    .toggle {
+    .toggleCtn--medium {
+        width: 50px;
+        height: 25px;
+    }
+
+    .toggleCtn--large {
+        width: 50px;
+        height: 25px;
+    }
+
+    .toggleCtn--small .toggle {
         width: 16px;
         height: 16px;
-        border-radius: 50px;
-    } 
+    }
+
+
+    .toggleCtn--medium .toggle {
+        width: 22px;
+        height: 22px;
+    }
+
+    .toggleCtn--large .toggle {
+        width: 22px;
+        height: 22px;
+    }
 }

@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "./notification.module.css";
 import { Link } from 'react-router-dom';
 import Toggle from "../../../../stories/ToggleBtn/toggle";
 import { backArrow, fwdArrow, notification } from '../../../../assets';
 
+const notificationTypes = [
+    { title: "Application and Account status", desc: "Stay informed about any change or updates related to your active job application" },
+    { title: "Career tips", desc: "Get visible insights and tips to help navigate your professional journey" },
+    { title: "Recommended Jobs", desc: "Get personalized suggestions for jobs that align with your skills and interests." },
+    { title: "Feedbacks", desc: "Receive request to provide feedback and participate in user studies and surveys" },
+]
 
 const Notification = () => {
+    const [toggleState, setToggleState] = useState([
+        false,
+        false,
+        false,
+        false
+    ])
+
     return (
         <div className={styles.ctn}>
             <div className={styles.settingPages}>
@@ -27,41 +40,27 @@ const Notification = () => {
                         <p>Notification</p>
                     </span>
                 </div>
-                <div className={styles.notify_info1}>
-                    <span>
-                        <h5>Application and Account status</h5>
-                        <p>Stay informed about any change or updates related to your active job application</p>
-                    </span>
-                    <span>
-                        <Toggle />
-                    </span>
-                </div>
-                <div className={styles.notify_info2}>
-                    <span>
-                        <h5>Career tips</h5>
-                        <p>Get visible insights and tips to help navigate your professional journey</p>
-                    </span>
-                    <span>
-                        <Toggle />
-                    </span>
-                </div>
-                <div className={styles.notify_info3}>
-                    <span>
-                        <h5>Recommended Jobs</h5>
-                        <p>Get personalized suggestions for jobs that align with your skills and interests.</p>
-                    </span>
-                    <span>
-                        <Toggle />
-                    </span>
-                </div>
-                <div className={styles.notify_info4}>
-                    <span>
-                        <h5>Feedbacks</h5>
-                        <p>Receive request to provide feedback and participate in user studies and surveys</p>
-                    </span>
-                    <span>
-                        <Toggle />
-                    </span>
+                <div>
+                    {
+                        notificationTypes.map((notifyTags, id) =>
+                            <div className={styles.notify_info} key={notifyTags.title + id}>
+                                <span>
+                                    <h5>{notifyTags.title}</h5>
+                                    <p>{notifyTags.desc}</p>
+                                </span>
+                                <span>
+                                    <Toggle onChange={(value) => setToggleState((prevToggleStates) => prevToggleStates.map((toggler, i) => i === id ? value : toggler))}
+                                        toggleValue={toggleState[id]}
+                                        backgroundColor="white"
+                                        activebackgroundColor='black'
+                                        borderColor="1px solid grey"
+                                        toggleColor="#FEC200"
+                                        size="small"
+                                    />
+                                </span>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className={styles.jobNotify_title}>
                     <span>
