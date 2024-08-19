@@ -32,14 +32,10 @@
     color: #97979D;
 }
 
-.formCtn {
-    padding: 30px 0px 30px 0px;
-    z-index: 0;
-    border-bottom: 1px solid #B5B6BA;
-}
-
-.profileDetails {
+form {
     width: 530px;
+    padding: 0px 0px 50px 0px;
+    z-index: 0;
 }
 
 /* Image upload styling */
@@ -74,12 +70,6 @@
 
 
 /* display name */
-
-.profileDetails {
-    padding: 20px 0px 50px 0px;
-}
-
-
 label, h4 {
     display: block;
     text-align: start;
@@ -99,14 +89,43 @@ label, h4 {
     margin-top: 8px;
 }
 
-.stateCity {
+.stateCity, .phone {
     margin-top: 15px;
 }
 
-.phone {
-    margin-top: 15px;
+.btnCtn {
+    display: flex;
+    justify-content: end;
+    padding-top: 20px;
 }
 
+.passwordCtn {
+    padding: 40px 0px 40px 0px;
+    border-top: 1px solid grey;
+}
+
+.passwordChange {
+    display: flex;
+    gap: 15px;
+}
+
+.passwordChange input {
+    width: 247px;
+}
+
+.crtPassword, .newPassword, .cfmPassword {
+    width: 260px;
+}
+
+.passwordCtn h2 {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+.passwordCtn .btnCtn {
+    padding-top: 10px;
+}
 /* 
 .btnCtn {
     float: right;

@@ -179,5 +179,11 @@ h5 {
     .switch {
         font-size: 12px;
     }
+
+    .notify_alert p {
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 22px;
+    }
     
 }
