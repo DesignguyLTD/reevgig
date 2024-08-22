@@ -1,12 +1,30 @@
-import { City, Country, ICity, IState, State } from "country-state-city";
+import { City, Country, State } from "country-state-city";
 import React, { useEffect, useState } from "react";
 
 import { Button } from "../../stories/Button-I/Button";
+import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
 import Input from "../../stories/FieldInput-I/input";
-import ScrollableComponent from "../../Components/RadioTextIcon/Scrollable";
+import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import style from "./profile.module.css";
 
 export default function ProfileSave() {
+  interface FormValues {
+    DisplayName: string;
+    Firstname: string;
+    Lastname: string;
+    email: string;
+    Country: string;
+    State: string;
+    City: string;
+    contactNumber: string;
+    countryCode: string;
+    avatar: string;
+  }
+
+  interface OptionType {
+    value: string;
+    label: string;
+  }
   const imageList: string[] = [
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611444/Group_9_Copy_2_iqlh3i.svg",
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611443/Group_10_Copy_zb5g37.svg",
@@ -22,69 +40,123 @@ export default function ProfileSave() {
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_17_Copy_2_efwsao.svg",
   ];
 
-  const [selectImages, setSelectImages] = useState<string>(imageList[0]);
+  const [selectImages, setSelectImages] = useState<string>(imageList[6]);
+
+  const [formValues, setFormValues] = useState<FormValues>({
+    DisplayName: "",
+    Firstname: "",
+    Lastname: "",
+    email: "",
+    Country: "",
+    State: "",
+    City: "",
+    contactNumber: "",
+    countryCode: "",
+    avatar: "",
+  });
 
   const [countryCode, setCountryCode] = useState<string | null>(null);
-  const [countryDropdown, setCountryDropdown] = useState<boolean>(false);
-  const [selectCountry, setSelectCountry] = useState<string | null>(null);
+  const [stateCode, setStateCode] = useState<string | null>(null);
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
 
-  const [selectState, setSelectState] = useState<string | null>(null);
-  const [stateDropdown, setStateDropdown] = useState<boolean>(false);
+  const [countries, setCountries] = useState<OptionType[]>([]);
+  const [states, setStates] = useState<OptionType[]>([]);
+  const [cities, setCities] = useState<OptionType[]>([]);
 
-  const [selectCity, setSelectCity] = useState<string | null>(null);
-  const [cityDropdown, setCityDropdown] = useState<boolean>(false);
-
-  const [numberDropdown, setNumberDropdown] = useState<boolean>(false);
-  const [selectNumber, setSelectNumber] = useState<string | null>(null);
-  // const [isCountryActive, setIsCountryActive] = useState<boolean>(false);
-  // const [isStateActive, setIsStateActive] = useState<boolean>(false);
-  // const [isCityActive, setIsCityActive] = useState<boolean>(false);
-
-  const [states, setState] = useState<IState[]>([]);
-  const [cities, setCities] = useState<ICity[]>([]);
+  const [phoneCode, setPhoneCode] = useState<OptionType[]>([]);
 
   useEffect(() => {
-    if (selectNumber && !selectNumber.startsWith("+")) {
-      setSelectNumber(`+${selectNumber}`);
+    const savedData = localStorage.getItem("formData");
+    if (savedData) {
+      const parsedData = JSON.parse(savedData) as FormValues;
+      setFormValues(parsedData);
+      setCountryCode(parsedData.Country);
+      setStateCode(parsedData.State);
+      setPhoneNumber(parsedData.email);
+      setPhoneNumber(parsedData.contactNumber);
     }
-  }, [selectNumber]);
 
-  const handleCountrySelected = (countryCode: string) => {
-    const country = Country.getCountryByCode(countryCode);
-    if (country) {
-      setSelectCountry(country.name);
-      setCountryCode(country.isoCode);
-      const statesOfCountry = State.getStatesOfCountry(countryCode);
-      setState(statesOfCountry);
-      setSelectState(null);
-      setSelectCity(null);
+    const countryList = Country.getAllCountries().map((country) => ({
+      label: country.name,
+      value: country.isoCode,
+    }));
+    setCountries(countryList);
+
+    const phoneCodeList = Country.getAllCountries().map((country) => {
+      const phonecode = country.phonecode.startsWith("+")
+        ? country.phonecode
+        : `+${country.phonecode}`;
+
+      return {
+        label: `${phonecode} (${country.isoCode})`,
+        value: phonecode,
+      };
+    });
+    setPhoneCode(phoneCodeList);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formValues));
+  }, [formValues]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleCountry = (options: OptionType) => {
+    const countryCode = options.value;
+    setCountryCode(countryCode);
+    setStateCode(null);
+    setCities([]);
+
+    if (countryCode) {
+      const stateList = State.getStatesOfCountry(countryCode).map((state) => ({
+        label: state.name,
+        value: state.isoCode,
+      }));
+      setStates(stateList);
+
+      const selectedPhoneCode = phoneCode.find(
+        (code) =>
+          code.value === Country.getCountryByCode(countryCode)?.phonecode
+      );
+      setPhoneNumber(selectedPhoneCode?.label || "");
+    } else {
+      setStates([]);
+    }
+  };
+
+  const handleState = (option: OptionType) => {
+    const stateCodes = option.value;
+    setStateCode(stateCodes);
+
+    if (countryCode && stateCodes) {
+      const cityList = City.getCitiesOfState(countryCode, stateCodes).map(
+        (city) => ({
+          label: city.name,
+          value: city.countryCode,
+        })
+      );
+      setCities(cityList);
+    } else {
       setCities([]);
-      setSelectNumber(country.phonecode);
     }
-    setCountryDropdown(false);
-    // setIsCountryActive(false);
   };
 
-  const handleStateSelected = (stateCode: string) => {
-    const stateChosen = State.getStateByCodeAndCountry(stateCode, countryCode!);
-
-    if (stateChosen) {
-      setSelectState(stateChosen.name);
-      const citiesOfState = City.getCitiesOfState(countryCode!, stateCode);
-      setCities(citiesOfState);
-      setSelectCity(null);
-    }
-    setStateDropdown(false);
+  const handlePhoneCodeChange = (selectedPhoneCode: string) => {
+    setPhoneCode((prevState) => ({ ...prevState, value: selectedPhoneCode }));
   };
 
-  const handleCitySelected = (cityName: string) => {
-    setSelectCity(cityName);
-    setCityDropdown(false);
-  };
-
-  const handleNumbers = (phoneCode: string) => {
-    setSelectNumber(phoneCode);
-    setNumberDropdown(false);
+  const handleAvatarChange = (image: string) => {
+    setSelectImages(image);
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      avatar: image,
+    }));
   };
 
   return (
@@ -100,251 +172,105 @@ export default function ProfileSave() {
               <div className={style.main_container}>
                 <img src={selectImages} alt="Avatar" />
               </div>
-              <div className={style.thumbnail}>
+              <div
+                className={style.thumbnail}
+                onClick={() => handleAvatarChange(selectImages)}>
                 {imageList.map((image, index) => (
                   <img
                     key={index}
                     src={image}
-                    alt={`thumbnail ${index + 1}`}
-                    onClick={() => setSelectImages(image)}
+                    alt={`avatar ${index + 1}`}
+                    onClick={() => handleAvatarChange(image)}
                   />
                 ))}
               </div>
             </div>
           </div>
-          <div className={style.contain}>
+          <form className={style.contain}>
             <div>
-              <label className={style.label} htmlFor="Display Name">
-                Display Name
-              </label>
               <Input
+                label="Display Name"
                 size="small"
                 isTextArea={false}
-                name="Display name"
+                name="DisplayName"
+                value={formValues.DisplayName}
                 placeholder="Others will see this name"
+                onChange={handleInputChange}
               />
             </div>
             <div className={style.names}>
               <div>
-                <label className={style.label} htmlFor="First Name">
-                  {" "}
-                  First Name
-                </label>
                 <Input
+                  value={formValues.Firstname}
+                  label="First Name"
                   size="small"
                   isTextArea={false}
-                  name="First name"
+                  name="Firstname"
                   placeholder="First name"
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
-                <label className={style.label} htmlFor="Last Name">
-                  {" "}
-                  Last Name
-                </label>
                 <Input
+                  value={formValues.Lastname}
+                  label="Last Name"
                   size="small"
                   isTextArea={false}
-                  name="Display name"
+                  name="Lastname"
                   placeholder="Last name"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
             <div>
-              <label className={style.label} htmlFor="Email">
-                Work email address
-              </label>
               <Input
+                value={formValues.email}
+                label="Work email address"
                 size="small"
                 type="email"
                 isTextArea={false}
                 name="email"
+                onChange={handleInputChange}
               />
             </div>
 
-            {/* 
-            --------------------------------------------------------
-          ----------------------------------------------------------- */}
-
             {/* this is the code for the country */}
 
-            {/* 
-            --------------------------------------------------------
-          ----------------------------------------------------------- */}
+            <div className="dropdown">
+              <Dropdown
+                label="Country"
+                onChange={(option: OptionType) => handleCountry(option)}
+                options={countries}
+                defaultText={"Choose Country"}
+              />
+            </div>
 
-            <div className={style.scroll_container}>
-              <label htmlFor="Country">Country</label>
-              <div
-                className={style.inner_container}
-                style={{
-                  cursor: "pointer",
-                }}
-                onClick={() => {
-                  setCountryDropdown(!countryDropdown);
-                }}>
-                {selectCountry ? (
-                  <div className={style.data} tabIndex={0}>
-                    <p className={style.specified_data} tabIndex={0}>
-                      {selectCountry}
-                    </p>
-                  </div>
-                ) : (
-                  <p className={style.data} tabIndex={0}>
-                    Select Country
-                  </p>
-                )}
+            {/* ------------------------------------------------------------ */}
 
-                <img
-                  className={style.img1}
-                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                  alt=""
+            {states.length > 0 && (
+              <div className="dropdown">
+                <Dropdown
+                  label="State"
+                  onChange={(option: OptionType) => handleState(option)}
+                  options={states}
+                  defaultText={"Choose State"}
                 />
               </div>
-              {countryDropdown && (
-                <ScrollableComponent
-                  direction="vertical"
-                  height={200}
-                  widthProp="100%"
-                  style={{
-                    zIndex: "10",
-                    backgroundColor: "white",
-                    // position: "absolute",
-                  }}>
-                  {Country.getAllCountries().map((country, index) => (
-                    <div
-                      style={{
-                        cursor: "pointer",
-                        width: "30rem",
-                      }}
-                      className={style.lists}
-                      key={index}
-                      onClick={() => handleCountrySelected(country.isoCode)}>
-                      <p className={style.lists}>{country.name}</p>
-                    </div>
-                  ))}
-                </ScrollableComponent>
-              )}
-            </div>
+            )}
 
             {/* 
-            --------------------------------------------------------
-          ---------------------------------------------------------
-          -- */}
-
-            {/* This part of the code is for the state */}
-
-            {/* 
-            --------------------------------------------------------
-          ----------------------------------------------------------- */}
-
-            <div className={style.scroll_container}>
-              <div>
-                <label htmlFor="State">State</label>
-                <div
-                  className={style.inner_container}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => {
-                    setStateDropdown(!stateDropdown);
-                    // setIsStateActive(!isStateActive);
-                  }}>
-                  {selectState ? (
-                    <div className={style.data} tabIndex={0}>
-                      <p className={style.specified_data} tabIndex={0}>
-                        {" "}
-                        {selectState}
-                      </p>
-                    </div>
-                  ) : (
-                    <p className={style.data} tabIndex={0}>
-                      Select State
-                    </p>
-                  )}
-
-                  <img
-                    className={style.img2}
-                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                    alt=""
-                  />
-                </div>
-                {stateDropdown && (
-                  <ScrollableComponent
-                    direction="vertical"
-                    height={200}
-                    widthProp="100%"
-                    style={{ zIndex: "10", backgroundColor: "white" }}>
-                    {states.map((state, index) => (
-                      <div
-                        style={{ cursor: "pointer", width: "30rem" }}
-                        key={index}
-                        className={style.lists}
-                        onClick={() => handleStateSelected(state.isoCode)}>
-                        <p
-                          style={{ border: "1px solid ash" }}
-                          className={style.lists}>
-                          {state.name}
-                        </p>
-                      </div>
-                    ))}
-                  </ScrollableComponent>
-                )}
-              </div>
-              {/* 
               -------------------------------------------------------
             ---------------------------------------------------------- */}
-
-              {/* This is the part for the City */}
-
-              {/* 
-              -------------------------------------------------------
-            ---------------------------------------------------------- */}
-
-              <div className={style.scroll_container}>
-                <label htmlFor="City">City</label>
-                <div
-                  className={style.inner_container}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => {
-                    setCityDropdown(!cityDropdown);
-                    // setIsCityActive(!isCityActive);
-                  }}>
-                  {selectCity ? (
-                    <div className={style.data} tabIndex={0}>
-                      <p className={style.specified_data} tabIndex={0}>
-                        {" "}
-                        {selectCity}
-                      </p>
-                    </div>
-                  ) : (
-                    <p className={style.data} tabIndex={0}>
-                      Select City
-                    </p>
-                  )}
-
-                  <img
-                    className={style.img3}
-                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                    alt=""
-                  />
-                </div>
-                {cityDropdown && (
-                  <ScrollableComponent
-                    direction="vertical"
-                    height={200}
-                    widthProp="100%"
-                    style={{ zIndex: "10", backgroundColor: "white" }}>
-                    {cities.map((city, index) => (
-                      <div
-                        style={{ cursor: "pointer" }}
-                        key={index}
-                        className={style.lists}
-                        onClick={() => handleCitySelected(city.name)}>
-                        <p className={style.lists}>{city.name}</p>
-                      </div>
-                    ))}
-                  </ScrollableComponent>
-                )}
+            {cities.length > 0 && (
+              <div className="dropdown">
+                <Dropdown
+                  label="City"
+                  onChange={(option: OptionType) => null}
+                  options={cities}
+                  defaultText={"Choose City"}
+                />
               </div>
-            </div>
+            )}
 
             {/* ----------------------------------------------------- */}
 
@@ -353,56 +279,17 @@ export default function ProfileSave() {
             {/* ----------------------------------------------------- */}
 
             <div>
-              <label htmlFor="Number">Office/Work Contact Number</label>
-              <div className={style.phone_cover}>
-                <div
-                  className={style.phone}
-                  onClick={() => setNumberDropdown(!numberDropdown)}>
-                  <p className={style.phone_number}>
-                    {`${selectNumber} (${countryCode})`}
-                  </p>
-                  <img
-                    className={style.img4}
-                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722871923/Vector_tees7j.svg"
-                    alt=""
-                  />
-                </div>
-                {numberDropdown && (
-                  <ScrollableComponent
-                    direction="vertical"
-                    height={120}
-                    widthProp="100%"
-                    style={{
-                      zIndex: "10",
-                      border: "2px solid #d1d1d1",
-                      position: "absolute",
-                      top: "3.3rem",
-                      width: "5rem",
-                      backgroundColor: "white",
-                    }}>
-                    {Country.getAllCountries().map((number, index) => (
-                      <div
-                        style={{ cursor: "pointer" }}
-                        key={index}
-                        className={style.phone_number}
-                        onClick={() => handleNumbers(number.phonecode)}>
-                        <p>{`${number.phonecode} (${number.isoCode})`}</p>
-                      </div>
-                    ))}
-                  </ScrollableComponent>
-                )}
-
-                <div className={style.ph_cover}>
-                  <input
-                    type="text"
-                    className={style.number_input}
-                    name=""
-                    id=""
-                  />
-                </div>
-              </div>
+              <PhoneInput
+                label="Office/Work Contact Number"
+                options={phoneCode}
+                onCountryChange={handlePhoneCodeChange}
+                value={phoneNumber}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPhoneNumber(e.target.value)
+                }
+              />
             </div>
-          </div>
+          </form>
           <div className={style.edit_holder}>
             <Button
               primary={true}

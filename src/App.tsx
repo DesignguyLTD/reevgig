@@ -5,6 +5,7 @@ import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Header from "./stories/Header/header";
 import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
+import ProfileSave from "./Pages/Profile/profileSave";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
@@ -36,6 +37,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/onboarding" element={<OnBoarding />} />
+            <Route path="/save" element={<ProfileSave />} />
           </Routes>
         </Router>
       </div>

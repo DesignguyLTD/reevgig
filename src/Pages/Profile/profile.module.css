@@ -10,12 +10,13 @@
 
 
 .contain {
-    width: 100%;
+    width: fit-content;
+    margin: 0 auto;
 
 }
 
 .holder {
-    padding: 8px 12px 8px 8px;
+    /* padding: 8px 12px 8px 8px; */
     width: fit-content;
     margin: 0 auto;
 }
@@ -270,7 +271,10 @@ label~input {
 
 @media screen and (min-width: 765px) {
     .edit_holder {
-        margin: initial;
+        margin-top: 40px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
     }
 
     .ph_cover {
