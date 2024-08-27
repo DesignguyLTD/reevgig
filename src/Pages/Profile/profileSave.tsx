@@ -1,11 +1,13 @@
 import { City, Country, State } from "country-state-city";
 import React, { useEffect, useState } from "react";
 
-import { Button } from "../../stories/Button-I/Button";
+import { ButtonII } from "../../stories/Button-II/ButtonII";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
+import { Helmet } from "react-helmet";
 import Input from "../../stories/FieldInput-I/input";
 import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import style from "./profile.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileSave() {
   interface FormValues {
@@ -25,6 +27,13 @@ export default function ProfileSave() {
     value: string;
     label: string;
   }
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/edit");
+  };
+
   const imageList: string[] = [
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611444/Group_9_Copy_2_iqlh3i.svg",
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611443/Group_10_Copy_zb5g37.svg",
@@ -118,15 +127,34 @@ export default function ProfileSave() {
         label: state.name,
         value: state.isoCode,
       }));
+
       setStates(stateList);
 
-      const selectedPhoneCode = phoneCode.find(
-        (code) =>
-          code.value === Country.getCountryByCode(countryCode)?.phonecode
-      );
-      setPhoneNumber(selectedPhoneCode?.label || "");
+      const allPhoneCodes = Country.getAllCountries().map((country) => ({
+        label: `+${country.phonecode} (${country.isoCode})`,
+        value: `+${country.phonecode}`,
+      }));
+
+      const selectedCountry = Country.getCountryByCode(countryCode);
+      if (selectedCountry) {
+        const selectedPhoneCode = {
+          label: `+${selectedCountry.phonecode} (${selectedCountry.isoCode})`,
+          value: `+${selectedCountry.phonecode}`,
+        };
+
+        const updatedPhoneCode = [
+          selectedPhoneCode,
+          ...allPhoneCodes.filter(
+            (phoneCode) => phoneCode.value !== selectedPhoneCode.value
+          ),
+        ];
+        setPhoneCode(updatedPhoneCode);
+      } else {
+        setPhoneCode(allPhoneCodes);
+      }
     } else {
       setStates([]);
+      setPhoneCode([]);
     }
   };
 
@@ -161,6 +189,27 @@ export default function ProfileSave() {
 
   return (
     <>
+      <Helmet>
+        <title>Profile Editor</title>
+        <meta
+          name="description"
+          content="This content of the profile from the onboarding that can be edited"
+        />
+        <link
+          rel="canonical"
+          href="https://DesignguyLTD.github.io/reevgig/#/edit"
+        />
+        <meta property="og:title" content="Profile Editor" />
+        <meta
+          property="og:description"
+          content="This is the editable part of the profile"
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png"
+        />
+      </Helmet>
+
       <section className={style.container}>
         <div className={style.holder}>
           <div className={style.avatar_container}>
@@ -242,6 +291,7 @@ export default function ProfileSave() {
                 onChange={(option: OptionType) => handleCountry(option)}
                 options={countries}
                 defaultText={"Choose Country"}
+                size="small"
               />
             </div>
 
@@ -254,6 +304,7 @@ export default function ProfileSave() {
                   onChange={(option: OptionType) => handleState(option)}
                   options={states}
                   defaultText={"Choose State"}
+                  size="small"
                 />
               </div>
             )}
@@ -268,6 +319,7 @@ export default function ProfileSave() {
                   onChange={(option: OptionType) => null}
                   options={cities}
                   defaultText={"Choose City"}
+                  size="small"
                 />
               </div>
             )}
@@ -291,11 +343,13 @@ export default function ProfileSave() {
             </div>
           </form>
           <div className={style.edit_holder}>
-            <Button
-              primary={true}
-              size="large"
+            <ButtonII
+              hasIcon={false}
+              isLabelVisible={true}
               label={"Save and Continue"}
-              icon={false}
+              onClick={handleNavigate}
+              primary={true}
+              size="medium"
             />
           </div>
         </div>

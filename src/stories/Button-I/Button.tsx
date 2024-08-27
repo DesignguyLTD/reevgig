@@ -1,44 +1,48 @@
-import React from 'react';
-import styles from './button.module.css'; // Import CSS module
+import React from "react";
+import styles from "./button.module.css"; // Import CSS module
 
 interface ButtonProps {
-    /**
-     * Determines if the button should render as the primary call-to-action button.
-     */
-    primary?: boolean;
+  /**
+   * Determines if the button should render as the primary call-to-action button.
+   */
+  primary?: boolean;
 
-    /**
-     * Disables the button interaction and changes its appearance.
-     */
-    disabled?: boolean;
+  /**
+   * Disables the button interaction and changes its appearance.
+   */
+  disabled?: boolean;
 
-    /**
-     * Specifies the background color of the button.
-     */
-    BorderColor?: string;
+  /**
+   * Specifies the background color of the button.
+   */
+  BorderColor?: string;
 
-    /**
-     * Sets the size of the button.
-     * @default 'medium'
-     */
-    size?: 'small' | 'medium' | 'large';
+  /**
+   * Sets the size of the button.
+   * @default 'medium'
+   */
+  size?: "small" | "medium" | "large";
 
-    /**
-     * The text displayed on the button.
-     */
-    label: string;
+  /**
+   * The text displayed on the button.
+   */
+  label: string;
 
-    /**
-     * The text displayed on the button.
-     */
-    icon: boolean;
+  /**
+   * The text displayed on the button.
+   */
+  icon: boolean;
 
-    /**
-     * Optional click handler for the button.
-     */
-    onClick?: () => void;
+  /**
+   * Optional click handler for the button.
+   */
+  onClick?: () => void;
 
-    imgLink?: string;
+  imgLink?: string;
+
+  style?: object;
+
+  className?: string;
 }
 
 /**
@@ -56,36 +60,43 @@ interface ButtonProps {
  */
 
 export const Button = ({
-                           primary = false,
-                           size = 'medium',
-                           BorderColor,
-                           label,
-                           disabled = false,
-                            icon,
-                            imgLink,
-                           ...props
-                       }: ButtonProps) => {
-    const mode = primary ? styles['storybook-button--primary'] : styles['storybook-button--secondary'];
-    const disable = disabled ? styles['storybook-button--disabled'] : '';
+  primary = false,
+  size = "medium",
+  BorderColor,
+  label,
+  disabled = false,
+  icon,
+  imgLink,
+  style = {},
+  className = "",
+  ...props
+}: ButtonProps) => {
+  const mode = primary
+    ? styles["storybook-button--primary"]
+    : styles["storybook-button--secondary"];
+  const disable = disabled ? styles["storybook-button--disabled"] : "";
 
-    // Join all classes using CSS modules
-    const buttonClasses = [
-        styles['storybook-button'],
-        styles[`storybook-button--${size}`],
-        mode,
-        disable
-    ].join(' ');
+  // Join all classes using CSS modules
+  const buttonClasses = [
+    styles["storybook-button"],
+    styles[`storybook-button--${size}`],
+    mode,
+    disable,
+  ].join(" ");
 
-    return (
-        <button
-            disabled={disabled}
-            type="button"
-            className={buttonClasses}
-            style={{borderColor: BorderColor}}
-            {...props}
-        >
-            {icon && <span className={styles['icon']}><img src={imgLink} alt="btn icon"/></span>}
-            {label}
-        </button>
-    );
+  return (
+    <button
+      disabled={disabled}
+      type="button"
+      className={buttonClasses}
+      style={{ borderColor: BorderColor, ...style }}
+      {...props}>
+      {icon && (
+        <span className={styles["icon"]}>
+          <img src={imgLink} alt="btn icon" />
+        </span>
+      )}
+      {label}
+    </button>
+  );
 };
