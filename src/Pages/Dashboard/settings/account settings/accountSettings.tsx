@@ -20,6 +20,9 @@ const AccountSettings: React.FC = () => {
 	const [city, setCity] = useState<string>("");
 	const [phoneCode, setPhoneCode] = useState<string>("");
 	const [telephone, setTelephone] = useState<string>("");
+	const [newPassword, setNewPassword] = useState<string>("")
+	const [confirmPassword, setConfirmPassword] = useState<string>("")
+
 	const fileInputRef = useRef<HTMLInputElement>(null);
 
 	const handleImageClick = () => {
@@ -27,6 +30,15 @@ const AccountSettings: React.FC = () => {
 			fileInputRef.current.click();
 		}
 	};
+
+	const handlePasswordChange = () => {
+		if (password && newPassword === confirmPassword) {
+			console.log("Password change submitted successfully.");
+		} else {			
+			console.log("Password does not match");
+		}
+	};
+	
 
 	const countryOptions = Country.getAllCountries().map((country) => ({
 		value: country.isoCode,
@@ -44,8 +56,8 @@ const AccountSettings: React.FC = () => {
 	})) : [];
 
 	const phoneOptions = Country.getAllCountries().map((country) => ({
-		value: country.phonecode,
-		label: country.phonecode
+		value: `+ ${country.phonecode.replace(/\+/g, "")}`,
+		label: `+ ${country.phonecode.replace(/\+/g, "")}`
 	}));
 
 
@@ -96,25 +108,26 @@ const AccountSettings: React.FC = () => {
 					/>
 				</div>
 				<div className={styles.names}>
-					<span className={styles.firstName}>
+					<div className={styles.firstName}>
 						<label>First Name</label>
 						<Input
 							value={firstName}
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
 							isTextArea={false}
-							size={'small'}
-							type={"text"}
+							size='small'
+							type="text"
 						/>
-					</span>
-					<span className={styles.lastName}>
+					</div>
+					<div className={styles.lastName}>
 						<label>Last Name</label>
 						<Input
 							value={lastName}
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
 							isTextArea={false}
-							type={"text"}
+							type= "text"
+							size={'small'}
 						/>
-					</span>
+					</div>
 				</div>
 				<div className={styles.mail}>
 					<label>Work email address</label>
@@ -122,7 +135,8 @@ const AccountSettings: React.FC = () => {
 						value={email}
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
 						isTextArea={false}
-						type={"email"}
+						type="email"
+						// size={"small"}
 					/>
 				</div>
 				<div className={styles.password}>
@@ -133,7 +147,6 @@ const AccountSettings: React.FC = () => {
 						placeholder="Password 15 or more characters"
 						isTextArea={false}
 						type="password"
-						size='small'
 					/>
 				</div>
 				<div className={styles.country}>
@@ -153,6 +166,7 @@ const AccountSettings: React.FC = () => {
 							onChange={({ value }) => setState(value)}
 							errorMessage="State must be selected"
 							options={stateOptions}
+							size="small"
 							defaultText={state === "" ? "Select a state" : state}
 						/>
 					</div>
@@ -162,6 +176,7 @@ const AccountSettings: React.FC = () => {
 							onChange={({ value }) => setCity(value)}
 							errorMessage="City must be selected"
 							options={cityOptions}
+							size="small"
 							defaultText={city === "" ? "Select a city" : city}
 						/>
 					</div>
@@ -206,8 +221,8 @@ const AccountSettings: React.FC = () => {
 					<div className={styles.newPassword}>
 						<label>New password</label>
 						<Input
-							value={password}
-							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+							value={newPassword}
+							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)}
 							isTextArea={false}
 							type={"password"}
 						/>
@@ -215,8 +230,8 @@ const AccountSettings: React.FC = () => {
 					<div className={styles.cfmPassword}>
 						<label>Confirm password</label>
 						<Input
-							value={password}
-							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+							value={confirmPassword}
+							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
 							isTextArea={false}
 							type={"password"}
 						/>
@@ -227,7 +242,7 @@ const AccountSettings: React.FC = () => {
 						label='Save Changes'
 						BorderColor='black'
 						icon={false}
-						onClick={() => setDisplayName(`${firstName} ${lastName}`)}
+						onClick={() => handlePasswordChange()}
 					/>
 				</div>
 			</div>

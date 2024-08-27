@@ -9,8 +9,8 @@ interface SettingList {
 }
 
 const settingLists: SettingList[] = [
-    { name: 'Account Settings', path: '/accountSettings' },
-    { name: 'Notification', path: '/notification' },
+    { name: 'Account Settings', path: '/settings/accountSettings' },
+    { name: 'Notification', path: '/settings/notification' },
     { name: 'Privacy Policy', path: '/settings' },
     { name: 'About Us', path: '/settings' }
 ];

@@ -1,8 +1,8 @@
 .ctn {
     margin: auto;
     margin-top: 150px;
-    width: 60dvw;
-    padding-left: 80px;
+    width: 850px;
+    /* padding-left: 80px; */
     position: relative;
     z-index: 0;
 }
@@ -62,15 +62,24 @@ form {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    position: absolute; 
-     bottom: 2px;
+    position: absolute;
+    bottom: 2px;
     left: 60px;
     color: white;
 }
 
 
-/* display name */
-label, h4 {
+/* .displayName */
+/* .displayName, */
+/* .mail, */
+/* .password, */
+/* .phone */
+ /* {
+    width: 100%;
+} */
+
+label,
+h4 {
     display: block;
     text-align: start;
     margin: 12px auto;
@@ -81,15 +90,35 @@ label, h4 {
     gap: 20px;
 }
 
-.firstName input, .lastName input {
+.firstName,
+.lastName {
     width: 255px;
 }
 
+
 .country {
+    position: relative;
+    z-index: 11;
     margin-top: 8px;
 }
 
-.stateCity, .phone {
+.stateCity {
+    margin-top: 15px;
+}
+
+.state {
+    position: relative;
+    z-index: 10;
+}
+
+.city {
+    position: relative;
+    z-index: 1;
+}
+
+.phone {
+    position: relative;
+    z-index: 0;
     margin-top: 15px;
 }
 
@@ -106,14 +135,17 @@ label, h4 {
 
 .passwordChange {
     display: flex;
-    gap: 15px;
+    /* gap: 15px; */
+    justify-content: space-between;
 }
 
 .passwordChange input {
-    width: 247px;
+    width: 100%;
 }
 
-.crtPassword, .newPassword, .cfmPassword {
+.crtPassword,
+.newPassword,
+.cfmPassword {
     width: 260px;
 }
 
@@ -123,65 +155,62 @@ label, h4 {
     margin-bottom: 0px;
     font-weight: normal;
 }
+
 .passwordCtn .btnCtn {
     padding-top: 10px;
 }
-/* 
-.btnCtn {
-    float: right;
-}
 
-.passwordChange {
-    width: 50dvw;
-}
-
-.crtPassword, .newPassword, .cfmPassword {
-    width: 41dvw;
-}
-
-.dropdown {
-    position: relative;
-    z-index: 12;
-}
-
-.state {
-    position: relative;
-    z-index: 11;
-}
-
-.city {
-    position: relative;
-    z-index: 10;
-} */
 
 @media (max-width: 768px) {
-    /* .ctn {
-        margin: auto;
-        margin-top: 120px;
-        width: 60dvw;
-        padding-left: 0px;
-        position: relative;
-        z-index: 0;
-    } */
+    .ctn {
+        width: 750px;
+        padding-left: 20px;
+    }
+
+    .passwordCtn .btnCtn {
+        padding-right: 10px;
+    }
+
+    form {
+        width: 500px;
+    }
+
 
 }
 
 @media (max-width: 320px) {
 
-    /* .ctn {
+    .ctn {
+        width: 340px;
+        margin-top: 100px;
         padding-left: 0px;
+        margin: auto;
     }
 
-    .settingFormCtn {
-        width: 320px;
-    }
+    form {
+        width: 340px;
+        margin: auto;
 
-    .formCtn {
-        width: 320px;
     }
 
     .passwordChange {
-        width: 320px;
-    } */
+        display: block;
+    }
 
+    .passwordCtn h2 {
+        border-bottom: 1px solid grey;
+        padding: 0px 0px 10px 20px;
+    }
+
+    .passwordChange label {
+        padding-left: 20px;
+    }
+
+    .cfmPassword {
+        width: 350px;
+    }
+
+    .btnCtn {
+        justify-content: center;
+    }
 }

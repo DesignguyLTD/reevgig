@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from "./stories/Header/header";
 import {
-    HashRouter as Router, Route, Routes
+    HashRouter as Router, Route, Routes,
+    Navigate
 } from "react-router-dom";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Login from "./Pages/Onboarding/login/login";
@@ -34,10 +35,12 @@ function App() {
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/resetpassword" element={<ResetPassword/>}/>
                     <Route element={<DashboardRoutes />}>
+                    <Route path="*" element={<Navigate to="/" />}/>
 
                     <Route path="/settings" element={<Settings/>}/>
-                    <Route path="/accountSettings" element={<AccountSettings/>}/>
-                    <Route path="/notification" element={<Notification/>}/>
+                    <Route path="/settings/accountSettings" element={<AccountSettings/>}/>
+                    <Route path="/settings/notification" element={<Notification/>}/>
+                    <Route path="/settings/*" element={<Navigate to="/settings" />}/>
                     </Route>
                 </Routes>
             </Router>

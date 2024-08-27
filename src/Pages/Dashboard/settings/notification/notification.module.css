@@ -1,6 +1,7 @@
 .ctn {
     margin: auto;
     margin-top: 150px;
+    padding-bottom: 40px;
     /* padding: 0px 0px 40px 80px; */
     width: 60.75dvw;
 }
@@ -159,6 +160,7 @@ h5 {
     }
 
     h5 {
+        font-size: 13.6px;
         margin-top: 15px;
     }
 
