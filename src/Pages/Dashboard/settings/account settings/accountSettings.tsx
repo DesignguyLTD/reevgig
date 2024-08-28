@@ -20,6 +20,7 @@ const AccountSettings: React.FC = () => {
 	const [city, setCity] = useState<string>("");
 	const [phoneCode, setPhoneCode] = useState<string>("");
 	const [telephone, setTelephone] = useState<string>("");
+	const [oldPassword, setOldPassword] = useState<string>("");
 	const [newPassword, setNewPassword] = useState<string>("")
 	const [confirmPassword, setConfirmPassword] = useState<string>("")
 
@@ -32,7 +33,7 @@ const AccountSettings: React.FC = () => {
 	};
 
 	const handlePasswordChange = () => {
-		if (password && newPassword === confirmPassword) {
+		if (password === oldPassword && newPassword === confirmPassword) {
 			console.log("Password change submitted successfully.");
 		} else {			
 			console.log("Password does not match");
@@ -125,7 +126,7 @@ const AccountSettings: React.FC = () => {
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
 							isTextArea={false}
 							type= "text"
-							size={'small'}
+							size='small'
 						/>
 					</div>
 				</div>
@@ -136,7 +137,7 @@ const AccountSettings: React.FC = () => {
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
 						isTextArea={false}
 						type="email"
-						// size={"small"}
+						// size="small"
 					/>
 				</div>
 				<div className={styles.password}>
@@ -212,8 +213,8 @@ const AccountSettings: React.FC = () => {
 					<div className={styles.crtPassword}>
 						<label>Current password</label>
 						<Input
-							value={password}
-							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+							value={oldPassword}
+							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setOldPassword(e.target.value)}
 							isTextArea={false}
 							type={"password"}
 						/>
