@@ -68,28 +68,12 @@ form {
     color: white;
 }
 
-
-/* .displayName */
-/* .displayName, */
-/* .mail, */
-/* .password, */
-/* .phone */
- /* {
-    width: 100%;
-} */
-
 label,
 h4 {
     display: block;
     text-align: start;
     margin: 12px auto;
 }
-
-/* .names {
-    display: flex;
-    gap: 20px;
-} */
-
 
 .country {
     position: relative;
@@ -130,7 +114,6 @@ h4 {
 
 .passwordChange {
     display: flex;
-    /* gap: 15px; */
     justify-content: space-between;
 }
 
@@ -152,44 +135,41 @@ h4 {
 }
 
 .passwordCtn .btnCtn {
-    padding-top: 10px;
+    padding: 10px 0px 0px 0px;
 }
-
 
 @media (max-width: 768px) {
     .ctn {
-        width: 750px;
-        padding-left: 20px;
+        width: 730px;
+        margin: auto;
+        margin-top: 150px;
     }
 
     .passwordCtn .btnCtn {
-        padding-right: 10px;
+        padding-right: 10px 10px 0px 0px;
     }
 
     form {
         width: 500px;
     }
-
-
 }
 
 @media (max-width: 320px) {
 
     .ctn {
-        width: 340px;
-        margin-top: 100px;
-        padding-left: 0px;
+        width: 280px;
         margin: auto;
+        margin-top: 100px;
     }
 
     form {
-        width: 340px;
-        margin: auto;
-
+        width: 280px;
     }
 
-    .passwordChange {
-        display: block;
+    .passwordCtn {
+        border-top: none;
+        justify-content: center;
+        padding-right: 10px 0px 0px 0px;  
     }
 
     .passwordCtn h2 {
@@ -197,15 +177,22 @@ h4 {
         padding: 0px 0px 10px 20px;
     }
 
+    .passwordChange {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    label {
+        padding-left: 10px;
+    }
     .passwordChange label {
         padding-left: 20px;
     }
 
-    .cfmPassword {
-        width: 350px;
-    }
-
     .btnCtn {
         justify-content: center;
+        padding-right: 10px 0px 0px 0px;  
     }
+
 }

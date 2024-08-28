@@ -137,7 +137,7 @@ const AccountSettings: React.FC = () => {
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
 						isTextArea={false}
 						type="email"
-						// size="small"
+						size="small"
 					/>
 				</div>
 				<div className={styles.password}>
@@ -195,7 +195,7 @@ const AccountSettings: React.FC = () => {
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTelephone(e.target.value)}
 						placeholder="Phone Number"
 						isTextArea={false}
-						type={"tel"}
+						type="tel"
 					/>
 				</div>
 				<div className={styles.btnCtn}>
@@ -216,7 +216,8 @@ const AccountSettings: React.FC = () => {
 							value={oldPassword}
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setOldPassword(e.target.value)}
 							isTextArea={false}
-							type={"password"}
+							type="password"
+							size='small'
 						/>
 					</div>
 					<div className={styles.newPassword}>
@@ -225,7 +226,8 @@ const AccountSettings: React.FC = () => {
 							value={newPassword}
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)}
 							isTextArea={false}
-							type={"password"}
+							type="password"
+							size='small'
 						/>
 					</div>
 					<div className={styles.cfmPassword}>
@@ -234,7 +236,8 @@ const AccountSettings: React.FC = () => {
 							value={confirmPassword}
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
 							isTextArea={false}
-							type={"password"}
+							type="password"
+							size='small'
 						/>
 					</div>
 				</div>
