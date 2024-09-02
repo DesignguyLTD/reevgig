@@ -8,10 +8,12 @@ import {
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Login from "./Pages/Onboarding/login/login";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
+
 import Settings from "./Pages/Dashboard/settings/settings";
 import AccountSettings from "./Pages/Dashboard/settings/account settings/accountSettings";
 import Notification from './Pages/Dashboard/settings/notification/notification';
 import DashboardRoutes from './Pages/Dashboard';
+import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 
 
 function App() {
@@ -42,6 +44,7 @@ function App() {
                     <Route path="/settings/notification" element={<Notification/>}/>
                     <Route path="/settings/*" element={<Navigate to="/settings" />}/>
                     </Route>
+                    <Route path="/onboarding" element={<OnBoarding/>}/>
                 </Routes>
             </Router>
 

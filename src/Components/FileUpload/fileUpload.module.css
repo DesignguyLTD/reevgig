@@ -1,0 +1,190 @@
+.fileContainer {
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    color: rgb(85, 85, 85);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    align-items: center;
+    max-width: 260px;
+    width: 100%;
+    padding: 10px;
+    transition: height 0.5s linear;
+    height: 140px;
+}
+
+
+.fileContainer.dragging {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    /*width: 70%;*/
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    visibility: hidden;
+    display: none;
+}
+
+.inputComponent:hover {
+    background: rgb(254, 194, 0);
+    color: rgb(37, 37, 37);
+}
+
+.inputComponent {
+    cursor: pointer;
+    width: 144px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    display: inline-flex;
+    flex-direction: row;
+    background: rgb(255, 235, 170);
+    justify-content: center;
+    color: rgb(37, 37, 37);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.inputComponent img {
+    margin: 0 10px;
+}
+
+.fileUploaded {
+    box-sizing: border-box;
+    border: 0.54px solid rgb(227, 227, 227);
+    border-radius: 4.3px;
+    padding: 10px;
+    background: rgb(39, 39, 39);
+    color: rgb(217, 217, 217);
+    font-family: Mulish;
+    font-size: 12.91px;
+    font-weight: 400;
+    line-height: 19.37px;
+    letter-spacing: 0;
+    text-align: center;
+    width: 240px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 44px;
+}
+
+.fileUploadedCont {
+    position: relative;
+}
+
+.fileUploadedCont img {
+    cursor: pointer;
+    margin: 5px;
+}
+
+.yellowunderline {
+    border-radius: 10.76px;
+    width: 140px;
+    height: 4px;
+    background: rgb(254, 194, 0);
+    position: absolute;
+    top: 54px;
+}
+
+.firstText {
+    color: rgb(85, 85, 85);
+    font-family: PP Neue Montreal;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.secText {
+    color: rgb(85, 85, 85);
+    font-family: PP Neue Montreal;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0.1px;
+    text-align: center;
+}
+
+.error{
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .fileContainer{
+        max-width: 504px;
+        width: 100%;
+    }
+
+    .firstText {
+        color: rgb(85, 85, 85);
+        font-family: PP Neue Montreal;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0.5px;
+        text-align: center;
+    }
+
+    .secText {
+        color: rgb(85, 85, 85);
+        font-family: PP Neue Montreal;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 12px;
+        letter-spacing: 0.1px;
+        text-align: center;
+    }
+
+    .fileUploaded{
+        width: 480px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fileContainer{
+        max-width: 530px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .firstText {
+        color: rgb(85, 85, 85);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0.5px;
+        text-align: center;
+    }
+
+    .secText {
+        color: rgb(85, 85, 85);
+        font-family: PP Neue Montreal;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 12px;
+        letter-spacing: 0.1px;
+        text-align: center;
+    }
+
+    .fileUploaded{
+        width: 500px;
+    }
+}

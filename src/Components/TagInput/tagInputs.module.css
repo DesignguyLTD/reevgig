@@ -1,0 +1,229 @@
+.tagInput {
+    font-family: "PP Neue Montreal";
+    margin: 10px auto;
+    max-width: 262px;
+    width: 100%;
+}
+
+.tagInputTitle{
+
+    color: rgb(24, 24, 24);
+    font-family:PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.6px;
+    text-align: left;
+}
+
+.tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    max-width: 262px;
+    width: 100%;
+    padding: 0 3px;
+    box-sizing: border-box;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+}
+
+.tag {
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px;
+    display: inline-flex;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    background: rgb(255, 235, 170);
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+}
+
+.tagInactive{
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px;
+    display: inline-flex;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+    background: #ffffff;
+}
+
+.tagInactive:hover {
+    background: #f0f0f0;
+}
+
+.tag button {
+    background: none;
+    border: none;
+    font-size: 12px;
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.recommendedTags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    max-width: 262px;
+    width: 100%;
+}
+
+.recommendedTag {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.recommendedTag:hover {
+    background-color: #d0d0d0;
+}
+
+.tags input {
+    border: none;
+    border-radius: 8px;
+    padding: 0 6px;
+    height: 44px;
+    color: rgb(43, 44, 50);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.tags input:focus {
+    outline: none;
+}
+
+.tags input:focus-visible {
+    outline: none;
+}
+
+.recText{
+    color: rgb(74, 75, 81);
+    font-family:PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0;
+    text-align: left;
+    max-width: 262px;
+    width: 100%;
+    margin: 5px;
+}
+
+.error{
+
+    color: rgb(248, 3, 3);
+    font-family:PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.6px;
+    text-align: left;
+}
+
+
+@media (min-width: 768px) {
+    .tags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 10px;
+        max-width: 508px;
+        padding: 0 3px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgb(217, 217, 217);
+        border-radius: 8px;
+        background: rgb(255, 255, 255);
+    }
+
+    .recommendedTags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-width: 508px;
+        width: 100%;
+    }
+
+    .tagInputTitle{
+        text-align: left;
+        max-width: 508px;
+        width: 100%;
+    }
+
+    .tagInput {
+        font-family: "PP Neue Montreal";
+        margin: 10px auto;
+        max-width: 508px;
+        width: 100%;
+    }
+
+}
+
+
+@media (min-width: 1024px) {
+    .tags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 10px;
+        max-width: 530px;
+        padding: 0 3px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgb(217, 217, 217);
+        border-radius: 8px;
+        background: rgb(255, 255, 255);
+    }
+
+
+    .recommendedTags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-width: 530px;
+        width: 100%;
+    }
+
+    .tagInputTitle{
+        text-align: left;
+        max-width: 530px;
+        width: 100%;
+    }
+
+
+    .tagInput {
+        font-family: "PP Neue Montreal";
+        margin: 10px auto;
+        max-width: 530px;
+        width: 100%;
+    }
+
+
+}
