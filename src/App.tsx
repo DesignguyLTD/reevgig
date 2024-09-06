@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
 
 import Header from "./stories/Header/header";
+import Jobs from "./Pages/Jobs/Jobs";
 import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import Profile from "./Pages/Profile/Profile";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/onboarding" element={<OnBoarding />} />
             <Route path="/edit" element={<ProfileSave />} />
             <Route path="/saved" element={<Profile />} />
+            <Route path="/jobs/*" element={<Jobs />} />
           </Routes>
         </Router>
       </div>

@@ -31,7 +31,7 @@ export default function ProfileSave() {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/edit");
+    navigate("/saved");
   };
 
   const imageList: string[] = [
