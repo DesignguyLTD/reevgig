@@ -3,8 +3,6 @@ import Toggle from "../../../../stories/ToggleBtn/toggle";
 import styles from "./notification.module.css";
 import { Link } from "react-router-dom";
 
-// import { backArrow, fwdArrow, notification } from '../../../../assets';
-
 const notificationTypes = [
     { title: "Application and Account status", desc: "Stay informed about any change or updates related to your active job application" },
     { title: "Career tips", desc: "Get visible insights and tips to help navigate your professional journey" },

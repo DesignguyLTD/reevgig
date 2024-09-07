@@ -2,8 +2,6 @@ import React from "react";
 import styles from "./settings.module.css";
 import { Link } from "react-router-dom";
 
-// import { backArrow, fwdArrow } from '../../../assets';
-
 interface SettingList {
     name: string;
     path: string;
