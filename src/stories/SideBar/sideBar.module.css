@@ -20,6 +20,11 @@
     z-index: 101;
 }
 
+.Link{
+    text-decoration: none;
+    color: #7d7d7d;
+}
+
 .logo {
     padding: 10px;
     text-align: center;

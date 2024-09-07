@@ -212,7 +212,8 @@ export default function ProfileSave() {
           content="https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png"
         />
       </Helmet>
-      <Sidebar/>
+      <Sidebar logo={'/'} profile={'/saved'} overview={'/'}/>
+
 
       <section className={style.container}>
         <div className={style.holder}>

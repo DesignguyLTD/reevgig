@@ -1,11 +1,15 @@
 import React, {useState, useEffect, useRef} from 'react';
 import styles from './sideBar.module.css';
+import {Link} from "react-router-dom";
 
 interface SidebarProps {
     collapse?: boolean;
+    logo?: string;
+    profile?: string;
+    overview?: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
+const Sidebar: React.FC<SidebarProps> = ({ collapse , logo, profile , overview} :SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
@@ -23,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
 
     const handleNavSearchDisplay = () => {
         // Ensure this only runs on screens wider than 765px
-        if (window.matchMedia('(min-width: 765px)').matches && navSearchRef.current) {
+        if (window.matchMedia('(max-width: 765px)').matches && navSearchRef.current) {
             navSearchRef.current.style.display = 'block';
         }
     };
@@ -31,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
     const handleClickOutside = (event: MouseEvent) => {
         // Ensure this only runs on screens wider than 765px
         if (
-            window.matchMedia('(min-width: 765px)').matches &&
+            window.matchMedia('(max-width: 765px)').matches &&
             navSearchRef.current &&
             !navSearchRef.current.contains(event.target as Node)
         ) {
@@ -41,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
 
     useEffect(() => {
         // Add event listener to detect clicks outside of the navSerch only on wide screens
-        if (window.matchMedia('(min-width: 765px)').matches) {
+        if (window.matchMedia('(max-width: 765px)').matches) {
             document.addEventListener('mousedown', handleClickOutside);
         }
 
@@ -49,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [window.matchMedia]);
 
 
     return (
@@ -93,20 +97,23 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
             </div>
             <div style={{ position: 'relative' }}>
                 <div ref={navSearchRef}  className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
-                    <div className={styles.logo}>
-                        <img
-                            src={
-                                isOpen
-                                    ? 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg'
-                                    : 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/fa_bolt_owleb9.svg'
-                            }
-                            alt="logo"
-                        />
-                    </div>
+                    <Link to={`${logo}`} className={styles.Link}>
+                        <div className={styles.logo}>
+                            <img
+                                src={
+                                    isOpen
+                                        ? 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg'
+                                        : 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/fa_bolt_owleb9.svg'
+                                }
+                                alt="logo"
+                            />
+                        </div>
 
-                    <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
-                        RECRUITER’S DASHBOARD
-                    </div>
+                        <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
+                            RECRUITER’S DASHBOARD
+                        </div>
+                    </Link>
+
 
                     {/* Sidebar content */}
                     <button
@@ -121,32 +128,38 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                     </button>
 
                     <ul className={styles.upperSideBar}>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <div>Overview</div>
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <span className={styles.tooltiptext}>Overview</span>
-                                </div>
-                            )}
-                        </li>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-user"></i>
-                                    Profile
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-user"></i>
-                                    <span className={styles.tooltiptext}>Profile</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link to={`${overview}`} className={styles.Link}>
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <div>Overview</div>
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <span className={styles.tooltiptext}>Overview</span>
+                                    </div>
+                                )}
+                            </li>
+
+                        </Link>
+                        <Link to={`${profile}`} className={styles.Link}>
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-user"></i>
+                                        Profile
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-user"></i>
+                                        <span className={styles.tooltiptext}>Profile</span>
+                                    </div>
+                                )}
+                            </li>
+
+                        </Link>
                         <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
