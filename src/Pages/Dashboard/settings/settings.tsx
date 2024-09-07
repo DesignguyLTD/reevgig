@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 import styles from "./settings.module.css";
-import { backArrow, fwdArrow } from '../../../assets';
+import { Link } from "react-router-dom";
+
+// import { backArrow, fwdArrow } from '../../../assets';
 
 interface SettingList {
     name: string;
@@ -20,7 +21,7 @@ const Settings: React.FC = () => {
         <div className={styles.ctn}>
             <div className={styles.backward}>
                 <Link to="/settings">
-                    <img src={backArrow} alt="Back Arrow" />
+                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg" alt="Back Arrow" />
                 </Link>
                 <p>Settings</p>
             </div>
@@ -29,7 +30,7 @@ const Settings: React.FC = () => {
                     <li key={index} className={styles.list}>
                         <Link to={item.path}>
                             {item.name}
-                            <img src={fwdArrow} alt='Forward Arrow' />
+                            <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg" alt="Forward Arrow" />
                         </Link>
                     </li>
                 ))}

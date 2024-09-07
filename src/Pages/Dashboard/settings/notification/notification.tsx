@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import styles from "./notification.module.css";
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
 import Toggle from "../../../../stories/ToggleBtn/toggle";
-import { backArrow, fwdArrow, notification } from '../../../../assets';
+import styles from "./notification.module.css";
+import { Link } from "react-router-dom";
+
+// import { backArrow, fwdArrow, notification } from '../../../../assets';
 
 const notificationTypes = [
     { title: "Application and Account status", desc: "Stay informed about any change or updates related to your active job application" },
@@ -23,18 +24,18 @@ const Notification = () => {
         <div className={styles.ctn}>
             <div className={styles.settingPages}>
                 <Link to="/settings" className={styles.backToSettings}>
-                    <img src={backArrow} alt="Back Arrow" />
+                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg" alt="Back Arrow" />
                     <p>Settings</p>
                 </Link>
                 <div className={styles.currentPage}>
-                    <img src={fwdArrow} alt="Forward Arrow" />
+                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg" alt="Forward Arrow" />
                     <p>Notification</p>
                 </div>
             </div>
             <div className={styles.notify_sect}>
                 <div className={styles.notify_title}>
                     <span>
-                        <img src={notification} alt='bell' />
+                        <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/notification_fbfz3d.svg" alt='bell' />
                     </span>
                     <span>
                         <p>Notification</p>
@@ -64,7 +65,7 @@ const Notification = () => {
                 </div>
                 <div className={styles.jobNotify_title}>
                     <span>
-                        <img src={notification} alt='bell' />
+                        <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/notification_fbfz3d.svg" alt='bell' />
                     </span>
                     <span>
                         <p>Job Notification</p>

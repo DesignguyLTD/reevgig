@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react';
-import Input from "../../../../stories/FieldInput-I/input";
 import Dropdown from "../../../../stories/OtherInputsType/dropdown/dropdown";
-import { Button } from "../../../../stories/Button-I/Button";
-import { Country, State, City } from 'country-state-city';
-import { Link } from 'react-router-dom';
-import { backArrow, fwdArrow, upload } from "../../../../assets/index";
+import Input from "../../../../stories/FieldInput-I/input";
+import React, { useRef, useState } from "react";
 import styles from "./accountSettings.module.css";
+import { City, Country, State } from "country-state-city";
+import { Link } from "react-router-dom";
+import { Button } from "../../../../stories/Button-I/Button";
 
 const AccountSettings: React.FC = () => {
 	const [image, setImage] = useState<string | null>(null);
@@ -67,11 +66,11 @@ const AccountSettings: React.FC = () => {
 		<div className={styles.ctn}>
 			<div className={styles.settingPages}>
 				<Link to="/settings" className={styles.backToSettings}>
-					<img src={backArrow} alt="Back Arrow" />
+					<img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg" alt="Back Arrow" />
 					<p>Settings</p>
 				</Link>
 				<div className={styles.currentPage}>
-					<img src={fwdArrow} alt="Forward Arrow" />
+					<img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg" alt="Forward Arrow" />
 					<p>Account Settings</p>
 				</div>
 			</div>
@@ -93,7 +92,7 @@ const AccountSettings: React.FC = () => {
 					<div className={styles.imageborder}>
 						{image && <img src={image} alt={fileName} className={styles.image} />}
 						<span className={styles.imageUploaderCtn}>
-							<img src={upload} alt="Upload" onClick={handleImageClick} />
+							<img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725721179/Vector_pp81j6.svg" alt="Upload" onClick={handleImageClick} />
 						</span>
 					</div>
 				</div>
