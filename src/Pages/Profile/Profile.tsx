@@ -1,8 +1,16 @@
 import { Helmet } from "react-helmet";
 import React from "react";
 import style from "./profile.module.css";
+import Sidebar from "../../stories/SideBar/sideBar";
+import {useNavigate} from "react-router-dom";
 
 const Profile = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/edit");
+  };
   return (
     <>
       <Helmet>
@@ -25,6 +33,7 @@ const Profile = () => {
           content="https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png"
         />
       </Helmet>
+      <Sidebar/>
       <section className={style.container}>
         <div className={style.holder}>
           <div className={style.avatar_container}>
@@ -96,7 +105,7 @@ const Profile = () => {
             </div>
           </div>
           <div className={style.edit_holder}>
-            <button className={style.edit}>Edit Profile</button>
+            <button className={style.edit} onClick={handleNavigate}>Edit Profile</button>
           </div>
         </div>
       </section>

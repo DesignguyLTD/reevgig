@@ -1,5 +1,5 @@
 import { City, Country, State } from "country-state-city";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,  } from "react";
 
 import { ButtonII } from "../../stories/Button-II/ButtonII";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
@@ -8,6 +8,8 @@ import Input from "../../stories/FieldInput-I/input";
 import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import style from "./profile.module.css";
 import { useNavigate } from "react-router-dom";
+import Header from "../../stories/Header/header";
+import Sidebar from "../../stories/SideBar/sideBar";
 
 export default function ProfileSave() {
   interface FormValues {
@@ -31,7 +33,7 @@ export default function ProfileSave() {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/edit");
+    navigate("/saved");
   };
 
   const imageList: string[] = [
@@ -189,6 +191,7 @@ export default function ProfileSave() {
 
   return (
     <>
+
       <Helmet>
         <title>Profile Editor</title>
         <meta
@@ -209,6 +212,7 @@ export default function ProfileSave() {
           content="https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png"
         />
       </Helmet>
+      <Sidebar/>
 
       <section className={style.container}>
         <div className={style.holder}>

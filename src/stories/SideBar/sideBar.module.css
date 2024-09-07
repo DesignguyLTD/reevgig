@@ -17,6 +17,7 @@
     background-color: #252525;
     color: #7d7d7d;
     padding: 15px 0 15px 0;
+    z-index: 101;
 }
 
 .logo {
@@ -215,6 +216,10 @@ display: inline-flex;
     background: rgb(252, 253, 255);
     padding: 10px;
     gap: 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .sidebar{

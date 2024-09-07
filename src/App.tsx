@@ -36,10 +36,6 @@ function App() {
                         </>
                         }
                     />
-                  </header>
-                </h1>
-              }
-            />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
@@ -49,7 +45,6 @@ function App() {
           </Routes>
         </Router>
       </div>
-    </div>
   );
 }
 
