@@ -1,188 +1,186 @@
-import React, {useState} from 'react';
-import signUp from './signUp.module.css'
-import {Button} from "../../../stories/Button-I/Button";
-import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
-import Input from "../../../stories/FieldInput-I/input";
-import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
+import React, { useState } from "react";
+
+import { Button } from "../../../stories/Button-I/Button";
+import { ButtonII } from "../../../stories/Button-II/ButtonII";
 import CheckBox from "../../../stories/CheckBox/checkbox";
+import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
+import Input from "../../../stories/FieldInput-I/input";
+import { Link } from "react-router-dom";
 import Modal from "../../../Components/modals/mailModal/modal";
-import {countries} from "./countries";
-import {Link} from "react-router-dom";
-import {ButtonII} from "../../../stories/Button-II/ButtonII";
 import PhoneInput from "../../../stories/OtherInputsType/PhoneInput/PhoneInput";
+import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
+import { countries } from "./countries";
+import signUp from "./signUp.module.css";
 import Header from "../../../stories/Header/header";
 
 const SignUp = () => {
-    const [selectedOption, setSelectedOption] = React.useState("");
-    const [stage, setStage] = React.useState(1);
-    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedOption(e.target.value);
-        localStorage.setItem('userType',e.target.value)
+  const [selectedOption, setSelectedOption] = React.useState("");
+  const [stage, setStage] = React.useState(1);
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(e.target.value);
+    localStorage.setItem("userType", e.target.value);
+  };
+
+  const handleNext = () => {
+    if (stage !== 3) {
+      setStage(stage + 1);
     }
+  };
 
-    const handleNext = () => {
-        if(stage !== 3) {
-            setStage(stage + 1);
-        }
+  const handleBack = () => {
+    setStage(stage - 1);
+  };
+
+  const Countries = countries;
+
+  const goToGmail = () => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      window.location.href = "googlegmail://";
+    } else {
+      window.open("https://mail.google.com", "_blank");
     }
+  };
 
-    const handleBack = () => {
-        setStage(stage - 1);
-    }
+  interface FormValues {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    country: string;
+    sendMails: string;
+    TermsAndConditon: string;
+    phone: string;
+  }
 
-    const Countries = countries;
+  const defaultFormValues: FormValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    country: "",
+    sendMails: "",
+    TermsAndConditon: "",
+    phone: "",
+  };
 
-   const goToGmail = () => {
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            window.location.href = 'googlegmail://';
-        } else {
-            window.open('https://mail.google.com', '_blank');
-        }
-    };
+  const [formValues, setFormValues] = useState<FormValues>(() => {
+    const savedFormValues = localStorage.getItem("signUpForm");
+    return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+  });
 
-    interface FormValues {
-        firstName: string,
-        lastName: string,
-        email: string,
-        password: string,
-        country: string,
-        sendMails: string,
-        TermsAndConditon: string,
-        phone: string
-    }
+  let formValuesCopy: Partial<typeof formValues> = { ...formValues };
+  delete formValuesCopy.password;
+  localStorage.setItem("signUpForm", JSON.stringify(formValuesCopy));
 
-    const defaultFormValues :FormValues = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        country: '',
-        sendMails: '',
-        TermsAndConditon: '',
-        phone: ''
-    };
+  const [formErrors, setFormErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    country: "",
+    sendMails: "",
+    TermsAndConditon: "",
+    phone: "",
+  });
 
-    const [formValues, setFormValues] = useState<FormValues>(()=>{
-        const savedFormValues = localStorage.getItem('signUpForm');
-        return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    setFormValues({
+      ...formValues,
+      [e.target.name]: value,
     });
+  };
 
+  const handleDropdown = (option: any) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      country: option.value,
+    }));
+  };
 
-    let formValuesCopy: Partial<typeof formValues> = {...formValues};
-    delete formValuesCopy.password;
-    localStorage.setItem('signUpForm', JSON.stringify(formValuesCopy));
-
-    const [formErrors, setFormErrors] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        country: '',
-        sendMails: '',
-        TermsAndConditon: '',
-        phone: ''
-
-    });
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-        setFormValues({
-            ...formValues,
-            [e.target.name]: value,
-        });
+  const validateForm = () => {
+    let newErrors = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      country: "",
+      sendMails: "",
+      TermsAndConditon: "",
+      phone: "",
     };
 
-    const handleDropdown = (option: any) => {
-        setFormValues(prevState => ({
-            ...prevState,
-            country: option.value
-        }));
+    // Validate first name
+    if (!formValues.firstName) {
+      newErrors.firstName = "First name is required";
     }
 
+    // Validate last name
+    if (!formValues.lastName) {
+      newErrors.lastName = "Last name is required";
+    }
 
-    const validateForm = () => {
-        let newErrors = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-            country: '',
-            sendMails: '',
-            TermsAndConditon: '',
-            phone: ''
+    // Validate email
+    if (!formValues.email) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
+      newErrors.email = "Email is invalid";
+    }
 
-        };
+    // Validate password
+    if (!formValues.password) {
+      newErrors.password = "Required";
+    } else {
+      if (formValues.password.length < 8) {
+        newErrors.password = "Min. 8 characters";
+      }
+      if (!/[a-z]/.test(formValues.password)) {
+        newErrors.password = "Needs lowercase";
+      }
+      if (!/[A-Z]/.test(formValues.password)) {
+        newErrors.password = "Needs uppercase";
+      }
+      if (!/\d/.test(formValues.password)) {
+        newErrors.password = "Needs a digit";
+      }
+      if (!/[@$!%*?&]/.test(formValues.password)) {
+        newErrors.password = "Needs special character";
+      }
+    }
 
-        // Validate first name
-        if (!formValues.firstName) {
-            newErrors.firstName = 'First name is required';
-        }
+    // Validate country
+    if (!formValues.country) {
+      newErrors.country = "Country is required";
+    }
 
-        // Validate last name
-        if (!formValues.lastName) {
-            newErrors.lastName = 'Last name is required';
-        }
+    if (!formValues.TermsAndConditon) {
+      newErrors.TermsAndConditon = "You must agree to the terms of service";
+    }
 
-        // Validate email
-        if (!formValues.email) {
-            newErrors.email = 'Email is required';
-        } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
-            newErrors.email = 'Email is invalid';
-        }
+    setFormErrors(newErrors);
 
-               // Validate password
-        if (!formValues.password) {
-            newErrors.password = 'Required';
-        } else {
-            if (formValues.password.length < 8) {
-                newErrors.password = 'Min. 8 characters';
-            }
-            if (!/[a-z]/.test(formValues.password)) {
-                newErrors.password = 'Needs lowercase';
-            }
-            if (!/[A-Z]/.test(formValues.password)) {
-                newErrors.password = 'Needs uppercase';
-            }
-            if (!/\d/.test(formValues.password)) {
-                newErrors.password = 'Needs a digit';
-            }
-            if (!/[@$!%*?&]/.test(formValues.password)) {
-                newErrors.password = 'Needs special character';
-            }
-        }
+    // If all values are valid, return true
+    return !Object.values(newErrors).some((error) => error !== "");
+  };
 
+  // const checkValidity = () => {
+  //     return validateForm();
+  // }
 
-        // Validate country
-        if (!formValues.country) {
-            newErrors.country = 'Country is required';
-        }
+  const handleSubmit = () => {
+    const isFormValid = validateForm();
 
 
-
-        if (!formValues.TermsAndConditon) {
-            newErrors.TermsAndConditon = 'You must agree to the terms of service';
-        }
-
-        setFormErrors(newErrors);
-
-        // If all values are valid, return true
-        return !Object.values(newErrors).some(error => error !== '');
-    };
-
-    // const checkValidity = () => {
-    //     return validateForm();
-    // }
-
-    const handleSubmit = () => {
-        const isFormValid = validateForm();
-
-        if (isFormValid) {
-            console.log(formValues)
-            handleNext()
-        }
-    };
-
-
+    if (isFormValid) {
+      console.log(formValues);
+      handleNext();
+    }
+  };
 
     return (
         <>
@@ -320,7 +318,8 @@ const SignUp = () => {
 
         </>
 
-    );
+    </div>
+  );
 };
 
 export default SignUp;
