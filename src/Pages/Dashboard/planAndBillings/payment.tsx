@@ -2,7 +2,7 @@
 // import React from "react";
 // import styles from "./payment.module.css";
 
-// const Payment = () => {
+const Payment = () => {
 //   return (
 //     <div className={styles.Ctn}>
 //       <div className={styles.topCtn}>
@@ -33,6 +33,6 @@
 //       </div>
 //     </div>
 //   )
-// }
+}
 
-// export default Payment
+export default Payment
