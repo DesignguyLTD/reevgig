@@ -34,11 +34,11 @@ const AccountSettings: React.FC = () => {
 	const handlePasswordChange = () => {
 		if (password === oldPassword && newPassword === confirmPassword) {
 			console.log("Password change submitted successfully.");
-		} else {			
+		} else {
 			console.log("Password does not match");
 		}
 	};
-	
+
 
 	const countryOptions = Country.getAllCountries().map((country) => ({
 		value: country.isoCode,
@@ -124,7 +124,7 @@ const AccountSettings: React.FC = () => {
 							value={lastName}
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
 							isTextArea={false}
-							type= "text"
+							type="text"
 							size='small'
 						/>
 					</div>
