@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './sideBar.module.css';
 import { Link, useNavigate } from "react-router-dom";
-import style from "../../Pages/DashBoard/Dashboard.module.css";
-import Profile from "../../Components/DashBoard/Profile";
+import style from "../../Pages/OverView/OverviewPage.module.css";
+import ProfileNav from "../../Components/DashBoard/ProfileNav";
 
 interface SidebarProps {
     collapse?: boolean;
     logo?: string;
-    profile?: string;
-    overview?: string;
     getSidebarState?: (x: boolean) => boolean;
+    getPage?: (x: string) => string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, getSidebarState }: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getPage }: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
@@ -120,7 +119,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                     </div>
                     {isProfileOpen && (
                         <div ref={profileRef} className={styles.profile}>
-                            <Profile />
+                            <ProfileNav />
                         </div>
                     )}
                 </div>
@@ -159,8 +158,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                     </button>
 
                     <ul className={styles.upperSideBar}>
-                        <Link to={`${overview}`} className={styles.Link}>
-                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        {/*<Link to={`${overview}`} className={styles.Link}>*/}
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Overview') : ''}>
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-apps"></i>
@@ -174,9 +173,9 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                                 )}
                             </li>
 
-                        </Link>
-                        <Link to={`${profile}`} className={styles.Link}>
-                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        {/*</Link>*/}
+                        {/*<Link to={`${profile}`} className={styles.Link}>*/}
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Profile') : ''}>
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-user"></i>
@@ -190,8 +189,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                                 )}
                             </li>
 
-                        </Link>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        {/*</Link>*/}
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('PostAJob') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-add"></i>
@@ -205,7 +204,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Message') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-envelope"></i>
@@ -219,7 +218,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('SavedEmployee') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-users"></i>
@@ -233,7 +232,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('PlanBillings') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-receipt"></i>
@@ -247,7 +246,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, ge
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Settings') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-settings"></i>

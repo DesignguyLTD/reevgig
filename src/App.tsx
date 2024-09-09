@@ -42,7 +42,6 @@ function App() {
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/onboarding" element={<OnBoarding />} />
             <Route path="/edit" element={<ProfileSave />} />
-            <Route path="/saved" element={<Profile />} />
             <Route path="/dashboard" element={<Dashboard />} />
 
           </Routes>

@@ -2,11 +2,11 @@ import React from 'react';
 import style from "./Profile.module.css";
 import {useNavigate} from "react-router-dom";
 
-const Profile = () => {
+const ProfileNav = () => {
 
     let navigate = useNavigate();
     const handleNavigation =() =>{
-        navigate('/saved');
+        navigate('/edit');
     }
     return (
         <div>
@@ -170,4 +170,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default ProfileNav;

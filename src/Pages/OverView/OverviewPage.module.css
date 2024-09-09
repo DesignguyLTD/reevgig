@@ -194,7 +194,7 @@
         flex-direction: row;
         align-items: stretch;
         width: 1000px;
-        gap: 60px;
+        gap: 20%;
         justify-content: space-between;
     }
 
