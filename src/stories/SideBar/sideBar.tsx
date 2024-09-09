@@ -1,22 +1,35 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './sideBar.module.css';
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import style from "../../Pages/DashBoard/Dashboard.module.css";
+import Profile from "../../Components/DashBoard/Profile";
 
 interface SidebarProps {
     collapse?: boolean;
     logo?: string;
     profile?: string;
     overview?: string;
+    getSidebarState?: (x: boolean) => boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ collapse , logo, profile , overview} :SidebarProps) => {
-    const [isOpen, setIsOpen] = useState(collapse);
+const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, profile, overview, getSidebarState }: SidebarProps) => {
+    const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
+    const profileRef = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
+    const [isProfileOpen, setProfileIsOpen] = useState(false);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
+
+    const handleProfile = () => {
+        setProfileIsOpen(!isProfileOpen);
+    };
+
+    useEffect(() => {
+        getSidebarState && getSidebarState(isOpen);
+    }, [isOpen]);
 
     const handleShowSide = () => {
         // Check if the viewport width is greater than 765px
@@ -41,20 +54,31 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse , logo, profile , overview} 
         ) {
             navSearchRef.current.style.display = 'none';
         }
+
+        // Close profile dropdown when clicking outside
+        if (
+            isProfileOpen &&
+            profileRef.current &&
+            !profileRef.current.contains(event.target as Node)
+        ) {
+            setProfileIsOpen(false);
+        }
     };
 
     useEffect(() => {
-        // Add event listener to detect clicks outside of the navSerch only on wide screens
-        if (window.matchMedia('(max-width: 765px)').matches) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
+        // Add event listener to detect clicks outside of the navSearch and profile dropdown
+        document.addEventListener('mousedown', handleClickOutside);
 
         // Cleanup listener on component unmount
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [window.matchMedia]);
+    }, [isProfileOpen]);
 
+    let navigate = useNavigate();
+    const handleNavigation = () => {
+        navigate('/saved');
+    };
 
     return (
         <>
@@ -63,6 +87,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse , logo, profile , overview} 
                     <img
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/pixelarticons_menu_bl8vvb.svg"
                         alt="menu"
+                        className={styles.menuIcon}
                     />
                 </div>
 
@@ -82,7 +107,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse , logo, profile , overview} 
                         />
                     </div>
 
-                    <div className={styles.Userbtn}>
+                    <div className={styles.Userbtn} onClick={handleProfile}>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"
                             alt="user"
@@ -93,8 +118,14 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse , logo, profile , overview} 
                             alt="upIcon"
                         />
                     </div>
+                    {isProfileOpen && (
+                        <div ref={profileRef} className={styles.profile}>
+                            <Profile />
+                        </div>
+                    )}
                 </div>
             </div>
+
             <div style={{ position: 'relative' }}>
                 <div ref={navSearchRef}  className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
                     <Link to={`${logo}`} className={styles.Link}>

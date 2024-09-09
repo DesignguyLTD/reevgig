@@ -10,6 +10,7 @@ import ProfileSave from "./Pages/Profile/profileSave";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
+import Dashboard from "./Pages/DashBoard/Dashboard";
 import Sidebar from "./stories/SideBar/sideBar";
 
 
@@ -42,6 +43,8 @@ function App() {
             <Route path="/onboarding" element={<OnBoarding />} />
             <Route path="/edit" element={<ProfileSave />} />
             <Route path="/saved" element={<Profile />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+
           </Routes>
         </Router>
       </div>

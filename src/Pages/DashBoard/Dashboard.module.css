@@ -1,0 +1,296 @@
+
+.container{
+    margin-top: 50px;
+    padding: 0 9px;
+    margin-bottom: 200px;
+}
+
+.headerBtn{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Btn{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+.header{
+    color: rgb(179, 179, 181);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    /*letter-spacing: 0%;*/
+    text-align: left;
+    cursor: pointer;
+}
+
+.header:hover{
+    color: black;
+    border-bottom: solid 2px black;
+    cursor: pointer;
+
+}
+
+.overview{
+
+}
+
+.EstimateCont{
+  margin-top: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+}
+
+.Estimate{
+    display: inline-flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: flex-start;
+    gap: 5px;
+    border-radius: 12.61px;
+    background: rgba(3, 168, 98, 0.15);
+    padding: 10px ;
+}
+
+.EstiActiveCont{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+    align-items: stretch;
+}
+
+.earnText{
+    color: rgb(121, 121, 121);
+    font-family:PP Neue Montreal;
+    font-size: 12.61px;
+    font-weight: 400;
+    line-height: 15px;
+    /*letter-spacing: 0%;*/
+    text-align: left;
+}
+
+.earnValue{
+    color: rgb(6, 6, 6);
+    font-family: Satoshi;
+    font-size: 25.22px;
+    font-weight: 400;
+    line-height: 34px;
+    /*letter-spacing: 1%;*/
+    text-align: left;
+}
+
+.earnValue span{
+    font-size: 14.61px;
+}
+
+.increaseText{
+    color: rgb(6, 6, 6);
+    font-family: PP Neue Montreal;
+    font-size: 9.01px;
+    font-weight: 400;
+    line-height: 10.81px;
+    /*letter-spacing: 2%;*/
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.timeFrame{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    color: rgb(6, 6, 6);
+    font-family: Satoshi;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 19px;
+    /*letter-spacing: 1%;*/
+    text-align: left;
+    cursor: pointer;
+}
+.ProfileCont{
+    display: none;
+}
+
+.applicationStatus::-webkit-scrollbar {
+    width: 3px; /* Width of the scrollbar */
+}
+
+.applicationStatus::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Color of the scrollbar thumb */
+    border-radius: 20px; /* Rounded corners for the scrollbar thumb */
+}
+
+.applicationStatus::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color of the scrollbar track */
+    border-radius: 20px; /* Rounded corners for the scrollbar track */
+}
+
+@media (min-width: 765px){
+    .container{
+        margin: 31px 94px;
+        transition: margin-left 0.3s ease;
+    }
+
+.ProfileCont{
+    display: none;
+}
+
+    .container.shifted {
+        margin-left: 240px; /* Width of the sidebar */
+    }
+
+    .EstimateCont{
+        margin-top: 30px;
+        display: inline-flex;
+        flex-direction: row;
+        gap: 15px;
+        text-align: center;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .Estimate{
+        width: 241.39px;
+        padding: 15px;
+        gap: 8px;
+    }
+
+    .timeFrame{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        color: rgb(6, 6, 6);
+        font-family: Satoshi;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 19px;
+        text-align: left;
+        cursor: pointer;
+        width: 50%;
+        justify-content: flex-start;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .overview{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: stretch;
+        width: 1000px;
+        gap: 60px;
+        justify-content: space-between;
+    }
+
+    .container.shifted {
+        margin-left: 200px; /* Width of the sidebar */
+    }
+
+    .ProfileCont{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+        align-items: flex-start;
+    }
+
+    .container{
+        max-width: 1024px;
+        width: 86%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 70px 2px 37px 120px;
+        transition: margin-left 0.3s ease;
+
+    }
+
+
+}
+
+@media (min-width: 1280px){
+
+    .overview{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        /*gap: 100px;*/
+        justify-content: space-between;
+    }
+    .container.shifted {
+        margin-left: 300px; /* Width of the sidebar */
+    }
+
+    .profileEdit{
+        display: inline-flex;
+        flex-direction: column;
+        /* gap: 10px; */
+        text-align: center;
+        align-items: center;
+        border-radius: 20px;
+        padding: 20px 30px 20px;
+        width: 280px;
+        height: 199px;
+        background: rgb(39, 39, 39);
+        justify-content: space-between;
+    }
+
+    .applicationStatus{
+        margin-top: 10px;
+        padding: 20px 10px;
+        box-sizing: border-box;
+        border: 1px solid rgb(229, 229, 229);
+        border-radius: 20px;
+        height: 578px;
+        overflow: auto;
+        width: 340px;
+
+    }
+
+
+    .container{
+        max-width: 1280px;
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 70px 2px 37px 120px;
+
+        transition: margin-left 0.3s ease;
+
+    }
+}
+
+@screen (min-width: 1440px){
+
+
+    .container{
+        max-width: 1440px;
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 70px 2px 37px 120px;
+        transition: margin-left 0.3s ease;
+
+    }
+
+
+}
