@@ -1,8 +1,12 @@
 import { Helmet } from "react-helmet";
 import React from "react";
 import style from "./profile.module.css";
+import { useLocation } from "react-router-dom";
 
-const Profile = () => {
+const Profile: React.FC = () => {
+  const location = useLocation();
+  const formData = location.state || {};
+
   return (
     <>
       <Helmet>
@@ -32,10 +36,7 @@ const Profile = () => {
             <p className={style.secondary} style={{ paddingTop: "-10px" }}>
               Select to change
             </p>
-            <img
-              src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg"
-              alt="Avatar"
-            />
+            <img src={formData.avatar} alt="Avatar" />
           </div>
           <div>
             <div>
@@ -43,29 +44,29 @@ const Profile = () => {
               <p
                 className={style.secondary}
                 style={{ backgroundColor: "white" }}>
-                James Mark
+                {formData.DisplayName}
               </p>
             </div>
             <div className={style.names}>
               <div>
                 <label htmlFor="First Name"> First Name</label>
-                <p className={style.secondary}>James</p>
+                <p className={style.secondary}>{formData.Firstname}</p>
               </div>
               <div>
                 <label htmlFor="Last Name"> Last Name</label>
-                <p className={style.secondary}>Mark</p>
+                <p className={style.secondary}>{formData.Lastname}</p>
               </div>
             </div>
             <div>
               <label htmlFor="Email">Work email address</label>
-              <p className={style.secondary}>ajadimarvelouse@gmail.com</p>
+              <p className={style.secondary}>{formData.email}</p>
             </div>
             <div>
               <label htmlFor="Country">Country</label>
               <p
                 className={style.secondary}
                 style={{ backgroundColor: "white" }}>
-                Nigeria
+                {formData.Country}
               </p>
             </div>
             <div className={style.names}>
@@ -74,7 +75,7 @@ const Profile = () => {
                 <p
                   className={style.secondary}
                   style={{ backgroundColor: "white" }}>
-                  Lagos
+                  {formData.State}
                 </p>
               </div>
               <div>
@@ -82,7 +83,7 @@ const Profile = () => {
                 <p
                   className={style.secondary}
                   style={{ backgroundColor: "white" }}>
-                  Ikeja
+                  {formData.City}
                 </p>
               </div>
             </div>
@@ -91,7 +92,7 @@ const Profile = () => {
               <p
                 className={style.secondary}
                 style={{ backgroundColor: "white" }}>
-                +2348109226536
+                {formData.countryCode} {formData.contactNumber}
               </p>
             </div>
           </div>

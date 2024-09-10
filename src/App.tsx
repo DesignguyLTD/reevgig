@@ -19,6 +19,7 @@ function App() {
       return (
       <div className="App">
         <Header auth={true} />
+
         <Router basename="/">
           <Routes>
             <Route
@@ -39,9 +40,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/onboarding" element={<OnBoarding />} />
-            <Route path="/edit" element={<ProfileSave />} />
             <Route path="/saved" element={<Profile />} />
+            <Route path="/edit" element={<ProfileSave />} />
             <Route path="/jobs/*" element={<Jobs />} />
+            {/* Other components that consume the context */}
           </Routes>
         </Router>
       </div>

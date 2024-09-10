@@ -1,43 +1,239 @@
-.overall_container {
-    margin-top: 9rem;
-    text-align: left;
-    border: 2px solid green;
+* {
+    font-family: PP Neue Montreal;
+}
+
+.cover_all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
+
+}
+
+
+.overall_container {
+    width: min-content;
+    margin-top: 48px;
+    text-align: left;
+    padding: 8px;
+
+}
+
+.job {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+    letter-spacing: -1;
+    color: #181818;
 }
 
 .nav_container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 4rem;
-    background-color: black;
-    color: yellow;
-    width: fit-content;
-    padding: 1rem;
+    gap: 10px;
+    height: 44px;
+    padding: 0;
+    background-color: #272727;
+    width: 396px;
+    font-family: PP Neue Montreal;
 }
 
 .nav_links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+    font-size: 9.5px;
+    font-weight: 500;
     cursor: pointer;
+    height: inherit;
     text-decoration: none;
-    color: white;
+    width: 120px;
+    color: #FEC200;
+    font-family: PP Neue Montreal;
+    /* border: 3px solid red; */
 }
 
 .nav_numbers {
-    background-color: yellow;
-    color: black;
-    padding: 10px;
-    width: 10px;
-    height: 10px;
+    background-color: #FEC200;
+    color: #272727;
+    width: 14px;
+    height: 13px;
     display: flex;
+    font-size: 9px;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    padding: 0px;
+    margin: 0;
+
 }
 
-.brief_container {
-    border: 3px solid green;
+
+
+.radio_btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 397px;
+}
+
+.level {
+    color: #404145;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.experience {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0px;
+
+}
+
+.experience_value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+
+.label_text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #404145;
+    padding: 0;
+    margin-bottom: -8px;
+}
+
+
+
+.upload {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.continue {
+    margin-top: 64px;
+    text-align: center;
+}
+
+.nav_links:nth-child(1) {
+
+    padding: 0 0 0 8px;
+}
+
+/* 
+TimeLine styling codes */
+
+/* ---------------------------------------------------- */
+
+.radios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    place-self: center;
+    gap: 8px;
+}
+
+.rate {
+
+    display: flex;
+
+}
+
+
+
+
+@media screen and (min-width: 765px) {
+    .cover_all {
+        width: fit-content;
+    }
+
+    .nav_container {
+
+
+        width: 694px;
+
+    }
+
+    .nav_links:nth-child(1) {
+
+        padding: 0 0 0 16px;
+    }
+
+    .continue {
+        margin-top: 64px;
+        text-align: right;
+    }
+
+    .radio_btn {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .nav_links {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        width: 218px;
+        height: inherit;
+        color: #FEC200;
+        font-family: PP Neue Montreal;
+    }
+
+    .nav_numbers {
+        background-color: #FEC200;
+        color: #272727;
+        padding: 10px;
+        width: 10px;
+        height: 10px;
+        display: flex;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+
+    }
+
+    .nav_container {
+        height: 62px;
+        gap: 1rem;
+    }
+
+    .overall_container {
+        margin: 158px auto;
+        text-align: left;
+        width: fit-content;
+
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .nav_container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        height: 62px;
+        padding: 0;
+        background-color: #272727;
+        width: 747px;
+        font-family: PP Neue Montreal;
+    }
+
+
+
 }

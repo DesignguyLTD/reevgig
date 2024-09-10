@@ -9,7 +9,7 @@ import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import style from "./profile.module.css";
 import { useNavigate } from "react-router-dom";
 
-export default function ProfileSave() {
+const ProfileSave: React.FC = () => {
   interface FormValues {
     DisplayName: string;
     Firstname: string;
@@ -31,7 +31,7 @@ export default function ProfileSave() {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/saved");
+    navigate("/saved", { state: formValues });
   };
 
   const imageList: string[] = [
@@ -49,7 +49,7 @@ export default function ProfileSave() {
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_17_Copy_2_efwsao.svg",
   ];
 
-  const [selectImages, setSelectImages] = useState<string>(imageList[6]);
+  const [selectImages, setSelectImages] = useState<string>(imageList[2]);
 
   const [formValues, setFormValues] = useState<FormValues>({
     DisplayName: "",
@@ -61,7 +61,7 @@ export default function ProfileSave() {
     City: "",
     contactNumber: "",
     countryCode: "",
-    avatar: "",
+    avatar: imageList[6],
   });
 
   const [countryCode, setCountryCode] = useState<string | null>(null);
@@ -72,7 +72,12 @@ export default function ProfileSave() {
   const [states, setStates] = useState<OptionType[]>([]);
   const [cities, setCities] = useState<OptionType[]>([]);
 
-  const [phoneCode, setPhoneCode] = useState<OptionType[]>([]);
+  const [phoneCode, setPhoneCode] = useState<OptionType[]>([
+    {
+      label: "+234 (NG)",
+      value: "+234",
+    },
+  ]);
 
   useEffect(() => {
     const savedData = localStorage.getItem("formData");
@@ -118,6 +123,10 @@ export default function ProfileSave() {
 
   const handleCountry = (options: OptionType) => {
     const countryCode = options.value;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      Country: options.label,
+    }));
     setCountryCode(countryCode);
     setStateCode(null);
     setCities([]);
@@ -160,6 +169,13 @@ export default function ProfileSave() {
 
   const handleState = (option: OptionType) => {
     const stateCodes = option.value;
+
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      State: option.label,
+      City: "",
+    }));
+
     setStateCode(stateCodes);
 
     if (countryCode && stateCodes) {
@@ -169,6 +185,12 @@ export default function ProfileSave() {
           value: city.countryCode,
         })
       );
+
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        City: cityList[0].label,
+      }));
+
       setCities(cityList);
     } else {
       setCities([]);
@@ -176,7 +198,32 @@ export default function ProfileSave() {
   };
 
   const handlePhoneCodeChange = (selectedPhoneCode: string) => {
-    setPhoneCode((prevState) => ({ ...prevState, value: selectedPhoneCode }));
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      countryCode: selectedPhoneCode,
+      contactNumber: phoneNumber,
+    }));
+
+    setPhoneCode((prevState) =>
+      prevState.map((code) =>
+        code.value === selectedPhoneCode
+          ? { ...code, value: selectedPhoneCode }
+          : code
+      )
+    );
+
+    if (selectedPhoneCode === "") {
+      const defaultCode = "+234";
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        countryCode: defaultCode,
+      }));
+    }
+
+    setPhoneCode((prevState) => ({
+      ...prevState,
+      countryCode: selectedPhoneCode,
+    }));
   };
 
   const handleAvatarChange = (image: string) => {
@@ -185,6 +232,8 @@ export default function ProfileSave() {
       ...prevValues,
       avatar: image,
     }));
+    setSelectImages(image);
+    console.log(selectImages);
   };
 
   return (
@@ -210,8 +259,8 @@ export default function ProfileSave() {
         />
       </Helmet>
 
-      <section className={style.container}>
-        <div className={style.holder}>
+      <section className={style.container_two}>
+        <div className={style.holder_two}>
           <div className={style.avatar_container}>
             <p className={style.avatar}>Display Avatar</p>
             <p className={style.secondary} style={{ paddingTop: "-10px" }}>
@@ -221,9 +270,7 @@ export default function ProfileSave() {
               <div className={style.main_container}>
                 <img src={selectImages} alt="Avatar" />
               </div>
-              <div
-                className={style.thumbnail}
-                onClick={() => handleAvatarChange(selectImages)}>
+              <div className={style.thumbnail}>
                 {imageList.map((image, index) => (
                   <img
                     key={index}
@@ -247,12 +294,11 @@ export default function ProfileSave() {
                 onChange={handleInputChange}
               />
             </div>
-            <div className={style.names}>
+            <div className={style.name}>
               <div>
                 <Input
                   value={formValues.Firstname}
                   label="First Name"
-                  size="small"
                   isTextArea={false}
                   name="Firstname"
                   placeholder="First name"
@@ -336,13 +382,17 @@ export default function ProfileSave() {
                 options={phoneCode}
                 onCountryChange={handlePhoneCodeChange}
                 value={phoneNumber}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setPhoneNumber(e.target.value)
-                }
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setPhoneNumber(e.target.value);
+                  setFormValues((prevValues) => ({
+                    ...prevValues,
+                    contactNumber: e.target.value,
+                  }));
+                }}
               />
             </div>
           </form>
-          <div className={style.edit_holder}>
+          <div className={style.edit_holder_two}>
             <ButtonII
               hasIcon={false}
               isLabelVisible={true}
@@ -356,4 +406,6 @@ export default function ProfileSave() {
       </section>
     </>
   );
-}
+};
+
+export default ProfileSave;

@@ -23,9 +23,9 @@ export default function Jobs() {
   };
 
   return (
-    <>
+    <div className={styles.cover_all}>
       <div className={styles.overall_container}>
-        <h1> Post a Job</h1>
+        <p className={styles.job}> Post a Job</p>
         <div className={styles.nav_container}>
           <Link
             to="#"
@@ -53,6 +53,6 @@ export default function Jobs() {
           {renderComponent()} {/* Render the active component */}
         </div>
       </div>
-    </>
+    </div>
   );
 }
