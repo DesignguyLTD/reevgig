@@ -2,6 +2,8 @@ import React from 'react';
 import style from "./OverviewPage.module.css";
 import ResponsiveTable from "../DashBoard/playGround";
 import ProfileNav from "../../Components/DashBoard/ProfileNav";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
+import JobApplication from "../../Components/DashBoard/JobApplication";
 
 const OverviewPage = () => {
     const [header, setHeader] = React.useState('Overview');
@@ -43,6 +45,9 @@ const OverviewPage = () => {
                                         </div>
                                     </div>
                                     <div className={style.ActiveProjectCont}>
+                                        <div className={style.ActiveProject}>
+
+                                        </div>
                                         <ResponsiveTable/>
                                     </div>
 
@@ -53,17 +58,16 @@ const OverviewPage = () => {
                             </div>
                         }
 
-                        {header === 'Job' && <div className={style.Job}>
-                            In progress......
+                        {header === 'Job' && <div className={style.JobCtn}>
+                            <JobApplication/>
+                            <JobApplication/>
+                            <JobApplication/>
+                            <JobApplication/>
                         </div>
                         }
 
                     </div>
 
-                </div>
-
-                <div>
-                    {/*edit profile component*/}
                 </div>
             </div>
 

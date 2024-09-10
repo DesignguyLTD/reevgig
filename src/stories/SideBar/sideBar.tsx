@@ -22,9 +22,11 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
         setIsOpen(!isOpen);
     };
 
-    const handleProfile = () => {
-        setProfileIsOpen(!isProfileOpen);
+    const handleProfile = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setProfileIsOpen((prev) => !prev);
     };
+
 
     useEffect(() => {
         getSidebarState && getSidebarState(isOpen);
@@ -45,34 +47,32 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-        // Ensure this only runs on screens wider than 765px
         if (
-            window.matchMedia('(max-width: 765px)').matches &&
-            navSearchRef.current &&
-            !navSearchRef.current.contains(event.target as Node)
-        ) {
-            navSearchRef.current.style.display = 'none';
-        }
-
-        // Close profile dropdown when clicking outside
-        if (
-            isProfileOpen &&
             profileRef.current &&
             !profileRef.current.contains(event.target as Node)
         ) {
             setProfileIsOpen(false);
         }
+
+        // Additional handling for navSearch if necessary
+        if (
+            navSearchRef.current &&
+            !navSearchRef.current.contains(event.target as Node) &&
+            window.matchMedia('(max-width: 765px)').matches
+        ) {
+            navSearchRef.current.style.display = 'none';
+        }
     };
 
     useEffect(() => {
-        // Add event listener to detect clicks outside of the navSearch and profile dropdown
         document.addEventListener('mousedown', handleClickOutside);
-
-        // Cleanup listener on component unmount
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isProfileOpen]);
+
+
+
 
     let navigate = useNavigate();
     const handleNavigation = () => {
@@ -106,19 +106,19 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                         />
                     </div>
 
-                    <div className={styles.Userbtn} onClick={handleProfile}>
+                    <div ref={profileRef} className={styles.Userbtn} onClick={handleProfile}>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"
                             alt="user"
                         />
-                        <div className={styles.userName}>Alex meian</div>
+                        <div className={styles.userName}>Seyi Ode</div>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/icons_up_csqnun.svg"
                             alt="upIcon"
                         />
                     </div>
                     {isProfileOpen && (
-                        <div ref={profileRef} className={styles.profile}>
+                        <div  className={styles.profile}>
                             <ProfileNav />
                         </div>
                     )}

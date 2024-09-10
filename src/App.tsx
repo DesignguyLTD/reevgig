@@ -12,6 +12,8 @@ import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Dashboard from "./Pages/DashBoard/Dashboard";
 import Sidebar from "./stories/SideBar/sideBar";
+import JobApplication from "./Components/DashBoard/JobApplication";
+import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 
 
 
@@ -43,6 +45,8 @@ function App() {
             <Route path="/onboarding" element={<OnBoarding />} />
             <Route path="/edit" element={<ProfileSave />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/jobapplication" element={<JobApplicationPage />} />
+
 
           </Routes>
         </Router>

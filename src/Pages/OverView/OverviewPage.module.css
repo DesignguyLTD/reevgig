@@ -1,8 +1,11 @@
-
+*{
+    padding: 0;
+    margin: 0;
+}
 .container{
-    margin-top: 50px;
+    margin: 90px auto;
     padding: 0 9px;
-    margin-bottom: 200px;
+    width: 100%;
 }
 
 .headerBtn{
@@ -17,7 +20,7 @@
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
-    gap: 10px;
+    gap: 35px;
 }
 
 .header{
@@ -140,9 +143,261 @@
     border-radius: 20px; /* Rounded corners for the scrollbar track */
 }
 
+.JobCtn{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+    /*max-width: 500px;*/
+
+}
+
+.JobHeader{
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid rgb(181, 182, 186);
+    border-radius: 8px;
+    padding: 5px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.JobHeaderCtn1{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.JobText{
+    color: rgb(24, 25, 28);
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.JobPriceCtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+}
+
+.JobExp{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.JobExp1{
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 9px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: capitalize;
+    border-radius: 160px;
+    background: rgb(39, 39, 39);
+    padding: 3px;
+
+}
+
+.JobExp2{
+    color: rgb(85, 65, 0);
+    font-family: PP Neue Montreal;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 9px;
+    letter-spacing: 1px;
+    text-align: left;
+    border-radius: 86.88px;
+    background: rgb(255, 235, 170);
+    text-transform: capitalize;
+    padding: 3px;
+
+}
+
+.JobPrice1{
+    color: rgb(118, 127, 140);
+    font-family: 'Inter';
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.JobApplicant1{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: rgb(30, 30, 30);
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.JobHeaderCtn2{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.JobHeaderCtnMiddle{
+    display: none;
+}
+
+.JobExp3{
+    display: none;
+}
+
+.JobApplicant2{
+    display: none;
+}
+
+.JobPrice2{
+    display: none;
+}
+.popUp{
+    position: absolute;
+    right: 0;
+    top: 82px;
+    z-index: 100;
+    width: 124px;
+    background: rgb(39, 39, 39);
+    border-radius: 4px;
+    color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    display: inline-flex;
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.popList{
+    padding: 4px 4px 4px 8px;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.popList:hover{
+    background: rgb(255, 196, 0);
+    color: rgb(39, 39, 39);
+
+}
+
+@media (min-width: 425px) {
+    .JobHeader{
+        width: 397px;
+    }
+}
+
 @media (min-width: 765px){
+
+
+
+    .JobText{
+        font-size: 18px;
+    }
+
+    .JobExp1, .JobExp2{
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .JobApplicant1{
+        display: none;
+    }
+    .JobPrice1{
+        display: none;
+    }
+    .JobPrice2{
+        color: rgb(118, 127, 140);
+        font-family: 'Inter';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0;
+        text-align: left;
+        display: block;
+    }
+
+    .JobHeader{
+        padding: 10px;
+        gap: 5px;
+        /*width: 694px;*/
+        height: 86px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .JobApplicant2{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        color: rgb(30, 30, 30);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .JobExp3{
+        color: rgb(85, 65, 0);
+        font-family: PP Neue Montreal;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 9px;
+        letter-spacing: 1px;
+        text-align: left;
+        border-radius: 86.88px;
+        background: rgb(255, 235, 170);
+        text-transform: capitalize;
+        padding: 5px;
+        display: block;
+    }
+
+    .JobExp2{
+        display: none;
+    }
+
+
+
+    .JobHeaderCtnMiddle{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
     .container{
-        margin: 31px 94px;
+        margin: 130px 0 30px 113px;
         transition: margin-left 0.3s ease;
     }
 
@@ -185,21 +440,37 @@
         width: 50%;
         justify-content: flex-start;
     }
+    .popUp{
+        right: 0;
+        top: 60px;
+    }
 }
 
 
 @media (min-width: 1024px) {
+    .popUp{
+        right: -110px;
+        top: 30px;
+    }
+
+    .JobHeader{
+        padding: 10px;
+        gap: 5px;
+        width: 721px;
+        height: 86px;
+    }
+
     .overview{
         display: inline-flex;
         flex-direction: row;
         align-items: stretch;
         width: 1000px;
-        gap: 20%;
+        gap: 7%;
         justify-content: space-between;
     }
 
     .container.shifted {
-        margin-left: 200px; /* Width of the sidebar */
+        margin-left: 240px; /* Width of the sidebar */
     }
 
     .ProfileCont{
@@ -216,7 +487,7 @@
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
-        margin: 70px 2px 37px 120px;
+        margin: 150px 2px 37px 120px;
         transition: margin-left 0.3s ease;
 
     }
@@ -241,7 +512,6 @@
     .profileEdit{
         display: inline-flex;
         flex-direction: column;
-        /* gap: 10px; */
         text-align: center;
         align-items: center;
         border-radius: 20px;
@@ -271,8 +541,6 @@
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
-        margin: 70px 2px 37px 120px;
-
         transition: margin-left 0.3s ease;
 
     }

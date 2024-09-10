@@ -1,8 +1,6 @@
 import React from 'react';
 import Sidebar from "../../stories/SideBar/sideBar";
 import style from '../OverView/OverviewPage.module.css';
-import {useNavigate} from "react-router-dom";
-import ResponsiveTable from "./playGround";
 import Profile from "../Profile/Profile";
 import OverviewPage from "../OverView/OverviewPage";
 

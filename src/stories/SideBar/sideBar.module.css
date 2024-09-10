@@ -224,8 +224,8 @@ display: inline-flex;
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 10;
-    position: relative;
 }
 
 .sidebar{
@@ -437,7 +437,7 @@ display: inline-flex;
         display: inline-flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 100%;
         box-sizing: border-box;
         border-bottom: 1px solid rgb(217, 217, 217);
