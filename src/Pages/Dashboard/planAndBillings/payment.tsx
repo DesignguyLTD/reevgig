@@ -3,8 +3,7 @@ import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
 import Input from "../../../stories/FieldInput-I/input";
 import Radio from "../../../stories/Radio/radio";
 import React, { ChangeEvent, useState } from "react";
-import cancel from "../../../assets/cancel.png";
-import levclUp from "../../../assets/levelUp.png";
+import cloudImages from "../../../assets";
 import styles from "./payment.module.css";
 import { Country } from "country-state-city";
 import { Button } from "../../../stories/Button-I/Button";
@@ -38,17 +37,17 @@ const Payment = () => {
         }));
     };
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-    };
+    // const handleSubmit = (e: { preventDefault: () => void; }) => {
+    //     e.preventDefault();
+    //     console.log('Form submitted:', formData);
+    // };
 
     return (
         <div className={styles.Ctn}>
             <div className={styles.topCtn}>
                 <div className={styles.addMoneyCtn}>
                     <div className={styles.levelUpIcon}>
-                        <img src={levclUp} alt="level up icon" />
+                        <img src={cloudImages.levelUp} alt="level up icon" />
                     </div>
                     <div>
                         <a href="#">+ Add Money</a>
@@ -61,9 +60,9 @@ const Payment = () => {
             </div>
 
             <div className={styles.btmCtn}>
-                <img src={cancel} alt="cancel icon" />
-                <form>
-                    <h4>Payment Card</h4>
+                <img src={cloudImages.exit} alt="cancel icon" />
+                <form className={styles.paymentForm}>
+                    <h4 className={styles.paymentH4}>Payment Card</h4>
                     <div className={styles.radioCtn}>
                         <p>Pay With:</p>
                         <div className={styles.radios}>
@@ -170,7 +169,7 @@ const Payment = () => {
                         </div>
                     </div>
                     <div className={styles.checkboxCtn}>
-                        <CheckBox size="small" />
+                        <CheckBox size="small" checked={false} />
                         <label>save card details</label>
                     </div>
                     <div className={styles.BtnCtn}>

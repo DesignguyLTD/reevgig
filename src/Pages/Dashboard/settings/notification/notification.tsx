@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Toggle from "../../../../stories/ToggleBtn/toggle";
+import cloudImages from "../../../../assets";
 import styles from "./notification.module.css";
 import { Link } from "react-router-dom";
 
@@ -22,18 +23,18 @@ const Notification = () => {
         <div className={styles.ctn}>
             <div className={styles.settingPages}>
                 <Link to="/settings" className={styles.backToSettings}>
-                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg" alt="Back Arrow" />
+                    <img src={cloudImages.backArrow} alt="Back Arrow" />
                     <p>Settings</p>
                 </Link>
                 <div className={styles.currentPage}>
-                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg" alt="Forward Arrow" />
+                    <img src={cloudImages.fwdArrow} alt="Forward Arrow" />
                     <p>Notification</p>
                 </div>
             </div>
             <div className={styles.notify_sect}>
                 <div className={styles.notify_title}>
                     <span>
-                        <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/notification_fbfz3d.svg" alt='bell' />
+                        <img src={cloudImages.notification} alt='bell' />
                     </span>
                     <span>
                         <p>Notification</p>
@@ -63,7 +64,7 @@ const Notification = () => {
                 </div>
                 <div className={styles.jobNotify_title}>
                     <span>
-                        <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/notification_fbfz3d.svg" alt='bell' />
+                        <img src={cloudImages.notification} alt='bell' />
                     </span>
                     <span>
                         <p>Job Notification</p>

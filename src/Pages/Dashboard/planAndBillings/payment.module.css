@@ -113,6 +113,16 @@
     line-height: 15px;
 }
 
+.paymentForm {
+    width: 276px;
+    margin: auto;
+}
+
+.paymentH4 {
+    text-align: left;
+}
+
+
 @media (min-width: 768px) {
     .Ctn {
         margin-top: 150px;
@@ -136,11 +146,7 @@
         font-size: 13px;
     }
 
-    form {
-        width: 520px;
-    }
-
-    form h4 {
+    .paymentH4 {
         font-size: 20px;
         padding-bottom: 20px;
     }
@@ -150,8 +156,10 @@
         margin-bottom: 10px;
     }
 
-    .btmCtn {
-        padding: 20px 10px 20px 60px;
+    .paymentForm {
+        width: 510px;
+        margin: 0px;
+        margin-left: 60px;
     }
 
     .BtnCtn p {
@@ -186,11 +194,12 @@
         font-size: 14px;
     }
 
-    form {
+    .paymentForm {
         margin: auto;
+        width: 530px;
     }
 
-    form h4 {
+    .paymentH4 {
         font-size: 20px;
         padding-bottom: 20px;
     }
