@@ -1,11 +1,22 @@
 import { Helmet } from "react-helmet";
 import React from "react";
 import style from "./profile.module.css";
+
 import { useLocation } from "react-router-dom";
 
 const Profile: React.FC = () => {
   const location = useLocation();
   const formData = location.state || {};
+import Sidebar from "../../stories/SideBar/sideBar";
+import {useNavigate} from "react-router-dom";
+
+const Profile = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/edit");
+  };
 
   return (
     <>
@@ -97,7 +108,7 @@ const Profile: React.FC = () => {
             </div>
           </div>
           <div className={style.edit_holder}>
-            <button className={style.edit}>Edit Profile</button>
+            <button className={style.edit} onClick={handleNavigate}>Edit Profile</button>
           </div>
         </div>
       </section>

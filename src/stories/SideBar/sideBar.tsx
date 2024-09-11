@@ -1,18 +1,36 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './sideBar.module.css';
+import { Link, useNavigate } from "react-router-dom";
+import style from "../../Pages/OverView/OverviewPage.module.css";
+import ProfileNav from "../../Components/DashBoard/ProfileNav";
 
 interface SidebarProps {
     collapse?: boolean;
+    logo?: string;
+    getSidebarState?: (x: boolean) => boolean;
+    getPage?: (x: string) => string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
-    const [isOpen, setIsOpen] = useState(collapse);
+const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getPage }: SidebarProps) => {
+    const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
+    const profileRef = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
+    const [isProfileOpen, setProfileIsOpen] = useState(false);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
+
+    const handleProfile = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setProfileIsOpen((prev) => !prev);
+    };
+
+
+    useEffect(() => {
+        getSidebarState && getSidebarState(isOpen);
+    }, [isOpen]);
 
     const handleShowSide = () => {
         // Check if the viewport width is greater than 765px
@@ -23,34 +41,43 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
 
     const handleNavSearchDisplay = () => {
         // Ensure this only runs on screens wider than 765px
-        if (window.matchMedia('(min-width: 765px)').matches && navSearchRef.current) {
+        if (window.matchMedia('(max-width: 765px)').matches && navSearchRef.current) {
             navSearchRef.current.style.display = 'block';
         }
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-        // Ensure this only runs on screens wider than 765px
         if (
-            window.matchMedia('(min-width: 765px)').matches &&
+            profileRef.current &&
+            !profileRef.current.contains(event.target as Node)
+        ) {
+            setProfileIsOpen(false);
+        }
+
+        // Additional handling for navSearch if necessary
+        if (
             navSearchRef.current &&
-            !navSearchRef.current.contains(event.target as Node)
+            !navSearchRef.current.contains(event.target as Node) &&
+            window.matchMedia('(max-width: 765px)').matches
         ) {
             navSearchRef.current.style.display = 'none';
         }
     };
 
     useEffect(() => {
-        // Add event listener to detect clicks outside of the navSerch only on wide screens
-        if (window.matchMedia('(min-width: 765px)').matches) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-
-        // Cleanup listener on component unmount
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [isProfileOpen]);
 
+
+
+
+    let navigate = useNavigate();
+    const handleNavigation = () => {
+        navigate('/saved');
+    };
 
     return (
         <>
@@ -59,6 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                     <img
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/pixelarticons_menu_bl8vvb.svg"
                         alt="menu"
+                        className={styles.menuIcon}
                     />
                 </div>
 
@@ -78,35 +106,44 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                         />
                     </div>
 
-                    <div className={styles.Userbtn}>
+                    <div ref={profileRef} className={styles.Userbtn} onClick={handleProfile}>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"
                             alt="user"
                         />
-                        <div className={styles.userName}>Alex meian</div>
+                        <div className={styles.userName}>Seyi Ode</div>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/icons_up_csqnun.svg"
                             alt="upIcon"
                         />
                     </div>
+                    {isProfileOpen && (
+                        <div  className={styles.profile}>
+                            <ProfileNav />
+                        </div>
+                    )}
                 </div>
             </div>
+
             <div style={{ position: 'relative' }}>
                 <div ref={navSearchRef}  className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
-                    <div className={styles.logo}>
-                        <img
-                            src={
-                                isOpen
-                                    ? 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg'
-                                    : 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/fa_bolt_owleb9.svg'
-                            }
-                            alt="logo"
-                        />
-                    </div>
+                    <Link to={`${logo}`} className={styles.Link}>
+                        <div className={styles.logo}>
+                            <img
+                                src={
+                                    isOpen
+                                        ? 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg'
+                                        : 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/fa_bolt_owleb9.svg'
+                                }
+                                alt="logo"
+                            />
+                        </div>
 
-                    <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
-                        RECRUITER’S DASHBOARD
-                    </div>
+                        <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
+                            RECRUITER’S DASHBOARD
+                        </div>
+                    </Link>
+
 
                     {/* Sidebar content */}
                     <button
@@ -121,33 +158,39 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                     </button>
 
                     <ul className={styles.upperSideBar}>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <div>Overview</div>
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <span className={styles.tooltiptext}>Overview</span>
-                                </div>
-                            )}
-                        </li>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-user"></i>
-                                    Profile
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-user"></i>
-                                    <span className={styles.tooltiptext}>Profile</span>
-                                </div>
-                            )}
-                        </li>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        {/*<Link to={`${overview}`} className={styles.Link}>*/}
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Overview') : ''}>
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <div>Overview</div>
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <span className={styles.tooltiptext}>Overview</span>
+                                    </div>
+                                )}
+                            </li>
+
+                        {/*</Link>*/}
+                        {/*<Link to={`${profile}`} className={styles.Link}>*/}
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Profile') : ''}>
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-user"></i>
+                                        Profile
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-user"></i>
+                                        <span className={styles.tooltiptext}>Profile</span>
+                                    </div>
+                                )}
+                            </li>
+
+                        {/*</Link>*/}
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('PostAJob') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-add"></i>
@@ -161,7 +204,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Message') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-envelope"></i>
@@ -175,7 +218,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('SavedEmployee') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-users"></i>
@@ -189,7 +232,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('PlanBillings') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-receipt"></i>
@@ -203,7 +246,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse }) => {
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Settings') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-settings"></i>

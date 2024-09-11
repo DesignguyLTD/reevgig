@@ -1,0 +1,111 @@
+.jobApplicationsContainer {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.applicationsColumn {
+    flex: 1;
+}
+
+.jobCard {
+    box-sizing: border-box;
+    /*padding: 8px;*/
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    text-align: left;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(181, 182, 186);
+    border-radius: 8px 8px 0px 0px;
+    background: rgb(43, 43, 43);
+}
+
+.nameText{
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    /*letter-spacing: 0%;*/
+    text-align: left;
+}
+
+.experienceLevel{
+    color: rgb(255, 235, 170);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+}
+
+.profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/*.experienceLevel {*/
+/*    font-size: 12px;*/
+/*    color: #777;*/
+/*}*/
+
+.jobInfo {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.role {
+    font-weight: bold;
+}
+
+.status {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.fullTime {
+    background-color: #ffd700;
+}
+
+.downloadCv {
+    display: block;
+    color: #0073e6;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+.declineRequest {
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button {
+    background: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #005bb5;
+}

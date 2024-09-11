@@ -36,6 +36,8 @@ interface ButtonIIProps {
      * Optional click handler function to be executed when the button is clicked.
      */
     onClick?: () => void;
+
+    icon?: string;
 }
 
 /**
@@ -56,6 +58,7 @@ export const ButtonII = ({
                              size = 'medium',
                              label,
                              disabled,
+                                 icon,
                              ...props
                          }: ButtonIIProps) => {
     const mode = primary ? styles.storybookButtonPrimary : styles.storybookButtonSecondary;
@@ -76,7 +79,7 @@ export const ButtonII = ({
             {...props}
         >
             {isLabelVisible && <div>{label}</div>}
-            {hasIcon && <i style={{height: '34px'}} className="fi fi-bs-plus"></i>}
+            {hasIcon && <img src={icon} alt="icon"/>}
         </button>
     );
 };

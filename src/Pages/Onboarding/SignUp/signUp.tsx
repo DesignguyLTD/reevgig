@@ -263,6 +263,7 @@ const SignUp = () => {
               <hr />
             </div>
 
+
             <form className={signUp.formContainer}>
               <div className={signUp.upperForm}>
                 <Input
@@ -391,6 +392,7 @@ const SignUp = () => {
         {stage === 4 && <div className={signUp.stage3container}></div>}
       </div>
     </>
+
   );
 };
 

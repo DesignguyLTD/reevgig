@@ -311,7 +311,6 @@ label~input {
 
     .container {
         padding-left: 27px;
-        padding-top: 2rem;
     }
 
     .avatar_selection {
@@ -341,7 +340,7 @@ label~input {
     .holder {
         width: 530px;
         margin-left: 200px;
-        padding-top: 9rem;
+        padding-top: 3rem;
     }
 
     .number_input {

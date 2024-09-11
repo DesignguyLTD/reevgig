@@ -1,0 +1,247 @@
+.profileEdit{
+    display: inline-flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px 30px 20px;
+    width: 170px;
+    height: 199px;
+    background: rgb(39, 39, 39);
+    justify-content: space-between;
+}
+
+.profileEdit img{
+    width: 87px;
+    height: 87px;
+}
+
+.UserName{
+    color: rgb(254, 194, 0);
+    font-family: 'Outfit';
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 120%;
+    text-align: left;
+}
+
+.userLocation{
+    color: rgb(254, 194, 0);
+    font-family: 'Plus Jakarta Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: left;
+}
+
+.editBtn{
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    font-family: 'Outfit';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
+    text-align: left;
+    height: 21px;
+    padding: 15px;
+    gap: 5px;
+}
+
+.editBtn img{
+    width: 20px;
+    height: 20px;
+}
+
+.Usertext{
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.applicationStatus{
+    margin-top: 10px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 20px;
+    height: 578px;
+    overflow: auto;
+    width: 230px;
+    background: white;
+}
+
+.applicationCtn1{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.appText{
+    color: rgb(0, 0, 0);
+    font-family: 'Outfit';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
+    text-align: left;
+}
+
+.applicationCtn2{
+    margin-top: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.applicationflex1{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Exp{
+    border-radius: 86.88px;
+    color: rgb(85, 65, 0);
+    font-family: 'Outfit';
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 120%;
+    text-align: left;
+    background: rgb(255, 235, 170);
+    padding: 5px;
+}
+
+.date{
+    color: rgb(3, 168, 98);
+    font-family: 'Outfit';
+    font-size: 8.69px;
+    font-weight: 400;
+    line-height: 120%;
+
+    text-align: left;
+}
+
+.applicationflex2{
+    color: rgb(20, 22, 39);
+    font-family: 'Outfit';
+    font-size: 13.9px;
+    font-weight: 500;
+    line-height: 120%;
+    text-align: left;
+}
+
+.applicationflex3{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 8px;
+}
+
+.ProjectType{
+    color: rgb(103, 116, 135);
+    font-family: 'Outfit';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: left;
+    box-sizing: border-box;
+    border: 0.5px solid rgba(24, 149, 95, 0.5);
+    border-radius: 86.88px;
+    background: rgb(255, 255, 255);
+    padding: 5px;
+}
+
+.ProjectTypeCtn{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Location{
+    color: rgb(103, 116, 135);
+    font-family: 'Outfit';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: left;
+}
+
+@media (min-width: 1280px){
+    .profileEdit{
+        display: inline-flex;
+        flex-direction: column;
+        /* gap: 10px; */
+        text-align: center;
+        align-items: center;
+        border-radius: 20px;
+        padding: 20px 30px 20px;
+        width: 280px;
+        height: 199px;
+        background: rgb(39, 39, 39);
+        justify-content: space-between;
+    }
+
+    .applicationStatus{
+        margin-top: 10px;
+        padding: 20px 10px;
+        box-sizing: border-box;
+        border: 1px solid rgb(229, 229, 229);
+        border-radius: 20px;
+        height: 578px;
+        overflow: auto;
+        width: 340px;
+
+    }
+
+}
+
+@media (min-width: 1280px){
+    .profileEdit{
+        display: inline-flex;
+        flex-direction: column;
+        /* gap: 10px; */
+        text-align: center;
+        align-items: center;
+        border-radius: 20px;
+        padding: 20px 30px 20px;
+        width: 280px;
+        height: 199px;
+        background: rgb(39, 39, 39);
+        justify-content: space-between;
+    }
+
+    .applicationStatus{
+        margin-top: 10px;
+        padding: 20px 10px;
+        box-sizing: border-box;
+        border: 1px solid rgb(229, 229, 229);
+        border-radius: 20px;
+        height: 578px;
+        overflow: auto;
+        width: 340px;
+        background: white;
+    }
+}

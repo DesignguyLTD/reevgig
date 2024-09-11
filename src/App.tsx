@@ -10,8 +10,12 @@ import Profile from "./Pages/Profile/Profile";
 import ProfileSave from "./Pages/Profile/profileSave";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
-import Sidebar from "./stories/SideBar/sideBar";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
+import Dashboard from "./Pages/DashBoard/Dashboard";
+import Sidebar from "./stories/SideBar/sideBar";
+import JobApplication from "./Components/DashBoard/JobApplication";
+import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
+
 
 function App() {
   return (
@@ -33,22 +37,18 @@ function App() {
                       className="App-logo"
                       alt="logo"
                     />
-                  </header>
-                </h1>
-              }
-            />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
-            <Route path="/onboarding" element={<OnBoarding />} />
-            <Route path="/saved" element={<Profile />} />
+            <Route path="/onboarding" element={<OnBoarding />} />           
+            <Route path="/jobs/*" element={<Jobs />} />        
             <Route path="/edit" element={<ProfileSave />} />
-            <Route path="/jobs/*" element={<Jobs />} />
-            {/* Other components that consume the context */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/jobapplication" element={<JobApplicationPage />} />
+
           </Routes>
         </Router>
       </div>
-    </div>
   );
 }
 

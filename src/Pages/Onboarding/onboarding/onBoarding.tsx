@@ -849,7 +849,7 @@ useEffect(() => {
 
                 {(stage === 4 && UserType === 'Freelancer') &&
                     <div>
-                        <SuccessModal Btnlabel2={'Find Client'} Btnlabel1={'View Dashboard'} Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
+                        <SuccessModal Btnlabel2={'Find Client'} Btnlabel1={'View Dashboard'} Forward={()=>{navigate('/')}} Backward={()=>{navigate('/dashboard')}} text={'Congratulations! \n' +
                             'Your profile is complete'}/>
                     </div>
                 }
