@@ -32,6 +32,24 @@ const jobApplications: JobApplication[] = [
         priceRange: '$20,000 - $25,000/hr',
         appliedDate: 'Jan 23, 2024',
         shortlisted: true,
+    },
+    {
+        id: 3,
+        name: 'Seyi123',
+        role: 'Technical Support Specialist',
+        status: 'FULL-TIME',
+        priceRange: '$20,000 - $25,000/hr',
+        appliedDate: 'Jan 23, 2024',
+        shortlisted: false,
+    },
+    {
+        id: 4,
+        name: 'Twin233',
+        role: 'Technical Support Specialist',
+        status: 'FULL-TIME',
+        priceRange: '$20,000 - $25,000/hr',
+        appliedDate: 'Jan 23, 2024',
+        shortlisted: true,
     }
 ];
 const JobApplicationPage = () => {
@@ -61,20 +79,30 @@ const JobApplicationPage = () => {
         <div>
             <Sidebar logo={'/'} getSidebarState={getSidebarState}/>
             <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
-                <div className={JAStyles.JobHeader}>
+                <div>
                     Job Application
+                </div>
+                <div className={JAStyles.JobHeader}>
                     <div className={JAStyles.jobApplicationsContainer}>
                         <div className={JAStyles.applicationsColumn}>
                             <h3>All Applications ({allApps.length})</h3>
                             {allApps.map((app) => (
-                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+                                <>
+                                    <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+                                    <br/>
+                                </>
+
                             ))}
                         </div>
 
                         <div className={JAStyles.applicationsColumn}>
                             <h3>Shortlisted ({shortlistedApps.length})</h3>
                             {shortlistedApps.map((app) => (
-                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+                                <>
+                                    <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+
+                                <br/>
+                                </>
                             ))}
                         </div>
                     </div>
@@ -106,17 +134,25 @@ const JobCard: React.FC<JobCardProps> = ({app, onToggleShortlist}) => {
             <div className={JAStyles.jobInfo}>
                 <p className={JAStyles.role}>{app.role}</p>
                 <span className={`${JAStyles.status} ${JAStyles.fullTime}`}>
-          {app.status}
-        </span>
-                <p>Price: {app.priceRange}</p>
-                <p>Applied: {app.appliedDate}</p>
-                <a href="#" className={JAStyles.downloadCv}>
-                    Download CV/Resume
+                   {app.status}
+                </span>
+                <p className={JAStyles.p}>Price: {app.priceRange}</p>
+                <p className={JAStyles.p}>Applied: {app.appliedDate}</p>
+                <a href="#/jobapplication" className={JAStyles.downloadCv}>
+                    Download CV/Resume <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg" alt="Download CV"/>
                 </a>
-                <button className={JAStyles.declineRequest}>Decline Request</button>
-                <button onClick={() => onToggleShortlist(app.id)}>
-                    {app.shortlisted ? 'Remove from Shortlist' : 'Shortlist'}
-                </button>
+
+                <br/>
+                <div className={JAStyles.BtnCtn}>
+                    <div className={JAStyles.declineRequest}>Decline Request</div>
+                    <button className={JAStyles.btn} onClick={() => onToggleShortlist(app.id)}>
+                        {!app.shortlisted ? 'Shortlist' : 'View Profile'}<img
+                        src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/arrow-right_bsh2zk.svg'
+                        alt="Icon"/>
+                    </button>
+
+                </div>
+
             </div>
         </div>
     );
