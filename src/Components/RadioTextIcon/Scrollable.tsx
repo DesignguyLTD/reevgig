@@ -1,5 +1,5 @@
 import React from "react";
-import gross from "../../Pages/Profile/profile.module.css";
+// import gross from "../../Pages/Profile/profile.module.css";
 
 const ScrollableComponent: React.FC<{
     children: React.ReactNode;
@@ -17,7 +17,9 @@ const ScrollableComponent: React.FC<{
     };
 
     return (
-        <div className={gross.scroll} style={scrollStyle}>
+        <div
+            // className={gross.scroll}
+            style={scrollStyle}>
             {children}
         </div>
     );
