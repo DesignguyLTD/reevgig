@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Sidebar from "../../../stories/SideBar/sideBar";
 import style from "../../OverView/OverviewPage.module.css";
-import OverviewPage from "../../OverView/OverviewPage";
-import Profile from "../../Profile/Profile";
 import JAStyles from "./JobApplicationPage.module.css";
 
 
@@ -46,14 +44,12 @@ const JobApplicationPage = () => {
     }
 
 
-
-
     const [applications, setApplications] = useState<JobApplication[]>(jobApplications);
 
     const toggleShortlist = (id: number) => {
         setApplications((prevApps) =>
             prevApps.map((app) =>
-                app.id === id ? { ...app, shortlisted: !app.shortlisted } : app
+                app.id === id ? {...app, shortlisted: !app.shortlisted} : app
             )
         );
     };
@@ -71,14 +67,14 @@ const JobApplicationPage = () => {
                         <div className={JAStyles.applicationsColumn}>
                             <h3>All Applications ({allApps.length})</h3>
                             {allApps.map((app) => (
-                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist} />
+                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
                             ))}
                         </div>
 
                         <div className={JAStyles.applicationsColumn}>
                             <h3>Shortlisted ({shortlistedApps.length})</h3>
                             {shortlistedApps.map((app) => (
-                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist} />
+                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
                             ))}
                         </div>
                     </div>
@@ -93,7 +89,7 @@ type JobCardProps = {
     onToggleShortlist: (id: number) => void;
 };
 
-const JobCard: React.FC<JobCardProps> = ({ app, onToggleShortlist }) => {
+const JobCard: React.FC<JobCardProps> = ({app, onToggleShortlist}) => {
     return (
         <div className={JAStyles.jobCard}>
             <div className={JAStyles.header}>

@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './sideBar.module.css';
-import { Link, useNavigate } from "react-router-dom";
-import style from "../../Pages/OverView/OverviewPage.module.css";
+import {Link, useNavigate} from "react-router-dom";
 import ProfileNav from "../../Components/DashBoard/ProfileNav";
 
 interface SidebarProps {
@@ -11,7 +10,7 @@ interface SidebarProps {
     getPage?: (x: string) => string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getPage }: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage}: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
@@ -72,8 +71,6 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
     }, [isProfileOpen]);
 
 
-
-
     let navigate = useNavigate();
     const handleNavigation = () => {
         navigate('/saved');
@@ -82,7 +79,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
     return (
         <>
             <div className={styles.upperNav}>
-                <div style={{ cursor: 'pointer' }} onClick={handleNavSearchDisplay}>
+                <div style={{cursor: 'pointer'}} onClick={handleNavSearchDisplay}>
                     <img
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/pixelarticons_menu_bl8vvb.svg"
                         alt="menu"
@@ -95,11 +92,11 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/icons_n8fkxi.svg"
                         alt="Search"
                     />
-                    <input type="text" placeholder={'Search for anything...'} />
+                    <input type="text" placeholder={'Search for anything...'}/>
                 </div>
 
                 <div className={styles.lastCont}>
-                    <div style={{ cursor: 'pointer' }}>
+                    <div style={{cursor: 'pointer'}}>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
                             alt="bell"
@@ -118,15 +115,16 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                         />
                     </div>
                     {isProfileOpen && (
-                        <div  className={styles.profile}>
-                            <ProfileNav />
+                        <div className={styles.profile}>
+                            <ProfileNav/>
                         </div>
                     )}
                 </div>
             </div>
 
-            <div style={{ position: 'relative' }}>
-                <div ref={navSearchRef}  className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
+            <div style={{position: 'relative'}}>
+                <div ref={navSearchRef}
+                     className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
                     <Link to={`${logo}`} className={styles.Link}>
                         <div className={styles.logo}>
                             <img
@@ -159,38 +157,41 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
 
                     <ul className={styles.upperSideBar}>
                         {/*<Link to={`${overview}`} className={styles.Link}>*/}
-                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Overview') : ''}>
-                                {isOpen ? (
-                                    <div className={styles.dodo}>
-                                        <i className="fi fi-sr-apps"></i>
-                                        <div>Overview</div>
-                                    </div>
-                                ) : (
-                                    <div className={styles.dodom}>
-                                        <i className="fi fi-sr-apps"></i>
-                                        <span className={styles.tooltiptext}>Overview</span>
-                                    </div>
-                                )}
-                            </li>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('Overview') : ''}>
+                            {isOpen ? (
+                                <div className={styles.dodo}>
+                                    <i className="fi fi-sr-apps"></i>
+                                    <div>Overview</div>
+                                </div>
+                            ) : (
+                                <div className={styles.dodom}>
+                                    <i className="fi fi-sr-apps"></i>
+                                    <span className={styles.tooltiptext}>Overview</span>
+                                </div>
+                            )}
+                        </li>
 
                         {/*</Link>*/}
                         {/*<Link to={`${profile}`} className={styles.Link}>*/}
-                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Profile') : ''}>
-                                {isOpen ? (
-                                    <div className={styles.dodo}>
-                                        <i className="fi fi-sr-user"></i>
-                                        Profile
-                                    </div>
-                                ) : (
-                                    <div className={styles.dodom}>
-                                        <i className="fi fi-sr-user"></i>
-                                        <span className={styles.tooltiptext}>Profile</span>
-                                    </div>
-                                )}
-                            </li>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('Profile') : ''}>
+                            {isOpen ? (
+                                <div className={styles.dodo}>
+                                    <i className="fi fi-sr-user"></i>
+                                    Profile
+                                </div>
+                            ) : (
+                                <div className={styles.dodom}>
+                                    <i className="fi fi-sr-user"></i>
+                                    <span className={styles.tooltiptext}>Profile</span>
+                                </div>
+                            )}
+                        </li>
 
                         {/*</Link>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('PostAJob') : ''}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('PostAJob') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-add"></i>
@@ -204,7 +205,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Message') : ''}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('Message') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-envelope"></i>
@@ -218,7 +220,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('SavedEmployee') : ''}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('SavedEmployee') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-users"></i>
@@ -232,7 +235,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('PlanBillings') : ''}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('PlanBillings') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-receipt"></i>
@@ -246,7 +250,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon} onClick={() => getPage ? getPage('Settings') : ''}>
+                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                            onClick={() => getPage ? getPage('Settings') : ''}>
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-settings"></i>

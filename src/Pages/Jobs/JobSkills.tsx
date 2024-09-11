@@ -3,29 +3,30 @@ import React from "react";
 
 export default function JobSkills() {
 
-   interface OptionType {
-    value: string;
-    label: string;
-  }
+    interface OptionType {
+        value: string;
+        label: string;
+    }
 
 
+    return <>
 
-  return <>
-  
-    <div>
-      <div>
+        <div>
+            <div>
 
-      <p>What category fits this job</p>
-      <Dropdown onChange={(option: OptionType)=>{} } options={[]} defaultText={""}/>
-      </div>
-      <div>
-        <p>Job Type</p>
-        <Dropdown onChange={ (option:OptionType) =>{}} options={[]} defaultText={""}/>
-      </div>
-      <div>
-        <p>Skills</p>
+                <p>What category fits this job</p>
+                <Dropdown onChange={(option: OptionType) => {
+                }} options={[]} defaultText={""}/>
+            </div>
+            <div>
+                <p>Job Type</p>
+                <Dropdown onChange={(option: OptionType) => {
+                }} options={[]} defaultText={""}/>
+            </div>
+            <div>
+                <p>Skills</p>
 
-      </div>
-    </div>
-  </>;
+            </div>
+        </div>
+    </>;
 }

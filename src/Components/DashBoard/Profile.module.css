@@ -1,4 +1,4 @@
-.profileEdit{
+.profileEdit {
     display: inline-flex;
     flex-direction: column;
     /* gap: 10px; */
@@ -12,12 +12,12 @@
     justify-content: space-between;
 }
 
-.profileEdit img{
+.profileEdit img {
     width: 87px;
     height: 87px;
 }
 
-.UserName{
+.UserName {
     color: rgb(254, 194, 0);
     font-family: 'Outfit';
     font-size: 22px;
@@ -26,7 +26,7 @@
     text-align: left;
 }
 
-.userLocation{
+.userLocation {
     color: rgb(254, 194, 0);
     font-family: 'Plus Jakarta Sans';
     font-size: 12px;
@@ -35,7 +35,7 @@
     text-align: left;
 }
 
-.editBtn{
+.editBtn {
     cursor: pointer;
     display: inline-flex;
     flex-direction: row;
@@ -55,19 +55,19 @@
     gap: 5px;
 }
 
-.editBtn img{
+.editBtn img {
     width: 20px;
     height: 20px;
 }
 
-.Usertext{
+.Usertext {
     text-align: center;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
 }
 
-.applicationStatus{
+.applicationStatus {
     margin-top: 10px;
     padding: 20px 10px;
     box-sizing: border-box;
@@ -79,7 +79,7 @@
     background: white;
 }
 
-.applicationCtn1{
+.applicationCtn1 {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -87,7 +87,7 @@
     align-items: center;
 }
 
-.appText{
+.appText {
     color: rgb(0, 0, 0);
     font-family: 'Outfit';
     font-size: 22px;
@@ -97,7 +97,7 @@
     text-align: left;
 }
 
-.applicationCtn2{
+.applicationCtn2 {
     margin-top: 10px;
     padding: 5px;
     box-sizing: border-box;
@@ -108,7 +108,7 @@
     gap: 5px;
 }
 
-.applicationflex1{
+.applicationflex1 {
     display: inline-flex;
     flex-direction: row;
     width: 100%;
@@ -116,7 +116,7 @@
     align-items: center;
 }
 
-.Exp{
+.Exp {
     border-radius: 86.88px;
     color: rgb(85, 65, 0);
     font-family: 'Outfit';
@@ -128,7 +128,7 @@
     padding: 5px;
 }
 
-.date{
+.date {
     color: rgb(3, 168, 98);
     font-family: 'Outfit';
     font-size: 8.69px;
@@ -138,7 +138,7 @@
     text-align: left;
 }
 
-.applicationflex2{
+.applicationflex2 {
     color: rgb(20, 22, 39);
     font-family: 'Outfit';
     font-size: 13.9px;
@@ -147,7 +147,7 @@
     text-align: left;
 }
 
-.applicationflex3{
+.applicationflex3 {
     display: inline-flex;
     width: 100%;
     flex-direction: column;
@@ -156,7 +156,7 @@
     margin-bottom: 8px;
 }
 
-.ProjectType{
+.ProjectType {
     color: rgb(103, 116, 135);
     font-family: 'Outfit';
     font-size: 10px;
@@ -170,7 +170,7 @@
     padding: 5px;
 }
 
-.ProjectTypeCtn{
+.ProjectTypeCtn {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -180,7 +180,7 @@
     justify-content: flex-start;
 }
 
-.Location{
+.Location {
     color: rgb(103, 116, 135);
     font-family: 'Outfit';
     font-size: 10px;
@@ -189,8 +189,8 @@
     text-align: left;
 }
 
-@media (min-width: 1280px){
-    .profileEdit{
+@media (min-width: 1280px) {
+    .profileEdit {
         display: inline-flex;
         flex-direction: column;
         /* gap: 10px; */
@@ -204,7 +204,7 @@
         justify-content: space-between;
     }
 
-    .applicationStatus{
+    .applicationStatus {
         margin-top: 10px;
         padding: 20px 10px;
         box-sizing: border-box;
@@ -218,8 +218,8 @@
 
 }
 
-@media (min-width: 1280px){
-    .profileEdit{
+@media (min-width: 1280px) {
+    .profileEdit {
         display: inline-flex;
         flex-direction: column;
         /* gap: 10px; */
@@ -233,7 +233,7 @@
         justify-content: space-between;
     }
 
-    .applicationStatus{
+    .applicationStatus {
         margin-top: 10px;
         padding: 20px 10px;
         box-sizing: border-box;

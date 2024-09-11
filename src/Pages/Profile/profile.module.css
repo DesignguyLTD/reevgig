@@ -1,5 +1,5 @@
 .container {
-    margin-top: 3rem;
+    /*margin-top: 3rem;*/
     margin-bottom: 5rem;
     text-align: left;
     background-color: #FCFDFF;
@@ -8,7 +8,7 @@
 }
 
 .container_two {
-    margin: 5rem 0 0rem 0;
+    /*margin: 5rem 0 0rem 0;*/
     text-align: left;
     background-color: #FCFDFF;
     color: #181818;
@@ -26,14 +26,14 @@
 
 .holder {
     width: auto;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     padding: 24px 16px;
 }
 
 .holder_two {
     /* padding: 8px 12px 8px 8px; */
     width: max-content;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     padding: 24px 16px;
     /* border: 3px solid yellow; */
 }
@@ -162,6 +162,26 @@
     border-radius: 160px;
     padding: 16px;
     margin-top: 30px;
+    letter-spacing: 0.32px;
+    text-align: center;
+}
+
+.edit:hover {
+    box-sizing: border-box;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    color: black;
+    /* secondary color/6001 */
+    background: rgb(254, 194, 0);
+}
+
+.edit:active {
+    box-sizing: border-box;
+    border: 1px solid rgb(254, 194, 0);
+    border-radius: 160px;
+    color: white;
+    /* primary color/11001 */
+    background: rgb(43, 43, 43);
 }
 
 .edit_holder {
@@ -196,7 +216,7 @@
     gap: 5px;
 }
 
-label~input {
+label ~ input {
     display: block;
     width: 100%;
     border: 1px solid #d9d9d9;
@@ -208,7 +228,6 @@ label~input {
 .thumbnail img {
     width: 32px;
 }
-
 
 
 .phone_cover {
@@ -289,12 +308,9 @@ label~input {
 }
 
 
-
 .ph_cover {
     width: 11rem;
 }
-
-
 
 
 @media screen and (min-width: 765px) {
@@ -339,8 +355,8 @@ label~input {
 
     .holder {
         width: 530px;
-        margin-left: 200px;
-        padding-top: 3rem;
+        /*margin-left: 200px;*/
+        /*padding-top: 3rem;*/
     }
 
     .number_input {

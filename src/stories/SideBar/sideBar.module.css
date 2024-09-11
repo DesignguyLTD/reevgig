@@ -1,7 +1,6 @@
 @import url('https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
 
-
 /*.sb-show-main.sb-main-padded {*/
 /*    margin: 0; !important;*/
 /*    padding: 0; !important;*/
@@ -20,7 +19,7 @@
     z-index: 101;
 }
 
-.Link{
+.Link {
     text-decoration: none;
     color: #7d7d7d;
 }
@@ -98,7 +97,6 @@
 }
 
 
-
 .upperSideBar {
     transition: all .3s ease;
     list-style-type: none;
@@ -159,7 +157,7 @@ li {
 
 }
 
-.mobileIcon{
+.mobileIcon {
     padding: 10px 0;
 
 }
@@ -209,8 +207,8 @@ i {
     opacity: 1;
 }
 
-.upperNav{
-display: inline-flex;
+.upperNav {
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -228,11 +226,11 @@ display: inline-flex;
     z-index: 10;
 }
 
-.sidebar{
+.sidebar {
     display: none;
 }
 
-.navSerch{
+.navSerch {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -247,11 +245,11 @@ display: inline-flex;
     padding: 13px 10px 13px 13px;
 }
 
-.navSerch input:focus-within{
+.navSerch input:focus-within {
     outline: none;
 }
 
-.navSerch input{
+.navSerch input {
     border: none;
     /* body 3 */
     color: rgba(6, 6, 6, 0.4);
@@ -264,7 +262,7 @@ display: inline-flex;
     height: 17px;
 }
 
-.Userbtn{
+.Userbtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -274,11 +272,11 @@ display: inline-flex;
     cursor: pointer;
 }
 
-.userName{
+.userName {
     display: none;
 }
 
-.lastCont{
+.lastCont {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -286,7 +284,7 @@ display: inline-flex;
     gap: 10px;
 }
 
-.profile{
+.profile {
     position: absolute;
     top: 83px;
     display: block;
@@ -299,12 +297,11 @@ display: inline-flex;
     }
 
 
-
-    .sidebar{
+    .sidebar {
         display: block;
     }
 
-    .navSerch{
+    .navSerch {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -319,7 +316,7 @@ display: inline-flex;
         padding: 13px 10px 13px 13px;
     }
 
-    .navSerch input{
+    .navSerch input {
         border: none;
         width: 363px;
         height: 40px;
@@ -332,7 +329,7 @@ display: inline-flex;
         border-radius: 55px;
     }
 
-    .userName{
+    .userName {
         display: block;
         color: rgb(247, 207, 49);
         font-family: PP Neue Montreal;
@@ -342,7 +339,7 @@ display: inline-flex;
         text-align: left;
     }
 
-    .Userbtn{
+    .Userbtn {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -352,7 +349,7 @@ display: inline-flex;
         gap: 5px;
     }
 
-    .lastCont{
+    .lastCont {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -360,13 +357,13 @@ display: inline-flex;
         gap: 40px;
     }
 
-    .menuIcon{
+    .menuIcon {
         display: none;
     }
 }
 
 @media (min-width: 1024px) {
-    .profile{
+    .profile {
         display: none;
     }
 
@@ -375,7 +372,7 @@ display: inline-flex;
         padding: 0 0 250px 0;
     }
 
-    .navSerch{
+    .navSerch {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -391,7 +388,7 @@ display: inline-flex;
         gap: 10px;
     }
 
-    .navSerch input{
+    .navSerch input {
         border: none;
         width: 500px;
         height: 40px;
@@ -405,7 +402,7 @@ display: inline-flex;
         border-radius: 55px;
     }
 
-    .userName{
+    .userName {
         display: block;
         color: rgb(247, 207, 49);
         font-family: PP Neue Montreal;
@@ -415,7 +412,7 @@ display: inline-flex;
         text-align: left;
     }
 
-    .Userbtn{
+    .Userbtn {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -425,7 +422,7 @@ display: inline-flex;
         gap: 10px;
     }
 
-    .lastCont{
+    .lastCont {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -433,7 +430,7 @@ display: inline-flex;
         gap: 50px;
     }
 
-    .upperNav{
+    .upperNav {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -446,7 +443,7 @@ display: inline-flex;
         gap: 8px;
     }
 
-    .menuIcon{
+    .menuIcon {
         display: none;
     }
 

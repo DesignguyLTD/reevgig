@@ -17,11 +17,51 @@ export interface TableRow {
 
 // Sample data for the table
 const data: TableRow[] = [
-    { id: 1, clientName: 'Steven Terry', project: 'Embedded system circuit', price: '$800', deliveredIn: 'May 25, 2023', status: 'Completed', progress: 100 },
-    { id: 2, clientName: 'Audrey Jones', project: 'Landing page', price: '$300', deliveredIn: 'Jun 20, 2023', status: 'Delayed', progress: 35 },
-    { id: 3, clientName: 'Molly Mills', project: 'Landing page', price: '$180', deliveredIn: 'July 13, 2023', status: 'Overdue', progress: 68 },
-    { id: 4, clientName: 'Orlando Vesa', project: 'Landing page', price: '$920', deliveredIn: 'Dec 20, 2023', status: 'Completed', progress: 100 },
-    { id: 5, clientName: 'Brian Fischer', project: 'Landing page', price: '$200', deliveredIn: 'Mar 15, 2024', status: 'In progress', progress: 50 },
+    {
+        id: 1,
+        clientName: 'Steven Terry',
+        project: 'Embedded system circuit',
+        price: '$800',
+        deliveredIn: 'May 25, 2023',
+        status: 'Completed',
+        progress: 100
+    },
+    {
+        id: 2,
+        clientName: 'Audrey Jones',
+        project: 'Landing page',
+        price: '$300',
+        deliveredIn: 'Jun 20, 2023',
+        status: 'Delayed',
+        progress: 35
+    },
+    {
+        id: 3,
+        clientName: 'Molly Mills',
+        project: 'Landing page',
+        price: '$180',
+        deliveredIn: 'July 13, 2023',
+        status: 'Overdue',
+        progress: 68
+    },
+    {
+        id: 4,
+        clientName: 'Orlando Vesa',
+        project: 'Landing page',
+        price: '$920',
+        deliveredIn: 'Dec 20, 2023',
+        status: 'Completed',
+        progress: 100
+    },
+    {
+        id: 5,
+        clientName: 'Brian Fischer',
+        project: 'Landing page',
+        price: '$200',
+        deliveredIn: 'Mar 15, 2024',
+        status: 'In progress',
+        progress: 50
+    },
 ];
 
 const ResponsiveTable: React.FC = () => {
@@ -42,8 +82,9 @@ const ResponsiveTable: React.FC = () => {
                 {data.map((row) => (
                     <tr key={row.id}>
                         <td>
-                            <div className={styles.info} >
-                                <img src={`https://i.pravatar.cc/50?img=${row.id}`} alt={`${row.clientName}`} className="avatar" />
+                            <div className={styles.info}>
+                                <img src={`https://i.pravatar.cc/50?img=${row.id}`} alt={`${row.clientName}`}
+                                     className="avatar"/>
                                 <div>
                                     <div className={styles.clientName}>{row.clientName}</div>
                                     <div className={styles.clientOrder}>View order</div>
@@ -54,16 +95,19 @@ const ResponsiveTable: React.FC = () => {
                         <td className='width'>{row.price}</td>
                         <td>{row.deliveredIn}</td>
                         <td>
-                {/*             className={`status-badge ${row.status.toLowerCase().replace(' ', '-')}`}*/}
-                <span className={`${styles['status-badge']} ${styles[`status-${row.status.toLowerCase().replace(' ', '-')}`]}`}>
+                            {/*             className={`status-badge ${row.status.toLowerCase().replace(' ', '-')}`}*/}
+                            <span
+                                className={`${styles['status-badge']} ${styles[`status-${row.status.toLowerCase().replace(' ', '-')}`]}`}>
                   {row.status}
                 </span>
                         </td>
                         <td className={styles.prog}>
-                            <div className={`${styles.progressCircle} ${styles[`${row.status.toLowerCase().replace(' ', '-')}`]}`}>
+                            <div
+                                className={`${styles.progressCircle} ${styles[`${row.status.toLowerCase().replace(' ', '-')}`]}`}>
                                 <svg>
                                     <circle cx="25" cy="25" r="18"></circle>
-                                    <circle cx="25" cy="25" r="18" style={{ strokeDashoffset: `calc(82 - (82 * ${row.progress}) / 100)` }}></circle>
+                                    <circle cx="25" cy="25" r="18"
+                                            style={{strokeDashoffset: `calc(82 - (82 * ${row.progress}) / 100)`}}></circle>
                                 </svg>
                                 <span>{row.progress}%</span>
                             </div>

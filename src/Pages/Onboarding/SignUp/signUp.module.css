@@ -1,8 +1,8 @@
-.container{
+.container {
     margin-top: 100px;
 }
 
-.headerText{
+.headerText {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 33px;
@@ -12,9 +12,9 @@
     text-align: center;
 }
 
-.lowerText{
+.lowerText {
     margin-top: 16px;
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 16px;
     font-weight: 400;
     line-height: 140%;
@@ -22,29 +22,29 @@
     text-align: center;
 }
 
-.makeYellow{
+.makeYellow {
     color: rgb(254, 194, 0);
     cursor: pointer;
 }
 
-.btn{
+.btn {
     margin-top: 32px;
 }
 
-.RadioCont{
+.RadioCont {
     width: 100%;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.ThirdPartiesAuthContainer{
+.ThirdPartiesAuthContainer {
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.orText{
+.orText {
     display: inline-flex;
     flex-direction: row;
     width: 100%;
@@ -54,14 +54,14 @@
     margin: 10px 0;
 }
 
-.orText hr{
+.orText hr {
     border: 0;
     width: 100%;
     height: 1px;
     background-color: #5b5656;
 }
 
-.orText span{
+.orText span {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -69,10 +69,10 @@
     line-height: 40px;
     letter-spacing: 0px;
     text-align: center;
-    margin:0 3px;
+    margin: 0 3px;
 }
 
-.stage2Cont{
+.stage2Cont {
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
@@ -83,19 +83,19 @@
 
 }
 
-.upperForm{
+.upperForm {
     display: inline-flex;
     flex-direction: column;
 }
 
-.formContainer{
+.formContainer {
     margin-bottom: 15px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Stage2lowerText{
+.Stage2lowerText {
     margin-top: 20px;
     display: inline-flex;
     width: 100%;
@@ -112,27 +112,27 @@
     flex-direction: row;
 }
 
-.checkBoxtext{
+.checkBoxtext {
     width: 100%;
 }
 
-.checkBoxtext span{
+.checkBoxtext span {
     text-decoration: underline 1px solid rgb(254, 194, 0);
 }
 
 
-@media (min-width: 768px){
-    .ThirdPartiesAuthContainer{
+@media (min-width: 768px) {
+    .ThirdPartiesAuthContainer {
         display: inline-flex;
         flex-direction: row;
         gap: 30px;
     }
 
-    .Stage2lowerText{
+    .Stage2lowerText {
         font-size: 16px;
     }
 
-    .stage2Cont{
+    .stage2Cont {
         display: inline-flex;
         flex-direction: column;
         gap: 10px;
@@ -142,18 +142,18 @@
 
     }
 
-    .RadioCont{
+    .RadioCont {
         width: 100%;
         flex-direction: row;
         justify-content: center;
         gap: 30px;
     }
 
-    .container{
+    .container {
         margin-top: 172px;
     }
 
-    .headerText{
+    .headerText {
         margin-bottom: 41px;
         font-size: 36px;
         font-weight: 500;
@@ -162,19 +162,19 @@
     }
 
 
-    .btn{
+    .btn {
         margin-top: 42px;
     }
 
 }
 
 
-@media (min-width: 1024px){
-    .container{
+@media (min-width: 1024px) {
+    .container {
         margin-top: 200px;
     }
 
-    .headerText{
+    .headerText {
         margin-bottom: 48px;
         font-size: 36px;
         font-weight: 500;
@@ -182,12 +182,12 @@
         letter-spacing: -1px;
     }
 
-    .btn{
+    .btn {
         margin-top: 46px;
     }
 
 
-    .stage2Cont{
+    .stage2Cont {
         display: inline-flex;
         flex-direction: column;
         gap: 10px;

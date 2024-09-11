@@ -71,7 +71,6 @@
 }
 
 
-
 .radio_btn {
     display: flex;
     align-items: center;
@@ -101,8 +100,6 @@
 }
 
 
-
-
 .label_text {
     font-size: 16px;
     font-weight: 500;
@@ -110,7 +107,6 @@
     padding: 0;
     margin-bottom: -8px;
 }
-
 
 
 .upload {
@@ -147,8 +143,6 @@ TimeLine styling codes */
     display: flex;
 
 }
-
-
 
 
 @media screen and (min-width: 765px) {
@@ -221,7 +215,7 @@ TimeLine styling codes */
     }
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
     .nav_container {
         display: flex;
         justify-content: flex-start;
@@ -233,7 +227,6 @@ TimeLine styling codes */
         width: 747px;
         font-family: PP Neue Montreal;
     }
-
 
 
 }

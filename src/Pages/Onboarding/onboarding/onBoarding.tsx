@@ -11,7 +11,7 @@ import TagUi from "../../../Components/TagUI/tagUI";
 import SuccessModal from "../../../Components/modals/successModal/successModal";
 import TagInput from "../../../Components/TagInput/tagInput";
 
-import {tagData, recommendedLanguages, recommendedSkills, Experience} from "./dataset";
+import {Experience, recommendedLanguages, recommendedSkills, tagData} from "./dataset";
 import FileUpload from "../../../Components/FileUpload/fileUpload";
 import Header from "../../../stories/Header/header";
 
@@ -34,27 +34,23 @@ const OnBoarding = () => {
         PortfolioLink_2: string;
     }
 
-interface FormValues3 {
-    UserVerification: string | null;
-    CVName: string;
-    CV_PDF: string | null;
-}
-
-
-
-
+    interface FormValues3 {
+        UserVerification: string | null;
+        CVName: string;
+        CV_PDF: string | null;
+    }
 
 
     let navigate = useNavigate();
-    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') :  'Client';
+    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
     const [stage, setStage] = React.useState(1);
     const [doneStage, setDoneStage] = React.useState({stage1: false, stage2: false, stage3: false});
     const [avatar, setAvatar] = useState<string>("https://res.cloudinary.com/do5wu6ikf/image/upload/v1721847923/Reev/Avatar09fff_wn6wgf.svg");
-    const [langtags, setLangTags] = useState<string[]>(()=>{
+    const [langtags, setLangTags] = useState<string[]>(() => {
         const savedFormValues2 = localStorage.getItem('onboardingForm2');
         return savedFormValues2 ? JSON.parse(savedFormValues2).LanguageSpoken : [];
     });
-    const [skilltags, setSkilltags] = useState<string[]>(()=>{
+    const [skilltags, setSkilltags] = useState<string[]>(() => {
             const savedFormValues2 = localStorage.getItem('onboardingForm2');
             return savedFormValues2 ? JSON.parse(savedFormValues2).SkillSet : [];
         }
@@ -64,18 +60,18 @@ interface FormValues3 {
         return savedTags ? JSON.parse(savedTags) : tagData;
     });
     const [countryCode, setCountryCode] = useState('+234');
-    const [first, setFirst] = useState<string | null>(()=>{
+    const [first, setFirst] = useState<string | null>(() => {
         const savedFormValues2 = localStorage.getItem('onboardingForm3');
         return savedFormValues2 ? JSON.parse(savedFormValues2).UserVerification : '';
     });
     const [second, setSecond] = useState<string | null>(
-        ()=>{
+        () => {
             const savedFormValues2 = localStorage.getItem('onboardingForm3');
             return savedFormValues2 ? JSON.parse(savedFormValues2).CV_PDF : '';
         }
     );
 
-    const defaultFormValues2 :FormValues2 = {
+    const defaultFormValues2: FormValues2 = {
         ProfessionalRole: '',
         Experience: '',
         LanguageSpoken: [],
@@ -85,7 +81,7 @@ interface FormValues3 {
     };
 
 
-    const defaultFormValues :FormValues = {
+    const defaultFormValues: FormValues = {
         DisplayName: '',
         State: '',
         City: '',
@@ -94,7 +90,7 @@ interface FormValues3 {
         avater: '',
     };
 
-    const defaultFormValues3 :FormValues3 = {
+    const defaultFormValues3: FormValues3 = {
         UserVerification: '',
         CVName: '',
         CV_PDF: '',
@@ -103,7 +99,6 @@ interface FormValues3 {
         const savedFormValues = localStorage.getItem('onboardingForm');
         return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
     });
-
 
 
     const [formErrors, setFormErrors] = useState({
@@ -154,14 +149,13 @@ interface FormValues3 {
         }));
     }, [skilltags]);
 
-useEffect(() => {
-    setFormValues3(prevValues => ({
-        ...prevValues,
-        UserVerification: first,
-        CV_PDF: second
-    }));
-}, [first, second]);
-
+    useEffect(() => {
+        setFormValues3(prevValues => ({
+            ...prevValues,
+            UserVerification: first,
+            CV_PDF: second
+        }));
+    }, [first, second]);
 
 
     useEffect(() => {
@@ -232,37 +226,38 @@ useEffect(() => {
 
         return false;
     }
-   const handleNext = () => {
-    if (stage !== 4) {
-        if (stage === 2) {
-            if (UserType === 'Freelancer') {
-                const formValues2 = validateForm2();
-                if (formValues2) {
-                    setStage(stage + 1);
-                    handleDone();
-                }
-            } else {
-                const isTagValid = areAtLeastThreeTagsActive(tags);
-                if (!isTagValid) {
-                    VibrateDiv2();
-                } else {
-                    setStage(stage + 1);
-                    handleDone();
-                }
-            }
-        }else if(stage === 3 && UserType === 'Freelancer'){
-            const formValues3 = validateForm3();
-            console.log(formValues3, 'formValues3');
-            if (formValues3) {
-                setStage(stage + 1);
-                handleDone();
-            }
 
-        } else {
-            setStage(stage + 1);
+    const handleNext = () => {
+        if (stage !== 4) {
+            if (stage === 2) {
+                if (UserType === 'Freelancer') {
+                    const formValues2 = validateForm2();
+                    if (formValues2) {
+                        setStage(stage + 1);
+                        handleDone();
+                    }
+                } else {
+                    const isTagValid = areAtLeastThreeTagsActive(tags);
+                    if (!isTagValid) {
+                        VibrateDiv2();
+                    } else {
+                        setStage(stage + 1);
+                        handleDone();
+                    }
+                }
+            } else if (stage === 3 && UserType === 'Freelancer') {
+                const formValues3 = validateForm3();
+                console.log(formValues3, 'formValues3');
+                if (formValues3) {
+                    setStage(stage + 1);
+                    handleDone();
+                }
+
+            } else {
+                setStage(stage + 1);
+            }
         }
     }
-}
     const handleDone = () => {
         setDoneStage(prevState => ({...prevState, [`stage${stage}`]: true}));
     }
@@ -272,19 +267,11 @@ useEffect(() => {
     }
 
 
-
-
-
-
-
-
     useEffect(() => {
         localStorage.setItem('onboardingForm', JSON.stringify(formValues));
         localStorage.setItem('onboardingForm2', JSON.stringify(formValues2));
         localStorage.setItem('onboardingForm3', JSON.stringify(formValues3));
-    }, [formValues,formValues2,formValues3]);
-
-
+    }, [formValues, formValues2, formValues3]);
 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -447,19 +434,18 @@ useEffect(() => {
     };
 
 
-
     const handleStage1 = () => {
-    const isFormValid = true;
-    if(isFormValid){
+        const isFormValid = true;
+        if (isFormValid) {
 
-        setStage(1)
+            setStage(1)
 
+        }
     }
-}
 
     const handleStage2 = () => {
         const isFormValid = validateForm1();
-        if(isFormValid){
+        if (isFormValid) {
             VibrateDiv()
             // setStage(2)
 
@@ -469,7 +455,7 @@ useEffect(() => {
 
     const handleStage3 = () => {
         const isTagValid = areAtLeastThreeTagsActive(tags);
-        if(!isTagValid){
+        if (!isTagValid) {
             // setStage(3)
             // handleDone()
             VibrateDiv2()
@@ -489,16 +475,15 @@ useEffect(() => {
     };
 
 
-
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const file = e.target.files?.[0];
         if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
             const maxSize = (1024 * 1024) / 2; // 0.5 MB
             if (file.size > maxSize) {
-                compressImage(file).then(({ compressedImage, size }) => {
+                compressImage(file).then(({compressedImage, size}) => {
                     setAvatar(compressedImage);
                     setCompressedSize(size);
-                    console.log( compressedSize ? compressedSize/1024/1024 :'n', file.size/1024/1024)
+                    console.log(compressedSize ? compressedSize / 1024 / 1024 : 'n', file.size / 1024 / 1024)
 
                 });
             } else {
@@ -540,7 +525,7 @@ useEffect(() => {
                         fetch(compressedDataURL)
                             .then(res => res.blob())
                             .then(blob => {
-                                resolve({ compressedImage: compressedDataURL, size: blob.size });
+                                resolve({compressedImage: compressedDataURL, size: blob.size});
                                 // console.log(blob.size/1024/1024, 'mb',compressedDataURL.length/1024, 'kb')
                             });
                     } else {
@@ -556,10 +541,9 @@ useEffect(() => {
     };
 
 
-
     const handleTagClick = (index: number) => {
         const newTags = tags.map((tag: { isActive: boolean, content: string }, i: number) =>
-            i === index ? { ...tag, isActive: !tag.isActive } : tag
+            i === index ? {...tag, isActive: !tag.isActive} : tag
         );
         setTags(newTags);
 
@@ -573,16 +557,11 @@ useEffect(() => {
     }, [countryCode, langtags, skilltags, avatar, handleSubmit]);
 
 
-
-
-
-
-
     return (
         <>
             <Header auth={true}/>
             <div className={styles.container}>
-                {UserType === 'Client' && stage=== 3 ?
+                {UserType === 'Client' && stage === 3 ?
                     <>
                     </>
                     :
@@ -590,16 +569,23 @@ useEffect(() => {
                     <div className={styles.progressContainer}>
                         <div
                             className={styles.circle}
-                            style={{background: stage === 1 ? '#404145' :doneStage.stage1 ? '#404145' : '' , color: doneStage.stage1 ? '#fec200' : ''  }}
+                            style={{
+                                background: stage === 1 ? '#404145' : doneStage.stage1 ? '#404145' : '',
+                                color: doneStage.stage1 ? '#fec200' : ''
+                            }}
                             onClick={handleStage1}
                         >
                             {doneStage.stage1 ? '✔' : '1'}
 
                         </div>
-                        <div className={styles.line} style={{visibility: (stage === 2 || stage === 3) ? 'visible' :  doneStage.stage1 ? 'visible' : 'hidden'}}></div>
+                        <div className={styles.line}
+                             style={{visibility: (stage === 2 || stage === 3) ? 'visible' : doneStage.stage1 ? 'visible' : 'hidden'}}></div>
                         <div
                             className={styles.circle}
-                            style={{background: stage === 2 ? '#404145' : doneStage.stage2 ? '#404145' : '' , color: doneStage.stage2 ? '#fec200' : ''  }}
+                            style={{
+                                background: stage === 2 ? '#404145' : doneStage.stage2 ? '#404145' : '',
+                                color: doneStage.stage2 ? '#fec200' : ''
+                            }}
                             onClick={handleStage2}
                         >
                             {doneStage.stage2 ? '✔' : '2'}
@@ -607,10 +593,14 @@ useEffect(() => {
                         {UserType === 'Freelancer' &&
 
                             <>
-                                <div className={styles.line} style={{visibility: stage === 3  ? 'visible' :  doneStage.stage2 ? 'visible' : 'hidden'}}></div>
+                                <div className={styles.line}
+                                     style={{visibility: stage === 3 ? 'visible' : doneStage.stage2 ? 'visible' : 'hidden'}}></div>
                                 <div
                                     className={styles.circle}
-                                    style={{background: stage === 3 ? '#404145' : doneStage.stage3 ? '#404145' : '' , color: doneStage.stage3 ? '#fec200' : ''  }}
+                                    style={{
+                                        background: stage === 3 ? '#404145' : doneStage.stage3 ? '#404145' : '',
+                                        color: doneStage.stage3 ? '#fec200' : ''
+                                    }}
                                     onClick={handleStage3}
                                 >
                                     {doneStage.stage3 ? '✔' : '3'}
@@ -625,26 +615,30 @@ useEffect(() => {
                 }
                 {stage === 1 &&
                     <div className={styles.stageCont}>
-                        <div className={styles.avaterCont} >
-                            <div >
+                        <div className={styles.avaterCont}>
+                            <div>
                                 <img src={avatar} alt="avater" className={styles.avaterimg}/>
                             </div>
 
                             <div className={styles.camera}>
-                                <input type="file" style={{ opacity: '0', width: '100%', height: '100%' }} onChange={handleImageChange} accept="image/png, image/jpeg"/>
+                                <input type="file" style={{opacity: '0', width: '100%', height: '100%'}}
+                                       onChange={handleImageChange} accept="image/png, image/jpeg"/>
                             </div>
 
                         </div>
 
                         <form className={styles.formContainer}>
-                            <Input isTextArea={false} type={'text'} label='Display name' placeholder='others will see this name'
-                                   size='small' onChange={handleInputChange} name={'DisplayName'} error={!!formErrors.DisplayName}
+                            <Input isTextArea={false} type={'text'} label='Display name'
+                                   placeholder='others will see this name'
+                                   size='small' onChange={handleInputChange} name={'DisplayName'}
+                                   error={!!formErrors.DisplayName}
                                    errorMessage={formErrors.DisplayName}
                                    value={formValues.DisplayName}
                             />
 
                             <Dropdown options={states} defaultText='United State'
-                                      label='State/county' size='small' onChange={handleDropdown} error={!!formErrors.State}
+                                      label='State/county' size='small' onChange={handleDropdown}
+                                      error={!!formErrors.State}
                                       errorMessage={formErrors.State}/>
 
                             <Dropdown options={cities} defaultText='United State'
@@ -683,7 +677,8 @@ useEffect(() => {
                 {(stage === 2 && UserType === 'Client') &&
                     <div className={styles.headerText}>
                         <h1>What would you be looking for?</h1>
-                        <p className={styles.headSubText}>This would help us organize your feed and give you the best experience</p>
+                        <p className={styles.headSubText}>This would help us organize your feed and give you the best
+                            experience</p>
 
                         <div className={styles.LowerContainer}>
                             <p className={styles.tagHeader}>What are your interests</p>
@@ -730,7 +725,11 @@ useEffect(() => {
 
                 {(stage === 3 && UserType === 'Client') &&
                     <div>
-                        <SuccessModal Btnlabel2={'Find Freelancer'} Btnlabel1={'View Dashboard'} Forward={()=>{navigate('/')}} Backward={()=>{navigate('/')}} text={'Congratulations! \n' +
+                        <SuccessModal Btnlabel2={'Find Freelancer'} Btnlabel1={'View Dashboard'} Forward={() => {
+                            navigate('/')
+                        }} Backward={() => {
+                            navigate('/')
+                        }} text={'Congratulations! \n' +
                             'Your profile is complete'}/>
                     </div>
                 }
@@ -741,35 +740,44 @@ useEffect(() => {
                     <div className={styles.headerText}>
                         <br/>
 
-                        <Input isTextArea={false} type={'text'} label='Professional Role' placeholder='PCB Design, Project Management, Drone Development'
-                               size='small' onChange={handleInputChange2} name={'ProfessionalRole'} error={!!formErrors2.ProfessionalRole}
+                        <Input isTextArea={false} type={'text'} label='Professional Role'
+                               placeholder='PCB Design, Project Management, Drone Development'
+                               size='small' onChange={handleInputChange2} name={'ProfessionalRole'}
+                               error={!!formErrors2.ProfessionalRole}
                                errorMessage={formErrors2.ProfessionalRole}
                                value={formValues2.ProfessionalRole}
                         />
 
                         <Dropdown options={Experience} defaultText='Expert'
-                                  label='Experience' size='small' onChange={handleDropdown2} error={!!formErrors2.Experience}
+                                  label='Experience' size='small' onChange={handleDropdown2}
+                                  error={!!formErrors2.Experience}
                                   errorMessage={formErrors2.Experience}/>
 
                         <TagInput
                             error={!!formErrors2.LanguageSpoken}
                             errorMessage={formErrors2.LanguageSpoken}
-                            label={'Language Spoken'} recommendedTags={recommendedLanguages} placeholder={'Enter preferred Languages'} maxTags={5} setTags={setLangTags} tags={langtags}/>
+                            label={'Language Spoken'} recommendedTags={recommendedLanguages}
+                            placeholder={'Enter preferred Languages'} maxTags={5} setTags={setLangTags}
+                            tags={langtags}/>
                         <TagInput
                             error={!!formErrors2.SkillSet}
                             errorMessage={formErrors2.SkillSet}
-                            label='Skill Set' recommendedTags={recommendedSkills} placeholder={'Enter preferred Languages'} maxTags={10} setTags={setSkilltags} tags={skilltags}/>
+                            label='Skill Set' recommendedTags={recommendedSkills}
+                            placeholder={'Enter preferred Languages'} maxTags={10} setTags={setSkilltags}
+                            tags={skilltags}/>
 
                         <br/>
 
                         <Input isTextArea={false} type={'text'} label='Prortfolio Link 1' placeholder='Add URL Link'
-                               size='small' onChange={handleInputChange2} name={'PortfolioLink_1'} error={!!formErrors2.PortfolioLink_1}
+                               size='small' onChange={handleInputChange2} name={'PortfolioLink_1'}
+                               error={!!formErrors2.PortfolioLink_1}
                                errorMessage={formErrors2.PortfolioLink_1}
                                value={formValues2.PortfolioLink_1}
                         />
 
                         <Input isTextArea={false} type={'text'} label='Portfolio Link 2' placeholder='Add URL Link'
-                               size='small' onChange={handleInputChange2} name={'PortfolioLink_2'} error={!!formErrors2.PortfolioLink_2}
+                               size='small' onChange={handleInputChange2} name={'PortfolioLink_2'}
+                               error={!!formErrors2.PortfolioLink_2}
                                errorMessage={formErrors2.PortfolioLink_2}
                                value={formValues2.PortfolioLink_2}
                         />
@@ -805,22 +813,27 @@ useEffect(() => {
                         <div className={styles.randCont}>
                             <div className={styles.fileHeader}>Valid Identification</div>
 
-                            <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'} label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'} allowedTypes={['image/png', 'image/jpeg']}/>
+                            <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'}
+                                        label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}
+                                        allowedTypes={['image/png', 'image/jpeg']}/>
 
                         </div>
 
                         <div className={styles.randCont}>
                             <div className={styles.fileHeader}>CV/Resume</div>
 
-                            <Input isTextArea={false} type={'text'} label='CV/Resume Name' placeholder='Circuit Design CV'
-                                   size='small' onChange={handleInputChange3} name={'CVName'} error={!!formErrors3.CVName}
+                            <Input isTextArea={false} type={'text'} label='CV/Resume Name'
+                                   placeholder='Circuit Design CV'
+                                   size='small' onChange={handleInputChange3} name={'CVName'}
+                                   error={!!formErrors3.CVName}
                                    errorMessage={formErrors3.CVName}
                                    value={formValues3.CVName}
                             />
-                            <FileUpload vibrate={targetDivRef4} setFile={setSecond} file={second} id={'pdfdocx'} label={'Drag and Drop to Upload your CV/Resume'} allowedTypes={['application/pdf']}/>
+                            <FileUpload vibrate={targetDivRef4} setFile={setSecond} file={second} id={'pdfdocx'}
+                                        label={'Drag and Drop to Upload your CV/Resume'}
+                                        allowedTypes={['application/pdf']}/>
 
                         </div>
-
 
 
                         <br/>
@@ -849,7 +862,11 @@ useEffect(() => {
 
                 {(stage === 4 && UserType === 'Freelancer') &&
                     <div>
-                        <SuccessModal Btnlabel2={'Find Client'} Btnlabel1={'View Dashboard'} Forward={()=>{navigate('/')}} Backward={()=>{navigate('/dashboard')}} text={'Congratulations! \n' +
+                        <SuccessModal Btnlabel2={'Find Client'} Btnlabel1={'View Dashboard'} Forward={() => {
+                            navigate('/')
+                        }} Backward={() => {
+                            navigate('/dashboard')
+                        }} text={'Congratulations! \n' +
                             'Your profile is complete'}/>
                     </div>
                 }

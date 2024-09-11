@@ -1,8 +1,9 @@
 import React from 'react';
 import Sidebar from "../../stories/SideBar/sideBar";
 import style from '../OverView/OverviewPage.module.css';
-import Profile from "../Profile/Profile";
 import OverviewPage from "../OverView/OverviewPage";
+import Jobs from "../Jobs/Jobs";
+import ProfileMain from "../Profile/ProfileMain";
 
 
 const Dashboard = () => {
@@ -19,10 +20,9 @@ const Dashboard = () => {
 
     const getPage = (x: string): string => {
         setCurrentPage(x);
-     localStorage.setItem('currentPage', x);
+        localStorage.setItem('currentPage', x);
         return x;
     }
-
 
 
     return (
@@ -34,7 +34,13 @@ const Dashboard = () => {
                 }
 
                 {currentPage === 'Profile' &&
-                    <Profile />
+                    <>
+                        <ProfileMain/>
+                    </>
+                }
+
+                {currentPage === 'PostAJob' &&
+                    <Jobs/>
                 }
             </div>
         </div>
