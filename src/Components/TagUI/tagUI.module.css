@@ -1,4 +1,4 @@
-.TagContainer{
+.TagContainer {
     border-radius: 26px;
     border: black 1px solid;
     display: inline-flex;
@@ -6,17 +6,17 @@
     color: black;
     justify-content: center;
     align-items: center;
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 16px;
     padding: 7px;
     cursor: pointer;
     margin: 4px;
 }
 
-.TagContainer:hover{
+.TagContainer:hover {
     background: #ffc400;
 }
 
-.tagActive{
+.tagActive {
     background: #ffebaa;
 }

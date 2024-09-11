@@ -1,0 +1,77 @@
+* {
+
+    font-family: PP Neue Montreal;
+}
+
+.container {
+    width: 395px;
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid #C5C6C9;
+    display: flex;
+    align-items: center;
+}
+
+
+.numbers {
+    font-size: 14px;
+    color: #D4A200;
+    font-weight: 400;
+    padding-right: 13.33px;
+    display: none;
+}
+
+
+.input::placeholder {
+    color: #404145;
+    opacity: 30%;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.input:active,
+.input:focus {
+    border: none;
+    outline: none;
+}
+
+.input {
+    background-color: #FFF;
+}
+
+
+.label {
+    font-size: 12px;
+    color: #74767E;
+    line-height: 21px;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    margin-left: 13px;
+}
+
+
+@media screen and (min-width: 650px) {
+    .numbers {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 765px) {
+    .input {
+        width: 100%;
+        border: none;
+        margin-left: 13px;
+    }
+
+    .container {
+        width: 551.33px;
+    }
+
+    .label {
+        font-size: 14px;
+
+    }
+}

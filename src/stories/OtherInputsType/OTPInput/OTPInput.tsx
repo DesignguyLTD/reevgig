@@ -1,4 +1,4 @@
-import React, { useState, useRef, ChangeEvent } from 'react';
+import React, {ChangeEvent, useRef, useState} from 'react';
 import styles from './OTPinput.module.css'; // Import CSS module
 
 interface OTPInputProps {
@@ -15,9 +15,9 @@ interface OTPInputProps {
     /**
      * Optional boolean that indicates if there's an error. If true, the OTP input fields will be styled to indicate an error.
      */
-    error? : boolean;
+    error?: boolean;
 
-    errorMessage? : string;
+    errorMessage?: string;
 
     onChange?: (otp: string) => void;
 
@@ -33,12 +33,12 @@ interface OTPInputProps {
  * This component uses CSS modules for scoped styles, ensuring encapsulation and minimizing global CSS conflicts.
  */
 
-const OTPInput: React.FC<OTPInputProps> = ({ length, onComplete , error, errorMessage, onChange}) => {
+const OTPInput: React.FC<OTPInputProps> = ({length, onComplete, error, errorMessage, onChange}) => {
     const [otp, setOtp] = useState<string[]>(new Array(length).fill(''));
     const inputRefs = useRef<(HTMLInputElement | null)[]>(new Array(length).fill(null));
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
-        const { value } = e.target;
+        const {value} = e.target;
         if (/^\d$/.test(value)) {
             const newOtp = [...otp];
             newOtp[index] = value;
@@ -60,22 +60,21 @@ const OTPInput: React.FC<OTPInputProps> = ({ length, onComplete , error, errorMe
     };
 
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+        if (e.key === 'Backspace') {
+            if (otp[index] === '' && index > 0) {
+                inputRefs.current[index - 1]?.focus();
+            }
+            const newOtp = [...otp];
+            newOtp[index] = '';
+            setOtp(newOtp);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (e.key === 'Backspace') {
-        if (otp[index] === '' && index > 0) {
-            inputRefs.current[index - 1]?.focus();
+            // Call the onChange callback with the new OTP
+            if (onChange) {
+                onChange(newOtp.join(''));
+            }
         }
-        const newOtp = [...otp];
-        newOtp[index] = '';
-        setOtp(newOtp);
-
-        // Call the onChange callback with the new OTP
-        if (onChange) {
-            onChange(newOtp.join(''));
-        }
-    }
-};
+    };
 
     const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
         e.preventDefault();
@@ -89,28 +88,28 @@ const OTPInput: React.FC<OTPInputProps> = ({ length, onComplete , error, errorMe
         }
     };
 
-   return (
-       <div className={styles.container}>
-           <div className={styles.otpContainer}>
-               {otp.map((_, index) => (
-                   <input
-                       key={index}
-                       type="text"
-                       value={otp[index]}
-                       onChange={(e) => handleChange(e, index)}
-                       onKeyDown={(e) => handleKeyDown(e, index)}
-                       onPaste={handlePaste}
-                       maxLength={1}
-                       ref={(el) => (inputRefs.current[index] = el)}
-                       className={`${styles.otpInput} ${otp[index] === '' ? '' : styles.otpInput} ${error ? styles.error : ''}`}
-                   />
-               ))}
+    return (
+        <div className={styles.container}>
+            <div className={styles.otpContainer}>
+                {otp.map((_, index) => (
+                    <input
+                        key={index}
+                        type="text"
+                        value={otp[index]}
+                        onChange={(e) => handleChange(e, index)}
+                        onKeyDown={(e) => handleKeyDown(e, index)}
+                        onPaste={handlePaste}
+                        maxLength={1}
+                        ref={(el) => (inputRefs.current[index] = el)}
+                        className={`${styles.otpInput} ${otp[index] === '' ? '' : styles.otpInput} ${error ? styles.error : ''}`}
+                    />
+                ))}
 
-           </div>
-           {error && <div className={`${styles.InputError} ${styles[`InputLabel`]}`}>{errorMessage}</div>}
-       </div>
+            </div>
+            {error && <div className={`${styles.InputError} ${styles[`InputLabel`]}`}>{errorMessage}</div>}
+        </div>
 
-);
+    );
 };
 
 export default OTPInput;

@@ -5,6 +5,7 @@ import {Button} from "../../../stories/Button-I/Button";
 import {Link, useNavigate} from "react-router-dom";
 import CheckBox from "../../../stories/CheckBox/checkbox";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
+import Header from "../../../stories/Header/header";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -38,7 +39,7 @@ const Login = () => {
         }
 
         // Validate password
-        if(stage === 2){
+        if (stage === 2) {
             if (!formValues.password) {
                 newErrors.password = 'Required';
             } else {
@@ -71,21 +72,21 @@ const Login = () => {
         setStage(stage + 1);
     }
 
-    const handleSubmit =() => {
+    const handleSubmit = () => {
         const isFormValid = validateForm();
 
         if (isFormValid) {
             handleNext()
         }
 
-        if(stage === 2 && isFormValid){
+        if (stage === 2 && isFormValid) {
             navigate('/')
         }
     }
 
 
     const handleBack = () => {
-        if(stage > 1){
+        if (stage > 1) {
             setStage(stage - 1);
         }
     }
@@ -99,99 +100,106 @@ const Login = () => {
     };
 
     return (
-        <div className={login.container}>
-            {stage === 1 && (
-                <div className={login.headerText}>
-                    <h1>Log in to ReevGig</h1>
-                    <Input isTextArea={false} type={'email'} label='Working Email' placeholder='reev@gmail.com'
-                           size='small' onChange={handleInputChange} name={'email'} error={!!formErrors.email}
-                           errorMessage={formErrors.email}
-                           value={formValues.email}
-                    />
-
-                    <br/>
-                    <br/>
-
-                    <div className={login.btn}>
-                        <ButtonII
-                            label='Continue'
-                            primary={true}
-                            hasIcon={false}
-                            disabled={false}
-                            onClick={handleSubmit}
-                            isLabelVisible={true}
+        <>
+            <Header auth={true}/>
+            <div className={login.container}>
+                {stage === 1 && (
+                    <div className={login.headerText}>
+                        <h1>Log in to ReevGig</h1>
+                        <Input isTextArea={false} type={'email'} label='Working Email' placeholder='reev@gmail.com'
+                               size='small' onChange={handleInputChange} name={'email'} error={!!formErrors.email}
+                               errorMessage={formErrors.email}
+                               value={formValues.email}
                         />
-                    </div>
 
-                    <div className={login.orText}>
-                        <hr/>
-                        <span>or</span>
-                        <hr/>
-                    </div>
+                        <br/>
+                        <br/>
 
-                    <div className={login.ThirdPartiesAuthContainer}>
-                        <Button label='Continue with Apple'
-                                BorderColor='rgb(215, 215, 215)'
-                                imgLink='https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/apple_wj0xsn.svg'
-                                primary={false} icon={true}/>
-                        <Button label='Continue with Google'
-                                BorderColor='rgb(215, 215, 215)'
-                                imgLink='https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/google_xxh1jt.svg'
-                                primary={false} icon={true}/>
-                    </div>
-
-                    <br/>
-                    <br/>
-
-                    <div className={login.lowerText}>
-                        Don’t have  an account? <Link style={{textDecoration: 'none'}} to='/signup'><span className={login.makeYellow}>Create Account</span></Link>
-                    </div>
-
-                </div>
-            )}
-
-            {stage=== 2 && (
-                <div className={login.headerText}>
-                    <h1>Welcome</h1>
-                    <p className={login.headEmail}>{formValues.email}</p>
-                    <Input isTextArea={false} type={'password'} label='Password' placeholder='Password'
-                           size='small' onChange={handleInputChange} name={'password'} error={!!formErrors.password}
-                           errorMessage={formErrors.password}
-                           value={formValues.password}
-                    />
-
-                    <div className={login.forgotKeepLogin}>
-                        <div className={login.Keepmeloggedin}>
-                            <CheckBox size='small' checked={!!formValues.KeepMeLoggedIn} name={'KeepMeLoggedIn'}
-                                      onChange={handleInputChange} value={formValues.KeepMeLoggedIn}/>
-                            <div className={login.checkBoxtext}>
-                                Keep me logged in
-                            </div>
+                        <div className={login.btn}>
+                            <ButtonII
+                                label='Continue'
+                                primary={true}
+                                hasIcon={false}
+                                disabled={false}
+                                onClick={handleSubmit}
+                                isLabelVisible={true}
+                            />
                         </div>
-                        <div className={login.forgotPword}><Link style={{textDecoration: 'none', color: 'rgb(254, 194, 0)'}} to='/resetpassword'>Forgot Password?</Link></div>
+
+                        <div className={login.orText}>
+                            <hr/>
+                            <span>or</span>
+                            <hr/>
+                        </div>
+
+                        <div className={login.ThirdPartiesAuthContainer}>
+                            <Button label='Continue with Apple'
+                                    BorderColor='rgb(215, 215, 215)'
+                                    imgLink='https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/apple_wj0xsn.svg'
+                                    primary={false} icon={true}/>
+                            <Button label='Continue with Google'
+                                    BorderColor='rgb(215, 215, 215)'
+                                    imgLink='https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/google_xxh1jt.svg'
+                                    primary={false} icon={true}/>
+                        </div>
+
+                        <br/>
+                        <br/>
+
+                        <div className={login.lowerText}>
+                            Don’t have an account? <Link style={{textDecoration: 'none'}} to='/signup'><span
+                            className={login.makeYellow}>Create Account</span></Link>
+                        </div>
+
                     </div>
+                )}
 
-                    <br/>
-                    <br/>
-
-
-                    <div className={login.btn}>
-                        <ButtonII
-                            label='Log in'
-                            primary={true}
-                            hasIcon={false}
-                            disabled={false}
-                            onClick={handleSubmit}
-                            isLabelVisible={true}
+                {stage === 2 && (
+                    <div className={login.headerText}>
+                        <h1>Welcome</h1>
+                        <p className={login.headEmail}>{formValues.email}</p>
+                        <Input isTextArea={false} type={'password'} label='Password' placeholder='Password'
+                               size='small' onChange={handleInputChange} name={'password'} error={!!formErrors.password}
+                               errorMessage={formErrors.password}
+                               value={formValues.password}
                         />
-                    </div>
 
-                    <div className={login.lowerText2}>
-                         <span className={login.makeYellow} onClick={handleBack}>Not You?</span>
+                        <div className={login.forgotKeepLogin}>
+                            <div className={login.Keepmeloggedin}>
+                                <CheckBox size='small' checked={!!formValues.KeepMeLoggedIn} name={'KeepMeLoggedIn'}
+                                          onChange={handleInputChange} value={formValues.KeepMeLoggedIn}/>
+                                <div className={login.checkBoxtext}>
+                                    Keep me logged in
+                                </div>
+                            </div>
+                            <div className={login.forgotPword}><Link
+                                style={{textDecoration: 'none', color: 'rgb(254, 194, 0)'}} to='/resetpassword'>Forgot
+                                Password?</Link></div>
+                        </div>
+
+                        <br/>
+                        <br/>
+
+
+                        <div className={login.btn}>
+                            <ButtonII
+                                label='Log in'
+                                primary={true}
+                                hasIcon={false}
+                                disabled={false}
+                                onClick={handleSubmit}
+                                isLabelVisible={true}
+                            />
+                        </div>
+
+                        <div className={login.lowerText2}>
+                            <span className={login.makeYellow} onClick={handleBack}>Not You?</span>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+
+        </>
     );
 };
 

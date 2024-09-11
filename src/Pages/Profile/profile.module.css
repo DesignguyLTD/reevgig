@@ -1,0 +1,377 @@
+.container {
+    /*margin-top: 3rem;*/
+    margin-bottom: 5rem;
+    text-align: left;
+    background-color: #FCFDFF;
+    color: #181818;
+    font-family: PP Neue Montreal;
+}
+
+.container_two {
+    /*margin: 5rem 0 0rem 0;*/
+    text-align: left;
+    background-color: #FCFDFF;
+    color: #181818;
+    font-family: PP Neue Montreal;
+    width: 100%;
+}
+
+
+.contain {
+    width: max-content;
+    margin: 0px auto;
+    /* border: 2px solid red; */
+
+}
+
+.holder {
+    width: auto;
+    /*margin: 0 auto;*/
+    padding: 24px 16px;
+}
+
+.holder_two {
+    /* padding: 8px 12px 8px 8px; */
+    width: max-content;
+    /*margin: 0 auto;*/
+    padding: 24px 16px;
+    /* border: 3px solid yellow; */
+}
+
+.holder div {
+    padding: 4px 0px 3px 0px;
+}
+
+.names {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.names div {
+    width: 100%;
+}
+
+.label {
+    display: block;
+}
+
+.avatar {
+    margin-bottom: -10px;
+}
+
+.avatar_container {
+    padding-bottom: 20px;
+    /* border: 3px solid gold; */
+    width: max-content;
+}
+
+
+.secondary {
+    font-size: 14px;
+    opacity: 60%;
+    color: #1e1e1e;
+    font-family: PP Neue Montreal;
+    letter-spacing: .32px;
+    border-radius: 8px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+
+.data {
+    font-size: 14px;
+    opacity: 60%;
+    color: #1e1e1e;
+    font-family: PP Neue Montreal;
+    letter-spacing: .32px;
+    padding: 0px 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    background-color: rgb(255, 255, 255);
+    height: 44px;
+}
+
+
+.data:focus {
+    background-color: #fec200;
+    opacity: 1;
+    color: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid black;
+
+
+}
+
+.inner_container {
+
+    position: relative;
+    width: 16.2rem;
+
+}
+
+.img2 {
+    position: absolute;
+    top: 2rem;
+    right: 20px;
+}
+
+
+.img3 {
+    position: absolute;
+    top: 2rem;
+    right: 20px;
+}
+
+.img1 {
+    position: absolute;
+    top: 2rem;
+    right: 20px;
+}
+
+
+.lists {
+    padding-left: 10px;
+}
+
+.lists:hover {
+    background-color: black;
+    color: white;
+}
+
+.specified_data {
+    padding: 0 8px;
+}
+
+.specified_data:focus {
+    background-color: #fec200;
+}
+
+.edit {
+    width: 220px;
+    background-color: #2b2b2b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 160px;
+    padding: 16px;
+    margin-top: 30px;
+    letter-spacing: 0.32px;
+    text-align: center;
+}
+
+.edit:hover {
+    box-sizing: border-box;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    color: black;
+    /* secondary color/6001 */
+    background: rgb(254, 194, 0);
+}
+
+.edit:active {
+    box-sizing: border-box;
+    border: 1px solid rgb(254, 194, 0);
+    border-radius: 160px;
+    color: white;
+    /* primary color/11001 */
+    background: rgb(43, 43, 43);
+}
+
+.edit_holder {
+    margin: 0rem auto;
+    width: fit-content;
+}
+
+.edit_holder_two {
+    margin: 2rem auto;
+    width: fit-content;
+}
+
+.main_container {
+    object-fit: cover;
+    min-width: 72px;
+}
+
+.main_container img {
+    width: 100%;
+}
+
+.avatar_selection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.thumbnail {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: max-content;
+    gap: 5px;
+}
+
+label ~ input {
+    display: block;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    padding: 0 16px;
+    border-radius: 8px;
+    height: 40px;
+}
+
+.thumbnail img {
+    width: 32px;
+}
+
+
+.phone_cover {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.phone {
+    border: 1px solid #d9d9d9;
+    border-radius: 8px 0px 0px 8px;
+    display: flex;
+    position: relative;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    opacity: 60%;
+    color: #1e1e1e;
+    font-family: PP Neue Montreal;
+    letter-spacing: .32px;
+    padding: 0px 8px;
+    background-color: rgb(255, 255, 255);
+    height: 39px;
+}
+
+.img4 {
+    position: absolute;
+    right: 3px;
+    top: 20px;
+}
+
+.phone_number {
+    text-align: left;
+    padding-left: .6rem;
+    width: 100%;
+    font-size: 14px;
+    font-family: PP Neue Montreal;
+    color: #1E1E1E;
+
+}
+
+
+.scroll {
+    position: absolute;
+    top: 5.5rem;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0px 0px 0px 1px #2b2b2b;
+    padding: 12px;
+    /* right: 0px; */
+
+}
+
+.scroll_container {
+    position: relative;
+    width: max-content;
+}
+
+.scn_container {
+    /* background-color: #181818; */
+    padding: 0;
+    /* inset: 60px; */
+}
+
+.number_input {
+    height: 44px;
+    border: 1px solid #d9d9d9;
+    border-radius: 0px 8px 8px 0px;
+    padding-left: 2rem;
+    width: 90%;
+}
+
+.number_input:focus {
+    border: 1px solid #272727;
+    background-color: #fec200;
+}
+
+
+.ph_cover {
+    width: 11rem;
+}
+
+
+@media screen and (min-width: 765px) {
+    .edit_holder {
+        margin-top: 40px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .ph_cover {
+        width: 100%;
+    }
+
+    .container {
+        padding-left: 27px;
+    }
+
+    .avatar_selection {
+
+        gap: 16px;
+    }
+
+    .holder {
+        width: 497px;
+        padding-top: 1rem;
+    }
+
+    .inner_container {
+
+        width: 100%;
+
+    }
+
+    .scroll_container {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .holder {
+        width: 530px;
+        /*margin-left: 200px;*/
+        /*padding-top: 3rem;*/
+    }
+
+    .number_input {
+        height: 45px;
+        border: 1px solid #d9d9d9;
+        width: 395px;
+        margin-top: .5px;
+    }
+
+    .edit_holder {
+        margin-top: 40px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+
+}

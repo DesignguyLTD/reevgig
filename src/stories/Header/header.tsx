@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import style from './header.module.css';
 
 interface HeaderProps {
@@ -12,7 +12,7 @@ interface HeaderProps {
  * Header component renders a navigation bar with different sections based on authentication status.
  * - `auth`: Specifies if the user is authenticated.
  */
-const Header = ({ auth }: HeaderProps) => {
+const Header = ({auth}: HeaderProps) => {
     const [toggle, setToggle] = useState(false);
     const handleToggle = () => {
         setToggle(!toggle);

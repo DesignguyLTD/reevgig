@@ -1,0 +1,161 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+* {
+    font-family: 'PP Neue Montreal';
+}
+
+.container {
+    border: 2px solid red;
+    width: 274px;
+    height: 263px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #1414140D;
+    box-shadow: 0px 1px 2px 0px #00000008;
+    padding: 16px;
+
+}
+
+.main_skill {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.time_frame {
+    display: flex;
+    justify-content: space-between;
+    width: 234px;
+    gap: 3px;
+    align-items: center;
+}
+
+.skill_set {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+.spacing {
+    width: 2px;
+    height: 2px;
+    background-color: #141414B2;
+    opacity: 70%;
+}
+
+.image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.image img {
+    width: 100%;
+}
+
+.label {
+    font-size: 12px;
+    color: #141414B2;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.company {
+    color: #141414;
+    font-size: 14px;
+    line-height: 19.6px;
+
+}
+
+.prof {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 26.6px;
+    color: #141414;
+    margin-right: 12px;
+}
+
+.new {
+    border-radius: 3px;
+    padding: 2px 6px;
+    background-color: #FFF3CC;
+    color: #454545;
+    line-height: 16.8px;
+    font-size: 12px;
+    width: 61px;
+    height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hr {
+    padding: 0;
+    height: 24px;
+    border: 1px solid #D6DDEB;
+    margin: 0;
+}
+
+.each_skill {
+    padding: 4px 8px;
+    border-radius: 160px;
+    height: 24px;
+    background-color: #FFFBAA;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #272727;
+    width: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #272727;
+}
+
+.one_skill {
+    padding: 4px 8px;
+    border-radius: 160px;
+    height: 24px;
+    background-color: #F7F7F7;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #272727;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #272727;
+}
+
+.hold_skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+.last_text {
+    color: #141414;
+    font-size: 12px;
+    line-height: 16.8px;
+    opacity: 70%;
+}

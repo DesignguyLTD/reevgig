@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from './tagInputs.module.css';
 
 interface TagInputProps {
@@ -12,7 +12,16 @@ interface TagInputProps {
     errorMessage?: string;
 }
 
-const TagInput: React.FC<TagInputProps> = ({ error, errorMessage, label, tags, setTags, recommendedTags, maxTags = 5, placeholder = "Enter Your Language" }) => {
+const TagInput: React.FC<TagInputProps> = ({
+                                               error,
+                                               errorMessage,
+                                               label,
+                                               tags,
+                                               setTags,
+                                               recommendedTags,
+                                               maxTags = 5,
+                                               placeholder = "Enter Your Language"
+                                           }) => {
 
     const [inputValue, setInputValue] = useState<string>('');
 
@@ -53,7 +62,9 @@ const TagInput: React.FC<TagInputProps> = ({ error, errorMessage, label, tags, s
                     <div key={index} className={styles.tag}>
                         {tag}
                         <button onClick={() => removeTag(tag)}>
-                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_close_gvi0ib.svg" alt="close"/>
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_close_gvi0ib.svg"
+                                alt="close"/>
                         </button>
                     </div>
                 ))}
@@ -81,7 +92,9 @@ const TagInput: React.FC<TagInputProps> = ({ error, errorMessage, label, tags, s
                             onClick={() => handleTagClick(tag)}
                             className={styles.tagInactive}
                         >
-                            {tag} <img style={{marginLeft: '5px'}} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/add_rp8vwy.svg" alt="plus"/>
+                            {tag} <img style={{marginLeft: '5px'}}
+                                       src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/add_rp8vwy.svg"
+                                       alt="plus"/>
                         </button>
                     ))}
                 </div>

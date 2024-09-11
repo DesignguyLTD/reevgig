@@ -1,5 +1,11 @@
 @import url('https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
+
+/*.sb-show-main.sb-main-padded {*/
+/*    margin: 0; !important;*/
+/*    padding: 0; !important;*/
+/*    box-sizing: border-box; !important;*/
+/*}*/
 .sidebar {
     width: 80px;
     height: 100%;
@@ -10,6 +16,12 @@
     background-color: #252525;
     color: #7d7d7d;
     padding: 15px 0 15px 0;
+    z-index: 101;
+}
+
+.Link {
+    text-decoration: none;
+    color: #7d7d7d;
 }
 
 .logo {
@@ -18,7 +30,7 @@
 }
 
 .sidebarOpen {
-    width: 280px;
+    width: 220px;
     transition: all .3s ease;
     z-index: 1000;
 }
@@ -48,7 +60,7 @@
     color: #000000;
     cursor: pointer;
     margin-bottom: 0;
-    margin-left: 257px;
+    margin-left: 197px;
     z-index: 1000;
     transition: all .3s ease;
     border-radius: 50%;
@@ -83,7 +95,6 @@
     box-shadow: 3px 5px 7px 3px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
 }
-
 
 
 .upperSideBar {
@@ -146,7 +157,7 @@ li {
 
 }
 
-.mobileIcon{
+.mobileIcon {
     padding: 10px 0;
 
 }
@@ -196,22 +207,246 @@ i {
     opacity: 1;
 }
 
+.upperNav {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    /* border */
+    border-bottom: 1px solid rgb(217, 217, 217);
+    background: rgb(252, 253, 255);
+    padding: 10px;
+    gap: 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.sidebar {
+    display: none;
+}
+
+.navSerch {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 55px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.02);
+    background: rgb(255, 255, 255);
+    width: 166px;
+    height: 40px;
+    padding: 13px 10px 13px 13px;
+}
+
+.navSerch input:focus-within {
+    outline: none;
+}
+
+.navSerch input {
+    border: none;
+    /* body 3 */
+    color: rgba(6, 6, 6, 0.4);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    text-align: left;
+    width: 113px;
+    height: 17px;
+}
+
+.Userbtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 24px;
+    background: rgb(37, 37, 37);
+    padding: 4px;
+    cursor: pointer;
+}
+
+.userName {
+    display: none;
+}
+
+.lastCont {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.profile {
+    position: absolute;
+    top: 83px;
+    display: block;
+    right: 6px;
+}
+
 @media (min-width: 760px) {
     .upperSideBar {
         padding: 0 0 260px 0;
     }
-}
 
-@media (min-width: 1024px) {
-    .upperSideBar {
-        padding: 0 0 250px 0;
+
+    .sidebar {
+        display: block;
+    }
+
+    .navSerch {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        border: 1px solid rgb(151, 151, 151);
+        border-radius: 55px;
+        box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.02);
+        background: rgb(255, 255, 255);
+        width: 373px;
+        height: 48px;
+        padding: 13px 10px 13px 13px;
+    }
+
+    .navSerch input {
+        border: none;
+        width: 363px;
+        height: 40px;
+        color: rgba(6, 6, 6, 0.4);
+        font-family: PP Neue Montreal;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        text-align: left;
+        border-radius: 55px;
+    }
+
+    .userName {
+        display: block;
+        color: rgb(247, 207, 49);
+        font-family: PP Neue Montreal;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        text-align: left;
+    }
+
+    .Userbtn {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 24px;
+        background: rgb(37, 37, 37);
+        padding: 4px;
+        gap: 5px;
+    }
+
+    .lastCont {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .menuIcon {
+        display: none;
     }
 }
 
-/*@media (min-height: 800px) and (min-width: 1280px) {*/
-/*    .upperSideBar {*/
-/*        padding: 0 0 100px 0;*/
-/*    }*/
-/*}*/
+@media (min-width: 1024px) {
+    .profile {
+        display: none;
+    }
+
+
+    .upperSideBar {
+        padding: 0 0 250px 0;
+    }
+
+    .navSerch {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        border: 1px solid rgb(151, 151, 151);
+        border-radius: 55px;
+        box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.02);
+        background: rgb(255, 255, 255);
+        width: 543px;
+        height: 48px;
+        padding: 13px 10px 13px 13px;
+        gap: 10px;
+    }
+
+    .navSerch input {
+        border: none;
+        width: 500px;
+        height: 40px;
+        color: rgba(6, 6, 6, 0.4);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 17px;
+        text-align: left;
+        letter-spacing: 1px;
+        border-radius: 55px;
+    }
+
+    .userName {
+        display: block;
+        color: rgb(247, 207, 49);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 17px;
+        text-align: left;
+    }
+
+    .Userbtn {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 24px;
+        background: rgb(37, 37, 37);
+        padding: 8px;
+        gap: 10px;
+    }
+
+    .lastCont {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .upperNav {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgb(217, 217, 217);
+        background: rgb(252, 253, 255);
+        padding: 20px;
+        gap: 8px;
+    }
+
+    .menuIcon {
+        display: none;
+    }
+
+}
 
 
