@@ -5,20 +5,37 @@
     background-color: #FCFDFF;
     color: #181818;
     font-family: PP Neue Montreal;
+}
 
+.container_two {
+    margin: 5rem 0 0rem 0;
+    text-align: left;
+    background-color: #FCFDFF;
+    color: #181818;
+    font-family: PP Neue Montreal;
+    width: 100%;
 }
 
 
 .contain {
-    width: fit-content;
-    margin: 0 auto;
+    width: max-content;
+    margin: 0px auto;
+    /* border: 2px solid red; */
 
 }
 
 .holder {
-    /* padding: 8px 12px 8px 8px; */
-    width: fit-content;
+    width: auto;
     margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.holder_two {
+    /* padding: 8px 12px 8px 8px; */
+    width: max-content;
+    margin: 0 auto;
+    padding: 24px 16px;
+    /* border: 3px solid yellow; */
 }
 
 .holder div {
@@ -26,9 +43,10 @@
 }
 
 .names {
-    /* display: flex; */
+    display: flex;
     gap: 40px;
     justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -46,6 +64,8 @@
 
 .avatar_container {
     padding-bottom: 20px;
+    /* border: 3px solid gold; */
+    width: max-content;
 }
 
 
@@ -55,8 +75,11 @@
     color: #1e1e1e;
     font-family: PP Neue Montreal;
     letter-spacing: .32px;
-    padding: 5px 0px;
     border-radius: 8px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
 }
 
 
@@ -138,10 +161,15 @@
     cursor: pointer;
     border-radius: 160px;
     padding: 16px;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .edit_holder {
+    margin: 0rem auto;
+    width: fit-content;
+}
+
+.edit_holder_two {
     margin: 2rem auto;
     width: fit-content;
 }
