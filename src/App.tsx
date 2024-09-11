@@ -10,13 +10,10 @@ import Profile from "./Pages/Profile/Profile";
 import ProfileSave from "./Pages/Profile/profileSave";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
-import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Sidebar from "./stories/SideBar/sideBar";
-
-
+import SignUp from "./Pages/Onboarding/SignUp/signUp";
 
 function App() {
-<<<<<<< HEAD
   return (
     <div className="App">
       <Header auth={true} />
@@ -35,28 +32,6 @@ function App() {
                       src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png"
                       className="App-logo"
                       alt="logo"
-=======
-
-
-    return (
-        <div className="App">
-            {/**/}
-            {/*<Sidebar/>*/}
-
-            <Router basename="/">
-                <Routes>
-                    <Route path="/"  element={
-                        <>
-                            <Header auth={true}/>
-                            <h1>
-                                <header className="App-header">
-                                    <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png'
-                                         className="App-logo" alt="logo"/>
-                                </header>
-                            </h1>
-                        </>
-                        }
->>>>>>> 3af23870a11bda1f6dda9ec635c71e62f13685e4
                     />
                   </header>
                 </h1>
