@@ -11,6 +11,7 @@ const LandingPage = () => {
             <Header auth={false}/>
 
             <div className={styles.mainCtn}>
+                <div className={styles.heroCtnMain}>
                 <div className={styles.heroCtn}>
                     <div className={styles.Ctn1}>
                         <div className={styles.heroText}>
@@ -21,7 +22,7 @@ const LandingPage = () => {
                         </div>
 
                         <div className={styles.btn1}>
-                            <ButtonII primary={true} hasIcon={false} isLabelVisible={true} label={'Post a Job'} onClick={() => {}}/>
+                            <ButtonII  size={'large'} primary={true} hasIcon={false} isLabelVisible={true} label={'Post a Job'} onClick={() => {}}/>
                         </div>
                     </div>
 
@@ -29,16 +30,17 @@ const LandingPage = () => {
                         <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1726093166/Reev/content_jj1uhc.svg" alt="heropics"/>
 
                         <div className={styles.btn2}>
-                            <ButtonII primary={true} hasIcon={false} isLabelVisible={true} label={'Post a Job'} onClick={() => {}}/>
+                            <ButtonII size={'large'} primary={true} hasIcon={false} isLabelVisible={true} label={'Post a Job'} onClick={() => {}}/>
                         </div>
                     </div>
 
 
                 </div>
 
-                {/*<div className={styles.SearchCtn}>*/}
-                {/*    <Search onSearch={() => {}}/>*/}
-                {/*</div>*/}
+                <div className={styles.SearchCtn}>
+                    <Search onSearch={() => {}}/>
+                </div>
+                </div>
 
             </div>
 

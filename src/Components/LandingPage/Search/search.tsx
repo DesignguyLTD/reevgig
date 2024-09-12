@@ -45,12 +45,11 @@ const Search: React.FC<SearchProps> = ({
     return (
         <div className={style.input_cover}>
             <div style={{borderRadius}} className={style.search_side}>
-                <button className={style.button} onClick={handleSearch}>
+
                     <img
                         src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726006242/Search_h5asjp.svg"
                         alt=""
                     />
-                </button>
                 <input
                     type="text"
                     value={query}
@@ -67,7 +66,7 @@ const Search: React.FC<SearchProps> = ({
                     <p>Talent</p>
                     <img
                         src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726006071/Vector_edrpho.svg"
-                        alt=""
+                        alt="dropdown"
                     />
                 </div>
             </div>
