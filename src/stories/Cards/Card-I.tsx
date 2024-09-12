@@ -119,13 +119,12 @@ const CardsOne: React.FC<CardOneProps> = ({
                         <hr className={styles.hr}/>
                         <div className={styles.hold_skills}>
                             {skillSet.map((skill, index) => (
-                                <label
+                                <div
                                     key={index}
                                     style={{width: skillWidth}}
-                                    className={styles.one_skill}
-                                    htmlFor="">
+                                    className={styles.one_skill}>
                                     {skill}
-                                </label>
+                                </div>
                             ))}
                         </div>
                     </div>

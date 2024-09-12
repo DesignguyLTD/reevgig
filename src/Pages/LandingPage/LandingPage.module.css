@@ -4,8 +4,10 @@
 }
 
 .mainCtn{
+    display: grid;
     margin: 100px auto;
-
+    /* width: 100%; */
+    justify-items: stretch;
 }
 
 .heroCtn {
@@ -82,6 +84,69 @@
     margin-bottom: 30px;
 }
 
+.featuredJobWrapper{
+    width: 100%;
+    display: inline-flex;
+    margin: 10px auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featuredJobCtn{
+    background: rgb(43, 43, 43);
+    padding: 10px;
+    width: 100%;
+    display: inline-flex;
+    margin: 10px auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featuredJobTop{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.featuredJobTitle{
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: left;
+}
+
+.featuredJob{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.featuredJobCard{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    /*max-width: 300px;*/
+    height: 700px;
+    overflow-y: scroll;
+
+}
+
+
 @media  (min-width: 425px){
     .heroCtn{
         width: 89%;
@@ -96,7 +161,25 @@
 }
 
 
+
 @media  (min-width: 768px){
+
+    .featuredJobCtn{
+        padding: 30px;
+    }
+
+    .featuredJobCard{
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+        justify-content: center;
+
+    }
 
     .Ctn2{
         gap: 55px;
@@ -139,6 +222,15 @@
 }
 
 @media  (min-width: 1024px){
+
+    .featuredJobWrapper{
+        width: 100%;
+        display: inline-flex;
+        margin: 10px auto;
+        flex-direction: column;
+        align-items: center;
+        max-width: 1060px;
+    }
 
     .heroCtnMain{
         padding: 35px;
