@@ -4,7 +4,7 @@ import DashboardRoutes from "./Pages/Dashboard";
 import Header from "./stories/Header/header";
 import Login from "./Pages/Onboarding/login/login";
 import Notification from "./Pages/Dashboard/settings/notification/notification";
-import Payment from "./Pages/Dashboard/planAndBillings/payment";
+import Payment from "./Pages/Dashboard/planAndBillings/paymentCard/payment";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import Settings from "./Pages/Dashboard/settings/settings";
