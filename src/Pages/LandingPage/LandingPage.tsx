@@ -180,6 +180,42 @@ const LandingPage = () => {
 
                 </div>
 
+                <div className={styles.ClientsCtn}>
+                    <div className={styles.client}>
+                        <div className={styles.clientTextCtn}>
+                            <div className={styles.clientHeader}><div>For Clients</div> <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1726092969/Reev/Vector_no9ngc.svg" alt="underline"/></div>
+                           <div>
+                               <div className={styles.clientText}>
+                                   Find talent your way
+                               </div>
+                               <div className={styles.clientSubText}>
+                                   Work with the largest network of independent professionals and get things done—from quick turnarounds to big transformations.
+                               </div>
+                           </div>
+                        </div>
+                        <img className={styles.clientImg} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1726092950/Reev/Group_1171275874_nfbbrx.svg" alt="clientImg"/>
+                    </div>
+                    <div className={styles.clientSteps}>
+                        <div className={styles.stepList}>
+                            <div className={styles.stepCtn}>
+                                <div className={styles.number}>1</div>
+                                <div className={styles.stepText}>Post a job and hire a professional</div>
+                            </div>
+                            <div className={styles.stepCtn}>
+                                <div className={styles.number}>2</div>
+                                <div className={styles.stepText}>Browse and buy some projects</div>
+                            </div>
+                            <div className={styles.stepCtn}>
+                                <div className={styles.number}>3</div>
+                                <div className={styles.stepText} style={{color: ' rgb(254, 194, 0)'}}>Let us help you find the right talent</div>
+                            </div>
+                        </div>
+                        <div className={styles.clientBtn}>
+                            Find Talents
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </>

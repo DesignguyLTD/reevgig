@@ -85,7 +85,7 @@
 }
 
 .featuredJobWrapper{
-    width: 100%;
+    width: 90%;
     display: inline-flex;
     margin: 10px auto;
     flex-direction: column;
@@ -146,6 +146,150 @@
 
 }
 
+.ClientsCtn{
+    margin-top: 20px;
+    padding: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.clientTextCtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.clientHeader{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 12px;
+    text-align: left;
+
+}
+
+.clientHeader img{
+    width: 98px;
+    height: 11px;
+    z-index: -10;
+}
+
+.clientImg{
+    width: 300px;
+    height: 300px;
+}
+
+.clientText{
+    color: rgb(43, 43, 43);
+    font-family: PP Neue Montreal;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.clientSubText{
+    color: rgb(69, 69, 69);
+    font-family:PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    text-align: left;
+}
+
+
+.client{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.clientSteps{
+    border-radius: 8px;
+    background: rgb(43, 43, 43);
+    padding: 16px 8px 16px 24px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 300px;
+}
+
+.stepList{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.number{
+    color: rgb(43, 43, 43);
+    font-family: PP Neue Montreal;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: center;
+    padding: 3px;
+    border-radius: 50%;
+    box-shadow: 0px 3.83px 11.96px 0px rgba(0, 0, 0, 0.32);
+    background: rgb(254, 194, 0);
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    /*padding: 20px;*/
+}
+
+.stepText{
+    color: rgb(217, 217, 217);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: left;
+}
+
+.clientBtn{
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 12px;
+    text-align: left;
+    box-sizing: border-box;
+    border: 1px solid rgb(254, 194, 0);
+    border-radius: 45px;
+    padding: 12px 24px 12px 24px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clientBtn:hover{
+    cursor: pointer;
+    color: #FFFFFF;
+    border: 1px solid rgb(255, 255, 255);
+}
 
 @media  (min-width: 425px){
     .heroCtn{
@@ -158,11 +302,35 @@
         align-items: center;
         gap: 15px;
     }
+
+    .clientBtn{
+        font-size: 19px;
+        padding: 18px 27px;
+    }
+
+    .stepText{
+        font-size: 19px;
+            line-height: 100%;
+    }
+
+    .number{
+        font-size: 12px;
+    }
+
+    .clientSteps{
+        width: 100%;
+        gap: 30px;
+    }
+    .stepList{
+        gap: 30px;
+    }
 }
 
-
-
 @media  (min-width: 768px){
+
+    .featuredJobWrapper{
+        width: 100%;
+    }
 
     .featuredJobCtn{
         padding: 30px;
@@ -219,9 +387,129 @@
         margin-bottom: 40px;
     }
 
+    .clientHeader{
+      line-height: 18px;
+        letter-spacing: 0.5px;
+        font-size: 24px;
+    }
+
+
+    .ClientsCtn{
+        padding: 20px 0 0 39px;
+    }
+
+    .clientHeader img{
+        width: 115px;
+        height: 15px;
+        z-index: -10;
+    }
+
+    .clientText{
+        color: rgb(43, 43, 43);
+        font-family: PP Neue Montreal;
+        font-size: 33px;
+        font-weight: 500;
+        line-height: 100%;
+        text-align: left;
+    }
+
+    .clientSubText{
+        color: rgb(69, 69, 69);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        text-align: left;
+        width: 63%;
+    }
+
+    .clientImg{
+        width: 500px;
+        height: 500px;
+    }
+
+    .client{
+        align-items: flex-start;
+    }
+
+    .stepList{
+        flex-direction: row;
+        position: absolute;
+        top: -16px;
+        right: 0;
+        left: 46px;
+        width: 700px;
+    }
+
+    .stepCtn{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stepText{
+        font-size: 23px;
+        line-height: 130%;
+    }
+
+    .clientSteps{
+        padding: 30px;
+        align-items: flex-end;
+        height: 145px;
+        justify-content: flex-end;
+        max-width: 700px;
+        width: 100%;
+    }
+
+    .number{
+        font-size: 20px;
+        padding: 7px;
+    }
+
+    .clientSteps{
+        position: relative;
+    }
+
+
+
+
+
 }
 
 @media  (min-width: 1024px){
+
+    .client{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .clientSteps{
+        max-width: 800px;
+        width: 100%;
+    }
+
+    .stepList{
+        width: 700px;
+        flex-direction: row;
+        position: absolute;
+        top: -16px;
+         right: 0;
+        left: 88px;
+    }
+
+    .ClientsCtn{
+        align-items: center;
+        padding: 25px 0 0 50px;
+    }
+
+    .clientText{
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+
+    .clientSubText{
+        font-size: 19px;
+        width: 400px;
+    }
 
     .featuredJobWrapper{
         width: 100%;
@@ -298,5 +586,20 @@
         justify-content: space-between;
         background-position: center Right;
         gap: 70px;
+    }
+
+    .clientSteps{
+        max-width: 1000px;
+        width: 100%;
+    }
+
+    .stepList{
+        max-width: 1000px;
+        width: 100%;
+        flex-direction: row;
+        position: absolute;
+        top: -16px;
+        right: 0;
+        left: 62px;
     }
 }
