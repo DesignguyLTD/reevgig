@@ -4,7 +4,7 @@ import Input from "../../../../stories/FieldInput-I/input";
 import Radio from "../../../../stories/Radio/radio";
 import React, { ChangeEvent, useState } from "react";
 import cloudImages from "../../../../assets";
-import styles from "./payment.module.css";
+import styles from "./paymentCard.module.css";
 import { Country } from "country-state-city";
 import { Button } from "../../../../stories/Button-I/Button";
 

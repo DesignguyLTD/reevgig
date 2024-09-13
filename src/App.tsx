@@ -4,7 +4,7 @@ import DashboardRoutes from "./Pages/Dashboard";
 import Header from "./stories/Header/header";
 import Login from "./Pages/Onboarding/login/login";
 import Notification from "./Pages/Dashboard/settings/notification/notification";
-import Payment from "./Pages/Dashboard/planAndBillings/paymentCard/payment";
+import PaymentCard from "./Pages/Dashboard/planAndBillings/paymentCard/paymentCard";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import Settings from "./Pages/Dashboard/settings/settings";
@@ -39,7 +39,7 @@ function App() {
                     <Route element={<DashboardRoutes />}>
                         <Route path="*" element={<Navigate to="/" />} />
 
-                        <Route path="/planAndBillings" element={<Payment />} />
+                        <Route path="/planAndBillings/paymentCard" element={<PaymentCard />} />
                         <Route path="/settings" element={<Settings />} />
                         <Route path="/settings/accountSettings" element={<AccountSettings />} />
                         <Route path="/settings/notification" element={<Notification />} />
