@@ -26,7 +26,7 @@ export default function Jobs() {
     return (
         <div className={styles.cover_all}>
             <div className={styles.overall_container}>
-                <p className={styles.job}> Post a Job</p>
+                <p className={styles.job}> Post a Project</p>
                 <div className={styles.nav_container}>
                     <Link
                         to="#"
