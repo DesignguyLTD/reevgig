@@ -5,6 +5,7 @@ import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Search from "../../Components/LandingPage/Search/search";
 import {string} from "prop-types";
 import CardI from "../../stories/Cards/Card-I";
+import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
 
 const LandingPage = () => {
     // cardData.js
@@ -289,7 +290,9 @@ const LandingPage = () => {
 
                 </div>
 
-
+                <div>
+                    <FAQ/>
+                </div>
             </div>
 
         </>
