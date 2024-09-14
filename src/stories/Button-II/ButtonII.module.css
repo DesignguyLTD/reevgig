@@ -19,6 +19,8 @@
     text-align: center;
     justify-content: center;
     width: 340px;
+    height: 56px;
+
 }
 
 .noLabel {
@@ -171,6 +173,7 @@
         text-align: center;
         justify-content: center;
         width: 340px;
+        height: 56px;
     }
 
     .storybookButtonSecondary, .noLabelButtonSecondary {

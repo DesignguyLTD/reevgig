@@ -1,7 +1,7 @@
-import { Button } from "../stories/Button-I/Button";
 import { Link } from "react-router-dom";
 import React from "react";
 import style from "./footer.module.css";
+import {Button} from "../../stories/Button-I/Button";
 
 export default function Footer() {
   return (
@@ -27,35 +27,35 @@ export default function Footer() {
 
           <div className={style.footer_links}>
             <div>
-              <Link to={"#"} className={style.h3}>
+              <Link to={"/"} className={style.h3}>
                 About
               </Link>
 
-              <Link to="#" className={style.links}>
+              <Link to="/" className={style.links}>
                 Companies
               </Link>
-              <Link to={"#"} className={style.links}>
+              <Link to={"/"} className={style.links}>
                 Pricing
               </Link>
-              <Link to={"#"} className={style.links}>
+              <Link to={"/"} className={style.links}>
                 Terms
               </Link>
-              <Link to={"#"} className={style.links}>
+              <Link to={"/"} className={style.links}>
                 Privacy
               </Link>
             </div>
             <div>
-              <Link to={"#"} className={style.h3}>
+              <Link to={"/"} className={style.h3}>
                 Resources
               </Link>
 
-              <Link to={"#"} className={style.links}>
+              <Link to={"/"} className={style.links}>
                 Help Docs
               </Link>
-              <Link to={"#"} className={style.links}>
+              <Link to={"/"} className={style.links}>
                 Guide
               </Link>
-              <Link to={"#"} className={style.links}>
+              <Link to={"/"} className={style.links}>
                 Contact Us
               </Link>
             </div>
@@ -102,20 +102,20 @@ export default function Footer() {
                   alt=""
                 />
               </Link>
-              <Link to={"#"} className={style.socials}>
+              <Link to={"/"} className={style.socials}>
                 <img
                   src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Instagram_cwl3ok.svg"
                   alt=""
                 />
               </Link>
-              <Link to={"#"} className={style.socials}>
+              <Link to={"/"} className={style.socials}>
                 <img
                   src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/LinkedIn_wz4doc.svg"
                   alt=""
                 />
               </Link>
 
-              <Link to={"#"} className={style.socials}>
+              <Link to={"/"} className={style.socials}>
                 <img
                   src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337794/Twitter_rerq8m.svg"
                   alt=""

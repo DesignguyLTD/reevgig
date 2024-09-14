@@ -13,29 +13,28 @@
 
 .overall_container {
     width: min-content;
-    margin-top: 48px;
     text-align: left;
     padding: 8px;
 
 }
 
 .job {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 24px;
     line-height: 40px;
-    letter-spacing: -1;
+    letter-spacing: -1px;
     color: #181818;
 }
 
 .nav_container {
-    display: flex;
-    justify-content: flex-start;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0;
     height: 44px;
-    padding: 0;
+    padding: 10px;
     background-color: #272727;
-    width: 396px;
+    width: 300px;
     font-family: PP Neue Montreal;
 }
 
@@ -74,7 +73,7 @@
 .radio_btn {
     display: flex;
     align-items: center;
-    gap: 12px;
+    /*gap: 12px;*/
     width: 397px;
 }
 
@@ -83,6 +82,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
+    margin-bottom: 10px;
 }
 
 .experience {
@@ -105,7 +105,8 @@
     font-weight: 500;
     color: #404145;
     padding: 0;
-    margin-bottom: -8px;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 
@@ -120,10 +121,6 @@
     text-align: center;
 }
 
-.nav_links:nth-child(1) {
-
-    padding: 0 0 0 8px;
-}
 
 /* 
 TimeLine styling codes */
@@ -133,19 +130,195 @@ TimeLine styling codes */
 .radios {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: fit-content;
     place-self: center;
     gap: 8px;
+    overflow-x: auto;
+    width: 310px;
+    padding: 10px 0;
 }
 
 .rate {
 
-    display: flex;
+    display: inline-flex;
+    width: 68%;
+    justify-content: flex-start;
+}
 
+.Budget{
+    font-size: 16px;
+    font-weight: 500;
+    color: #404145;
+    padding: 0;
+    margin: 20px 0px;
+}
+
+.inpurDtext{
+    color: rgb(24, 24, 24);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.flexInput{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    gap: 15px;
+}
+
+.flexInput input{
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(197, 198, 201);
+    border-radius: 8px;
+    outline: none;
+    font-size: 12px;
+    font-family: PP Neue Montreal;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.hr{
+    border: 0;
+    width: 11px;
+    height: 1px;
+    background-color: #5b5656;
+    position: absolute;
+    top: 60px;
+    right: 198px;
+}
+
+.hr1{
+    border: 0;
+    width: 11px;
+    height: 1px;
+    background-color: #5b5656;
+    position: absolute;
+    top: 60px;
+    right: 191px;
+}
+
+.flexInput input::placeholder{
+    color: rgb(197, 198, 201);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.labelInput{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Stylecont{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+}
+/*.skillCont{*/
+/*    display: inline-flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+
+@media (min-width: 425px) {
+    .nav_container {
+
+
+        width: 392px;
+        gap: 10px;
+
+    }
+
+    .radios {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-self: center;
+        gap: 8px;
+        overflow-x: hidden;
+        width: 100%;
+    }
 }
 
 
 @media screen and (min-width: 765px) {
+    .job{
+        display: none;
+    }
+
+    .Budget{
+        font-size: 20px;
+    }
+
+    .hr{
+        border: 0;
+        width: 15px;
+        height: 1px;
+        background-color: #5b5656;
+        position: absolute;
+        top: 60px;
+        right: 455px;
+    }
+
+    .hr1{
+        border: 0;
+        width: 15px;
+        height: 1px;
+        background-color: #5b5656;
+        position: absolute;
+        top: 60px;
+        right: 455px;
+    }
+    .flexInput input{
+        width: 233px;}
+
+    .flexInput{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        position: relative;
+        gap: 40px;
+    }
+
+    .radios {
+        display: grid;
+        grid-template-columns: 0fr 1fr;
+        place-self: center;
+        gap: 8px;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .rate {
+
+        display: inline-flex;
+        width: 45%;
+        justify-content: flex-start;
+    }
+    .label_text {
+        font-size: 20px;
+        font-weight: 500;
+        color: #404145;
+        padding: 0;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
     .cover_all {
         width: fit-content;
     }
@@ -157,10 +330,7 @@ TimeLine styling codes */
 
     }
 
-    .nav_links:nth-child(1) {
 
-        padding: 0 0 0 16px;
-    }
 
     .continue {
         margin-top: 64px;
@@ -208,7 +378,6 @@ TimeLine styling codes */
     }
 
     .overall_container {
-        margin: 158px auto;
         text-align: left;
         width: fit-content;
 
@@ -216,13 +385,20 @@ TimeLine styling codes */
 }
 
 @media screen and (min-width: 1024px) {
+    .rate {
+
+        display: inline-flex;
+        width: 36%;
+        justify-content: flex-start;
+    }
+
     .nav_container {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         gap: 1rem;
         height: 62px;
-        padding: 0;
+        padding: 10px;
         background-color: #272727;
         width: 747px;
         font-family: PP Neue Montreal;

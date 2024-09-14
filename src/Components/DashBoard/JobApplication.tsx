@@ -60,7 +60,7 @@ const JobApplication = () => {
                     </div>
                 </div>
                 <div className={style.JobHeaderCtn2}>
-                    <button className={style.edit} onClick={handleNavigation}>Job Application<img
+                    <button className={style.edit} onClick={handleNavigation}>Job Application <img
                         src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/arrow-right_bsh2zk.svg'
                         alt="Icon"/></button>
                     <img style={{cursor: 'pointer'}}

@@ -18,9 +18,11 @@ interface RadioProps {
     alignItems?: string;
     gap?: string;
     enableSelectedStyles?: boolean;
+    id?:string;
 }
 
 const RadioButton: React.FC<RadioProps> = ({
+    id,
                                                name,
                                                value,
                                                selectedValue,
@@ -69,14 +71,16 @@ const RadioButton: React.FC<RadioProps> = ({
                     justifyContent,
                     alignItems,
                     backgroundColor: appliedBackgroundColor,
+                    cursor: 'pointer'
                 }}
                 className={style.radiobtn}>
                 <div>
                     <input
+                        id={id}
                         className={style.input}
                         style={{border: border}}
                         type="radio"
-                        name={name}
+                        name={id}
                         value={value}
                         checked={selectedValue === value}
                         onChange={handleChange}
