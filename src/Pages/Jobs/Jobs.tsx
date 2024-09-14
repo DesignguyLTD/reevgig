@@ -22,6 +22,7 @@ export default function Jobs() {
         }
     };
 
+
     return (
         <div className={styles.cover_all}>
             <div className={styles.overall_container}>

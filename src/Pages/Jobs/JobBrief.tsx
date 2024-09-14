@@ -63,7 +63,7 @@ export default function JobBrief() {
                         </div>
                     </div>
 
-                    <div style={{marginTop: "1rem"}}>
+                    <div style={{marginTop: "0.6rem", marginBottom: '0.6rem'}}>
                         <FileUploadTwo
                             file={fileUploaded}
                             setFile={setFileUploaded}
@@ -77,6 +77,7 @@ export default function JobBrief() {
                         </p>
                         <div className={style.radio_btn}>
                             <RadioButton
+                                id={'Experience'}
                                 name={"Beginner"}
                                 value={"Beginner"}
                                 selectedValue={selectedValue}
@@ -88,8 +89,12 @@ export default function JobBrief() {
                                 value={"Intermediate"}
                                 selectedValue={selectedValue}
                                 onChange={handleRadioChange}
+                                id={'Experience'}
+
                             />
                             <RadioButton
+                                id={'Experience'}
+
                                 name={"expert"}
                                 value={"Expert"}
                                 selectedValue={selectedValue}
