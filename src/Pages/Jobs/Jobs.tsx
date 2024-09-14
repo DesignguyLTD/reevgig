@@ -12,9 +12,9 @@ export default function Jobs() {
     const renderComponent = () => {
         switch (activeComponent) {
             case "jobs_brief":
-                return <JobBrief/>;
+                return <JobBrief setActiveComponent={setActiveComponent}/>;
             case "jobs_timeline":
-                return <JobTimeline/>;
+                return <JobTimeline setActiveComponent={setActiveComponent}/>;
             case "jobs_skills":
                 return <JobSkills/>;
             default:
