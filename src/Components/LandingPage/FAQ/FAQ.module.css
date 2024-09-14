@@ -50,9 +50,8 @@
 
 .faqIcon {
     font-size:20px;
-    color: #949393; /* Button color */
-    border-radius: 8px;
-padding: 3px;
+    color: #949393; /* Button color */x;
+    padding: 3px;
     background: rgb(255, 243, 204);
     height: 30px;
     width: 30px;
@@ -83,14 +82,12 @@ color: white;
 }
 
 .faqAnswer.open {
-    max-height: 100%; /* Arbitrary max-height large enough for the FAQ text */
+    max-height: 100%;
     opacity: 1;
     color: #666;
     margin-top: 0;
 }
 
-
-/* Responsive Layout */
 @media (min-width: 768px) {
     .faqAnswer.open {
         height: 100%;
@@ -99,7 +96,7 @@ color: white;
         margin-top: 0;
     }
     .faqItems {
-        grid-template-columns: 1fr; /* Switch to one column */
+        grid-template-columns: 1fr;
     }
 
     .faqAnswer {
@@ -148,13 +145,13 @@ color: white;
     }
 
     .faqItem {
-        /*background: #f9f9f9;*/
         border-radius: 8px;
         padding: 30px;
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .faqContainer {
         padding: 20px;
         max-width: 900px;
