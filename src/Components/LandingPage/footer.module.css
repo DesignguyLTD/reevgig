@@ -1,22 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+html,
+body {
+    box-sizing: border-box;
+    width: 100vw;
+    /* overflow-x: hidden; */
+}
 
 .container {
     background-color: #484848;
-    height: auto;
     color: #D6DDEB;
-    width: 100%;
+    width: 100vw;
+    box-sizing: border-box;
     font-family: "Epilogue", sans-serif;
+    box-sizing: border-box;
 }
 
 
 .inner_container {
     display: flex;
+    flex-direction: column;
     gap: 16px;
-    background-color: #484848;
     align-items: start;
-    /* border: none; */
+    width: min-content;
+    padding: 0px 10px;
+    margin: 0 auto;
     justify-content: space-between;
 
 }
@@ -24,9 +32,9 @@
 
 .outer_container {
     margin: 0 auto;
-    width: 1192px;
+    width: fit-content;
     text-align: left;
-    padding-top: 64px;
+    padding: 36px 0px 0;
 }
 
 .logo_images {
@@ -41,19 +49,25 @@
 }
 
 .logo_text {
-    width: 316px;
+    width: 270px;
     font-size: 16px;
     line-height: 25.6px;
     padding-top: 34.5px;
 }
 
 .footer_links {
-    display: flex;
+    display: grid;
+    grid-template-areas:
+        "about about"
+        "resource resource"
+        "notification notification"
+    ;
     justify-content: left;
     align-items: start;
-    width: 65%;
-    /* gap: 2rem; */
-    justify-content: space-between;
+    width: fit-content;
+    column-gap: 0rem;
+    row-gap: 1rem;
+    margin-top: 40px;
 }
 
 .footer_links>div {
@@ -68,11 +82,13 @@
     font-weight: 500;
     font-size: 19px;
     line-height: 26.6px;
-    padding-bottom: 4px;
+    padding-bottom: 16px;
     text-decoration: none;
 }
 
-.h3 {
+
+
+.notification .h3 {
     color: #ffffff;
     font-weight: 500;
     font-size: 19px;
@@ -90,7 +106,7 @@
     font-size: 16px;
     color: #D6DDEB;
     text-decoration: none;
-    padding: 16px 0;
+    padding: 8px 0;
 }
 
 
@@ -115,7 +131,7 @@
 }
 
 .input_container>input {
-    width: 234px;
+    width: 164px;
     height: 44px;
     font-family: "Epilogue", sans-serif;
     border-radius: 8px;
@@ -124,34 +140,38 @@
 }
 
 .input_container>input::placeholder {
-    padding-left: 2.4rem;
+    padding-left: 2rem;
 
 }
 
 .input_container>img {
     position: absolute;
     top: .85rem;
-    left: 1rem;
+    left: .7rem;
 }
 
 .bottom {
-    margin-top: 138px;
+    margin: 80px auto 0;
+    width: 315px;
+
 }
 
 .foot_note {
     display: flex;
-    padding: 42px 0 40px;
+    flex-direction: column-reverse;
+    padding: 24px 0 36px;
     align-items: center;
     justify-content: space-between;
-    line-height: 22.4px;
-    font-size: 16px;
+    line-height: 16.8px;
+    font-size: 12px;
 }
 
 .social_links {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 16px;
+    padding-bottom: 24px;
 
 }
 
@@ -164,4 +184,171 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.about {
+    grid-area: about;
+}
+
+.resource {
+    grid-area: resource;
+    padding: 32px 0;
+}
+
+.notification {
+    grid-area: notification;
+    display: flex;
+    width: fit-content;
+    align-items: start;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 321px) {
+
+    .bottom {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .input_container>input {
+        width: 234px;
+    }
+
+    .resource {
+        padding: 0;
+    }
+
+    .logo_text {
+        width: 376px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .logo_text {
+        width: 560px;
+    }
+
+    .inner_container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 676px;
+        align-items: start;
+        margin: 0 auto;
+        justify-content: space-between;
+
+    }
+
+
+
+    .footer_links {
+        display: grid;
+        grid-template-areas:
+            "about resource"
+            "notification notification"
+        ;
+        justify-content: left;
+        align-items: start;
+        width: 436px;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+
+    .about {
+        grid-area: "about";
+    }
+
+    .resource {
+        grid-area: "resource";
+    }
+
+    .notification {
+        grid-area: "notification";
+    }
+
+    .outer_container {
+        margin: 0 auto;
+        width: 700px;
+        text-align: left;
+        padding-top: 64px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        width: 100%;
+    }
+
+    .outer_container {
+        margin: 0 auto;
+        width: 1192px;
+        text-align: left;
+    }
+
+    .inner_container {
+        margin: 64px auto;
+        width: 1192px;
+        flex-direction: row;
+        gap: 3rem;
+        align-items: start;
+        padding: 0;
+        justify-content: space-between;
+
+    }
+
+    .footer_links {
+        grid-template-areas:
+            "about resource notification"
+            "about resource notification"
+        ;
+        justify-content: center;
+        align-items: start;
+        width: fit-content;
+        gap: 5rem;
+        margin: 0;
+    }
+
+
+    .input_container>input {
+        width: 234px;
+        height: 44px;
+        font-family: "Epilogue", sans-serif;
+        border-radius: 8px;
+        border: none;
+
+    }
+
+    .input_container>input::placeholder {
+        padding-left: 2.4rem;
+
+    }
+
+    .input_container>img {
+        position: absolute;
+        top: .85rem;
+        left: 1rem;
+    }
+
+    .logo_text {
+        width: 376px;
+    }
+
+    .footer_links>div>.links {
+        padding: 16px 0;
+    }
+
+    .footer_links>div>.h3 {
+        padding-bottom: 20px;
+    }
+
+    .latest_jobs {
+        padding: 36px 0;
+    }
+
+
+    .bottom {
+        margin: 138px 0 0;
+    }
 }
