@@ -5,6 +5,8 @@ import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Search from "../../Components/LandingPage/Search/search";
 import {string} from "prop-types";
 import CardI from "../../stories/Cards/Card-I";
+import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
+import Footer from "../../Components/LandingPage/Footer";
 
 const LandingPage = () => {
     // cardData.js
@@ -289,9 +291,15 @@ const LandingPage = () => {
 
                 </div>
 
+                <div>
+                    <FAQ/>
+                </div>
+
 
             </div>
-
+            {/*<div className={styles.footer}>*/}
+            {/*    <Footer/>*/}
+            {/*</div>*/}
         </>
     );
 };

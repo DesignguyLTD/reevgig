@@ -4,7 +4,11 @@ import RadioButton from "../../stories/RadioButton/RadioButton";
 import style from "./jobs.module.css";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 
-export default function JobTimeline() {
+interface jobProps {
+    setActiveComponent?:  (component: string) => void;
+}
+
+export default function JobTimeline({setActiveComponent} :jobProps) {
     const [selectedValue1, setSelectedValue1] = useState<string>("");
     const [selectedValue2, setSelectedValue2] = useState<string>("");
 
@@ -16,6 +20,11 @@ export default function JobTimeline() {
         setSelectedValue2(value);
     };
 
+    const handleNext = ()=>{
+        if (setActiveComponent) {
+            setActiveComponent('jobs_skills')
+        }
+    }
     interface OptionType {
         value: string;
         label: string;
@@ -164,6 +173,7 @@ export default function JobTimeline() {
 
                 <div className={style.continue}>
                     <ButtonII
+                        onClick={handleNext}
                         hasIcon={false}
                         isLabelVisible={true}
                         label="Continue"

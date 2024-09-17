@@ -83,8 +83,9 @@ const ResponsiveTable: React.FC = () => {
                     <tr key={row.id}>
                         <td>
                             <div className={styles.info}>
-                                <img src={`https://i.pravatar.cc/50?img=${row.id}`} alt={`${row.clientName}`}
-                                     className="avatar"/>
+                                <img                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993477/Reev/Group_28_e9ifn2.svg" // Update with the correct path to the user's profile image
+
+                                                         className="avatar"/>
                                 <div>
                                     <div className={styles.clientName}>{row.clientName}</div>
                                     <div className={styles.clientOrder}>View order</div>
