@@ -297,9 +297,9 @@ const LandingPage = () => {
 
 
             </div>
-            <div className={styles.footer}>
-                <Footer/>
-            </div>
+            {/*<div className={styles.footer}>*/}
+            {/*    <Footer/>*/}
+            {/*</div>*/}
         </>
     );
 };

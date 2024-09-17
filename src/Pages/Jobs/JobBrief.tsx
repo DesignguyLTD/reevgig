@@ -1,5 +1,4 @@
 import React, {ChangeEvent, useState} from "react";
-
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import CounterInput from "./CounterInput";
 import CounterTextarea from "./CounterTextarea";
@@ -20,6 +19,7 @@ export default function JobBrief({setActiveComponent}:jobProps) {
     const handleRadioChange = (value: string) => {
         setSelectedValue(value);
     };
+
     const handleTextChange = (value: string) => {
         setText(value); // Update the state when the value changes
     };

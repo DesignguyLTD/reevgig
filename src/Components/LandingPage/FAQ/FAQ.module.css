@@ -50,8 +50,9 @@
 
 .faqIcon {
     font-size:20px;
-    color: #949393; /* Button color */x;
-    padding: 3px;
+    color: #949393;
+    border-radius: 8px;
+padding: 3px;
     background: rgb(255, 243, 204);
     height: 30px;
     width: 30px;
@@ -63,7 +64,7 @@
 
 .faqIcon.openIcon{
     border-radius: 8px;
-color: white;
+    color: white;
     background: rgb(254, 194, 0);
 }
 .faqAnswer {
