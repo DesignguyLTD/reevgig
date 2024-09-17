@@ -15,17 +15,18 @@
 }
 
 .radiobtn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 20px;
-    padding: 13px;
-    height: 27px;
-    width: 116px;
+    gap: 10px;
+    /* padding: 13px; */
+    /* height: 27px; */
+    width: 100%;
+    justify-content: center;
 }
 
 .checkmark {
-    width: 14px;
-    height: 14px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     /* margin-left: 2rem; */
     outline: 2px solid #FEC200;
@@ -37,4 +38,32 @@
     color: #424242;
     line-height: 16.24px;
     letter-spacing: -4%;
+}
+
+@media (min-width: 765px) {
+    .checkmark {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        /* margin-left: 2rem; */
+        outline: 2px solid #FEC200;
+        outline-offset: 5px;
+    }
+
+    .value {
+        font-size: 16px;
+        color: #424242;
+        line-height: 16.24px;
+    }
+
+
+    .radiobtn {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+         padding: 15px;
+        /* height: 27px; */
+        width: 100%;
+        justify-content: center;
+    }
 }

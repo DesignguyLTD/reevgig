@@ -1,5 +1,4 @@
 import React, {ChangeEvent, useState} from "react";
-
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import CounterInput from "./CounterInput";
 import CounterTextarea from "./CounterTextarea";
@@ -7,7 +6,11 @@ import FileUploadTwo from "../../Components/FileUpload/fileUploadTwo";
 import RadioButton from "../../stories/RadioButton/RadioButton";
 import style from "./jobs.module.css";
 
-export default function JobBrief() {
+
+interface jobProps {
+    setActiveComponent?:  (component: string) => void;
+}
+export default function JobBrief({setActiveComponent}:jobProps) {
     const [text, setText] = useState<string>("");
     const [textarea, setTextArea] = useState<string>("");
     const [fileUploaded, setFileUploaded] = useState<string | null>("");
@@ -16,6 +19,7 @@ export default function JobBrief() {
     const handleRadioChange = (value: string) => {
         setSelectedValue(value);
     };
+
     const handleTextChange = (value: string) => {
         setText(value); // Update the state when the value changes
     };
@@ -28,6 +32,12 @@ export default function JobBrief() {
         // TODO: Implement file upload logic
         console.log("File uploaded");
     };
+
+    const handleNext = ()=>{
+        if (setActiveComponent) {
+            setActiveComponent("jobs_timeline")
+        }
+    }
 
     return (
         <>
@@ -63,7 +73,7 @@ export default function JobBrief() {
                         </div>
                     </div>
 
-                    <div style={{marginTop: "1rem"}}>
+                    <div style={{marginTop: "0.6rem", marginBottom: '0.6rem'}}>
                         <FileUploadTwo
                             file={fileUploaded}
                             setFile={setFileUploaded}
@@ -77,6 +87,7 @@ export default function JobBrief() {
                         </p>
                         <div className={style.radio_btn}>
                             <RadioButton
+                                id={'Experience'}
                                 name={"Beginner"}
                                 value={"Beginner"}
                                 selectedValue={selectedValue}
@@ -88,8 +99,12 @@ export default function JobBrief() {
                                 value={"Intermediate"}
                                 selectedValue={selectedValue}
                                 onChange={handleRadioChange}
+                                id={'Experience'}
+
                             />
                             <RadioButton
+                                id={'Experience'}
+
                                 name={"expert"}
                                 value={"Expert"}
                                 selectedValue={selectedValue}
@@ -100,6 +115,7 @@ export default function JobBrief() {
 
                     <div className={style.continue}>
                         <ButtonII
+                            onClick={handleNext}
                             hasIcon={false}
                             isLabelVisible={true}
                             label="Continue"

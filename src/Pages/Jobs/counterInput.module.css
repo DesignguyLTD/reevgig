@@ -4,8 +4,7 @@
 }
 
 .container {
-    width: 395px;
-    height: 44px;
+    width: 300px;
     border-radius: 4px;
     border: 1px solid #C5C6C9;
     display: flex;
@@ -25,45 +24,64 @@
 .input::placeholder {
     color: #404145;
     opacity: 30%;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
 }
 
 .input:active,
 .input:focus {
-    border: none;
     outline: none;
 }
 
 .input {
     background-color: #FFF;
+    width: 300px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #C5C6C9;
+    display: flex;
+    align-items: center;
 }
 
 
 .label {
     font-size: 12px;
     color: #74767E;
-    line-height: 21px;
-}
-
-.input {
-    width: 100%;
-    border: none;
-    margin-left: 13px;
+    line-height: 11px;
+    margin-bottom: 7px;
 }
 
 
-@media screen and (min-width: 650px) {
+@media (min-width: 425px) {
+    .input {
+        background-color: #FFF;
+        width: 392px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #C5C6C9;
+        display: flex;
+        align-items: center;
+    }
+
+    .container {
+        width: 392px;
+        border-radius: 4px;
+        border: 1px solid #C5C6C9;
+        display: flex;
+        align-items: center;
+    }
+
+}
+
+@media  (min-width: 650px) {
     .numbers {
         display: block;
     }
 }
 
-@media screen and (min-width: 765px) {
+@media (min-width: 765px) {
     .input {
         width: 100%;
-        border: none;
-        margin-left: 13px;
     }
 
     .container {
@@ -71,7 +89,8 @@
     }
 
     .label {
-        font-size: 14px;
+        font-size: 16px;
+        margin-bottom: 20px;
 
     }
 }

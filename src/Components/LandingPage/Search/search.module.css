@@ -1,0 +1,168 @@
+.input_cover{
+    width: 100%;
+    height: 64px;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 56px;
+    background: rgb(255, 255, 255);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px ;
+    justify-content: space-between;
+}
+
+.search_side{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.search_side input{
+    outline: none;
+    border: none;
+    width: 100%;
+    color: rgb(125, 125, 125);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: left;
+}
+
+.hr{
+    height: 42px;
+    /*width: 0.1px;*/
+    border: .2px solid rgb(0, 0, 0);
+}
+
+.talent_side{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.talent{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    padding: 10px ;
+    gap: 10px;
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+@media (min-width: 425px) {
+    .input_cover{
+        width: 389px;
+    }
+
+    .talent{
+        padding: 10px 15px;
+    }
+}
+
+@media (min-width: 765px){
+    .input_cover{
+        width: 725px;
+        height: 88px;
+        box-sizing: border-box;
+        border: 1px solid rgb(39, 39, 39);
+        border-radius: 56px;
+        background: rgb(255, 255, 255);
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 25px ;
+        justify-content: space-between;
+    }
+
+
+
+    .search_side{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search_side input{
+        outline: none;
+        border: none;
+        height: 50px;
+        width: 520px;
+        color: rgb(125, 125, 125);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        text-align: left;
+    }
+
+    .hr{
+        height: 42px;
+        /*width: 0.1px;*/
+        border: .2px solid rgb(0, 0, 0);
+    }
+
+    .talent_side{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .talent{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        border: 1px solid rgb(39, 39, 39);
+        border-radius: 160px;
+        padding: 15px 25px;
+        gap: 10px;
+        color: rgb(39, 39, 39);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.32px;
+        text-align: center;
+    }
+
+    .heroCtnMain{
+        gap: 40px;
+    }
+}
+
+@media (min-width: 1024px){
+
+    .heroCtnMain{
+        gap: 50px;
+    }
+    .input_cover{
+        width: 950px;
+        height: 88px;
+    }
+
+    .talent{
+        padding: 15px 50px;
+    }
+}
+
+
+

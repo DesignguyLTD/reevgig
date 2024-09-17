@@ -42,6 +42,22 @@ const Dashboard = () => {
                 {currentPage === 'PostAJob' &&
                     <Jobs/>
                 }
+
+                {currentPage === 'Message' &&
+                    <h1>Development in progress ....</h1>
+                }
+
+                {currentPage === 'SavedEmployee' &&
+                    <h1>Development in progress ....</h1>
+                }
+
+                {currentPage === 'PlanBillings' &&
+                    <h1>Development in progress ....</h1>
+                }
+
+                {currentPage === 'Settings' &&
+                    <h1>Development in progress ....</h1>
+                }
             </div>
         </div>
     );
