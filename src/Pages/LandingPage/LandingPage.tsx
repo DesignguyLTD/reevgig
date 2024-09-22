@@ -7,6 +7,7 @@ import {string} from "prop-types";
 import CardI from "../../stories/Cards/Card-I";
 import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
 import Footer from "../../Components/LandingPage/Footer";
+import CreateUser from "../../__tests__/play";
 
 const LandingPage = () => {
     // cardData.js
@@ -145,6 +146,7 @@ const LandingPage = () => {
 
 
                 </div>
+
 
                 <div className={styles.SearchCtn}>
                     <Search onSearch={() => {}}/>

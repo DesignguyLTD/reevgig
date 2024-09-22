@@ -11,12 +11,17 @@ import Modal from "../../../Components/modals/mailModal/modal";
 import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
 import {countries} from "./countries";
 import signUp from "./signUp.module.css";
+import {createUser} from "../../../API/services/user";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
+import {UserDataType} from "../../../API/types/userTypes";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
     const [stage, setStage] = React.useState(1);
     const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedOption(e.target.value);
+        console.log(e.target.value);
         localStorage.setItem("userType", e.target.value);
     };
 
@@ -45,25 +50,29 @@ const SignUp = () => {
     };
 
     interface FormValues {
-        firstName: string;
-        lastName: string;
+        first_name: string;
+        last_name: string;
         email: string;
         password: string;
         country: string;
         sendMails: string;
         TermsAndConditon: string;
         phone: string;
+        username: string;
+        user_type: string;
     }
 
     const defaultFormValues: FormValues = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
         country: "",
         sendMails: "",
         TermsAndConditon: "",
         phone: "",
+        username: "",
+        user_type: selectedOption
     };
 
     const [formValues, setFormValues] = useState<FormValues>(() => {
@@ -76,14 +85,15 @@ const SignUp = () => {
     localStorage.setItem("signUpForm", JSON.stringify(formValuesCopy));
 
     const [formErrors, setFormErrors] = useState({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
         country: "",
         sendMails: "",
         TermsAndConditon: "",
         phone: "",
+        username: ""
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -91,6 +101,7 @@ const SignUp = () => {
             e.target.type === "checkbox" ? e.target.checked : e.target.value;
         setFormValues({
             ...formValues,
+            user_type: selectedOption,
             [e.target.name]: value,
         });
     };
@@ -104,24 +115,29 @@ const SignUp = () => {
 
     const validateForm = () => {
         let newErrors = {
-            firstName: "",
-            lastName: "",
+            first_name: "",
+            last_name: "",
             email: "",
             password: "",
             country: "",
             sendMails: "",
             TermsAndConditon: "",
             phone: "",
+            username: ''
         };
 
         // Validate first name
-        if (!formValues.firstName) {
-            newErrors.firstName = "First name is required";
+        if (!formValues.first_name) {
+            newErrors.first_name = "First name is required";
+        }
+
+        if (!formValues.first_name) {
+            newErrors.first_name = "First name is required";
         }
 
         // Validate last name
-        if (!formValues.lastName) {
-            newErrors.lastName = "Last name is required";
+        if (!formValues.username) {
+            newErrors.username = "Username is required";
         }
 
         // Validate email
@@ -171,15 +187,33 @@ const SignUp = () => {
     //     return validateForm();
     // }
 
-    const handleSubmit = () => {
-        const isFormValid = validateForm();
+
+
+    const handleSubmit = async () => {
+        const isFormValid = validateForm(); // Assume this function checks the form
 
         if (isFormValid) {
-            console.log(formValues);
-            handleNext();
+            console.log(formValues); // Log form values for debugging
+
+
+            // Only attempt to create the user on stage 2
+            if (stage === 2) {
+                try {
+                    const response = await createUser(formValues); // Call to API function
+                    console.log('User created successfully:', response.data);
+                    if(response.status === 201){
+                        handleNext();
+                    }
+                    return response.data; // Return the data in case it's needed later
+                } catch (error: any) {
+                    console.error('Error creating user:', error.response?.data || error.message);
+                    throw {err: 'handle error properly'}; // Rethrow the error for further handling
+                }
+            }
+        } else {
+            console.log('Form validation failed');
         }
     };
-
     return (
         <>
             <Header auth={true}/>
@@ -193,7 +227,7 @@ const SignUp = () => {
                         <div className={signUp.RadioCont}>
                             <RadioTextIcon
                                 name="userType"
-                                value="Client"
+                                value="CLIENT"
                                 Icon="https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/client_bihjii.svg"
                                 text1=" I’m a client, hiring"
                                 text2=" for a project"
@@ -204,7 +238,7 @@ const SignUp = () => {
 
                             <RadioTextIcon
                                 name="userType"
-                                value="Freelancer"
+                                value="FREELANCER"
                                 Icon="https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/freelancer_jngxqi.svg"
                                 text1=" I’m a freelancer,"
                                 text2="looking for work"
@@ -272,10 +306,10 @@ const SignUp = () => {
                                     placeholder="John"
                                     size="small"
                                     onChange={handleInputChange}
-                                    name={"firstName"}
-                                    error={!!formErrors.firstName}
-                                    errorMessage={formErrors.firstName}
-                                    value={formValues.firstName}
+                                    name={"first_name"}
+                                    error={!!formErrors.first_name}
+                                    errorMessage={formErrors.first_name}
+                                    value={formValues.first_name}
                                 />
                                 <Input
                                     isTextArea={false}
@@ -284,12 +318,25 @@ const SignUp = () => {
                                     placeholder="Doe"
                                     size="small"
                                     onChange={handleInputChange}
-                                    name={"lastName"}
-                                    error={!!formErrors.lastName}
-                                    errorMessage={formErrors.lastName}
-                                    value={formValues.lastName}
+                                    name={"last_name"}
+                                    error={!!formErrors.last_name}
+                                    errorMessage={formErrors.last_name}
+                                    value={formValues.last_name}
                                 />
                             </div>
+
+                            <Input
+                                isTextArea={false}
+                                type={"text"}
+                                label="Username"
+                                placeholder="Reev123"
+                                size="small"
+                                onChange={handleInputChange}
+                                name={"username"}
+                                error={!!formErrors.username}
+                                errorMessage={formErrors.username}
+                                value={formValues.username}
+                            />
 
                             <Input
                                 isTextArea={false}

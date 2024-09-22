@@ -9,6 +9,7 @@ import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import Dashboard from "./Pages/DashBoard/Dashboard";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import CreateUser from "./__tests__/play";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/dashboard" element={<Dashboard/>}/>
                     <Route path="/jobapplication" element={<JobApplicationPage/>}/>
                     <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>}/>
+                    <Route path="/createuser" element={<CreateUser/>}/>
                 </Routes>
             </Router>
 
