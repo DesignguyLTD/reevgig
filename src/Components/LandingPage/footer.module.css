@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-
 .container {
     background-color: #484848;
     height: auto;
@@ -56,14 +55,14 @@
     justify-content: space-between;
 }
 
-.footer_links>div {
+.footer_links > div {
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.footer_links>div>.h3 {
+.footer_links > div > .h3 {
     color: #ffffff;
     font-weight: 500;
     font-size: 19px;
@@ -82,7 +81,7 @@
 }
 
 
-.footer_links>div>.links {
+.footer_links > div > .links {
     list-style: none;
     text-align: left;
     line-height: 22.4px;
@@ -114,7 +113,7 @@
     gap: 8px;
 }
 
-.input_container>input {
+.input_container > input {
     width: 234px;
     height: 44px;
     font-family: "Epilogue", sans-serif;
@@ -123,12 +122,12 @@
 
 }
 
-.input_container>input::placeholder {
+.input_container > input::placeholder {
     padding-left: 2.4rem;
 
 }
 
-.input_container>img {
+.input_container > img {
     position: absolute;
     top: .85rem;
     left: 1rem;
@@ -155,7 +154,7 @@
 
 }
 
-.social_links>.socials {
+.social_links > .socials {
     border: none;
     border-radius: 50%;
     background-color: rgba(97, 96, 96, 0.2);

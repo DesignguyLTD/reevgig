@@ -101,7 +101,7 @@ const JobApplicationPage = () => {
                                 <>
                                     <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
 
-                                <br/>
+                                    <br/>
                                 </>
                             ))}
                         </div>
@@ -139,7 +139,9 @@ const JobCard: React.FC<JobCardProps> = ({app, onToggleShortlist}) => {
                 <p className={JAStyles.p}>Price: {app.priceRange}</p>
                 <p className={JAStyles.p}>Applied: {app.appliedDate}</p>
                 <a href="#/jobapplication" className={JAStyles.downloadCv}>
-                    Download CV/Resume <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg" alt="Download CV"/>
+                    Download CV/Resume <img
+                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg"
+                    alt="Download CV"/>
                 </a>
 
                 <br/>

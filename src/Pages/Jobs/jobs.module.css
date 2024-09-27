@@ -144,7 +144,7 @@ TimeLine styling codes */
     justify-content: flex-start;
 }
 
-.Budget{
+.Budget {
     font-size: 16px;
     font-weight: 500;
     color: #404145;
@@ -152,7 +152,7 @@ TimeLine styling codes */
     margin: 20px 0px;
 }
 
-.inpurDtext{
+.inpurDtext {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -162,7 +162,7 @@ TimeLine styling codes */
     text-align: left;
 }
 
-.flexInput{
+.flexInput {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -172,7 +172,7 @@ TimeLine styling codes */
     gap: 15px;
 }
 
-.flexInput input{
+.flexInput input {
     width: 100%;
     box-sizing: border-box;
     border: 1px solid rgb(197, 198, 201);
@@ -186,7 +186,7 @@ TimeLine styling codes */
     justify-content: center;
 }
 
-.hr{
+.hr {
     border: 0;
     width: 11px;
     height: 1px;
@@ -196,7 +196,7 @@ TimeLine styling codes */
     right: 198px;
 }
 
-.hr1{
+.hr1 {
     border: 0;
     width: 11px;
     height: 1px;
@@ -206,7 +206,7 @@ TimeLine styling codes */
     right: 191px;
 }
 
-.flexInput input::placeholder{
+.flexInput input::placeholder {
     color: rgb(197, 198, 201);
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -215,19 +215,20 @@ TimeLine styling codes */
     text-align: left;
 }
 
-.labelInput{
+.labelInput {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.Stylecont{
+.Stylecont {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
 
 }
+
 /*.skillCont{*/
 /*    display: inline-flex;*/
 /*    flex-direction: column;*/
@@ -255,15 +256,15 @@ TimeLine styling codes */
 
 
 @media screen and (min-width: 765px) {
-    .job{
+    .job {
         display: none;
     }
 
-    .Budget{
+    .Budget {
         font-size: 20px;
     }
 
-    .hr{
+    .hr {
         border: 0;
         width: 15px;
         height: 1px;
@@ -273,7 +274,7 @@ TimeLine styling codes */
         right: 455px;
     }
 
-    .hr1{
+    .hr1 {
         border: 0;
         width: 15px;
         height: 1px;
@@ -282,10 +283,12 @@ TimeLine styling codes */
         top: 60px;
         right: 455px;
     }
-    .flexInput input{
-        width: 233px;}
 
-    .flexInput{
+    .flexInput input {
+        width: 233px;
+    }
+
+    .flexInput {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -310,6 +313,7 @@ TimeLine styling codes */
         width: 45%;
         justify-content: flex-start;
     }
+
     .label_text {
         font-size: 20px;
         font-weight: 500;
@@ -329,7 +333,6 @@ TimeLine styling codes */
         width: 694px;
 
     }
-
 
 
     .continue {

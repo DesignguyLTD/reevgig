@@ -4,7 +4,7 @@
     margin: auto;
 }
 
-.faqHeadertext{
+.faqHeadertext {
     color: rgb(43, 43, 43);
     font-family: PP Neue Montreal;
     font-size: 28px;
@@ -39,7 +39,7 @@
     justify-content: space-between;
     align-items: center;
     color: rgb(39, 39, 39);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 19px;
     font-weight: 500;
     line-height: 140%;
@@ -49,10 +49,10 @@
 }
 
 .faqIcon {
-    font-size:20px;
+    font-size: 20px;
     color: #949393;
     border-radius: 8px;
-padding: 3px;
+    padding: 3px;
     background: rgb(255, 243, 204);
     height: 30px;
     width: 30px;
@@ -62,11 +62,12 @@ padding: 3px;
     justify-content: center;
 }
 
-.faqIcon.openIcon{
+.faqIcon.openIcon {
     border-radius: 8px;
     color: white;
     background: rgb(254, 194, 0);
 }
+
 .faqAnswer {
     overflow: hidden;
     max-height: 0;
@@ -96,6 +97,7 @@ padding: 3px;
         color: #666;
         margin-top: 0;
     }
+
     .faqItems {
         grid-template-columns: 1fr;
     }
@@ -106,7 +108,7 @@ padding: 3px;
         opacity: 0;
         transition: height 0.4s ease, opacity 0.4s ease;
         color: rgb(125, 125, 125);
-        font-family:PP Neue Montreal;
+        font-family: PP Neue Montreal;
         font-size: 18px;
         font-weight: 400;
         line-height: 140%;
@@ -115,7 +117,7 @@ padding: 3px;
         width: 90%;
     }
 
-    .faqQuestion{
+    .faqQuestion {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -129,7 +131,7 @@ padding: 3px;
         margin-bottom: 5px;
     }
 
-    .faqHeadertext{
+    .faqHeadertext {
         color: rgb(43, 43, 43);
         font-family: PP Neue Montreal;
         font-size: 48px;

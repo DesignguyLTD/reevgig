@@ -18,11 +18,11 @@ interface RadioProps {
     alignItems?: string;
     gap?: string;
     enableSelectedStyles?: boolean;
-    id?:string;
+    id?: string;
 }
 
 const RadioButton: React.FC<RadioProps> = ({
-    id,
+                                               id,
                                                name,
                                                value,
                                                selectedValue,

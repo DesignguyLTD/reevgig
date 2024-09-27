@@ -46,10 +46,10 @@ const Search: React.FC<SearchProps> = ({
         <div className={style.input_cover}>
             <div style={{borderRadius}} className={style.search_side}>
 
-                    <img
-                        src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726006242/Search_h5asjp.svg"
-                        alt=""
-                    />
+                <img
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726006242/Search_h5asjp.svg"
+                    alt=""
+                />
                 <input
                     type="text"
                     value={query}

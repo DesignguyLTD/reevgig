@@ -31,7 +31,7 @@
     background: rgb(43, 43, 43);
 }
 
-.p{
+.p {
     color: rgb(118, 127, 140);
     font-family: Inter;
     font-size: 14px;
@@ -131,7 +131,7 @@
     text-align: center;
 }
 
-.BtnCtn{
+.BtnCtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -149,7 +149,7 @@
     padding: 10px 13px;
     gap: 3px;
     background: #FFFFFF;
-cursor: pointer;
+    cursor: pointer;
     color: rgb(39, 39, 39);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -169,7 +169,7 @@ cursor: pointer;
 
 }
 
-.btn:active{
+.btn:active {
     box-sizing: border-box;
     border: 1px solid rgb(19, 19, 19);
     border-radius: 160px;
@@ -177,9 +177,9 @@ cursor: pointer;
     background: rgb(254, 194, 0);
 }
 
-.applicationsColumn{
+.applicationsColumn {
     border-radius: 16px;
-padding: 24px;
+    padding: 24px;
     background: rgb(247, 247, 247);
 }
 

@@ -71,9 +71,9 @@ const OverviewPage = () => {
                                 </div>
 
                             </div>
-                            <div className={style.ProfileCont}>
-                                <ProfileNav/>
-                            </div>
+                            {/*<div className={style.ProfileCont}>*/}
+                            {/*    <ProfileNav/>*/}
+                            {/*</div>*/}
                         </div>
                     }
 

@@ -8,9 +8,10 @@ import style from "./jobs.module.css";
 
 
 interface jobProps {
-    setActiveComponent?:  (component: string) => void;
+    setActiveComponent?: (component: string) => void;
 }
-export default function JobBrief({setActiveComponent}:jobProps) {
+
+export default function JobBrief({setActiveComponent}: jobProps) {
     const [text, setText] = useState<string>("");
     const [textarea, setTextArea] = useState<string>("");
     const [fileUploaded, setFileUploaded] = useState<string | null>("");
@@ -33,7 +34,7 @@ export default function JobBrief({setActiveComponent}:jobProps) {
         console.log("File uploaded");
     };
 
-    const handleNext = ()=>{
+    const handleNext = () => {
         if (setActiveComponent) {
             setActiveComponent("jobs_timeline")
         }

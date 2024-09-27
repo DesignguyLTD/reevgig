@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, Route, HashRouter as Router, Routes } from "react-router-dom";
+import {HashRouter as Router, Link, Route, Routes} from "react-router-dom";
 // import Footer from "./LandingPage/Footer";
 import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 import Login from "./Pages/Onboarding/login/login";

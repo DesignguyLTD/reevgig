@@ -25,11 +25,13 @@ export default function JobSkills() {
         <div className={style.Stylecont}>
             <div>
                 <Dropdown onChange={(option: OptionType) => {
-                }} options={[{value: 'Hardware', label: 'Hardware'}, {value: 'Circuit', label: 'Circuit'}]} defaultText={"Select"} label={'What category fits this job'}/>
+                }} options={[{value: 'Hardware', label: 'Hardware'}, {value: 'Circuit', label: 'Circuit'}]}
+                          defaultText={"Select"} label={'What category fits this job'}/>
             </div>
             <div>
                 <Dropdown label={'Job Type'} onChange={(option: OptionType) => {
-                }} options={[{value: '3D Modelling', label: '3D Modelling'},{value: 'Circuit', label: 'Circuit'}]} defaultText={"Select"}/>
+                }} options={[{value: '3D Modelling', label: '3D Modelling'}, {value: 'Circuit', label: 'Circuit'}]}
+                          defaultText={"Select"}/>
             </div>
             <div>
                 <TagInput

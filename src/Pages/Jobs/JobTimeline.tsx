@@ -5,10 +5,10 @@ import style from "./jobs.module.css";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 
 interface jobProps {
-    setActiveComponent?:  (component: string) => void;
+    setActiveComponent?: (component: string) => void;
 }
 
-export default function JobTimeline({setActiveComponent} :jobProps) {
+export default function JobTimeline({setActiveComponent}: jobProps) {
     const [selectedValue1, setSelectedValue1] = useState<string>("");
     const [selectedValue2, setSelectedValue2] = useState<string>("");
 
@@ -20,11 +20,12 @@ export default function JobTimeline({setActiveComponent} :jobProps) {
         setSelectedValue2(value);
     };
 
-    const handleNext = ()=>{
+    const handleNext = () => {
         if (setActiveComponent) {
             setActiveComponent('jobs_skills')
         }
     }
+
     interface OptionType {
         value: string;
         label: string;
@@ -160,7 +161,7 @@ export default function JobTimeline({setActiveComponent} :jobProps) {
                     <div className={style.flexInput}>
                         <div className={style.labelInput}>
                             <label className={style.inpurDtext}>Start Date</label>
-                            <input  type="date" name="" id=""/>
+                            <input type="date" name="" id=""/>
                         </div>
                         {/*<hr className={style.hr}/>*/}
 

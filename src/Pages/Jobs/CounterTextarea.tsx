@@ -28,15 +28,15 @@ const CounterTextarea: React.FC<CounterTextareaProps> = ({
         <>
             <p className={style.label}>{label}</p>
             {/*<div className={style.container}>*/}
-        <textarea
-            className={`${style.container} ${style.textarea}`}
-            value={value}
-            placeholder={placeholder}
-            onChange={handleChange}
-        />
-                <div className={style.numbers}>
-                    {value.length}/{maxLength}
-                </div>
+            <textarea
+                className={`${style.container} ${style.textarea}`}
+                value={value}
+                placeholder={placeholder}
+                onChange={handleChange}
+            />
+            <div className={style.numbers}>
+                {value.length}/{maxLength}
+            </div>
             {/*</div>*/}
         </>
     );

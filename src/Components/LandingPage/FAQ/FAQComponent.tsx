@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './FAQ.module.css';
 
 interface FAQItem {
@@ -75,7 +75,8 @@ const FAQ: React.FC = () => {
                     >
                         <div className={styles.faqQuestion}>
                             {faq.question}
-                            <span className={`${styles.faqIcon} ${openIndex === index ? styles.openIcon : ''}`}>{openIndex === index ? '-' : '+'}</span>
+                            <span
+                                className={`${styles.faqIcon} ${openIndex === index ? styles.openIcon : ''}`}>{openIndex === index ? '-' : '+'}</span>
                         </div>
                         <div
                             ref={(el) => (answerRefs.current[index] = el)}
