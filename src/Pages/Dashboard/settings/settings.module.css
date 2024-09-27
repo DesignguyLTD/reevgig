@@ -1,8 +1,8 @@
 .ctn {
-    margin: auto;
-    margin-top: 150px;
-    width: 66.42dvw;
-    /* padding-left: 80px; */
+    /*margin: auto;*/
+    /*margin-top: 150px;*/
+    /*width: 66.42dvw;*/
+    /*!* padding-left: 80px; *!*/
 }
 
 .backward {
@@ -65,7 +65,7 @@ ul {
     .list {
         width: 80dvw;
     }
-    
+
     .list a {
         width: 80dvw;
     }
@@ -76,5 +76,5 @@ ul {
         margin-top: 100px;
         padding-left: 0px;
     }
-    
+
 }

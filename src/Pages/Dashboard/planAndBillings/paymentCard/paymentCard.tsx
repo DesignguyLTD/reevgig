@@ -2,13 +2,12 @@ import CheckBox from "../../../../stories/CheckBox/checkbox";
 import Dropdown from "../../../../stories/OtherInputsType/dropdown/dropdown";
 import Input from "../../../../stories/FieldInput-I/input";
 import Radio from "../../../../stories/Radio/radio";
-import React, { ChangeEvent, useState } from "react";
+import React, {ChangeEvent, useState} from "react";
 import cloudImages from "../../../../assets";
 import styles from "./paymentCard.module.css";
-import { Country } from "country-state-city";
-import { Button } from "../../../../stories/Button-I/Button";
+import {Country} from "country-state-city";
+import {Button} from "../../../../stories/Button-I/Button";
 
-/* eslint-disable jsx-a11y/anchor-is-valid */
 
 const Payment = () => {
 
@@ -30,7 +29,7 @@ const Payment = () => {
     }));
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData((prevState) => ({
             ...prevState,
             [name]: value,
@@ -47,7 +46,7 @@ const Payment = () => {
             <div className={styles.topCtn}>
                 <div className={styles.addMoneyCtn}>
                     <div className={styles.levelUpIcon}>
-                        <img src={cloudImages.levelUp} alt="level up icon" />
+                        <img src={cloudImages.levelUp} alt="level up icon"/>
                     </div>
                     <div>
                         <a href="#">+ Add Money</a>
@@ -60,14 +59,14 @@ const Payment = () => {
             </div>
 
             <div className={styles.btmCtn}>
-                <img src={cloudImages.exit} alt="cancel icon" />
+                <img src={cloudImages.exit} alt="cancel icon"/>
                 <form className={styles.paymentForm}>
                     <h4 className={styles.paymentH4}>Payment Card</h4>
                     <div className={styles.radioCtn}>
                         <p>Pay With:</p>
                         <div className={styles.radios}>
-                            <Radio label="card" id="card" />
-                            <Radio label="local bank deposit" id="local bank" />
+                            <Radio label="card" id="card"/>
+                            <Radio label="local bank deposit" id="local bank"/>
                         </div>
                     </div>
                     <div>
@@ -138,7 +137,7 @@ const Payment = () => {
                             <div className={styles.countryCtn}>
                                 <Dropdown
                                     label='Billing Address'
-                                    onChange={({ value }) => setCountry(value)}
+                                    onChange={({value}) => setCountry(value)}
                                     errorMessage="Country must be selected"
                                     options={countryOptions}
                                     defaultText={country === "" ? "Nigeria" : country}
@@ -169,12 +168,13 @@ const Payment = () => {
                         </div>
                     </div>
                     <div className={styles.checkboxCtn}>
-                        <CheckBox size="small" checked={false} />
+                        <CheckBox size="small" checked={false}/>
                         <label>save card details</label>
                     </div>
                     <div className={styles.BtnCtn}>
-                        <Button label="Pay $50" size="large" icon={false} />
-                        <p>Your personal data will be used to process your order, support your experience throughout the website and for other purposes described in our privacy policy.</p>
+                        <Button label="Pay $50" size="large" icon={false}/>
+                        <p>Your personal data will be used to process your order, support your experience throughout the
+                            website and for other purposes described in our privacy policy.</p>
                     </div>
                 </form>
 

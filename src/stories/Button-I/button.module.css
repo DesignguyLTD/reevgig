@@ -68,10 +68,10 @@
     color: rgba(39, 39, 39, 0.5);
 }
 
-.icon{
+.icon {
     margin-right: 10px;
 }
 
-.icon:hover{
+.icon:hover {
     filter: invert(1);
 }

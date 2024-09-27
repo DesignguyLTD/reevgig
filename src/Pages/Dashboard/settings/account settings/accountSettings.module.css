@@ -1,11 +1,11 @@
 .ctn {
-    margin: auto;
-    margin-top: 80px;
-    width: 93dvw;
-    padding-bottom: 100px;
-    /* padding-left: 80px; */
-    position: relative;
-    z-index: 0;
+    /*margin: auto;*/
+    /*margin-top: 80px;*/
+    /*width: 93dvw;*/
+    /*padding-bottom: 100px;*/
+    /*!* padding-left: 80px; *!*/
+    /*position: relative;*/
+    /*z-index: 0;*/
 }
 
 .settingPages {
@@ -129,9 +129,9 @@ h3 {
 
 @media (min-width: 768px) {
     .ctn {
-        margin: 0;
-        margin-top: 130px;
-        padding-left: 40px;
+        /*margin: 0;*/
+        /*margin-top: 130px;*/
+        /*padding-left: 40px;*/
     }
 
     .backToSettings,
@@ -169,10 +169,10 @@ h3 {
 
 @media (min-width: 1024px) {
     .ctn {
-        margin: auto;
-        margin-top: 150px;
-        padding-left: 0px;
-        width: 750px;
+        /*margin: auto;*/
+        /*margin-top: 150px;*/
+        /*padding-left: 0px;*/
+        /*width: 750px;*/
     }
 
     .profileForm {

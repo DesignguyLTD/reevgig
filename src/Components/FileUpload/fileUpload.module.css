@@ -122,12 +122,12 @@
     text-align: center;
 }
 
-.error{
+.error {
     color: red;
 }
 
 @media (min-width: 768px) {
-    .fileContainer{
+    .fileContainer {
         max-width: 504px;
         width: 100%;
     }
@@ -152,13 +152,13 @@
         text-align: center;
     }
 
-    .fileUploaded{
+    .fileUploaded {
         width: 480px;
     }
 }
 
 @media (min-width: 1024px) {
-    .fileContainer{
+    .fileContainer {
         max-width: 530px;
         width: 100%;
         padding: 15px;
@@ -184,7 +184,7 @@
         text-align: center;
     }
 
-    .fileUploaded{
+    .fileUploaded {
         width: 500px;
     }
 }

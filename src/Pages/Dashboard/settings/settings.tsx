@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./settings.module.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 interface SettingList {
     name: string;
@@ -8,19 +8,18 @@ interface SettingList {
 }
 
 const settingLists: SettingList[] = [
-    { name: 'Account Settings', path: '/settings/accountSettings' },
-    { name: 'Notification', path: '/settings/notification' },
-    { name: 'Privacy Policy', path: '/settings' },
-    { name: 'About Us', path: '/settings' }
+    {name: 'Account Settings', path: '/accountSettings'},
+    {name: 'Notification', path: '/notification'},
+    {name: 'Privacy Policy', path: '/dashboard'},
+    {name: 'About Us', path: '/dashboard'}
 ];
 
 const Settings: React.FC = () => {
     return (
         <div className={styles.ctn}>
             <div className={styles.backward}>
-                <Link to="/settings">
-                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg" alt="Back Arrow" />
-                </Link>
+                <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg"
+                     alt="Back Arrow"/>
                 <p>Settings</p>
             </div>
             <ul>
@@ -28,7 +27,8 @@ const Settings: React.FC = () => {
                     <li key={index} className={styles.list}>
                         <Link to={item.path}>
                             {item.name}
-                            <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg" alt="Forward Arrow" />
+                            <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg"
+                                 alt="Forward Arrow"/>
                         </Link>
                     </li>
                 ))}

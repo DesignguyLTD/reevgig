@@ -1,0 +1,156 @@
+* {
+    font-family: PP Neue Montreal;
+
+}
+
+.container {
+    width: 300px;
+    height: 106px;
+    border-radius: 4px;
+    border: 1px solid #C5C6C9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.numbers {
+
+    font-size: 14px;
+    color: #D4A200;
+    font-weight: 400;
+    align-self: flex-end;
+    justify-items: center;
+    padding-right: 16px;
+    margin-top: 10px;
+    display: none;
+}
+
+.textarea,
+.textarea:active,
+.textarea:focus {
+    resize: none;
+    background-color: #fff;
+    outline: none;
+    text-align: left;
+    width: 300px;
+    height: 106px;
+    border-radius: 4px;
+    border: 1px solid #C5C6C9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.textarea::placeholder {
+    color: #404145;
+    opacity: 30%;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.label {
+    font-size: 12px;
+    color: #74767E;
+    line-height: 12px;
+    margin-bottom: 7px;
+}
+
+
+@media screen and (min-width: 425px) {
+    .numbers {
+        display: block;
+    }
+
+    .container {
+        width: 392px;
+        height: 106px;
+        border-radius: 4px;
+        border: 1px solid #C5C6C9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .textarea,
+    .textarea:active,
+    .textarea:focus {
+        resize: none;
+        background-color: #fff;
+        outline: none;
+        text-align: left;
+        width: 392px;
+        height: 106px;
+        border-radius: 4px;
+        border: 1px solid #C5C6C9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+
+    }
+
+}
+
+@media screen and (min-width: 650px) {
+    .numbers {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 765px) {
+    .textarea {
+        width: 521.33px;
+        height: 47px;
+        border-radius: 4px;
+    }
+
+    .container {
+        width: 551.33px;
+    }
+
+    .label {
+        font-size: 16px;
+        color: #74767E;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        width: 521.33px;
+        height: 106px;
+        border-radius: 4px;
+        border: 1px solid #C5C6C9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .textarea,
+    .textarea:active,
+    .textarea:focus {
+        resize: none;
+        background-color: #fff;
+        outline: none;
+        text-align: left;
+        width: 521.33px;
+        height: 106px;
+        border-radius: 4px;
+        border: 1px solid #C5C6C9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+
+    }
+}

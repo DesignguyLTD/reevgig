@@ -1,0 +1,195 @@
+.jobApplicationsContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.applicationsColumn {
+    flex: 1;
+}
+
+.jobCard {
+    box-sizing: border-box;
+    /*padding: 8px;*/
+    max-width: 310px;
+    width: 95%;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    text-align: left;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(181, 182, 186);
+    border-radius: 8px 8px 0px 0px;
+    background: rgb(43, 43, 43);
+}
+
+.p {
+    color: rgb(118, 127, 140);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+
+.nameText {
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    /*letter-spacing: 0%;*/
+    text-align: left;
+}
+
+.experienceLevel {
+    color: rgb(255, 235, 170);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+}
+
+.profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/*.experienceLevel {*/
+/*    font-size: 12px;*/
+/*    color: #777;*/
+/*}*/
+
+.jobInfo {
+    margin-top: 10px;
+    padding: 15px;
+    gap: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.role {
+    color: rgb(24, 25, 28);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: left;
+}
+
+.status {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+    color: rgb(254, 194, 0);
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 12px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.fullTime {
+    border-radius: 160px;
+    padding: 5px;
+    background: rgb(39, 39, 39);
+}
+
+.downloadCv {
+    color: rgb(8, 56, 130);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.declineRequest {
+    color: rgb(216, 73, 16);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+}
+
+.BtnCtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.btn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 160px;
+    padding: 10px 13px;
+    gap: 3px;
+    background: #FFFFFF;
+    cursor: pointer;
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    text-align: center;
+}
+
+.btn:hover {
+    box-sizing: border-box;
+    border-bottom: 2px solid rgb(39, 39, 39);
+    border-left: 1px solid rgb(39, 39, 39);
+    border-right: 1px solid rgb(39, 39, 39);
+    border-top: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+
+}
+
+.btn:active {
+    box-sizing: border-box;
+    border: 1px solid rgb(19, 19, 19);
+    border-radius: 160px;
+
+    background: rgb(254, 194, 0);
+}
+
+.applicationsColumn {
+    border-radius: 16px;
+    padding: 24px;
+    background: rgb(247, 247, 247);
+}
+
+
+@media (min-width: 765px) {
+    .jobApplicationsContainer {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 20px;
+        flex-direction: row;
+        width: 100%;
+    }
+}
