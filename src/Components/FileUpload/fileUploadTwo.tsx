@@ -1,15 +1,22 @@
-import React, {ChangeEvent, DragEvent, useState} from "react";
-
+// FileUploadTwo.tsx
+import React, { ChangeEvent, DragEvent, useState } from "react";
 import styles from "./fileUpload.module.css";
 import stylesTwo from "./fileUploadTwo.module.css";
 
+// Export the UploadedFile interface
+export interface UploadedFile {
+    id: string;
+    name: string;
+    src: string;
+}
+
 interface FileUploadProps {
-    file: string | null;
-    setFile: React.Dispatch<React.SetStateAction<string | null>>;
+    files: UploadedFile[]; // Changed from `file` to `files`
+    setFiles: React.Dispatch<React.SetStateAction<UploadedFile[]>>; // Changed from `setFile` to `setFiles`
     allowedTypes: string[];
     id: string;
     label?: string;
-    vibrate?: any;
+    vibrate?: React.RefObject<HTMLDivElement>;
     text?: string;
     src?: string;
     placeholder?: string;
@@ -18,38 +25,42 @@ interface FileUploadProps {
 
 const FileUploadTwo: React.FC<FileUploadProps> = ({
                                                       vibrate,
-                                                      allowedTypes,
+                                                      allowedTypes = ["image/png", "image/jpeg"], // Default allowed types
                                                       id,
-                                                      label,
                                                       placeholder,
                                                       width,
-                                                      file,
+                                                      files,
                                                       text = "Attach File",
-                                                      src = "https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_qchl7c.svg",
-                                                      setFile,
+                                                      src = "https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Upload_icon_pxi3l0.svg",
+                                                      setFiles,
                                                   }) => {
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [isDragging, setIsDragging] = useState<boolean>(false);
-    const [fileLabel, setFileLabel] = useState<string>(
-        localStorage.getItem(`fileLabel${id}`) || ""
-    );
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const selectedFile = event.target.files?.[0];
-        if (selectedFile) {
-            setLoading(true);
-            validateFile(selectedFile);
+        const selectedFiles = event.target.files;
+        if (selectedFiles) {
+            const filesArray = Array.from(selectedFiles);
+            if (files.length + filesArray.length > 3) {
+                setError("You can upload a maximum of 3 files.");
+                return;
+            }
+            validateFiles(filesArray);
         }
     };
 
     const handleDrop = (event: DragEvent<HTMLDivElement>) => {
         event.preventDefault();
         setIsDragging(false);
-        const selectedFile = event.dataTransfer.files?.[0];
-        if (selectedFile) {
-            setLoading(true);
-            validateFile(selectedFile);
+        const selectedFiles = event.dataTransfer.files;
+        if (selectedFiles) {
+            const filesArray = Array.from(selectedFiles);
+            if (files.length + filesArray.length > 3) {
+                setError("You can upload a maximum of 3 files.");
+                return;
+            }
+            validateFiles(filesArray);
         }
     };
 
@@ -58,57 +69,72 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
         setIsDragging(true);
     };
 
-    const handleDragLeave = () => {
-        setIsDragging(false);
+    const handleDragLeave = () => setIsDragging(false);
+
+    const validateFiles = (filesToValidate: File[]) => {
+        setLoading(true);
+        setError("");
+
+        const validFiles: UploadedFile[] = [];
+        const invalidFiles: string[] = [];
+
+        let processedFiles = 0;
+
+        filesToValidate.forEach((file) => {
+            if (!allowedTypes.includes(file.type)) {
+                invalidFiles.push(`${file.name} has unsupported format.`);
+                processedFiles++;
+                if (processedFiles === filesToValidate.length) {
+                    finalizeValidation(validFiles, invalidFiles);
+                }
+            } else if (file.size > 1024 * 1024) { // 1MB
+                invalidFiles.push(`${file.name} exceeds the 1MB size limit.`);
+                processedFiles++;
+                if (processedFiles === filesToValidate.length) {
+                    finalizeValidation(validFiles, invalidFiles);
+                }
+            } else {
+                const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "");
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    if (reader.result) {
+                        validFiles.push({
+                            id: `${Date.now()}-${Math.random()}`,
+                            name: sanitizedFileName,
+                            src: reader.result as string,
+                        });
+                    }
+                    processedFiles++;
+                    if (processedFiles === filesToValidate.length) {
+                        finalizeValidation(validFiles, invalidFiles);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle the case where all files are invalid
+        if (filesToValidate.length === 0) {
+            setLoading(false);
+        }
     };
 
-    const validateFile = (file: File) => {
-        const maxSize = 1024 * 1024; // 1MB in bytes
-        setLoading(true);
-
-        if (!allowedTypes.includes(file.type)) {
-            setError(`File should be in ${allowedTypes.join(", ")} format.`);
-            setFile(null);
-        } else if (file.size > maxSize) {
-            setError("File should not be more than 1MB.");
-            setFile(null);
-        } else {
-            setError("");
-            const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "");
-            setFileLabel(sanitizedFileName);
-            localStorage.setItem(`fileLabel${id}`, sanitizedFileName);
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                if (reader.result) {
-                    setFile(reader.result as string);
-                }
-            };
-            reader.readAsDataURL(file);
+    const finalizeValidation = (validFiles: UploadedFile[], invalidFiles: string[]) => {
+        if (validFiles.length > 0) {
+            setFiles((prevFiles) => [...prevFiles, ...validFiles]);
         }
-
+        if (invalidFiles.length > 0) {
+            setError(invalidFiles.join(" "));
+        }
         setLoading(false);
     };
 
-    const removeFile = () => {
-        setFile(null);
-        setError("");
+    const removeFile = (id: string) => {
+        setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
     };
 
-    const truncateFileName = (name: string, maxLength: number) => {
-        if (name.length <= maxLength) return name;
-        return name.slice(0, maxLength) + "...";
-    };
-
-    const fileTypeMap: { [key: string]: string } = {
-        "image/png": "PNG",
-        "image/jpeg": "JPG",
-        "application/pdf": "PDF",
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const filteredTypes = allowedTypes
-        .filter((type) => Object.keys(fileTypeMap).includes(type))
-        .map((type) => fileTypeMap[type]);
+    const truncateFileName = (name: string, maxLength: number) =>
+        name.length <= maxLength ? name : `${name.slice(0, maxLength)}...`;
 
     return (
         <div
@@ -116,53 +142,50 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
             className={`${stylesTwo.overallContainer} ${isDragging ? stylesTwo.dragging : ""}`}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}>
-            {file ? (
-                <></>
-            ) : (
-                <div>
-                    <label
-                        htmlFor={id}
-                        className={stylesTwo.inputComponent}
-                        style={{width: width}}>
-                        {text}
-                        <img src={src} alt="Attach file icon"/>
-                    </label>
-                    <input
-                        id={id}
-                        className={stylesTwo.input}
-                        type="file"
-                        onChange={handleFileChange}
-                        placeholder={placeholder}
-                    />
-                    {/* <p className={styles.firstText}>
-            {label
-              ? label
-              : "Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)"}
-          </p> */}
-                    {loading && <p>Loading...</p>}
-                </div>
-            )}
+            onDragLeave={handleDragLeave}
+        >
+            <div>
+                <label htmlFor={id} className={stylesTwo.inputComponent} style={{ width }}>
+                    <div className={stylesTwo.labelStyle}>
+                        <img src={src} alt="Attach file icon" />
+                        <div className={stylesTwo.filetextCont}>
+                            <div className={stylesTwo.filetext1}>
+                                Drag & drop files or <span>Browse</span>
+                            </div>
+                            <div className={stylesTwo.filetext2}>
+                                Supported formats: JPEG, PNG. Max 3 files.
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <input
+                    id={id}
+                    className={stylesTwo.input}
+                    type="file"
+                    multiple
+                    onChange={handleFileChange}
+                    placeholder={placeholder}
+                    accept=".png, .jpeg, .jpg"
+                />
+                {loading && <p>Loading...</p>}
+            </div>
 
-            {file && (
+            {files.length > 0 && (
                 <div className={styles.fileUploadedCont}>
-                    <p className={styles.fileUploaded}>
-                        {truncateFileName(fileLabel, 20)}{" "}
-                        <img
-                            onClick={removeFile}
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg"
-                            alt="close"
-                        />
-                    </p>
-                    {/* <div className={styles.yellowunderline}></div> */}
+                    {files.map((file) => (
+                        <div key={file.id} className={styles.fileItem}>
+                            <img src={file.src} alt={file.name} style={{width:'30px'}} className={styles.fileThumbnail} />
+                            <p className={styles.fileName}>{truncateFileName(file.name, 20)}</p>
+                            <img
+                                onClick={() => removeFile(file.id)}
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg"
+                                alt="Remove file"
+                                className={styles.removeIcon}
+                            />
+                        </div>
+                    ))}
                 </div>
             )}
-            {/* {error && (
-        <div className={stylesTwo.secText}>
-          File should be in {filteredTypes.join(", ")} format and not more than
-          5mb
-        </div>
-      )} */}
 
             {error && <div className={styles.error}>{error}</div>}
         </div>

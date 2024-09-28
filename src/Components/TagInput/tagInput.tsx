@@ -10,9 +10,13 @@ interface TagInputProps {
     label: string;
     error?: boolean;
     errorMessage?: string;
+    subLabel1?: string;
+    subLabel2?: string;
 }
 
 const TagInput: React.FC<TagInputProps> = ({
+                                                subLabel1,
+                                                subLabel2,
                                                error,
                                                errorMessage,
                                                label,
@@ -70,21 +74,28 @@ const TagInput: React.FC<TagInputProps> = ({
                 ))}
 
                 {tags.length < maxTags &&
-                    <input
-                        type="text"
-                        value={inputValue}
-                        onChange={handleInputChange}
-                        onKeyDown={handleInputKeyDown}
-                        placeholder={placeholder}
-                    />
+
+                    <>
+                        <input
+                            type="text"
+                            value={inputValue}
+                            onChange={handleInputChange}
+                            onKeyDown={handleInputKeyDown}
+                            placeholder={placeholder}
+                        />
+
+
+                    </>
+
                 }
             </div>
+            <div className={styles.recText}>{subLabel1}</div>
             <div className={styles.error}>
                 {error && <span>{errorMessage}</span>}
             </div>
 
             <div className={styles.recommendedTags}>
-                <div className={styles.recText}>Recommended tags:</div>
+                <div className={styles.recText2}>{subLabel2}</div>
                 <div className={styles.recommendedTags}>
                     {recommendedTags.map((tag, index) => (
                         <button

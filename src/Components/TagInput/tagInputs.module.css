@@ -138,6 +138,19 @@
     margin: 5px;
 }
 
+.recText2 {
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0;
+    text-align: left;
+    max-width: 262px;
+    width: 100%;
+    margin: 5px;
+}
+
 .error {
 
     color: rgb(248, 3, 3);
@@ -151,6 +164,19 @@
 
 
 @media (min-width: 768px) {
+    .recText2 {
+        color: rgb(0, 0, 0);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 17px;
+        letter-spacing: 0;
+        text-align: left;
+        max-width: 262px;
+        width: 100%;
+        margin: 8px;
+    }
+
     .tags {
         display: inline-flex;
         flex-wrap: wrap;

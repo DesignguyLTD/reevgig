@@ -8,13 +8,13 @@ import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
-
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import JobApplicationPage from "./Pages/Dashboard/JobApplication/JobApplicationPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 
 
 function App() {
+    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
     return (
         <div className="App">
             <Router basename="/">
@@ -24,7 +24,12 @@ function App() {
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/resetpassword" element={<ResetPassword/>}/>
                     <Route path="/onboarding" element={<OnBoarding/>}/>
-                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/dashboard" element={
+                        UserType === 'Client' ?
+                            <Dashboard/>
+                            :
+                            <>Freelancers Dashboard</>
+                    }/>
                     <Route path="/jobapplication" element={<JobApplicationPage/>}/>
                     <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>}/>
                     <Route path="/accountSettings" element={<AccountSettings/>}/>

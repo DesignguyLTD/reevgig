@@ -1,0 +1,25 @@
+.flexIt{
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.subHead{
+    /*color: rgb(109, 109, 109);*/
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.value{
+    /*color: rgb(39, 39, 39);*/
+    font-family: PP Neue Montreal;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 0;
+    letter-spacing: 0;
+    text-align: left;
+}

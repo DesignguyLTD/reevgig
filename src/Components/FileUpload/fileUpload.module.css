@@ -124,6 +124,8 @@
 
 .error {
     color: red;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 @media (min-width: 768px) {

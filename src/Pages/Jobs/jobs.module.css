@@ -3,19 +3,19 @@
 }
 
 .cover_all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 310px;
 }
 
 
 .overall_container {
-    width: min-content;
-    text-align: left;
-    padding: 8px;
-
+    display: inline-flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
 }
 
 .job {
@@ -31,18 +31,19 @@
     justify-content: center;
     align-items: center;
     gap: 0;
-    height: 44px;
-    padding: 10px;
+    height: 30px;
+    padding: 8px;
     background-color: #272727;
-    width: 300px;
+    width: 280px;
     font-family: PP Neue Montreal;
 }
 
 .nav_links {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    text-align: left;
+    gap: 3px;
     font-size: 9.5px;
     font-weight: 500;
     cursor: pointer;
@@ -74,7 +75,7 @@
     display: flex;
     align-items: center;
     /*gap: 12px;*/
-    width: 397px;
+    /*width: 397px;*/
 }
 
 .level {
@@ -82,6 +83,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
+    text-align: left;
     margin-bottom: 10px;
 }
 
@@ -101,6 +103,7 @@
 
 
 .label_text {
+    text-align: left;
     font-size: 16px;
     font-weight: 500;
     color: #404145;
@@ -140,7 +143,7 @@ TimeLine styling codes */
 .rate {
 
     display: inline-flex;
-    width: 68%;
+    width: 100%;
     justify-content: flex-start;
 }
 
@@ -149,7 +152,8 @@ TimeLine styling codes */
     font-weight: 500;
     color: #404145;
     padding: 0;
-    margin: 20px 0px;
+    /*margin: 10px 0px;*/
+    text-align: left;
 }
 
 .inpurDtext {
@@ -219,6 +223,7 @@ TimeLine styling codes */
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .Stylecont {
@@ -229,18 +234,125 @@ TimeLine styling codes */
 
 }
 
+.continue {
+    margin-top: 64px;
+    text-align: right;
+}
+
+.pictureUploadCont{
+    margin-top: 10px;
+    width: 310px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 130px;
+    border-radius: 4.3px;
+    box-shadow: 0px 6.46px 8.61px 0px rgba(0, 0, 0, 0.05);
+    background: rgb(255, 255, 255);
+}
+
 /*.skillCont{*/
 /*    display: inline-flex;*/
 /*    flex-direction: column;*/
 /*    align-items: center;*/
 /*}*/
 
+.paymentModeCtn{
+    margin-top: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+.jobskillsRadio{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.cover_all {
+    position: relative;
+}
+
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensure the modal is above other elements */
+}
+
+.modal_content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+.radioModal{
+    margin: 10px 0;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.text1{
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.text2{
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 5px 0;
+
+}
+
+.text3{
+    color: rgb(134, 133, 141);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 5px 0;
+
+}
+
 @media (min-width: 425px) {
     .nav_container {
 
 
-        width: 392px;
-        gap: 10px;
+        /*width: 392px;*/
+        /*gap: 10px;*/
 
     }
 
@@ -264,6 +376,40 @@ TimeLine styling codes */
         font-size: 20px;
     }
 
+    .text1{
+        color: rgb(0, 0, 0);
+        font-family: PP Neue Montreal;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: 0;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .text2{
+        color: rgb(0, 0, 0);
+        font-family: PP Neue Montreal;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: 0;
+        text-align: center;
+        margin: 5px 0;
+
+    }
+
+    .text3{
+        color: rgb(134, 133, 141);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 90%;
+        letter-spacing: 0;
+        text-align: center;
+        margin: 5px 0;
+
+    }
     .hr {
         border: 0;
         width: 15px;
@@ -272,6 +418,17 @@ TimeLine styling codes */
         position: absolute;
         top: 60px;
         right: 455px;
+    }
+
+    .pictureUploadCont{
+        width: 553px;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1.08px solid rgb(236, 236, 236);
+        border-radius: 4.3px;
+        box-shadow: 0px 6.46px 8.61px 0px rgba(0, 0, 0, 0.05);
+        background: rgb(255, 255, 255);
     }
 
     .hr1 {
@@ -310,7 +467,7 @@ TimeLine styling codes */
     .rate {
 
         display: inline-flex;
-        width: 45%;
+        width: 56%;
         justify-content: flex-start;
     }
 
@@ -324,14 +481,12 @@ TimeLine styling codes */
     }
 
     .cover_all {
-        width: fit-content;
+        max-width: 760px;
+        width: 100%;
     }
 
     .nav_container {
-
-
-        width: 694px;
-
+        width: 100%;
     }
 
 
@@ -364,9 +519,9 @@ TimeLine styling codes */
     .nav_numbers {
         background-color: #FEC200;
         color: #272727;
-        padding: 10px;
-        width: 10px;
-        height: 10px;
+        padding: 7px;
+        width: 7px;
+        height: 7px;
         display: flex;
         font-size: 14px;
         justify-content: center;
@@ -376,7 +531,7 @@ TimeLine styling codes */
     }
 
     .nav_container {
-        height: 62px;
+        height: 44px;
         gap: 1rem;
     }
 
@@ -391,7 +546,7 @@ TimeLine styling codes */
     .rate {
 
         display: inline-flex;
-        width: 36%;
+        /*width: ;*/
         justify-content: flex-start;
     }
 
@@ -400,7 +555,7 @@ TimeLine styling codes */
         justify-content: flex-start;
         align-items: center;
         gap: 1rem;
-        height: 62px;
+        height: 44px;
         padding: 10px;
         background-color: #272727;
         width: 747px;

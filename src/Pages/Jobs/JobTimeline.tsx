@@ -11,6 +11,7 @@ interface jobProps {
 export default function JobTimeline({setActiveComponent}: jobProps) {
     const [selectedValue1, setSelectedValue1] = useState<string>("");
     const [selectedValue2, setSelectedValue2] = useState<string>("");
+    const [selectedValue3, setSelectedValue3] = useState<string>("");
 
     const handleRadioChange1 = (value: string) => {
         setSelectedValue1(value);
@@ -18,6 +19,10 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
 
     const handleRadioChange2 = (value: string) => {
         setSelectedValue2(value);
+    };
+
+    const handleRadioChange3 = (value: string) => {
+        setSelectedValue3(value);
     };
 
     const handleNext = () => {
@@ -33,44 +38,87 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
 
     return (
         <>
-            <p className={style.Budget}>Budget</p>
-            <div className={style.rate}>
-                <RadioButton
-                    id={'rate'}
 
-                    name={"Hourly rate"}
-                    value={"Hourly Rate"}
-                    selectedValue={selectedValue1}
-                    onChange={handleRadioChange1}
-                />
+            <div className={style.paymentModeCtn}>
+                <div className={style.Budget}>Project Type</div>
+                <div className={style.rate}>
+                    <RadioButton
+                        id={'type'}
 
-                <RadioButton
-                    id={'rate'}
-                    name={"Fixed Price"}
-                    value={"Fixed Price"}
-                    selectedValue={selectedValue1}
-                    onChange={handleRadioChange1}
-                />
+                        name={"One-time Off"}
+                        value={"One-time Off"}
+                        selectedValue={selectedValue3}
+                        onChange={handleRadioChange3}
+                    />
+
+                    <RadioButton
+                        id={'type'}
+                        name={"Part Time"}
+                        value={'Part Time'}
+                        selectedValue={selectedValue3}
+                        onChange={handleRadioChange3}
+                    />
+                    <RadioButton
+                        id={'type'}
+                        name={"Full Time"}
+                        value={"Full Time"}
+                        selectedValue={selectedValue3}
+                        onChange={handleRadioChange3}
+                    />
+                </div>
             </div>
+           <div className={style.paymentModeCtn}>
+               <div className={style.Budget}>Payment Mode</div>
+               <div className={style.rate}>
+                   <RadioButton
+                       id={'rate'}
 
-            <div>
-                <p className={style.Budget}>Set Project</p>
+                       name={"Hourly rate"}
+                       value={"Hourly Rate"}
+                       selectedValue={selectedValue1}
+                       onChange={handleRadioChange1}
+                   />
+
+                   <RadioButton
+                       id={'rate'}
+                       name={"Fixed Price"}
+                       value={"Fixed Price"}
+                       selectedValue={selectedValue1}
+                       onChange={handleRadioChange1}
+                   />
+
+                   <div style={{visibility: 'hidden'}}>
+                       <RadioButton
+                           id={'rate'}
+                           name={"Fixed Price"}
+                           value={"Fixed Price"}
+                           selectedValue={selectedValue1}
+                           onChange={handleRadioChange1}
+                       />
+                   </div>
+               </div>
+           </div>
+
+            <div className={style.paymentModeCtn}>
+                <div className={style.Budget}>Set Project</div>
                 <div className={style.flexInput}>
                     <div className={style.labelInput}>
-                        <label className={style.inpurDtext}>From</label>
+                        <label className={style.inpurDtext}>{selectedValue1 !== 'Hourly Rate' ? 'Price':'From'}</label>
                         <input placeholder="₦15,000 /hr" type="text" name="" id=""/>
                     </div>
                     {/*<hr className={style.hr1}/>*/}
+                    {selectedValue1 === 'Hourly Rate' &&
+                        <div className={style.labelInput}>
+                            <label className={style.inpurDtext}>To</label>
+                            <input placeholder='₦15,000 /hr' type="text" name="" id=""/>
+                        </div>
 
-                    <div className={style.labelInput}>
-                        <label className={style.inpurDtext}>To</label>
-                        <input placeholder='₦15,000 /hr' type="text" name="" id=""/>
-                    </div>
+                    }
                 </div>
             </div>
 
-            <div>
-                <p className={style.Budget}>How long will your project take?</p>
+            <div className={style.paymentModeCtn}>
+                <div className={style.Budget}>How long will your project take?</div>
                 <div className={style.radios}>
                     <RadioButton
                         id={'length'}
@@ -140,8 +188,8 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                     <RadioButton
                         id={'length'}
 
-                        name={"set time manually"}
-                        value={"set time manually"}
+                        name={"Set time manually"}
+                        value={"Set time manually"}
                         selectedValue={selectedValue2}
                         onChange={handleRadioChange2}
                         border="2px solid #B5B6BA"
@@ -156,21 +204,23 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                     <br/>
                 </div>
 
-                <div>
-                    <p className={style.Budget}>Set Project</p>
-                    <div className={style.flexInput}>
-                        <div className={style.labelInput}>
-                            <label className={style.inpurDtext}>Start Date</label>
-                            <input type="date" name="" id=""/>
-                        </div>
-                        {/*<hr className={style.hr}/>*/}
+                {(selectedValue2 === 'Set time manually' || selectedValue2 === 'Less than a month') && (
+                    <div className={style.paymentModeCtn}>
+                        <div className={style.Budget}>Set Project timeline</div>
+                        <div className={style.flexInput}>
+                            <div className={style.labelInput}>
+                                <label className={style.inpurDtext}>Start Date</label>
+                                <input type="date" name="" id="" />
+                            </div>
 
-                        <div className={style.labelInput}>
-                            <label className={style.inpurDtext}>End Date</label>
-                            <input type="date" name="" id=""/>
+                            <div className={style.labelInput}>
+                                <label className={style.inpurDtext}>End Date</label>
+                                <input type="date" name="" id="" />
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
+
 
                 <div className={style.continue}>
                     <ButtonII

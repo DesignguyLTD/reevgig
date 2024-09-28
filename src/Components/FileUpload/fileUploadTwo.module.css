@@ -6,12 +6,12 @@
     color: rgb(85, 85, 85);
     font-family: PP Neue Montreal;
     font-size: 12px;
+    align-items: center;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0px;
     text-align: left;
     background: rgb(255, 255, 255);
-    align-items: start;
     width: auto;
     /* padding: 10px; */
     transition: height 0.5s linear;
@@ -40,14 +40,11 @@
 
 .inputComponent {
     cursor: pointer;
-    width: 144px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid rgb(39, 39, 39);
-    border-radius: 160px;
-    display: inline-flex;
+    width: 300px;
+    /*height: 178px;*/
+     display: inline-flex;
+    padding: 20px;
     flex-direction: row;
-    background: rgb(255, 235, 170);
     justify-content: center;
     color: rgb(37, 37, 37);
     font-family: PP Neue Montreal;
@@ -56,6 +53,12 @@
     line-height: 16px;
     letter-spacing: 0;
     text-align: center;
+    box-sizing: border-box;
+    border: 1.08px dashed rgb(151, 149, 157);
+    border-radius: 16px;
+
+    /* secondary color/2001 */
+    background: rgb(255, 235, 170);
 }
 
 .inputComponent img {
@@ -71,4 +74,51 @@
     line-height: 12px;
     letter-spacing: 0.1px;
     text-align: left;
+}
+
+.labelStyle{
+ display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelStyle img{
+    width: 50px;
+    height: 50px;
+}
+
+.filetext1{
+    /* body medium */
+    font-family:PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.filetextCont{
+    color: #0F0F0F;
+}
+
+.filetext1 span{
+    color: rgb(103, 103, 103);
+}
+
+.filetext2{
+    color: rgb(103, 103, 103);
+    font-family:PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+@media (min-width: 760px) {
+    .inputComponent{
+        width: 478px;
+        height: 178px;
+    }
 }
