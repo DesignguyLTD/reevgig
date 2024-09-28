@@ -1,10 +1,10 @@
-.flexIt{
+.flexIt {
     display: inline-flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
 }
 
-.subHead{
+.subHead {
     /*color: rgb(109, 109, 109);*/
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -14,7 +14,7 @@
     text-align: left;
 }
 
-.value{
+.value {
     /*color: rgb(39, 39, 39);*/
     font-family: PP Neue Montreal;
     font-size: 20px;

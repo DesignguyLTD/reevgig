@@ -1,9 +1,9 @@
-.PaymentSkillsCtn{
+.PaymentSkillsCtn {
     max-width: 310px;
     width: 100%;
 }
 
-.PaymentSkillsTop{
+.PaymentSkillsTop {
     color: rgb(10, 13, 19);
     font-family: PP Neue Montreal;
     font-size: 23px;
@@ -20,7 +20,7 @@
     justify-content: flex-start;
 }
 
-.hr{
+.hr {
     width: 300px;
     height: 0.25px;
     background: rgb(172, 172, 172);

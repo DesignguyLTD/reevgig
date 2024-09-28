@@ -34,9 +34,9 @@ const CounterTextarea: React.FC<CounterTextareaProps> = ({
                 placeholder={placeholder}
                 onChange={handleChange}
             />
-            <div className={style.numbers}>
-                {value.length}/{maxLength}
-            </div>
+                <div className={style.numbers}>
+                    {value.length}/{maxLength}
+                </div>
             </div>
         </>
     );

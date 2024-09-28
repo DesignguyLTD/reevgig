@@ -3,7 +3,6 @@ import {ButtonII} from "../../stories/Button-II/ButtonII";
 import CounterInput from "./CounterInput";
 import CounterTextarea from "./CounterTextarea";
 import FileUploadTwo from "../../Components/FileUpload/fileUploadTwo";
-import RadioButton from "../../stories/RadioButton/RadioButton";
 import style from "./jobs.module.css";
 
 
@@ -21,7 +20,7 @@ interface UploadedFile {
 export default function JobBrief({setActiveComponent}: jobProps) {
     const [text, setText] = useState<string>("");
     const [textarea, setTextArea] = useState<string>("");
-    const [fileUploaded, setFileUploaded] =useState<UploadedFile[]>([]);
+    const [fileUploaded, setFileUploaded] = useState<UploadedFile[]>([]);
 
     const handleTextChange = (value: string) => {
         setText(value); // Update the state when the value changes
@@ -77,7 +76,7 @@ export default function JobBrief({setActiveComponent}: jobProps) {
                     </div>
 
                     <div style={{marginTop: "0.6rem", marginBottom: '0.6rem'}}>
-                        <div  className={style.label_text}>You can add images to help communicate better</div>
+                        <div className={style.label_text}>You can add images to help communicate better</div>
                         <div className={style.pictureUploadCont}>
                             <FileUploadTwo
                                 files={fileUploaded}
@@ -87,8 +86,6 @@ export default function JobBrief({setActiveComponent}: jobProps) {
                             />
                         </div>
                     </div>
-
-
 
 
                     <div className={style.continue}>

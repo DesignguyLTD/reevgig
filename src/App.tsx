@@ -34,7 +34,7 @@ function App() {
                     <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>}/>
                     <Route path="/accountSettings" element={<AccountSettings/>}/>
                     <Route path="/notification" element={<Notification/>}/>
-=
+                    =
                 </Routes>
             </Router>
 

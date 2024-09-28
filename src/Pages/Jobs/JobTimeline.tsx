@@ -67,43 +67,44 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                     />
                 </div>
             </div>
-           <div className={style.paymentModeCtn}>
-               <div className={style.Budget}>Payment Mode</div>
-               <div className={style.rate}>
-                   <RadioButton
-                       id={'rate'}
+            <div className={style.paymentModeCtn}>
+                <div className={style.Budget}>Payment Mode</div>
+                <div className={style.rate}>
+                    <RadioButton
+                        id={'rate'}
 
-                       name={"Hourly rate"}
-                       value={"Hourly Rate"}
-                       selectedValue={selectedValue1}
-                       onChange={handleRadioChange1}
-                   />
+                        name={"Hourly rate"}
+                        value={"Hourly Rate"}
+                        selectedValue={selectedValue1}
+                        onChange={handleRadioChange1}
+                    />
 
-                   <RadioButton
-                       id={'rate'}
-                       name={"Fixed Price"}
-                       value={"Fixed Price"}
-                       selectedValue={selectedValue1}
-                       onChange={handleRadioChange1}
-                   />
+                    <RadioButton
+                        id={'rate'}
+                        name={"Fixed Price"}
+                        value={"Fixed Price"}
+                        selectedValue={selectedValue1}
+                        onChange={handleRadioChange1}
+                    />
 
-                   <div style={{visibility: 'hidden'}}>
-                       <RadioButton
-                           id={'rate'}
-                           name={"Fixed Price"}
-                           value={"Fixed Price"}
-                           selectedValue={selectedValue1}
-                           onChange={handleRadioChange1}
-                       />
-                   </div>
-               </div>
-           </div>
+                    <div style={{visibility: 'hidden'}}>
+                        <RadioButton
+                            id={'rate'}
+                            name={"Fixed Price"}
+                            value={"Fixed Price"}
+                            selectedValue={selectedValue1}
+                            onChange={handleRadioChange1}
+                        />
+                    </div>
+                </div>
+            </div>
 
             <div className={style.paymentModeCtn}>
                 <div className={style.Budget}>Set Project</div>
                 <div className={style.flexInput}>
                     <div className={style.labelInput}>
-                        <label className={style.inpurDtext}>{selectedValue1 !== 'Hourly Rate' ? 'Price':'From'}</label>
+                        <label
+                            className={style.inpurDtext}>{selectedValue1 !== 'Hourly Rate' ? 'Price' : 'From'}</label>
                         <input placeholder="₦15,000 /hr" type="text" name="" id=""/>
                     </div>
                     {/*<hr className={style.hr1}/>*/}
@@ -210,12 +211,12 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                         <div className={style.flexInput}>
                             <div className={style.labelInput}>
                                 <label className={style.inpurDtext}>Start Date</label>
-                                <input type="date" name="" id="" />
+                                <input type="date" name="" id=""/>
                             </div>
 
                             <div className={style.labelInput}>
                                 <label className={style.inpurDtext}>End Date</label>
-                                <input type="date" name="" id="" />
+                                <input type="date" name="" id=""/>
                             </div>
                         </div>
                     </div>

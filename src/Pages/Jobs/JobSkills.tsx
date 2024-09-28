@@ -1,17 +1,16 @@
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
 import React, {useState} from "react";
-import {recommendedSkills} from "../Onboarding/onboarding/dataset";
-import  {recommendedLanguages } from "../Onboarding/onboarding/dataset";
+import {recommendedLanguages, recommendedSkills} from "../Onboarding/onboarding/dataset";
 import TagInput from "../../Components/TagInput/tagInput";
 import style from './jobs.module.css'
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import RadioButton from "../../stories/RadioButton/RadioButton";
 
-interface skillInt{
-    handlePopUp?:() => void;
+interface skillInt {
+    handlePopUp?: () => void;
 }
 
-export default function JobSkills({handlePopUp} :skillInt) {
+export default function JobSkills({handlePopUp}: skillInt) {
 
     const [skilltags1, setSkilltags1] = useState<string[]>(() => {
             const savedFormValues1 = localStorage.getItem('onboardingForm2');
@@ -35,8 +34,6 @@ export default function JobSkills({handlePopUp} :skillInt) {
     const handleRadioChange = (value: string) => {
         setSelectedValue(value);
     };
-
-
 
 
     return <div className={style.skillCont}>

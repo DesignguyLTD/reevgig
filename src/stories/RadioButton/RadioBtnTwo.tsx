@@ -1,31 +1,30 @@
 import React from 'react';
 import styleTwo from './RadioBtnTwo.module.css'
 import style from "./radiobutton.module.css";
-import Property from "@storybook/theming/dist/create-e8afafc2";
 
 
-interface RadioProps{
-name: string;
-value: string;
-selectedValue: string;
-onChange: (value: string) => void;
-borderRadius?: string;
-border?: string;
-padding?: string;
-width?: string;
-height?: string;
-backgroundColor?: string;
-color?: string;
-display?: string;
-justifyContent?: string;
-alignItems?: string;
-gap?: string;
-enableSelectedStyles?: boolean;
-id?: string;
-subHead?: string;
+interface RadioProps {
+    name: string;
+    value: string;
+    selectedValue: string;
+    onChange: (value: string) => void;
+    borderRadius?: string;
+    border?: string;
+    padding?: string;
+    width?: string;
+    height?: string;
+    backgroundColor?: string;
+    color?: string;
+    display?: string;
+    justifyContent?: string;
+    alignItems?: string;
+    gap?: string;
+    enableSelectedStyles?: boolean;
+    id?: string;
+    subHead?: string;
 }
 
-const RadioBtnTwo  :React.FC<RadioProps> = (
+const RadioBtnTwo: React.FC<RadioProps> = (
     {
         subHead,
         id,
@@ -80,7 +79,7 @@ const RadioBtnTwo  :React.FC<RadioProps> = (
                 style={{
                     flexDirection: 'row-reverse',
                     borderRadius,
-                    border : appliedColorValueBD,
+                    border: appliedColorValueBD,
                     padding,
                     width,
                     height,

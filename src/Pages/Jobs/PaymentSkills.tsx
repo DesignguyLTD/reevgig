@@ -4,10 +4,11 @@ import cloudImages from "../../assets";
 import style from "./jobs.module.css";
 import RadioButton from "../../stories/RadioButton/RadioButton";
 
-interface givenProps{
-    setActiveComponent: (x:string) => void
+interface givenProps {
+    setActiveComponent: (x: string) => void
 }
-const PaymentSkills = ({setActiveComponent}:givenProps) => {
+
+const PaymentSkills = ({setActiveComponent}: givenProps) => {
 
     const [selectedValue1, setSelectedValue1] = useState<string>("");
 
@@ -17,7 +18,7 @@ const PaymentSkills = ({setActiveComponent}:givenProps) => {
 
     return (
         <div className={styles.PaymentSkillsCtn}>
-            <div className={styles.PaymentSkillsTop} onClick={()=>setActiveComponent('jobs_skills')}>
+            <div className={styles.PaymentSkillsTop} onClick={() => setActiveComponent('jobs_skills')}>
                 <img src={cloudImages.backArrow} alt=""/>
                 Payment
             </div>

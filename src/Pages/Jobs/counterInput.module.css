@@ -44,7 +44,7 @@
     align-items: center;
 }
 
-.counterInputCTN{
+.counterInputCTN {
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -72,7 +72,6 @@
     /*    display: flex;*/
     /*    align-items: center;*/
     /*}*/
-
     /*.container {*/
     /*    width: 392px;*/
     /*    border-radius: 4px;*/
@@ -102,6 +101,6 @@
     .label {
         font-size: 16px;
         margin-bottom: 20px;
-       width: 100%;
+        width: 100%;
     }
 }

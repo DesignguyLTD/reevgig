@@ -28,16 +28,16 @@ const CounterInput: React.FC<CounterInputProps> = ({
         <div className={style.counterInputCTN}>
             <div className={style.label}>{label}</div>
             <div className={style.container}>
-            <input
-                type="text"
-                className={`${style.input}`}
-                value={value}
-                onChange={handleInputChange}
-                placeholder={placeholder}
-            />
-            <div className={style.numbers}>
-                {value.length}/{maxLength}
-            </div>
+                <input
+                    type="text"
+                    className={`${style.input}`}
+                    value={value}
+                    onChange={handleInputChange}
+                    placeholder={placeholder}
+                />
+                <div className={style.numbers}>
+                    {value.length}/{maxLength}
+                </div>
             </div>
         </div>
     );

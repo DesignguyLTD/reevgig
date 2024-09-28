@@ -42,7 +42,7 @@
     cursor: pointer;
     width: 300px;
     /*height: 178px;*/
-     display: inline-flex;
+    display: inline-flex;
     padding: 20px;
     flex-direction: row;
     justify-content: center;
@@ -76,21 +76,21 @@
     text-align: left;
 }
 
-.labelStyle{
- display: inline-flex;
+.labelStyle {
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.labelStyle img{
+.labelStyle img {
     width: 50px;
     height: 50px;
 }
 
-.filetext1{
+.filetext1 {
     /* body medium */
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 16px;
     font-weight: 500;
     line-height: 140%;
@@ -98,17 +98,17 @@
     text-align: center;
 }
 
-.filetextCont{
+.filetextCont {
     color: #0F0F0F;
 }
 
-.filetext1 span{
+.filetext1 span {
     color: rgb(103, 103, 103);
 }
 
-.filetext2{
+.filetext2 {
     color: rgb(103, 103, 103);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 12px;
     font-weight: 400;
     line-height: 140%;
@@ -117,7 +117,7 @@
 }
 
 @media (min-width: 760px) {
-    .inputComponent{
+    .inputComponent {
         width: 478px;
         height: 178px;
     }

@@ -30,7 +30,7 @@ const CustomDropdown = memo(
          error,
          focused,
          size,
-        width
+         width
      }: {
         options: OptionType[];
         onChange: (option: OptionType) => void;
@@ -97,7 +97,8 @@ const CustomDropdown = memo(
                     height: "25px",
                     marginTop: "8px",
                 }}
-src ={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg'}                alt="dropdown"
+                src={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg'}
+                alt="dropdown"
             />
           </span>
                 </div>
@@ -138,7 +139,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                                                size = "small",
                                                options,
                                                defaultText,
-    width
+                                               width
                                            }: DropdownProps) => {
     const labelStyle = error
         ? styles.error

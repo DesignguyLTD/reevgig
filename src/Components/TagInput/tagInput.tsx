@@ -15,8 +15,8 @@ interface TagInputProps {
 }
 
 const TagInput: React.FC<TagInputProps> = ({
-                                                subLabel1,
-                                                subLabel2,
+                                               subLabel1,
+                                               subLabel2,
                                                error,
                                                errorMessage,
                                                label,

@@ -23,7 +23,7 @@ interface RadioProps {
 }
 
 const RadioButton: React.FC<RadioProps> = ({
-                                                 subHead,
+                                               subHead,
                                                id,
                                                name,
                                                value,

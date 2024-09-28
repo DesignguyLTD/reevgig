@@ -1,5 +1,5 @@
 // FileUploadTwo.tsx
-import React, { ChangeEvent, DragEvent, useState } from "react";
+import React, {ChangeEvent, DragEvent, useState} from "react";
 import styles from "./fileUpload.module.css";
 import stylesTwo from "./fileUploadTwo.module.css";
 
@@ -145,9 +145,9 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
             onDragLeave={handleDragLeave}
         >
             <div>
-                <label htmlFor={id} className={stylesTwo.inputComponent} style={{ width }}>
+                <label htmlFor={id} className={stylesTwo.inputComponent} style={{width}}>
                     <div className={stylesTwo.labelStyle}>
-                        <img src={src} alt="Attach file icon" />
+                        <img src={src} alt="Attach file icon"/>
                         <div className={stylesTwo.filetextCont}>
                             <div className={stylesTwo.filetext1}>
                                 Drag & drop files or <span>Browse</span>
@@ -174,7 +174,8 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
                 <div className={styles.fileUploadedCont}>
                     {files.map((file) => (
                         <div key={file.id} className={styles.fileItem}>
-                            <img src={file.src} alt={file.name} style={{width:'30px'}} className={styles.fileThumbnail} />
+                            <img src={file.src} alt={file.name} style={{width: '30px'}}
+                                 className={styles.fileThumbnail}/>
                             <p className={styles.fileName}>{truncateFileName(file.name, 20)}</p>
                             <img
                                 onClick={() => removeFile(file.id)}

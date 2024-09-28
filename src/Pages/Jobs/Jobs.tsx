@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import JobBrief from "./JobBrief";
 import JobSkills from "./JobSkills";
 import JobTimeline from "./JobTimeline";
 import styles from "./jobs.module.css";
-import RadioButton from "../../stories/RadioButton/RadioButton";
-import RadioBtnTwo from "../../stories/RadioButton/RadioBtnTwo";
 import style from "./jobs.module.css";
+import RadioBtnTwo from "../../stories/RadioButton/RadioBtnTwo";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
-import Payment from "../Dashboard/planAndBillings/paymentCard/paymentCard";
 import PaymentSkills from "./PaymentSkills";
 
 
@@ -16,6 +14,7 @@ interface OptionType {
     value: string;
     label: string;
 }
+
 export default function Jobs() {
     const [activeComponent, setActiveComponent] = useState("jobs_brief");
     const [popModal, setPopModal] = useState<boolean>(false);
@@ -43,19 +42,19 @@ export default function Jobs() {
     const renderComponent = () => {
         switch (activeComponent) {
             case "jobs_brief":
-                return <JobBrief setActiveComponent={setActiveComponent} />;
+                return <JobBrief setActiveComponent={setActiveComponent}/>;
             case "jobs_timeline":
-                return <JobTimeline setActiveComponent={setActiveComponent} />;
+                return <JobTimeline setActiveComponent={setActiveComponent}/>;
             case "jobs_skills":
-                return <JobSkills handlePopUp={handlePopUp} />;
+                return <JobSkills handlePopUp={handlePopUp}/>;
             case "payment_skills":
                 return <PaymentSkills setActiveComponent={setActiveComponent}/>;
             default:
-                return <JobBrief />;
+                return <JobBrief/>;
         }
     };
 
-    const handlePayment=()=>{
+    const handlePayment = () => {
         setPopModal(false)
         setActiveComponent('payment_skills')
 
@@ -66,8 +65,10 @@ export default function Jobs() {
             {popModal && (
                 <div className={styles.modal_overlay} onClick={handleCloseModal}>
                     <div className={styles.modal_content}>
-                        <button onClick={handlePopUp} style={{float: 'right', border: 'none', background:"none"}}>
-                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Vector_wb7jrq.svg" alt="Close"/>
+                        <button onClick={handlePopUp} style={{float: 'right', border: 'none', background: "none"}}>
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Vector_wb7jrq.svg"
+                                alt="Close"/>
                         </button>
                         <br/>
                         <div className={styles.text1}>You are almost done!</div>
@@ -114,7 +115,7 @@ export default function Jobs() {
                                 enableSelectedStyles={true}
                             />
                         </div>
-                         <br/>
+                        <br/>
 
                         {selectedValue1 === 'Paid Listing' &&
                             <div>
@@ -122,14 +123,17 @@ export default function Jobs() {
                                     Choose period to Boost Post
                                 </p>
                                 <Dropdown onChange={(option: OptionType) => {
-                                }} options={[{value: '1 Month', label: '1 Month'}, {value: '6 Months', label: '6 Months'}]}
-                                       width='280px'   defaultText={"3 Days"} label={''}/>
+                                }} options={[{value: '1 Month', label: '1 Month'}, {
+                                    value: '6 Months',
+                                    label: '6 Months'
+                                }]}
+                                          width='280px' defaultText={"3 Days"} label={''}/>
                             </div>
 
                         }
 
                         <br/>
-                        <div style={{textAlign:'center'}}>
+                        <div style={{textAlign: 'center'}}>
                             <ButtonII
                                 hasIcon={false}
                                 isLabelVisible={true}
@@ -142,7 +146,6 @@ export default function Jobs() {
                     </div>
                 </div>
             )}
-
 
 
             <div className={styles.overall_container}>
