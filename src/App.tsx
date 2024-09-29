@@ -1,15 +1,15 @@
 import "./App.css";
 import { Link, Route, HashRouter as Router, Routes } from "react-router-dom";
 // import Footer from "./LandingPage/Footer";
-import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
-import Dashboard from "./Pages/DashBoard/Dashboard";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import CreateUser from "./__tests__/play";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import JobApplicationPage from "./Pages/Dashboard/JobApplication/JobApplicationPage";
 
 
 function App() {

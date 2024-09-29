@@ -5,8 +5,8 @@ const CreateUser = () => {
     const [formData, setFormData] = useState({
         first_name: "Seyi",
         last_name: "Odediran",
-        email: "stalliongfx125@gmail.com",
-        username: "stalliongfx125",
+        email: "oluwatunmbi64@gmail.com",
+        username: "oluwatunmbi64",
         user_type: "FREELANCER",
         country: "Nigeria",
         password: 'Seyifunmi2003$'

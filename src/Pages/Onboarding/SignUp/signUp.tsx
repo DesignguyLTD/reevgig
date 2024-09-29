@@ -207,7 +207,7 @@ const SignUp = () => {
                     return response.data; // Return the data in case it's needed later
                 } catch (error: any) {
                     console.error('Error creating user:', error.response?.data || error.message);
-                    throw {err: 'handle error properly'}; // Rethrow the error for further handling
+                    throw error; // Rethrow the error for further handling
                 }
             }
         } else {
