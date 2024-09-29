@@ -74,7 +74,7 @@
 .radio_btn {
     display: flex;
     align-items: center;
-    /*gap: 12px;*/
+    gap: 12px;
     /*width: 397px;*/
 }
 
@@ -141,11 +141,21 @@ TimeLine styling codes */
 }
 
 .rate {
-
     display: inline-flex;
     width: 100%;
     justify-content: flex-start;
+    gap: 20px;
 }
+
+.rateSkill{
+
+}
+
+#paymenttype2{
+    width: 200px;
+}
+
+
 
 .Budget {
     font-size: 16px;

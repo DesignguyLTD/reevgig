@@ -78,6 +78,7 @@ export default function Jobs() {
                             Nisi ultricies quis risus
 
                         </div>
+                        <br/>
 
                         <div className={styles.radioModal}>
                             <RadioBtnTwo
@@ -91,8 +92,9 @@ export default function Jobs() {
                                 border="2px solid #B5B6BA"
                                 height="100px"
                                 borderRadius="8px"
-                                width="250px"
+                                width="270px"
                                 display="flex"
+                                padding='10px'
                                 justifyContent="center"
                                 alignItems="center"
                                 enableSelectedStyles={true}
@@ -108,8 +110,9 @@ export default function Jobs() {
                                 border="2px solid #B5B6BA"
                                 height="100px"
                                 borderRadius="8px"
-                                width="250px"
+                                width="270px"
                                 display="flex"
+                                padding='10px'
                                 justifyContent="center"
                                 alignItems="center"
                                 enableSelectedStyles={true}
