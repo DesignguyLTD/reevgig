@@ -156,7 +156,7 @@
     font-family: 'PP Neue Montreal', 'sans-serif';
     font-size: 16px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 20px;
     letter-spacing: 0.6px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     /*padding: 10px;*/
@@ -166,8 +166,10 @@
     border-radius: 8px;
     background: white;
     overflow-y: scroll;
-    height: 200px;
+    height: 100px;
     z-index: 1;
+    padding: 2px;
+
 }
 
 .container {
@@ -190,8 +192,11 @@
 }
 
 .dropdownItem {
-    padding: 10px;
-    border-radius: 8px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: left;
+    color: #6D8494;
+    font-size: 12px;
 }
 
 .dropdownItem:hover {
@@ -212,6 +217,45 @@
 .Dropdown--large {
     width: 480px;
 }
+/* dropdown.module.css */
+
+/* Existing styles ... */
+
+.dropdownList {
+    max-height: 0;
+    /*overflow: hidden;*/
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    background-color: white;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 1000;
+    /* Add other necessary styles */
+}
+
+.dropdownListOpen {
+    max-height: 300px; /* Adjust as needed */
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.dropdownListClose {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+/* Optional: Add a slight delay to the transition for smoother effect */
+.dropdownList > div {
+    transition: background-color 0.2s ease;
+}
+
+.dropdownList > div:hover {
+    background-color: black;
+}
+
 
 @media (min-width: 768px) {
     .Dropdown--small {
