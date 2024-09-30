@@ -6,7 +6,7 @@ const ProfileNav = () => {
 
     let navigate = useNavigate();
     const handleNavigation = () => {
-        navigate('/edit');
+        // navigate('/edit');
     }
     return (
         <div>
