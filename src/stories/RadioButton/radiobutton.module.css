@@ -67,9 +67,9 @@ p#paymenttype2{
         display: inline-flex;
         align-items: center;
         gap: 15px;
-        padding: 15px;
+        padding: 8px;
         /* height: 27px; */
-        width: 100%;
+        /*width: 100%;*/
         justify-content: center;
     }
 }

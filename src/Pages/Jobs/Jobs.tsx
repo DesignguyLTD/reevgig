@@ -56,7 +56,12 @@ export default function Jobs() {
 
     const handlePayment = () => {
         setPopModal(false)
-        setActiveComponent('payment_skills')
+        if(selectedValue1 === 'Paid Listing'){
+            setActiveComponent('payment_skills')
+
+        }else{
+               setActiveComponent('jobs_brief')
+        }
 
     }
 

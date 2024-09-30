@@ -24,6 +24,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .paymentFormCtn{
@@ -67,6 +68,149 @@
     text-align: center;
 }
 
+.LocalDepoCtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.LocalDepo{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.LocalDepo1{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:10px;
+}
+
+.LocalDepoInfoCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 5px;
+    justify-content:center;
+}
+
+.LocalDepoInfo1{
+    color: rgb(83, 83, 83);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.LocalDepoInfo2{
+    color: rgb(83, 83, 83);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.LocalDepoInfo3 img{
+    cursor: pointer;
+   -webkit-user-drag: none;
+}
+
+.total1{
+
+    color: rgb(83, 83, 83);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.total2{
+    color: rgb(83, 83, 83);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+
+.LocalDepo2{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.LocalDepo3{
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+}
+
+.LocalDepo3Ctn{
+    margin-top: 10px;
+    border-top: 1px dashed rgba(39, 39, 39, 0.5);
+
+}
+
+
+.LocalDepo2Text{
+    color: rgb(0, 17, 34);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.LocalDepo2Text2{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(8, 56, 130);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0;
+    gap: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.LocalDepo3Text2{
+    color: rgb(83, 83, 83);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.LocalDepo3Text1{
+    color: rgb(83, 83, 83);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0;
+    text-align: left;
+}
 
 @media (min-width: 425px) {
     .PaymentSkillsCtn {
@@ -81,6 +225,27 @@
         border: none;
     }
 
+
+    .LocalDepoInfo1{
+        color: rgb(83, 83, 83);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .LocalDepoInfo2{
+        color: rgb(83, 83, 83);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
 }
 
 @media (min-width: 760px) {
@@ -93,6 +258,27 @@
         border-radius: 16px;
     }
 
+    .total1{
+
+        color: rgb(83, 83, 83);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .total2{
+        color: rgb(83, 83, 83);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
     .paymentInputCtn{
         display: inline-flex;
         flex-direction: column;
@@ -101,6 +287,14 @@
 
     .PaymentSkillsTop{
         gap: 20px;
+    }
+
+    .LocalDepoInfoCtn{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        justify-content:center;
     }
 
 }

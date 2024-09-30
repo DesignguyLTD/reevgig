@@ -17,7 +17,7 @@ interface givenProps {
 
 const PaymentSkills = ({setActiveComponent}: givenProps) => {
 
-    const [selectedValue1, setSelectedValue1] = useState<string>("");
+    const [selectedValue1, setSelectedValue1] = useState<string>("Card");
 
     const handleRadioChange1 = (value: string) => {
         setSelectedValue1(value);
@@ -60,6 +60,8 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
             <div className={styles.PaymentSkillsRadio}>
                 <br/>
                 <div className={style.Budget}>Pay with:</div>
+                <br/>
+
                 <div className={style.rate}>
                     <RadioButton
                         id={'paymenttype'}
@@ -79,15 +81,15 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
                         onChange={handleRadioChange1}
                     />
 
-                    <div style={{visibility: 'hidden'}}>
-                        <RadioButton
-                            id={'rate'}
-                            name={"Fixed Price"}
-                            value={"Fixed Price"}
-                            selectedValue={selectedValue1}
-                            onChange={handleRadioChange1}
-                        />
-                    </div>
+                    {/*<div style={{visibility: 'hidden'}}>*/}
+                    {/*    <RadioButton*/}
+                    {/*        id={'rate'}*/}
+                    {/*        name={"Fixed Price"}*/}
+                    {/*        value={"Fixed Price"}*/}
+                    {/*        selectedValue={selectedValue1}*/}
+                    {/*        onChange={handleRadioChange1}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                 </div>
             </div>
 
@@ -214,9 +216,79 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
 
                     </div>
                     :
-                    <>
-                        Local Bank Deposit
-                    </>
+                    <div className={styles.LocalDepoCtn}>
+                      <div className={styles.LocalDepo}>
+                          <div className={styles.LocalDepo1}>
+                              <div className={styles.LocalDepoInfoCtn}>
+                                  <div className={styles.LocalDepoInfo1}>Bank: </div>
+                                  <div className={styles.LocalDepoInfo2}>Name of Bank</div>
+                              </div>
+                              <div className={styles.LocalDepoInfoCtn}>
+                                  <div className={styles.LocalDepoInfo1}>Account Name: </div>
+                                  <div className={styles.LocalDepoInfo2}>Account name here</div>
+                              </div>
+                              <div className={styles.LocalDepoInfoCtn}>
+                                  <div className={styles.LocalDepoInfo1}>Account Number: </div>
+                                  <div className={styles.LocalDepoInfo2}>1234567890</div>
+                                  <div className={styles.LocalDepoInfo3}>
+                                      <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Button_jlb6ek.svg" alt="copyIcon"/>
+                                  </div>
+                              </div>
+                              <div className={styles.LocalDepoInfoCtn}>
+                                  <div className={styles.LocalDepoInfo1}>Payment ID: </div>
+                                  <div className={styles.LocalDepoInfo2}>1234567890</div>
+                                  <div className={styles.LocalDepoInfo3}>
+                                      <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Button_jlb6ek.svg" alt="copyIcon"/>
+                                  </div>
+                              </div>
+                              <div className={styles.LocalDepoInfoCtn}>
+                                  <div className={styles.total1}>Total: </div>
+                                  <div className={styles.total2}>$50</div>
+                              </div>
+                          </div>
+
+                          <div className={styles.LocalDepo2}>
+                                <div className={styles.LocalDepo2Text}>
+                                    Use this account for this transaction only
+                                </div>
+                              
+                              <div>
+                                  <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Group_1171275883_pzbwki.svg" alt="Ban"/>
+                              </div>
+                              <div className={styles.LocalDepo2Text}>Expires in <strong>30:00</strong></div>
+
+                              <ButtonII
+                                  hasIcon={false}
+                                  isLabelVisible={true}
+                                  label="Click here after making payment"
+                                  primary={true}
+                                  size="medium"
+                              />
+
+                              <div  className={styles.LocalDepo2Text2}>
+                                  <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg" alt="download"/>
+                                  Download Payment Invoice
+                              </div>
+                          </div>
+
+                            <div className={styles.LocalDepo3Ctn}>
+                                <div className={styles.LocalDepo3}>
+                                    <strong className={styles.LocalDepo3Text1}>Instructions</strong>
+                                    <div className={styles.LocalDepo3Text2}>
+                                        <strong className={styles.LocalDepo3Text1}>For bank payment </strong>
+                                        always included your payment ID as Depositor’s Name
+                                    </div>
+                                    <div className={styles.LocalDepo3Text2}>
+                                        <strong className={styles.LocalDepo3Text1}>For Mobile Transfer </strong>
+                                        always included your payment ID as Depositor’s Name
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                      </div>
+                    </div>
 
                 }
             </div>
