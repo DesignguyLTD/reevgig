@@ -6,8 +6,9 @@
 .mainCtn {
     display: grid;
     margin: 100px auto;
-    /* width: 100%; */
+     width: 100%;
     justify-items: stretch;
+    max-width: 1440px;
 }
 
 .heroCtn {
@@ -96,6 +97,7 @@
     background: rgb(43, 43, 43);
     padding: 10px;
     width: 100%;
+    max-width: 366px;
     display: inline-flex;
     margin: 10px auto;
     flex-direction: column;
@@ -497,6 +499,8 @@
 
     .featuredJobCtn {
         padding: 30px;
+        width: 100%;
+        max-width: 760px;
     }
 
     .featuredJobCard {
@@ -638,6 +642,12 @@
 
 @media (min-width: 1024px) {
 
+    .featuredJobCtn{
+        padding: 30px;
+        width: 100%;
+        max-width: 1024px;
+    }
+
 
     .talentComp {
         width: 500px;
@@ -750,6 +760,12 @@
 }
 
 @media (min-width: 1280px) {
+    .featuredJobCtn{
+        padding: 30px;
+        width: 100%;
+        max-width: 1280px;
+    }
+
     .heroCtn {
         padding: 35px;
         width: 100%;

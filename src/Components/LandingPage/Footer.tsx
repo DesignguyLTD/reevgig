@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import {Link} from "react-router-dom";
+=======
+import { Button } from "../../stories/Button-I/Button";
+import { Link } from "react-router-dom";
+>>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
 import React from "react";
 import style from "./footer.module.css";
-import {Button} from "../../stories/Button-I/Button";
 
 export default function Footer() {
     return (
@@ -25,6 +29,7 @@ export default function Footer() {
                         </p>
                     </div>
 
+<<<<<<< HEAD
                     <div className={style.footer_links}>
                         <div>
                             <Link to={"/"} className={style.h3}>
@@ -48,6 +53,31 @@ export default function Footer() {
                             <Link to={"/"} className={style.h3}>
                                 Resources
                             </Link>
+=======
+          <div className={style.footer_links}>
+            <div className={style.about}>
+              <Link to={"/"} className={style.h3}>
+                About
+              </Link>
+
+              <Link to="/" className={style.links}>
+                Companies
+              </Link>
+              <Link to={"/"} className={style.links}>
+                Pricing
+              </Link>
+              <Link to={"/"} className={style.links}>
+                Terms
+              </Link>
+              <Link to={"/"} className={style.links}>
+                Privacy
+              </Link>
+            </div>
+            <div className={style.resource}>
+              <Link to={"/"} className={style.h3}>
+                Resources
+              </Link>
+>>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
 
                             <Link to={"/"} className={style.links}>
                                 Help Docs
@@ -60,6 +90,7 @@ export default function Footer() {
                             </Link>
                         </div>
 
+<<<<<<< HEAD
                         <div>
                             <div>
                                 <Link to={"#"} className={style.h3}>
@@ -69,6 +100,17 @@ export default function Footer() {
                                     The latest job new, articles, sent to your inbox weekly
                                 </p>
                             </div>
+=======
+            <div className={style.notification}>
+              <div>
+                <Link to={"#"} className={style.h3}>
+                  Get job notifications
+                </Link>
+                <p className={style.latest_jobs}>
+                  The latest job new, articles, sent to your inbox weekly
+                </p>
+              </div>
+>>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
 
                             <div className={style.footer_input}>
                                 <div className={style.input_container}>
@@ -91,6 +133,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div className={style.bottom}>
                     <hr/>
                     <div className={style.foot_note}>
@@ -114,6 +157,44 @@ export default function Footer() {
                                     alt=""
                                 />
                             </Link>
+=======
+                <Button
+                  label={"Subscribe"}
+                  size="small"
+                  primary={true}
+                  icon={false}
+                  style={{
+                    width: "120px",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={style.bottom}>
+          <hr className={style.hr} />
+          <div className={style.foot_note}>
+            <p>2024 @ ReevGig. All rights reserved.</p>
+            <div className={style.social_links}>
+              <Link to={"#"} className={style.socials}>
+                <img
+                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Facebook_diwfby.svg"
+                  alt=""
+                />
+              </Link>
+              <Link to={"/"} className={style.socials}>
+                <img
+                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Instagram_cwl3ok.svg"
+                  alt=""
+                />
+              </Link>
+              <Link to={"/"} className={style.socials}>
+                <img
+                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/LinkedIn_wz4doc.svg"
+                  alt=""
+                />
+              </Link>
+>>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
 
                             <Link to={"/"} className={style.socials}>
                                 <img
