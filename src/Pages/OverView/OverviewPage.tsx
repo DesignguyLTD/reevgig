@@ -1,7 +1,8 @@
 import React from 'react';
 import style from "./OverviewPage.module.css";
 import JobApplication from "../../Components/DashBoard/JobApplication";
-import ResponsiveTable from "../Dashboard/playGround";
+import ResponsiveTable from '../DashBoard/playGround';
+
 
 const OverviewPage = () => {
     const [header, setHeader] = React.useState('Overview');

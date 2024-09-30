@@ -4,8 +4,8 @@ import style from '../OverView/OverviewPage.module.css';
 import OverviewPage from "../OverView/OverviewPage";
 import Jobs from "../Jobs/Jobs";
 import ProfileMain from "../Profile/ProfileMain";
-import Settings from "./settings/settings";
-import PaymentCard from "./planAndBillings/paymentCard/paymentCard";
+import PaymentCard from './planAndBillings/paymentCard/paymentCard';
+import Settings from './settings/settings';
 
 
 const Dashboard = () => {

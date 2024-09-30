@@ -19,7 +19,7 @@ const notificationTypes = [
     {title: "Feedbacks", desc: "Receive request to provide feedback and participate in user studies and surveys"},
 ]
 
-const Notification = () => {
+const NotificationPage = () => {
     const [toggleState, setToggleState] = useState([
         false,
         false,
@@ -113,4 +113,4 @@ const Notification = () => {
     )
 }
 
-export default Notification
+export default NotificationPage;

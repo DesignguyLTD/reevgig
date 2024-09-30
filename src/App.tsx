@@ -1,6 +1,4 @@
 import "./App.css";
-import AccountSettings from "./Pages/Dashboard/settings/account settings/accountSettings";
-import Notification from "./Pages/Dashboard/settings/notification/notification";
 import {HashRouter as Router, Link, Route, Routes} from "react-router-dom";
 // import Footer from "./LandingPage/Footer";
 import Login from "./Pages/Onboarding/login/login";
@@ -9,8 +7,11 @@ import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import LandingPage from "./Pages/LandingPage/LandingPage";
-import JobApplicationPage from "./Pages/Dashboard/JobApplication/JobApplicationPage";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/DashBoard/Dashboard";
+import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
+import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
+import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
+
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
                     <Route path="/jobapplication" element={<JobApplicationPage/>}/>
                     <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>}/>
                     <Route path="/accountSettings" element={<AccountSettings/>}/>
-                    <Route path="/notification" element={<Notification/>}/>
+                    <Route path="/notification" element={<NotificationPage/>}/>
                     =
                 </Routes>
             </Router>
