@@ -17,9 +17,9 @@
     letter-spacing: 0.32px;
     line-height: 39px;
     text-align: center;
-    justify-content: center;
     width: 300px;
     height: 56px;
+    justify-content: space-around;
 
 }
 
@@ -171,7 +171,7 @@
         letter-spacing: 0.32px;
         line-height: 39px;
         text-align: center;
-        justify-content: center;
+        justify-content: space-around;
         width: 340px;
         height: 56px;
     }

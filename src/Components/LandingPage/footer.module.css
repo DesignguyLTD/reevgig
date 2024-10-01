@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
-<<<<<<< HEAD
-=======
 html,
 body {
     box-sizing: border-box;
     width: 100vw;
-    /* overflow-x: hidden; */
+    font-family: "Epilogue", sans-serif;
+     /*overflow-x: scroll;*/
+    letter-spacing: 1px;
 }
->>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
 
 .container {
-    background-color: #484848;
+    background-color: #2b2b2b;
     color: #D6DDEB;
     width: 100vw;
     box-sizing: border-box;
@@ -124,6 +123,8 @@ body {
 
 .input_container {
     position: relative;
+    display: inline-flex;
+    flex-direction: row;
 }
 
 .footer_input {
@@ -133,27 +134,21 @@ body {
     gap: 8px;
 }
 
-<<<<<<< HEAD
-.input_container > input {
-    width: 234px;
-=======
+
 .input_container>input {
-    width: 164px;
->>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
+    width: 118px;
     height: 44px;
     font-family: "Epilogue", sans-serif;
     border-radius: 8px;
     border: none;
+    padding-left: 40px;
 
 }
 
-<<<<<<< HEAD
-.input_container > input::placeholder {
-    padding-left: 2.4rem;
-=======
+
+
 .input_container>input::placeholder {
-    padding-left: 2rem;
->>>>>>> 514bbdf95931a376f81b3f15474bb9068501e559
+    /*padding-left: 2rem;*/
 
 }
 
@@ -225,7 +220,8 @@ body {
 
 @media screen and (min-width: 500px) {
     .input_container>input {
-        width: 234px;
+        width: 196px;
+        padding-left: 46px;
     }
 
     .resource {
@@ -294,6 +290,17 @@ body {
         width: 100%;
     }
 
+    .foot_note {
+        display: flex;
+        flex-direction: row;
+        padding: 24px 0 36px;
+        align-items: center;
+        justify-content: space-around;
+        line-height: 16.8px;
+        font-size: 12px;
+    }
+
+
     .outer_container {
         margin: 0 auto;
         width: 1192px;
@@ -334,7 +341,7 @@ body {
     }
 
     .input_container>input::placeholder {
-        padding-left: 2.4rem;
+        /*padding-left: 2.4rem;*/
 
     }
 

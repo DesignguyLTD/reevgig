@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useState } from 'react';
 import styles from './FAQ.module.css';
 
 interface FAQItem {
@@ -8,60 +8,37 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: 'How do I hire a hardware programmer?',
-        answer: 'You can browse through profiles of hardware programming experts, view their portfolios, and send a request for a custom project or consultation.',
+        question: 'How do I get a refund?',
+        answer: 'You can get a refund by contacting our support team via the contact form or email.',
     },
     {
-        question: 'What is the process for developing hardware solutions?',
-        answer: 'The hardware programmer will typically review your project requirements, design schematics, build prototypes, and finalize the hardware design. The process may also involve software integration, testing, and debugging.',
+        question: 'What is the return policy?',
+        answer: 'Our return policy is 30 days. If 30 days have gone by since your purchase, unfortunately, we can’t offer you a refund or exchange.',
     },
     {
-        question: 'Can I get a refund if the project doesn’t meet my expectations?',
-        answer: 'Refunds are subject to the terms agreed upon in the project contract. We recommend setting clear milestones and expectations with the hardware programmer before starting a project.',
+        question: 'Can I exchange an item?',
+        answer: 'Exchanges are possible within 30 days of purchase. Contact our support team to initiate an exchange.',
     },
     {
-        question: 'How do I manage a project with a hardware programmer?',
-        answer: 'Use the platform’s project management tools to track milestones, set deadlines, and communicate with your hardware programmer regularly to ensure the project stays on track.',
+        question: 'Can I exchange an item?',
+        answer: 'Exchanges are possible within 30 days of purchase. Contact our support team to initiate an exchange.',
     },
     {
-        question: 'What type of hardware projects can I post?',
-        answer: 'You can post a wide range of hardware projects, including embedded systems, IoT devices, PCB design, robotics, and more. Ensure your project description is detailed to attract the right talent.',
+        question: 'Can I exchange an item?',
+        answer: 'Exchanges are possible within 30 days of purchase. Contact our support team to initiate an exchange.',
     },
     {
-        question: 'How do I make payments for a hardware programming project?',
-        answer: 'Payments are made securely through the platform, either on a milestone basis or upon project completion. Be sure to review and approve each milestone before making payments.',
+        question: 'Can I exchange an item?',
+        answer: 'Exchanges are possible within 30 days of purchase. Contact our support team to initiate an exchange.',
     },
-    {
-        question: 'How do I verify the skills of a hardware programmer?',
-        answer: 'You can check the hardware programmer’s profile for certifications, past projects, and reviews from previous clients. You can also conduct interviews or request sample work to ensure their expertise fits your needs.',
-    },
-    {
-        question: 'What if I encounter a technical issue with my hardware product after the project is completed?',
-        answer: 'You can negotiate post-project support or warranty terms with the hardware programmer. Alternatively, you can hire them again for maintenance or troubleshooting services.'
-    },
-];
-
+    ];
 
 const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    const answerRefs = useRef<(HTMLDivElement | null)[]>([]); // Store references to answer elements
-
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index); // Toggle between open and closed
     };
-
-    useEffect(() => {
-        answerRefs.current.forEach((ref, idx) => {
-            if (ref) {
-                if (openIndex === idx) {
-                    ref.style.height = `${ref.scrollHeight}px`; // Expand
-                } else {
-                    ref.style.height = '0'; // Collapse
-                }
-            }
-        });
-    }, [openIndex]);
 
     return (
         <div className={styles.faqContainer}>
@@ -74,15 +51,16 @@ const FAQ: React.FC = () => {
                         onClick={() => toggleFAQ(index)}
                     >
                         <div className={styles.faqQuestion}>
-                            {faq.question}
-                            <span
-                                className={`${styles.faqIcon} ${openIndex === index ? styles.openIcon : ''}`}>{openIndex === index ? '-' : '+'}</span>
+                            <div className={styles.faqQuestion1}>{faq.question}</div>
+                            <div className={`${styles.faqIcon} ${openIndex === index ? styles.openIcon : ''}`}>
+                                {openIndex === index ? '-' : '+'}
+                            </div>
                         </div>
                         <div
-                            ref={(el) => (answerRefs.current[index] = el)}
                             className={`${styles.faqAnswer} ${openIndex === index ? styles.open : ''}`}
+                            style={{ maxHeight: openIndex === index ? '75px' : '0px' }} // Adjust max-height for smooth transitions
                         >
-                            {faq.answer}
+                            <div className={styles.faqAnswerContent}>{faq.answer}</div>
                         </div>
                     </div>
                 ))}

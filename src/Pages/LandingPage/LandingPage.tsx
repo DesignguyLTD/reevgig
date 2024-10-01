@@ -110,6 +110,12 @@ const LandingPage = () => {
 
     ];
 
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const CTABtn = () => {
+        setIsOpen(!isOpen);
+    };
+
 
     return (
         <>
@@ -120,71 +126,38 @@ const LandingPage = () => {
                     <div className={styles.heroCtn}>
                         <div className={styles.Ctn1}>
                             <div className={styles.heroText}>
-                                The Hardware Marketplace for Creators & Innovators The Hardware Marketplace for Creators
-                                & Innovators
+                                The Hardware <br/> Marketplace  for<br/> Creators & Innovators
                             </div>
                             <div className={styles.heroSubText}>
-                                Connect with top-tier freelance hardware engineers to bring your ideas to life.
+                                Connect with top-tier freelance <br className={styles.br}/>hardware engineers <br className={styles.br2}/> to bring your ideas to life.
                             </div>
+                            {!isOpen &&
+                                <div className={styles.btn1}>
+                                    <ButtonII size={'large'} primary={true} hasIcon={true} icon={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727781978/Reev/1st%20oct/Frame_1618869363_t6u1mi.svg'}
+                                              isLabelVisible={true}
+                                              label={'Explore Freelance Talents'} onClick={CTABtn}/>
+                                </div>
 
-                            <div className={styles.btn1}>
-                                <ButtonII size={'large'} primary={true} hasIcon={false} isLabelVisible={true}
-                                          label={'Post a Job'} onClick={() => {
+                            }
+                        </div>
+
+
+
+                    </div>
+
+                    {isOpen &&
+                        <div className={styles.serachCtnMain} onClick={CTABtn}>
+                            <div className={styles.serchTextCtn}>
+                                <div className={styles.serchText1}>Decentralized Freelancing</div>
+                                <div className={styles.serchText2}>No racial profiling, just business, <br/>safe transactions</div>
+                            </div>
+                            <div className={styles.SearchCtn}>
+                                <Search onSearch={() => {
                                 }}/>
                             </div>
                         </div>
+                    }
 
-                        <div className={styles.Ctn2}>
-                            <img
-                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1726093166/Reev/content_jj1uhc.svg"
-                                alt="heropics"/>
-
-                            <div className={styles.btn2}>
-                                <ButtonII size={'large'} primary={true} hasIcon={false} isLabelVisible={true}
-                                          label={'Post a Job'} onClick={() => {
-                                }}/>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div className={styles.SearchCtn}>
-                        <Search onSearch={() => {
-                        }}/>
-                    </div>
-                </div>
-
-                <div className={styles.featuredJobCtn}>
-                    <div className={styles.featuredJobWrapper}>
-                        <div className={styles.featuredJobTop}>
-                            <div className={styles.featuredJobTitle}>
-                                Featured Jobs
-                            </div>
-                            <div className={styles.featuredJob}>
-                                See all Jobs <img
-                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1726093161/Reev/arrow-right_letp7w.svg"
-                                alt="arrow-icon"/>
-                            </div>
-                        </div>
-                        <div className={styles.featuredJobCard}>
-                            {cardData.map((card, index) => (
-                                <CardI
-                                    key={index}
-                                    profileImage={card.profileImage}
-                                    companyName={card.companyName}
-                                    timeFrame={card.timeFrame}
-                                    mainSkill={card.mainSkill}
-                                    amount={card.amount}
-                                    time={card.time}
-                                    skills={card.skills}
-                                    skillSet={card.skillSet}
-                                    text={card.text}
-
-                                />
-                            ))}
-                        </div>
-                    </div>
 
                 </div>
 
@@ -233,7 +206,42 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div className={styles.featuredJobCtn}>
+                    <div className={styles.featuredJobWrapper}>
+                        <div className={styles.featuredJobTop}>
+                            <div className={styles.featuredJobTitle}>
+                                Featured Jobs
+                            </div>
+                            <div className={styles.featuredJob}>
+                                See all Jobs <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1726093161/Reev/arrow-right_letp7w.svg"
+                                alt="arrow-icon"/>
+                            </div>
+                        </div>
+                        <div className={styles.featuredJobCard}>
+                            {cardData.map((card, index) => (
+                                <CardI
+                                    key={index}
+                                    profileImage={card.profileImage}
+                                    companyName={card.companyName}
+                                    timeFrame={card.timeFrame}
+                                    mainSkill={card.mainSkill}
+                                    amount={card.amount}
+                                    time={card.time}
+                                    skills={card.skills}
+                                    skillSet={card.skillSet}
+                                    text={card.text}
+
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className={styles.clientTalentCtn}>
                     <div className={styles.talentCtn}>
 
                         <img className={styles.talentImg}
@@ -321,10 +329,11 @@ const LandingPage = () => {
                     <FAQ/>
                 </div>
 
+                    {/*<Footer/>*/}
 
             </div>
             <div className={styles.footer}>
-                <Footer/>
+                {/*<Footer/>*/}
             </div>
         </>
     );
