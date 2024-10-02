@@ -1,0 +1,213 @@
+.PaymentTopCtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+}
+
+.PaymentMiddleCtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+}
+.PaymentTransact{
+    width: 90%;
+}
+
+
+.PaymentTopOne{
+    padding: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 155, 89);
+    border-radius: 12.61px;
+    background: rgba(3, 168, 98, 0.15);
+    gap: 15px;
+
+}
+
+.PaymentTopTwo{
+    padding: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(212, 162, 0);
+    border-radius: 12.61px;
+    background: rgb(255, 243, 204);
+    gap: 15px;
+
+}
+
+.PaymentTopOneHeaderCtn{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PaymentTopOneAdd{
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: rgb(69, 69, 69);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
+    text-align: left;
+}
+
+.PaymentTopOneText{
+    /* body2 */
+    color: rgb(121, 121, 121);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PaymentTopOneAmount{
+    /* H5 medium */
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PaymentMiddleToast{
+    border-radius: 8px;
+    background: #fbe2b9;
+    color: rgb(51, 39, 0);
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 0;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    gap: 3px;
+    padding: 5px;
+}
+
+.PaymentMiddleBtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
+    text-align: left;
+    border-radius: 160px;
+    padding: 10px;
+    cursor: pointer;
+    gap: 7px;
+    justify-content: center;
+    width: 121px;
+    background: rgb(39, 39, 39);
+}
+
+.PaymentBottomCtn{
+    width: 115%;
+}
+
+@media (min-width: 768px) {
+
+    .PaymentMiddleBtn{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        color: rgb(254, 194, 0);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20.05px;
+        letter-spacing: -0.36px;
+        text-align: left;
+        border-radius: 160px;
+        padding: 10px;
+        cursor: pointer;
+        gap: 7px;
+        width: 121px;
+        background: rgb(39, 39, 39);
+        justify-content: center;
+    }
+
+    .PaymentMiddleCtn{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px;
+        gap: 15px;
+    }
+    .PaymentTopCtn{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .PaymentTopTwo, .PaymentTopOne{
+        max-width: 550px;
+        width: 100%;
+    }
+
+    .PaymentMiddleToast{
+        font-size: 14px;
+    }
+
+}
+
+
+
+@media (min-width: 1024px) {
+
+    .PaymentMiddleToast{
+        font-size: 16px;
+    }
+
+    .PaymentTopCtn{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px;
+        gap: 25px;
+    }
+
+    .PaymentTopTwo, .PaymentTopOne{
+        max-width: 700px;
+        width: 100%;
+    }
+
+}

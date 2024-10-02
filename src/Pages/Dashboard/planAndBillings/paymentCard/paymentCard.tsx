@@ -9,7 +9,12 @@ import {Country} from "country-state-city";
 import {Button} from "../../../../stories/Button-I/Button";
 
 
-const Payment = () => {
+interface PaymentTransProps{
+    getActivePage: (x: string) => string;
+
+}
+
+const Payment = ({getActivePage} :PaymentTransProps) => {
 
     const [country, setCountry] = useState<string>("");
     const [formData, setFormData] = useState({
@@ -59,7 +64,7 @@ const Payment = () => {
             </div>
 
             <div className={styles.btmCtn}>
-                <img src={cloudImages.exit} alt="cancel icon"/>
+                <img src={cloudImages.exit} onClick={() => getActivePage ? getActivePage('back') : ''} alt="cancel icon"/>
                 <form className={styles.paymentForm}>
                     <h4 className={styles.paymentH4}>Payment Card</h4>
                     <div className={styles.radioCtn}>

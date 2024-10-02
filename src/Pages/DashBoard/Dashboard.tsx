@@ -6,6 +6,8 @@ import Jobs from "../Jobs/Jobs";
 import ProfileMain from "../Profile/ProfileMain";
 import PaymentCard from './planAndBillings/paymentCard/paymentCard';
 import Settings from './settings/settings';
+import Payment from "./planAndBillings/paymentCard/paymentCard";
+import PaymentPage from '../paymentPage/paymentPage';
 
 
 const Dashboard = () => {
@@ -54,7 +56,7 @@ const Dashboard = () => {
                 }
 
                 {currentPage === 'PlanBillings' &&
-                    <PaymentCard/>
+                    <PaymentPage/>
                 }
 
                 {currentPage === 'Settings' &&
