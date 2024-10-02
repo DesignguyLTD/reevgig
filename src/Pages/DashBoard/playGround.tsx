@@ -93,9 +93,9 @@ const ResponsiveTable: React.FC = () => {
                                 </div>
                             </div>
                         </td>
-                        <td>{row.project}</td>
-                        <td className='width'>{row.price}</td>
-                        <td>{row.deliveredIn}</td>
+                        <td><div className={styles.project}>{row.project}</div></td>
+                        <td className='width'><div className={styles.project}>{row.price}</div></td>
+                        <td><div className={styles.project}>{row.deliveredIn}</div></td>
                         <td>
                             {/*             className={`status-badge ${row.status.toLowerCase().replace(' ', '-')}`}*/}
                             <span

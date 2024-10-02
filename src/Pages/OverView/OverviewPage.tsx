@@ -65,7 +65,11 @@ const OverviewPage = () => {
                                 </div>
                                 <div className={style.ActiveProjectCont}>
                                     <div className={style.ActiveProject}>
-
+                                        <div className={style.ActiveProjectText}>Active Projects <span className={style.ActiveProjectSpan}>(12)</span></div>
+                                        <div className={style.ActiveProjectBtn}>
+                                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Add_kzvi5c.svg" alt="Add"/>
+                                            Add New Project
+                                        </div>
                                     </div>
                                     <ResponsiveTable/>
                                 </div>
