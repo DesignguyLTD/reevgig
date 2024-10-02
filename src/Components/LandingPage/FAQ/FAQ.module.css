@@ -1,7 +1,4 @@
-:root {
-   --font-primary-family: PP Neue Montreal;
-    --font-secondary-family: DM Sans;
-}
+
 
 
 
@@ -29,7 +26,7 @@
 }
 
 .faqItem {
-    /*background: #f9f9f9;*/
+    background: #ffffff;
     border-radius: 8px;
     padding: 15px;
     cursor: pointer;

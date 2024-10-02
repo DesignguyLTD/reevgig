@@ -2,8 +2,39 @@
     margin: 0;
     padding: 0;
 }
-:root{
-    --font-primary-land-family: IBM Plex Sans;
+
+.heroTextBG1{
+    background: #fff3cc;
+    padding: 4px 10px 4px 0;
+    font-family: var(--font-primary-land-family);
+    font-weight: 700;
+    border-radius: 20px 0  0 20px;
+    border-right: #fec200 5px solid;
+position: relative;
+}
+
+.heroTextBGTag{
+    border-radius: 5px 5px 5px 0px;
+    color: rgb(19, 19, 19);
+    font-family: var(--font-primary-land-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 113.86%;
+    text-align: center;
+    background: rgb(254, 194, 0);
+    position: absolute;
+    right: -53px;
+    top: -26px;
+    padding: 7px;
+}
+
+
+.heroTextBG2{
+    border-radius: 20px 0  0 20px;
+    padding: 1px 5px 1px 0;
+    background: #fff3cc;
+    font-family: var(--font-primary-land-family);
+
 }
 
 .br{
@@ -19,10 +50,11 @@
     margin: 100px auto;
      width: 100%;
     justify-items: stretch;
-    max-width: 1024px;
+    /*max-width: 1024px;*/
     position: relative;
     left: 0;
     right: 0;
+    /*background: #f2f0ec;*/
 }
 
 .heroCtn {
@@ -38,7 +70,8 @@
 }
 
 .heroText {
-    color: #4f4f4f;
+    color: rgb(19, 19, 19);
+
     font-family: var(--font-primary-land-family);
     font-size: 40px;
     font-weight: 700;
@@ -46,10 +79,12 @@
     letter-spacing: 0;
     font-style: normal;
     text-align: center;
+    position: relative;
 }
 
 .serchText1{
     color: #4f4f4f;
+
     font-family: var(--font-primary-land-family);
     font-size: 20px;
     font-weight: 700;
@@ -153,7 +188,7 @@
     background: rgb(43, 43, 43);
     padding: 10px;
     width: 100%;
-    max-width: 366px;
+    /*max-width: 366px;*/
     display: inline-flex;
     margin: 10px auto;
     flex-direction: column;
@@ -495,6 +530,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 50px 0;
 }
 
 @media (min-width: 425px) {
@@ -534,6 +570,9 @@
 }
 
 @media (min-width: 768px) {
+    .clientTalentCtn {
+        margin: 80px 0;
+    }
 
     .br{
         display: none;
@@ -564,7 +603,7 @@
     .featuredJobCtn {
         padding: 30px;
         width: 100%;
-        max-width: 760px;
+        /*max-width: 760px;*/
     }
 
     .featuredJobCard {
@@ -714,10 +753,14 @@
 
 @media (min-width: 1024px) {
 
+    .clientTalentCtn {
+        margin: 100px 0;
+    }
+
     .featuredJobCtn{
         padding: 30px;
         width: 100%;
-        max-width: 1024px;
+        /*max-width: 1024px;*/
     }
 
 
@@ -833,9 +876,11 @@
     .featuredJobCtn{
         padding: 30px;
         width: 100%;
-        max-width: 1280px;
+        /*max-width: 1280px;*/
     }
-
+    .clientTalentCtn {
+        margin: 100px 0;
+    }
     .heroCtn {
         padding: 35px;
         width: 100%;

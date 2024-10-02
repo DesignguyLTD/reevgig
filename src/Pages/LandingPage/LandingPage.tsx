@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef } from 'react';
 import styles from './LandingPage.module.css';
 import Header from "../../stories/Header/header";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
@@ -8,7 +8,24 @@ import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
 import Footer from '../../Components/LandingPage/Footer';
 
 const LandingPage = () => {
-    // cardData.js
+    const CTA = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (
+            CTA.current &&
+            !CTA.current.contains(event.target as Node)
+        ) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
 
     const cardData = [
 
@@ -110,7 +127,6 @@ const LandingPage = () => {
 
     ];
 
-    const [isOpen, setIsOpen] = React.useState(false);
 
     const CTABtn = () => {
         setIsOpen(!isOpen);
@@ -126,10 +142,11 @@ const LandingPage = () => {
                     <div className={styles.heroCtn}>
                         <div className={styles.Ctn1}>
                             <div className={styles.heroText}>
-                                The Hardware <br/> Marketplace  for<br/> Creators & Innovators
+
+                                The <span className={styles.heroTextBG1}>Hardware  <div className={styles.heroTextBGTag}>reevgig</div></span> <br/> Marketplace  for<br/> Creators & Innovators
                             </div>
                             <div className={styles.heroSubText}>
-                                Connect with top-tier freelance <br className={styles.br}/>hardware engineers <br className={styles.br2}/> to bring your ideas to life.
+                                Connect with top-tier freelance <br className={styles.br}/><span className={styles.heroTextBG2}>hardware engineers </span><br className={styles.br2}/> to bring your ideas to life.
                             </div>
                             {!isOpen &&
                                 <div className={styles.btn1}>
@@ -146,7 +163,7 @@ const LandingPage = () => {
                     </div>
 
                     {isOpen &&
-                        <div className={styles.serachCtnMain} onClick={CTABtn}>
+                        <div className={styles.serachCtnMain} ref={CTA}>
                             <div className={styles.serchTextCtn}>
                                 <div className={styles.serchText1}>Decentralized Freelancing</div>
                                 <div className={styles.serchText2}>No racial profiling, just business, <br/>safe transactions</div>
