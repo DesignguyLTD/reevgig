@@ -257,7 +257,7 @@ TimeLine styling codes */
     align-items: center;
     justify-content: center;
     justify-items: center;
-    height: 130px;
+    /*height: 130px;*/
     border-radius: 4.3px;
     box-shadow: 0px 6.46px 8.61px 0px rgba(0, 0, 0, 0.05);
     background: rgb(255, 255, 255);

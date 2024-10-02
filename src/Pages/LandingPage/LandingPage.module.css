@@ -754,7 +754,7 @@ position: relative;
 @media (min-width: 1024px) {
 
     .clientTalentCtn {
-        margin: 100px 0;
+        /*margin: 100px 0;*/
     }
 
     .featuredJobCtn{
@@ -879,7 +879,7 @@ position: relative;
         /*max-width: 1280px;*/
     }
     .clientTalentCtn {
-        margin: 100px 0;
+        /*margin: 100px 0;*/
     }
     .heroCtn {
         padding: 35px;

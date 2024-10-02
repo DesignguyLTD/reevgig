@@ -172,19 +172,23 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
 
             {files.length > 0 && (
                 <div className={styles.fileUploadedCont}>
-                    {files.map((file) => (
-                        <div key={file.id} className={styles.fileItem}>
-                            <img src={file.src} alt={file.name} style={{width: '30px'}}
-                                 className={styles.fileThumbnail}/>
-                            <p className={styles.fileName}>{truncateFileName(file.name, 20)}</p>
-                            <img
-                                onClick={() => removeFile(file.id)}
-                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg"
-                                alt="Remove file"
-                                className={styles.removeIcon}
-                            />
-                        </div>
-                    ))}
+                    <div className={styles.ThumbHeaderText}>Uploaded Images</div>
+                    <div className={styles.ThumbSubText}>Thumbnail</div>
+                    <div className={styles.fileUploadedThumbnailCont}>
+                        {files.map((file) => (
+                            <div key={file.id} className={styles.fileItem}>
+                                <img src={file.src} alt={file.name}
+                                     className={styles.fileThumbnail}/>
+                                {/*<p className={styles.fileName}>{truncateFileName(file.name, 20)}</p>*/}
+                                <img
+                                    onClick={() => removeFile(file.id)}
+                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg"
+                                    alt="Remove file"
+                                    className={styles.removeIcon}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )}
 

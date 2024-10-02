@@ -86,7 +86,74 @@
 
 .fileUploadedCont {
     position: relative;
+    box-sizing: border-box;
+    margin: 20px 0;
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 8px;
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
+    background: rgb(255, 255, 255);
+    width: 100%;
+    padding: 5px;
 }
+
+.ThumbHeaderText{
+
+}
+
+.fileItem{
+    position: relative;
+    width: 100px;
+
+}
+
+.fileUploadedThumbnailCont{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    overflow-x: scroll;
+    max-width: 280px;
+    width: 100%;
+    padding: 5px;
+}
+
+.ThumbHeaderText{
+    /* body medium */
+    color: rgb(27, 27, 27);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ThumbSubText{
+    /* body2 */
+    color: rgb(113, 114, 121);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.removeIcon{
+    position: absolute;
+    top: 2px;
+    right: 1px;
+}
+
+
+.fileThumbnail{
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
 
 .fileUploadedCont img {
     cursor: pointer;
@@ -129,6 +196,24 @@
 }
 
 @media (min-width: 768px) {
+
+    .removeIcon{
+        position: absolute;
+        top: 4px;
+        right: -31px;
+    }
+
+    .fileUploadedThumbnailCont{
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 5px;
+        overflow-x: hidden;
+        max-width: 443px;
+        width: 100%;
+        padding: 10px;
+    }
     .fileContainer {
         max-width: 504px;
         width: 100%;
@@ -156,6 +241,17 @@
 
     .fileUploaded {
         width: 480px;
+    }
+
+    .fileUploadedCont{
+        width: 100%;
+        max-width: 504px;
+        padding: 15px;
+    }
+
+    .fileThumbnail{
+        width: 125px;
+        height: 125px;
     }
 }
 
