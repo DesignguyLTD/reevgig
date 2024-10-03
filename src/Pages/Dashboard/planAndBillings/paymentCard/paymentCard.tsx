@@ -56,7 +56,7 @@ const Payment = ({getActivePage} :PaymentTransProps) => {
                 </div>
                 <div className={styles.topCard}>
                     <div className={styles.Details}>
-                        <div>Faiz Anwar</div>
+                        <div>Odediran Philip Oluseyi</div>
                         <div>4556 - 5642 - 06** - ****</div>
                     </div>
                     <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/Group_1171275882_wwx9zq.svg" alt="Card"/>
