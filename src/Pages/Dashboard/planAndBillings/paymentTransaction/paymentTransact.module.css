@@ -1,7 +1,7 @@
 .PaymentTopCtn{
     display: inline-flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     padding: 10px;
     gap: 15px;
@@ -135,7 +135,49 @@
 }
 
 .PaymentBottomCtn{
-    width: 115%;
+    width: 100%;
+}
+
+.PaymentBottomTransaction{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.PaymentBottomTransactionText{
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.PaymentBottomDaysText{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    color: rgb(6, 6, 6);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.PaymentBottomDaysText img{
+    width: 14px;
+    height: 14px;
 }
 
 @media (min-width: 768px) {
@@ -191,6 +233,11 @@
 
 
 @media (min-width: 1024px) {
+
+    .PaymentBottomCtn{
+        width: 81%;
+        max-width: 1440px;
+    }
 
     .PaymentMiddleToast{
         font-size: 16px;

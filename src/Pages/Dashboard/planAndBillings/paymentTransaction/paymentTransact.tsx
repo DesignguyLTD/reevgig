@@ -50,6 +50,13 @@ const PaymentTransact = ({getActivePage} :PaymentTransProps) => {
 
             <div className={stylesOne.PaymentBottomCtn}>
                 <br/>
+                <div className={stylesOne.PaymentBottomTransaction}>
+                    <div className={stylesOne.PaymentBottomTransactionText}>Transactions</div>
+                    <div className={stylesOne.PaymentBottomDaysText}>Last 30 days<img
+                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725753843/Reev/Icon_Stroke_d2hmut.svg"
+                        alt="arrowDown"/>
+                    </div>
+                </div>
                 <ResponsiveTable/>
             </div>
         </div>

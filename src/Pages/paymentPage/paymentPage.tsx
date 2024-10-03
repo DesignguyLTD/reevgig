@@ -4,11 +4,11 @@ import PaymentTransact from '../DashBoard/planAndBillings/paymentTransaction/pay
 
 const PaymentPage = () => {
     const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
+        localStorage.getItem('currentPage2') || 'Overview'
     );
     const getActivePage = (x: string): string => {
         setCurrentPage(x);
-        localStorage.setItem('currentPage', x);
+        localStorage.setItem('currentPage2', x);
         return x;
     }
     return (

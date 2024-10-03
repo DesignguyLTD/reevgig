@@ -7,6 +7,7 @@ import cloudImages from "../../../../assets";
 import styles from "./paymentCard.module.css";
 import {Country} from "country-state-city";
 import {Button} from "../../../../stories/Button-I/Button";
+import { ButtonII } from "../../../../stories/Button-II/ButtonII";
 
 
 interface PaymentTransProps{
@@ -49,31 +50,32 @@ const Payment = ({getActivePage} :PaymentTransProps) => {
     return (
         <div className={styles.Ctn}>
             <div className={styles.topCtn}>
-                <div className={styles.addMoneyCtn}>
-                    <div className={styles.levelUpIcon}>
-                        <img src={cloudImages.levelUp} alt="level up icon"/>
-                    </div>
-                    <div>
-                        <a href="#">+ Add Money</a>
-                    </div>
+                <div className={styles.topText}>
+                    <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Frame_1171275861_nmiuz8.svg" alt="BillIcon"/>
+                    Card
                 </div>
-                <div className={styles.billingMethod}>
-                    <h5>Billing Method</h5>
-                    <p>You haven't set up any billing methods yet. Add a method so you can hire when you're ready.</p>
+                <div className={styles.topCard}>
+                    <div className={styles.Details}>
+                        <div>Faiz Anwar</div>
+                        <div>4556 - 5642 - 06** - ****</div>
+                    </div>
+                    <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/Group_1171275882_wwx9zq.svg" alt="Card"/>
+                </div>
+                <div className={styles.topCardEdit}>
+                    <div className={styles.topText2}>Seyifunmi`s Visa Card <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Button_xxzerp.svg" alt="edit"/></div>
+                    <div className={styles.PaymentTopOneAddCard}><img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Add_wpc6ce.svg" alt="Add"/> Add another Card</div>
                 </div>
             </div>
 
             <div className={styles.btmCtn}>
-                <img src={cloudImages.exit} onClick={() => getActivePage ? getActivePage('back') : ''} alt="cancel icon"/>
+                <div className={styles.paymentH4Ctn}>
+                    <div className={styles.paymentH4}>Payment</div>
+                    <img src={cloudImages.exit} style={{cursor: 'pointer'}} onClick={() => getActivePage ? getActivePage('back') : ''} alt="cancel icon"/>
+                </div>
                 <form className={styles.paymentForm}>
-                    <h4 className={styles.paymentH4}>Payment Card</h4>
-                    <div className={styles.radioCtn}>
-                        <p>Pay With:</p>
-                        <div className={styles.radios}>
-                            <Radio label="card" id="card"/>
-                            <Radio label="local bank deposit" id="local bank"/>
-                        </div>
-                    </div>
+                    {/*<div className={styles.radioCtn}>*/}
+                    {/*    <div>Pay With:</div>*/}
+                    {/*</div>*/}
                     <div>
                         <div className={styles.names}>
                             <div className={styles.firstNameCtn}>
@@ -174,10 +176,16 @@ const Payment = ({getActivePage} :PaymentTransProps) => {
                     </div>
                     <div className={styles.checkboxCtn}>
                         <CheckBox size="small" checked={false}/>
-                        <label>save card details</label>
+                        <label>Save Card details</label>
                     </div>
                     <div className={styles.BtnCtn}>
-                        <Button label="Pay $50" size="large" icon={false}/>
+                        <ButtonII
+                            hasIcon={false}
+                            isLabelVisible={true}
+                            label="Add Card"
+                            primary={true}
+                            size="medium"
+                        />
                         <p>Your personal data will be used to process your order, support your experience throughout the
                             website and for other purposes described in our privacy policy.</p>
                     </div>
