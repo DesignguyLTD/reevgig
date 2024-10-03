@@ -83,7 +83,7 @@ const PaymentTable: React.FC = () => {
                                     style={{ cursor: 'pointer' }}
                                     onClick={() => handleToggle(row.id)}
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/iconamoon_menu-kebab-vertical_khgrwt.svg"
-                                    alt="more"
+                                    alt="more options"
                                 />
                             </div>
                             {openRowId === row.id && (
