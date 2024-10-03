@@ -1,0 +1,332 @@
+.ctn {
+    /*height: 700px;*/
+    max-width: 800px;
+    width: 120%;
+    overflow: auto;
+}
+
+.project{
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.tableCtn {
+    width: 250%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    overflow: auto;
+    /* color: rgb(0, 0, 0); */
+    font-family: PP Neue Montreal !important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 1px;
+    text-align: left;
+    height: 400px;
+    max-width: 1440px;
+}
+
+.tableCtn .header {
+    /*border-radius: 6px;*/
+    /*background: rgb(43, 43, 43);*/
+    padding: 10px;
+}
+
+.progressCircle svg {
+    transform: rotate(363deg);
+    width: 50px;
+    height: 50px;
+}
+
+.progressCircle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.progressCircle circle {
+    fill: none;
+    stroke-width: 5;
+}
+
+.progressCircle circle:first-child {
+    stroke: #ddd;
+}
+
+.progressCircle circle:last-child {
+    stroke-dasharray: 82;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.progressCircle.completed circle:last-child {
+    stroke: rgba(26, 147, 46, 1);
+}
+
+.progressCircle.delayed circle:last-child {
+    stroke: rgba(226, 177, 51, 1);
+}
+
+.progressCircle.overdue circle:last-child {
+    stroke: rgba(238, 32, 28, 1);
+}
+
+.progressCircle.in-progress circle:last-child {
+    stroke: rgba(230, 95, 43, 1);
+}
+
+.progressCircle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+}
+
+.header tr {
+    border-radius: 6px;
+    background: rgb(43, 43, 43);
+}
+
+.header tr th {
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 1px;
+}
+
+.tableCtn .body {
+    margin-top: 10px;
+}
+
+.clientName {
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.clientOrder {
+    cursor: pointer;
+    color: rgb(151, 149, 157);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.info {
+    flex-direction: row;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+}
+
+.info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.tableCtn .body tr {
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.tableCtn .body tr td {
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 10px;
+}
+
+.prog {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+}
+
+.status-badge {
+    /* Common styles for all status badges */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.status-Paid {
+    border-radius: 20px;
+    background: rgba(26, 147, 46, 0.18);
+    color: rgb(26, 147, 46);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.status-Pending {
+    border-radius: 20px;
+    color: rgb(223, 165, 16);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    background: rgba(226, 177, 51, 0.18);
+}
+
+.status-Withheld {
+    border-radius: 20px;
+    color: rgb(238, 32, 28);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    background: rgba(238, 32, 28, 0.18);
+}
+
+.status-Reversed{
+    color: rgb(0, 122, 255);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    display: inline-flex;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    border-radius: 20px;
+    background: rgba(0, 122, 255, 0.15);
+    justify-content: center;
+    align-items: center;
+}
+
+.MoreCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    left: 93px;
+    top: 0;
+    bottom: 0;
+}
+
+.MoreList{
+    list-style: none;
+    border-radius: 8px;
+    background: rgb(39, 39, 39);
+    padding: 8px;
+    width: 132px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MoreListli1, .MoreListli2{
+    color: rgb(217, 217, 217);
+    font-family: PP Neue Montreal;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 4px;
+
+}
+
+.MoreListli1:hover, .MoreListli2:hover{
+    border-radius: 4px;
+    color: rgb(39, 39, 39);
+    background: rgb(254, 194, 0);
+}
+
+.MoreListli2:hover img {
+    filter: invert(1);
+}
+
+.MoreListli1:hover img {
+    filter: invert(0);
+
+}
+
+.MoreListli1 img{
+    filter: invert(1);
+}
+
+
+@media (min-width: 425px){
+    .tableCtn {
+        width: 172%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+        overflow: auto;
+        /* color: rgb(0, 0, 0); */
+        font-family: PP Neue Montreal !important;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20.05px;
+        letter-spacing: 1px;
+        text-align: left;
+        height: 400px;
+        max-width: 1440px;
+    }
+}
+
+@media (min-width: 768px){
+    .tableCtn {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+        overflow: auto;
+        /* color: rgb(0, 0, 0); */
+        font-family: PP Neue Montreal !important;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20.05px;
+        letter-spacing: 1px;
+        text-align: left;
+        height: 400px;
+        max-width: 1440px;
+    }
+}

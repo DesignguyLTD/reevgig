@@ -181,10 +181,11 @@
     width: 40%;
     left: 15px;
     color: rgb(255, 255, 255);
-    font-family: IBM Plex Sans;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 12.11px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 17.11px;
     letter-spacing: .5px;
     text-align: left;
 }

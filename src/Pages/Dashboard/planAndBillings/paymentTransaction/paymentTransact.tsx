@@ -1,4 +1,5 @@
 import React from "react";
+import PaymentTable from "../../../paymentPage/paymentTable";
 import ResponsiveTable from "../../playGround";
 import stylesOne from './paymentTransact.module.css';
 
@@ -57,7 +58,7 @@ const PaymentTransact = ({getActivePage} :PaymentTransProps) => {
                         alt="arrowDown"/>
                     </div>
                 </div>
-                <ResponsiveTable/>
+               <PaymentTable/>
             </div>
         </div>
     )
