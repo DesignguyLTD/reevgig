@@ -1,7 +1,7 @@
+import { Button } from "../../stories/Button-I/Button";
 import { Link } from "react-router-dom";
 import React from "react";
 import style from "./footer.module.css";
-import {Button} from "../../stories/Button-I/Button";
 
 export default function Footer() {
   return (
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           <div className={style.footer_links}>
-            <div>
+            <div className={style.about}>
               <Link to={"/"} className={style.h3}>
                 About
               </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
                 Privacy
               </Link>
             </div>
-            <div>
+            <div className={style.resource}>
               <Link to={"/"} className={style.h3}>
                 Resources
               </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
               </Link>
             </div>
 
-            <div>
+            <div className={style.notification}>
               <div>
                 <Link to={"#"} className={style.h3}>
                   Get job notifications
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={style.bottom}>
-          <hr />
+          <hr className={style.hr} />
           <div className={style.foot_note}>
             <p>2024 @ ReevGig. All rights reserved.</p>
             <div className={style.social_links}>

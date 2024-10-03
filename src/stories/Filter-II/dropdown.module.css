@@ -1,0 +1,39 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+* {
+    font-family: 'PP Neue Montreal';
+}
+
+
+.container {
+    max-width: 349px;
+    padding: 10px 0;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #272727;
+    font-weight: 500;
+    line-height: 18px;
+    font-family: 'PP Neue Montreal';
+    padding: 5px 0px;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    color: #454545;
+    font-size: 14px;
+    font-family: 'PP Neue Montreal';
+}
+
+.arrow {
+    transform: rotate(180deg);
+}
+
+.default {
+    transform: rotate(0deg);
+}
