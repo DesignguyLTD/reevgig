@@ -5,7 +5,7 @@ import styling from "./picture.module.css";
 export interface PictureSliderProps {
   images: string[];
   imgStyle?: React.CSSProperties;
-  thumbnailStyle: React.CSSProperties;
+  thumbnailStyle?: React.CSSProperties;
 }
 
 const PictureSlider: React.FC<PictureSliderProps> = ({

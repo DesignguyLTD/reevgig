@@ -1,0 +1,128 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+* {
+    font-family: 'PP Neue Montreal';
+}
+
+
+.profile_image {
+    width: 51px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile_image img {
+    width: 50px;
+    height: 50px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'PP Neue Montreal';
+    color: #18191C;
+    line-height: 26.6px;
+
+}
+
+.profile_ctn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 10px;
+}
+
+.text p {
+    margin: 0;
+
+}
+
+.name {
+    color: #474C54;
+    font-size: 14px;
+    line-height: 26.6px;
+}
+
+.text p:nth-child(2) {
+    color: #d4a200;
+    background-color: #fff3cc;
+    border: 1px solid #d4a200;
+    border-radius: 160px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: 'PP Neue Montreal';
+    line-height: 16.8px;
+    display: none;
+}
+
+.text p:nth-child(3) {
+    color: #007aff;
+    background-color: #007AFF40;
+    border: 1px solid #007aff;
+    border-radius: 160px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: 'PP Neue Montreal';
+    line-height: 16.8px;
+    display: none;
+}
+
+
+@media screen and (min-width: 768px) {
+    .profile_image {
+        width: 80.77px;
+        height: 80px;
+    }
+
+    .profile_image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile_ctn {
+        gap: 16px;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile_ctn {
+        gap: 39px;
+    }
+
+    .title {
+        font-size: 23px;
+
+    }
+
+    .name {
+        font-size: 19px;
+    }
+
+    .text p:nth-child(2) {
+        display: block;
+    }
+
+    .text p:nth-child(3) {
+        display: block;
+    }
+}

@@ -6,6 +6,7 @@
 
 .container {
     max-width: 350px;
+    width: 100%;
 
 }
 
@@ -62,7 +63,7 @@
     width: fit-content;
     display: flex;
     align-items: center;
-    gap: 0px;
+    gap: 2px;
     overflow: hidden;
 }
 
@@ -77,9 +78,26 @@
 }
 
 .images {
-    transform: scale(.9);
+    transform: scale(1);
 }
 
 .images_hover {
-    transform: scale(.95);
+    transform: scale(1.02);
+}
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 665px;
+        width: 100%;
+
+    }
+}
+
+@media screen and (min-width: 1024) {
+    .container {
+        max-width: 579px;
+        width: 100%;
+
+    }
 }
