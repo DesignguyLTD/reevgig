@@ -90,7 +90,7 @@ const PaymentTable: React.FC = () => {
                                 <div ref={dropdownRef} className={styles.MoreCtn}>
                                     <img
                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/Polygon_2_y9a0mf.svg"
-                                        alt="triansgle"
+                                        alt="triangle"
                                     />
                                     <div className={styles.MoreList}>
                                         <li className={styles.MoreListli1}>
