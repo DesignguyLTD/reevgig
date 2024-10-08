@@ -15,7 +15,7 @@ import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationP
 
 
 function App() {
-    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
+    const UserType  = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
     return (
         <div className="App">
             <Router basename="/">
@@ -25,12 +25,7 @@ function App() {
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/resetpassword" element={<ResetPassword/>}/>
                     <Route path="/onboarding" element={<OnBoarding/>}/>
-                    <Route path="/dashboard" element={
-                        UserType === 'Client' ?
-                            <Dashboard/>
-                            :
-                            <>Freelancers Dashboard</>
-                    }/>
+                    <Route path="/dashboard" element={<Dashboard UserType={UserType}/>}/>
                     <Route path="/jobapplication" element={<JobApplicationPage/>}/>
                     <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>}/>
                     <Route path="/accountSettings" element={<AccountSettings/>}/>

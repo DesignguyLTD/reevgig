@@ -9,8 +9,11 @@ import Settings from './settings/settings';
 import Payment from "./planAndBillings/paymentCard/paymentCard";
 import PaymentPage from '../paymentPage/paymentPage';
 
+interface DashboardProps {
+    UserType: string | null;
 
-const Dashboard = () => {
+}
+const Dashboard = ({UserType} :DashboardProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
     const [currentPage, setCurrentPage] = React.useState<string>(
         localStorage.getItem('currentPage') || 'Overview'
@@ -31,37 +34,48 @@ const Dashboard = () => {
 
     return (
         <div>
-            <Sidebar logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
+            <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
             <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
-                {currentPage === 'Overview' &&
-                    <OverviewPage/>
+                {   UserType === 'Client' ?
+                    <div>
+                        {currentPage === 'Overview' &&
+                            <OverviewPage/>
+                        }
+
+                        {currentPage === 'Profile' &&
+                            <>
+                                <ProfileMain/>
+                            </>
+                        }
+
+                        {currentPage === 'PostAJob' &&
+                            <Jobs/>
+                        }
+
+                        {currentPage === 'Message' &&
+                            <h1>Development in progress ....</h1>
+                        }
+
+                        {currentPage === 'SavedEmployee' &&
+                            <h1>Development in progress ....</h1>
+                        }
+
+                        {currentPage === 'PlanBillings' &&
+                            <PaymentPage/>
+                        }
+
+                        {currentPage === 'Settings' &&
+                            <Settings/>
+                        }
+                    </div>
+                    :
+                    <div>
+                        Freelancer
+                    </div>
+
+
                 }
 
-                {currentPage === 'Profile' &&
-                    <>
-                        <ProfileMain/>
-                    </>
-                }
-
-                {currentPage === 'PostAJob' &&
-                    <Jobs/>
-                }
-
-                {currentPage === 'Message' &&
-                    <h1>Development in progress ....</h1>
-                }
-
-                {currentPage === 'SavedEmployee' &&
-                    <h1>Development in progress ....</h1>
-                }
-
-                {currentPage === 'PlanBillings' &&
-                    <PaymentPage/>
-                }
-
-                {currentPage === 'Settings' &&
-                    <Settings/>
-                }
             </div>
         </div>
     );

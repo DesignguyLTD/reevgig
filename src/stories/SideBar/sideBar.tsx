@@ -8,9 +8,10 @@ interface SidebarProps {
     logo?: string;
     getSidebarState?: (x: boolean) => boolean;
     getPage?: (x: string) => string;
+    UserType?: string | null;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage}: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage, UserType}: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
@@ -250,6 +251,25 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
+                        {UserType !== 'Client' && (
+                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
+                                onClick={() => getPage ? getPage('Review') : ''}>
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-star"></i>
+                                        Reviews
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-star"></i>
+                                        <span className={styles.tooltiptext}>Reviews</span>
+                                    </div>
+                                )}
+                            </li>
+                        )
+
+                        }
+
                         <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
                             onClick={() => getPage ? getPage('Settings') : ''}>
                             {isOpen ? (
@@ -264,6 +284,8 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                                 </div>
                             )}
                         </li>
+
+
                     </ul>
 
                     <ul className={styles.lowerSideBar}>

@@ -39,7 +39,7 @@
 }
 
 .holder div {
-    padding: 4px 0px 3px 0px;
+    /*padding: 4px 0px 3px 0px;*/
 }
 
 .names {
@@ -312,8 +312,290 @@ label ~ input {
     width: 11rem;
 }
 
+.PublicCtn, .PersonalCtn{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.topCtn, .midCtn, .bottomCtn, .PersonaltopCtn{
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+}
+
+.topUserNametext{
+    /* body medium */
+    color: rgb(124, 132, 147);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.topUserNameSubtext{
+    color: rgb(37, 50, 75);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.topUserStatusBtn1{
+    border-radius: 26.43px;
+    background: rgb(255, 235, 170);
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+
+.topUserStatusBtn2{
+    color: rgb(0, 122, 255);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    border-radius: 26.43px;
+    gap: 5px;
+    width: 100%;
+    background: rgba(0, 122, 255, 0.15);
+}
+
+.topCtn{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.topUserStatusBtn{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.topAvatar img {
+    border: 4px solid rgb(255, 243, 204);
+    border-radius: 92.99px;
+}
+
+.topUserCtn{
+    gap: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.midSubtext{
+    margin: 8px 0;
+    color: rgb(37, 50, 75);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.profileTags{
+    box-sizing: border-box;
+    border: 1.32px solid rgb(39, 39, 39);
+    border-radius: 26.43px;
+    background: rgb(255, 235, 170);
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: left;
+    padding: 5px 10px;
+}
+
+.profileTagsCtn{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+
+}
+
+.bottomCtn{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.PersonaltopUserName{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.PersonaltopUserNametext{
+    color: rgb(124, 132, 147);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PersonaltopUserNameSubtext{
+    /* Type@19 medium */
+    color: rgb(37, 50, 75);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+
+.PersonaltopUserCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.PersonaltopUserCtn2{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.PersonalVerifyText{
+    color: rgb(27, 27, 27);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin: 4px 0;
+}
+
+.PersonalVerifySubText{
+    color: rgb(113, 114, 121);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PersonalVerifyDoc{
+    border-radius: 4px;
+    background: rgb(255, 243, 204);
+    opacity: 0.7;
+   display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(39, 39, 39);
+    gap: 10px;
+    font-family:PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+    padding: 8px;
+    margin: 8px 0;
+
+}
+
+.continue{
+    text-align: center;
+}
+
+.PersonaltopCtnMain{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.PersonalVerifyCtn{
+    margin-bottom: 10px;
+}
 
 @media screen and (min-width: 765px) {
+    .continue{
+        text-align: right;
+    }
+
+
+    .PersonaltopCtnMain{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .midSubtext{
+        font-size: 19px;
+    }
+
+    .bottomIntrests{
+        width: 70%;
+    }
+
+    .PublicCtn, .PersonalCtn{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: stretch;
+        width: 100%;
+    }
+
+
+    .topCtn, .midCtn, .bottomCtn, .PersonaltopCtn{
+        box-sizing: border-box;
+        padding: 20px;
+        border: 1px solid rgb(217, 217, 217);
+        border-radius: 8px;
+
+        background: rgb(255, 255, 255);
+    }
+
+    .bottomCtn{
+        display: inline-flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
     .edit_holder {
         margin-top: 40px;
         display: flex;
@@ -357,6 +639,9 @@ label ~ input {
         width: 530px;
         /*margin-left: 200px;*/
         /*padding-top: 3rem;*/
+    }
+    .PersonaltopUserCtn2{
+
     }
 
     .number_input {
