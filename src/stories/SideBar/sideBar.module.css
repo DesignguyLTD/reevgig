@@ -292,6 +292,27 @@ i {
     right: 6px;
 }
 
+
+.deskTabIcon.active{
+    color: #000000;
+    background-color: #F3CF57;
+    border-left: 2px solid #060606;
+    flex-direction: column;
+    width: 99%;
+    align-items: center;
+}
+
+.mobileIcon.active{
+    color: #f7cf31;
+    border-left: 2px solid #f7cf31;
+}
+
+
+.active {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
 @media (min-width: 760px) {
     .upperSideBar {
         padding: 0 0 260px 0;

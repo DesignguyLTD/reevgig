@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './sideBar.module.css';
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileNav from "../../Components/DashBoard/ProfileNav";
 
 interface SidebarProps {
@@ -11,12 +11,15 @@ interface SidebarProps {
     UserType?: string | null;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage, UserType}: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getPage, UserType }: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
     const profileRef = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
     const [isProfileOpen, setProfileIsOpen] = useState(false);
+
+    // New state for active menu item
+    const [activeItem, setActiveItem] = useState<string>(localStorage.getItem('currentPage') || 'Overview');
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -26,7 +29,6 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
         event.stopPropagation();
         setProfileIsOpen((prev) => !prev);
     };
-
 
     useEffect(() => {
         getSidebarState && getSidebarState(isOpen);
@@ -71,7 +73,6 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
         };
     }, [isProfileOpen]);
 
-
     let navigate = useNavigate();
     const handleNavigation = () => {
         navigate('/saved');
@@ -80,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
     return (
         <>
             <div className={styles.upperNav}>
-                <div style={{cursor: 'pointer'}} onClick={handleNavSearchDisplay}>
+                <div style={{ cursor: 'pointer' }} onClick={handleNavSearchDisplay}>
                     <img
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/pixelarticons_menu_bl8vvb.svg"
                         alt="menu"
@@ -93,11 +94,11 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/icons_n8fkxi.svg"
                         alt="Search"
                     />
-                    <input type="text" placeholder={'Search for anything...'}/>
+                    <input type="text" placeholder={'Search for anything...'} />
                 </div>
 
                 <div className={styles.lastCont}>
-                    <div style={{cursor: 'pointer'}}>
+                    <div style={{ cursor: 'pointer' }}>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
                             alt="bell"
@@ -117,13 +118,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                     </div>
                     {isProfileOpen && (
                         <div className={styles.profile}>
-                            <ProfileNav/>
+                            <ProfileNav />
                         </div>
                     )}
                 </div>
             </div>
 
-            <div style={{position: 'relative'}}>
+            <div style={{ position: 'relative' }}>
                 <div ref={navSearchRef}
                      className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
                     <Link to={`${logo}`} className={styles.Link}>
@@ -157,9 +158,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                     </button>
 
                     <ul className={styles.upperSideBar}>
-                        {/*<Link to={`${overview}`} className={styles.Link}>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Overview') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Overview' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('Overview');
+                                getPage?.('Overview');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-apps"></i>
@@ -173,10 +178,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
-                        {/*</Link>*/}
-                        {/*<Link to={`${profile}`} className={styles.Link}>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Profile') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Profile' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('Profile');
+                                getPage?.('Profile');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-user"></i>
@@ -190,9 +198,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
-                        {/*</Link>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('PostAJob') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PostAJob' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('PostAJob');
+                                getPage?.('PostAJob');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-add"></i>
@@ -206,8 +218,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Message') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Message' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('Message');
+                                getPage?.('Message');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-envelope"></i>
@@ -221,8 +238,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('SavedEmployee') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'SavedEmployee' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('SavedEmployee');
+                                getPage?.('SavedEmployee');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-users"></i>
@@ -236,8 +258,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('PlanBillings') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PlanBillings' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('PlanBillings');
+                                getPage?.('PlanBillings');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-receipt"></i>
@@ -252,8 +279,13 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                         </li>
 
                         {UserType !== 'Client' && (
-                            <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                                onClick={() => getPage ? getPage('Review') : ''}>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Review' ? styles.active : ''}`}
+                                onClick={() => {
+                                    setActiveItem('Review');
+                                    getPage?.('Review');
+                                }}
+                            >
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-star"></i>
@@ -266,12 +298,15 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                                     </div>
                                 )}
                             </li>
-                        )
+                        )}
 
-                        }
-
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Settings') : ''}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Settings' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('Settings');
+                                getPage?.('Settings');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-settings"></i>
@@ -284,12 +319,16 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                                 </div>
                             )}
                         </li>
-
-
                     </ul>
 
                     <ul className={styles.lowerSideBar}>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Help' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('Help');
+                                getPage?.('Help');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-interrogation"></i>
@@ -303,7 +342,16 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             )}
                         </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Logout' ? styles.active : ''}`}
+                            onClick={() => {
+                                setActiveItem('Logout');
+                                // Handle logout logic here
+                                // For example:
+                                // logout();
+                                // navigate('/login');
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-exit"></i>
@@ -321,6 +369,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
             </div>
         </>
     );
+
 };
 
 export default Sidebar;
