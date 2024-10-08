@@ -34,8 +34,9 @@ export const CardOne: Story = {
     timeFrame: "2021",
     amount: "$100,000",
     time: "6 months",
-    skills: "React, Node.js, Angular",
+    skills: "React",
     mainSkill: "React",
+    skillSet: ["JavaScript", "3D Modelling"],
     text: "This is the other text to be used",
   },
 };

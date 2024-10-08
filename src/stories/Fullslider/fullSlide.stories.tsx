@@ -5,11 +5,12 @@ const response = {
   title: "Components/Full-slide",
   component: FullSlide,
   parameters: {
-    profileImage: "",
-    title: "Tiele",
-    userName: "ddcdcz",
-    duration: "efdszcxwesdc",
-    sponsored: "sdwfsdc",
+    profileImage:
+      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg",
+    title: "Senior UX Designer",
+    userName: "Jimmy Joe",
+    duration: "Full-time",
+    sponsored: "Sponsored",
   },
 } satisfies Meta<typeof FullSlide>;
 

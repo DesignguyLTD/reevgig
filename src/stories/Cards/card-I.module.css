@@ -78,6 +78,10 @@
 
 }
 
+.to_hide {
+    display: flex;
+}
+
 .prof {
     display: flex;
     justify-content: space-between;
@@ -115,7 +119,7 @@
 
 .each_skill {
     background-color: #FFFBAA;
-    padding: 3px;
+    padding: 3px 12px;
     border-radius: 160px;
     display: inline-flex;
     justify-content: center;
@@ -127,10 +131,11 @@
     font-weight: 500;
     line-height: 18px;
     text-align: left;
+    /* width: 43px; */
 }
 
 .one_skill {
-    padding: 3px;
+    padding: 3px 10px;
     border-radius: 160px;
     background-color: #F7F7F7;
     display: inline-flex;
@@ -143,6 +148,7 @@
     font-weight: 500;
     line-height: 18px;
     text-align: left;
+
 }
 
 .hold_skills {

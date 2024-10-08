@@ -45,7 +45,7 @@ export const Reviews = ({
             </p>
           </div>
         </div>
-        <div>
+        <div className={styling.star}>
           <div className={styling.fifth}>
             <label htmlFor="five">5 Stars</label>
             <progress id="five" value={valueFive} max={100}></progress>

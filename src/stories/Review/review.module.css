@@ -14,6 +14,8 @@
     font-size: 19px;
     line-height: 26px;
     margin: 0;
+    text-align: left;
+    padding-bottom: 8px;
 }
 
 .inner {
@@ -22,6 +24,10 @@
     gap: 3rem;
     color: #18191C;
 
+}
+
+.inner p {
+    padding: 8px 0;
 }
 
 .staring {
@@ -45,9 +51,12 @@
     align-items: center;
     justify-content: center;
     text-align: left;
-    padding-left: 0;
     font-size: 16px;
     color: #446EE7;
+}
+
+.star {
+    padding: 14px 16px;
 }
 
 .first label:nth-child(3),

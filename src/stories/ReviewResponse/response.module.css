@@ -44,6 +44,7 @@
     display: flex;
     align-items: center;
     gap: 2px;
+    padding: 16px 0 4px 0;
 
 }
 
@@ -66,7 +67,8 @@
 }
 
 .seller {
-    padding-left: 44px;
+    padding: 18px 0 14px 44px;
+
 }
 
 .seller_image {

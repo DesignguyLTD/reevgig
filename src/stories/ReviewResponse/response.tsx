@@ -39,11 +39,19 @@ export const Response = ({
             ))}
             <p className={styling.star_number}>
               <strong>{starNumber} </strong>
-            </p>{" "}
+            </p>
             |<p className={styling.period}>{timePeriod}</p>
           </div>
 
-          <p style={{ margin: "0", width: "100%" }}>{review}</p>
+          <p
+            style={{
+              margin: "0",
+              width: "100%",
+              textAlign: "left",
+              padding: "14px 0",
+            }}>
+            {review}
+          </p>
           <div className={styling.helpful}>
             <p>Helpful?</p>
             <button className={styling.button}>
