@@ -220,6 +220,11 @@ type JobCardProps = {
     onToggleShortlist: (id: number) => void;
 };
 
+const handleNav = () => {
+    window.location.href = '#/applicantprofile';
+
+}
+
 const JobCard: React.FC<JobCardProps> = ({app, onToggleShortlist}) => {
     return (
         <div className={JAStyles.jobCard}>
@@ -250,7 +255,7 @@ const JobCard: React.FC<JobCardProps> = ({app, onToggleShortlist}) => {
                 <br/>
                 <div className={JAStyles.BtnCtn}>
                     <div className={JAStyles.declineRequest}>Decline Request</div>
-                    <button className={JAStyles.btn} onClick={() => onToggleShortlist(app.id)}>
+                    <button className={JAStyles.btn} onClick={!app.shortlisted ? () => onToggleShortlist(app.id) : ()=>handleNav()}>
                         {!app.shortlisted ? 'Shortlist' : 'View Profile'}<img
                         src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/arrow-right_bsh2zk.svg'
                         alt="Icon"/>

@@ -11,6 +11,7 @@ import Dashboard from "./Pages/DashBoard/Dashboard";
 import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
+import ApplicantProfilePage from "./Pages/DashBoard/ApplicantProfile/ApplicantProfilePage";
 
 
 
@@ -30,7 +31,8 @@ function App() {
                     <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>}/>
                     <Route path="/accountSettings" element={<AccountSettings/>}/>
                     <Route path="/notification" element={<NotificationPage/>}/>
-                    =
+                    <Route path="/applicantprofile" element={<ApplicantProfilePage/>}/>
+
                 </Routes>
             </Router>
 
