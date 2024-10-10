@@ -54,10 +54,20 @@ const jobApplications: JobApplication[] = [
 ];
 const JobApplicationPage = () => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-
+    const [currentPage, setCurrentPage] = React.useState<string>(
+        localStorage.getItem('currentPage') || 'Overview'
+    );
+    const [header, setHeader] = React.useState('All');
+    const UserType  = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
 
     const getSidebarState = (x: boolean): boolean => {
         setIsSidebarOpen(x);
+        return x;
+    }
+
+    const getPage = (x: string): string => {
+        setCurrentPage(x);
+        localStorage.setItem('currentPage', x);
         return x;
     }
 
@@ -74,37 +84,130 @@ const JobApplicationPage = () => {
 
     const shortlistedApps = applications.filter((app) => app.shortlisted);
     const allApps = applications.filter((app) => !app.shortlisted);
-
+    const handleHeader = (value: string) => {
+        setHeader(value);
+    }
     return (
         <div>
-            <Sidebar logo={'/'} getSidebarState={getSidebarState}/>
+            <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
             <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
-                <div>
+                <div className={JAStyles.JobHeaderText}>
                     Job Application
                 </div>
                 <div className={JAStyles.JobHeader}>
                     <div className={JAStyles.jobApplicationsContainer}>
                         <div className={JAStyles.applicationsColumn}>
-                            <h3>All Applications ({allApps.length})</h3>
-                            {allApps.map((app) => (
-                                <>
-                                    <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
-                                    <br/>
-                                </>
 
-                            ))}
+                            <div className={JAStyles.overAllHeaderCtn}>
+                                <div className={JAStyles.overAllHeaderTextCtn}>
+                                    <div className={JAStyles.overAllHeaderText} style={{
+                                        color: header === 'All' ? 'black' : '',
+                                        borderBottom: header === 'All' ? 'solid 2px black' : ''
+                                    }} onClick={() => handleHeader(('All'))}
+                                    >All Applications ({allApps.length})</div>
+                                    <div  className={JAStyles.overAllHeaderText}
+                                          style={{
+                                              color: header === 'shortlistedApps' ? 'black' : '',
+                                              borderBottom: header === 'shortlistedApps' ? 'solid 2px black' : ''
+                                          }} onClick={() => handleHeader(('shortlistedApps'))}
+                                    >Shortlisted ({shortlistedApps.length})</div>
+                                </div>
+                                <div  className={JAStyles.overAllHeaderSort}>
+                                    Sort <img
+                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
+                                    alt="arrowDown"/>
+                                </div>
+                            </div>
+
+                            {/*All Application*/}
+                            {header === 'All' && (
+                                <div>
+                                    <div  className={JAStyles.allAppsHeaderCtn}>
+                                        <div>
+                                            <div className={JAStyles.overAllHeaderText}>All Applications ({allApps.length})</div>
+                                        </div>
+                                        <div className={JAStyles.overAllHeaderSort}>
+                                            Sort<img
+                                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
+                                            alt="arrowDown"/>
+                                        </div>
+                                    </div>
+
+                                    {allApps.map((app) => (
+                                        <div>
+
+                                            <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+                                            <br/>
+                                        </div>
+
+                                    ))}
+
+                                </div>
+                            )}
+
+                            {/*shortlisted mobile*/}
+                            <div className={JAStyles.controlScreenDisplay1}>
+                                { header === 'shortlistedApps' && (
+                                    <div className={JAStyles.applicationsColumn}>
+                                        <div>
+                                            <div  className={JAStyles.allAppsHeaderCtn}>
+                                                <div>
+                                                    <div  className={JAStyles.overAllHeaderText}>Shortlisted ({shortlistedApps.length})</div>
+                                                </div>
+                                                <div  className={JAStyles.overAllHeaderSort}>
+                                                    Sort<img
+                                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
+                                                    alt="arrowDown"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {shortlistedApps.map((app) => (
+                                            <div  >
+
+                                                <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+
+                                                <br/>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                )}
+                            </div>
+
                         </div>
 
-                        <div className={JAStyles.applicationsColumn}>
-                            <h3>Shortlisted ({shortlistedApps.length})</h3>
-                            {shortlistedApps.map((app) => (
-                                <>
-                                    <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+                        {/*shortlisted tab, desktop*/}
 
-                                    <br/>
-                                </>
-                            ))}
+                        <div className={JAStyles.controlScreenDisplay2}>
+                            {/*{ header === 'shortlistedApps' && (*/}
+                                <div className={JAStyles.applicationsColumn}>
+                                    <div>
+                                        <div  className={JAStyles.allAppsHeaderCtn}>
+                                            <div>
+                                                <div  className={JAStyles.overAllHeaderText}>Shortlisted ({shortlistedApps.length})</div>
+                                            </div>
+                                            <div  className={JAStyles.overAllHeaderSort}>
+                                                Sort<img
+                                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
+                                                alt="arrowDown"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {shortlistedApps.map((app) => (
+                                        <div >
+
+                                            <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+
+                                            <br/>
+                                        </div>
+                                    ))}
+                                </div>
+
+                            {/*// )}*/}
                         </div>
+
+
+
                     </div>
                 </div>
             </div>

@@ -34,26 +34,18 @@ const JobApplication = () => {
         <div>
             <div className={style.JobHeader}>
                 <div className={style.JobHeaderCtn1}>
-                    <div className={style.JobText}>Circuit Design</div>
+                    <div className={style.JobText}>Technical Support Specialist</div>
                     <div className={style.JobPriceCtn}>
                         <div className={style.JobExp}>
                             <div className={style.JobExp1}>Full-Time</div>
-                            <div className={style.JobExp2}>Intermediate</div>
                             <div className={style.JobPrice2}>
                                 Pay: $20,000 - $25,000/hr
                             </div>
                         </div>
-                        <div className={style.JobPrice1}>
-                            Pay: $20,000 - $25,000/hr
-                        </div>
-                    </div>
-                    <div className={style.JobApplicant1}>
-                        <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/Img_xttjod.svg"
-                             alt="applicants"/> 234 Applicants
                     </div>
                 </div>
                 <div className={style.JobHeaderCtnMiddle}>
-                    <div className={style.JobExp3}>Intermediate</div>
+                    <div className={style.JobExp3}>Active</div>
                     <div className={style.JobApplicant2}>
                         <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/Img_xttjod.svg"
                              alt="applicants"/> 234 Applicants

@@ -82,10 +82,16 @@ const OverviewPage = () => {
                     }
 
                     {header === 'Job' && <div className={style.JobCtn}>
+                        <br/>
                         <JobApplication/>
                         <JobApplication/>
                         <JobApplication/>
                         <JobApplication/>
+                        <JobApplication/>
+                        <JobApplication/>
+                        <JobApplication/>
+                        <JobApplication/>
+                       <br/>
                     </div>
                     }
 
