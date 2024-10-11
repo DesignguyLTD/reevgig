@@ -3,54 +3,59 @@ import Sidebar from "../../../stories/SideBar/sideBar";
 import style from "../../OverView/OverviewPage.module.css";
 import JAStyles from "./JobApplicationPage.module.css";
 
-
 type JobApplication = {
     id: number;
     name: string;
     role: string;
-    status: string;
-    priceRange: string;
-    appliedDate: string;
+    jobType: string;
+    salary: string;
+    timeAgo: string;
+    skills: string[];
     shortlisted: boolean;
 };
 
 const jobApplications: JobApplication[] = [
     {
         id: 1,
-        name: 'Enny4656',
+        name: 'Seyi Odediran',
         role: 'Technical Support Specialist',
-        status: 'FULL-TIME',
-        priceRange: '$20,000 - $25,000/hr',
-        appliedDate: 'Jan 23, 2024',
+        jobType: 'Part time',
+        salary: '50k-55k',
+        timeAgo: '29 mins ago',
+        skills: ['Javascript', 'Hardware'],
         shortlisted: false,
     },
     {
         id: 2,
-        name: 'Akin125',
-        role: 'Technical Support Specialist',
-        status: 'FULL-TIME',
-        priceRange: '$20,000 - $25,000/hr',
-        appliedDate: 'Jan 23, 2024',
+        name: 'Jane Doe',
+        role: 'Frontend Developer',
+        jobType: 'Full time',
+        salary: '60k-65k',
+        timeAgo: '2 hours ago',
+        skills: ['React', 'TypeScript'],
         shortlisted: true,
     },
+
     {
         id: 3,
-        name: 'Seyi123',
-        role: 'Technical Support Specialist',
-        status: 'FULL-TIME',
-        priceRange: '$20,000 - $25,000/hr',
-        appliedDate: 'Jan 23, 2024',
-        shortlisted: false,
+        name: 'Timi Abi',
+        role: 'UI/Ux',
+        jobType: 'Full time',
+        salary: '60k-65k',
+        timeAgo: '2 hours ago',
+        skills: ['React', 'TypeScript'],
+        shortlisted: true,
     },
     {
         id: 4,
-        name: 'Twin233',
-        role: 'Technical Support Specialist',
-        status: 'FULL-TIME',
-        priceRange: '$20,000 - $25,000/hr',
-        appliedDate: 'Jan 23, 2024',
+        name: 'Dayo Marv',
+        role: 'Full-Stack   Developer',
+        jobType: 'Full time',
+        salary: '60k-65k',
+        timeAgo: '2 hours ago',
+        skills: ['React', 'TypeScript'],
         shortlisted: true,
-    }
+    },
 ];
 const JobApplicationPage = () => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
@@ -116,6 +121,7 @@ const JobApplicationPage = () => {
                                     Sort <img
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
                                     alt="arrowDown"/>
+
                                 </div>
                             </div>
 
@@ -148,7 +154,7 @@ const JobApplicationPage = () => {
                             {/*shortlisted mobile*/}
                             <div className={JAStyles.controlScreenDisplay1}>
                                 { header === 'shortlistedApps' && (
-                                    <div className={JAStyles.applicationsColumn}>
+                                    <div className={JAStyles.applicationsColumn2}>
                                         <div>
                                             <div  className={JAStyles.allAppsHeaderCtn}>
                                                 <div>
@@ -181,7 +187,7 @@ const JobApplicationPage = () => {
                         <div className={JAStyles.controlScreenDisplay2}>
                             {/*{ header === 'shortlistedApps' && (*/}
                                 <div className={JAStyles.applicationsColumn}>
-                                    <div>
+                                    <div style={{width: '77%'}}>
                                         <div  className={JAStyles.allAppsHeaderCtn}>
                                             <div>
                                                 <div  className={JAStyles.overAllHeaderText}>Shortlisted ({shortlistedApps.length})</div>
@@ -228,41 +234,67 @@ const handleNav = () => {
 const JobCard: React.FC<JobCardProps> = ({app, onToggleShortlist}) => {
     return (
         <div className={JAStyles.jobCard}>
-            <div className={JAStyles.header}>
-                <img
-                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993477/Reev/Group_28_e9ifn2.svg" // Update with the correct path to the user's profile image
-                    alt={app.name}
-                    className={JAStyles.profileImage}
-                />
-                <div>
-                    <div className={JAStyles.nameText}>{app.name}</div>
-                    <span className={JAStyles.experienceLevel}>Experience Level</span>
+            <div className={JAStyles.jobCardUserCtn}>
+                <div className={JAStyles.jobCardUserPic}>
+                    {/* Replace with dynamic user image if available */}
+                    <img
+                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728589725/Reev/10th%20oct/Group_18_Copy_2_dsynli.svg"
+                        alt={`${app.name} Profile`}
+                    />
+                </div>
+                <div className={JAStyles.jobCardUserData}>
+                    <div className={JAStyles.jobCardUserDataText1}>{app.name}</div>
+                    <div className={JAStyles.jobCardUserDataText2}>{app.role}</div>
                 </div>
             </div>
-            <div className={JAStyles.jobInfo}>
-                <p className={JAStyles.role}>{app.role}</p>
-                <span className={`${JAStyles.status} ${JAStyles.fullTime}`}>
-                   {app.status}
-                </span>
-                <p className={JAStyles.p}>Price: {app.priceRange}</p>
-                <p className={JAStyles.p}>Applied: {app.appliedDate}</p>
-                <a href="#/jobapplication" className={JAStyles.downloadCv}>
-                    Download CV/Resume <img
-                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg"
-                    alt="Download CV"/>
-                </a>
-
-                <br/>
-                <div className={JAStyles.BtnCtn}>
-                    <div className={JAStyles.declineRequest}>Decline Request</div>
-                    <button className={JAStyles.btn} onClick={!app.shortlisted ? () => onToggleShortlist(app.id) : ()=>handleNav()}>
-                        {!app.shortlisted ? 'Shortlist' : 'View Profile'}<img
-                        src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/arrow-right_bsh2zk.svg'
-                        alt="Icon"/>
-                    </button>
-
+            <div className={JAStyles.jobCardUserStatusCtn}>
+                <img
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726012510/Clock_neascs.svg"
+                    alt="Clock"
+                />
+                <div className={JAStyles.jobCardUserStatusText}>
+                    {app.jobType}
                 </div>
-
+                <div className={JAStyles.circle}></div>
+                <img
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726012510/CurrencyDollar_ndmngk.svg"
+                    alt="Currency"
+                />
+                <div className={JAStyles.jobCardUserStatusText}>
+                    {app.salary}
+                </div>
+                <div className={JAStyles.circle}></div>
+                <img
+                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726012509/CalendarBlank_zupxlc.svg"
+                    alt="Calendar"
+                />
+                <div className={JAStyles.jobCardUserStatusText}>
+                    {app.timeAgo}
+                </div>
+            </div>
+            <div className={JAStyles.jobCardUserSkillCtn}>
+                <div className={JAStyles.jobCardUserSkill1Ctn}>
+                    <div className={JAStyles.jobCardUserSkill1}>Skills</div>
+                </div>
+                {app.skills.map((skill, index) => (
+                    <div key={index} className={JAStyles.jobCardUserSkill2}>
+                        {skill}
+                    </div>
+                ))}
+            </div>
+            <div className={JAStyles.BtnCtn}>
+                <img
+                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728665027/Reev/11th%20Oct/Button_cdcgav.svg"
+                    alt="delete"
+                    className={JAStyles.deleteIcon}
+                    onClick={() => onToggleShortlist(app.id)}
+                />
+                <button
+                    className={`${JAStyles.Btn} ${app.shortlisted ? JAStyles.shortlisted : ''}`}
+                    onClick={app.shortlisted ? handleNav : () => onToggleShortlist(app.id)}
+                >
+                    {app.shortlisted ? 'View Profile' : 'Shortlist'}
+                </button>
             </div>
         </div>
     );
