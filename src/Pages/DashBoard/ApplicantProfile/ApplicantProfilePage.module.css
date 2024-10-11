@@ -1,12 +1,40 @@
 .ApplicantCnt{
-
+    width: 100%;
 }
+
 .ApplicantHeaderUserCnt{
-    margin: 20px 0;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.ApplicantHeaderUserMainCnt{
+    margin: 20px 0 0 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(214, 221, 235);
+    background: rgb(255, 255, 255);
+    justify-content: center;
+}
+
+.ApplicantMainBodyHeaderCtn{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgb(214, 221, 235);
+    background: rgb(255, 255, 255);
+}
+
+.ApplicantMainBodyHeaderCtn2{
+    margin: 30px 0;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .ApplicantHeaderText{
@@ -78,13 +106,430 @@
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+    gap: 5px;
+    justify-content: space-between;
 }
-@media (min-width: 786px) {
-    .ApplicantHeaderBtn1{
-        display: block;
+.ApplicantHeaderBtn2{
+    border-radius: 160px;
+    background: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    width: 120px;
+    height: 44px;
+    padding: 8px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+
+.ApplicantHeaderBtn2:hover{
+    box-sizing: border-box;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background: rgb(254, 194, 0);
+    color: rgb(19, 19, 19);
+}
+
+.ApplicantHeaderBtn2:active{
+    box-sizing: border-box;
+    border: 1px solid rgb(254, 194, 0);
+    border-radius: 160px;
+    background: rgb(43, 43, 43);
+    color: rgb(254, 194, 0);
+
+}
+
+.ApplicantHeaderCtrlText{
+    color: rgb(124, 132, 147);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: 0;
+    text-align: left;
+    margin: 20px 0 0 0;
+    cursor: pointer;
+}
+
+.ApplicantHeaderCtrl{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+}
+
+.Resumé{
+    width: 300px;
+}
+.ProposalCtn{
+    box-sizing: border-box;
+    /* primary color/3001 */
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 8px;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    margin: 10px auto;
+}
+
+.ProposalText1{
+    color: rgb(24, 25, 28);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ProposalText2{
+    color: rgb(94, 102, 112);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+.ApplicantMainBody2{
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 8px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+.ApplicantMainBody3{
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 8px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+}
+
+.ApplicantMainBodyRate{
+    border-right: 2px solid rgb(236, 236, 236);
+    margin-right: 10px;
+    width: 50%;
+}
+
+.ApplicantMainBodySkill{
+    width: 50%;
+
+}
+.ApplicantMainBodyRateText2{
+    /* body medium */
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+.ApplicantMainBodyRateText1{
+    /* body 3 */
+    color: rgb(125, 125, 125);
+    font-family:PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.ApplicantMainBodySkillTag1{
+    /* body 3 */
+    color: rgb(39, 39, 39);
+    font-family:PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    padding: 3px 5px;
+    background: rgb(255, 235, 170);
+}
+
+.ApplicantMainBodySkillTag2{
+    /* body 3 */
+    color: rgb(39, 39, 39);
+    font-family:PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    padding: 3px 5px;
+    background: rgb(247, 247, 247);
+}
+
+.ApplicantMainBodySkillTag2Ctn{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
+.ApplicantMainBody3TopText{
+    color: rgb(24, 25, 28);
+    font-family: PP Neue Montreal;
+    font-size: 13.35px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ApplicantMainBody3MiddleComp{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.ApplicantMainBody3Middle1{
+    width: 20px;
+    height: 20px;
+}
+
+.ApplicantMainBody3Middle2{
+    color: rgb(118, 127, 140);
+    font-family:PP Neue Montreal;
+    font-size: 10.01px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+.ApplicantMainBody3Middle{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.ApplicantMainBody3Top{
+
+}
+
+.ApplicantMainBody3Middle3{
+    color: rgb(24, 25, 28);
+    font-family: PP Neue Montreal;
+    font-size: 13.35px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ApplicantMainBody{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.ApplicantMainBodyLowerCtn{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+
+    .ApplicantMainBody3{
+        box-sizing: border-box;
+        padding: 30px;
+        border: 1px solid rgb(236, 236, 236);
+        border-radius: 8px;
+        width: 100%;
+        background: rgb(255, 255, 255);
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+    }
+    .ApplicantHeaderCnt{
+        max-width: 640px;
+        width: 100%;
     }
 
     .ApplicantHeaderBtn3{
         display: none;
     }
+
+    .ApplicantHeaderUserText1{
+        font-size: 19px;
+    }
+
+    .ApplicantHeaderUserText2{
+        font-size: 16px;
+    }
+
+    .ApplicantHeaderBtnCtn {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        width: 80%;
+        gap: 5px;
+        justify-content: space-between;
+    }
+
+    .Resumé{
+        width: 600px;
+    }
+
+    .ApplicantHeaderCtrl{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        gap: 30px;
+        margin: 20px 0 0 0;
+    }
+
+    .ApplicantHeaderBtn2{
+        width:  100%;
+
+    }
+    .ApplicantHeaderBtn1{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 160px;
+        padding: 10px 13px;
+        gap: 3px;
+        background: #FFFFFF;
+        width:  100%;
+        color: rgb(39, 39, 39);
+        font-family: PP Neue Montreal;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.32px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .ApplicantHeaderBtn1:hover {
+        box-sizing: border-box;
+        border-bottom: 2px solid rgb(0, 0, 0);
+        border-left: 1px solid rgb(0, 0, 0);
+        border-right: 1px solid rgb(0, 0, 0);
+        border-top: 1px solid rgb(0, 0, 0);
+        border-radius: 160px;
+
+    }
+
+    .ApplicantHeaderBtn1:active {
+        box-sizing: border-box;
+        border: 1px solid rgb(19, 19, 19);
+        border-radius: 160px;
+
+        background: rgb(254, 194, 0);
+    }
+}
+@media (min-width: 1024px) {
+    .Resumé{
+        width: 400px;
+    }
+    .ApplicantHeaderCnt{
+        width: 640px;
+        max-width: 100%;
+    }
+
+    .ApplicantMainBodyLowerCtn{
+        width: 800px;
+    }
+
+
+
+    .ApplicantMainBodyHeaderCtn{
+        padding: 10px;
+        width: 50%;
+        border: 1px solid rgb(214, 221, 235);
+        background: rgb(255, 255, 255);
+    }
+
+    .ApplicantHeaderUserText1{
+        font-size: 23px;
+    }
+
+    .ApplicantHeaderUserText2{
+        font-size: 19px;
+    }
+
+    .ApplicantMainBody3{
+        box-sizing: border-box;
+        padding: 40px;
+        border: 1px solid rgb(236, 236, 236);
+        border-radius: 8px;
+        width: 100%;
+        background: rgb(255, 255, 255);
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+    }
+
+    .ApplicantMainBody{
+        display: inline-flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .ApplicantHeaderUserMainCnt{
+        margin: 20px 0 0 0;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        width: 1000px;
+        max-width: 140%;
+        padding: 10px;
+         border: none;
+        background: rgb(255, 255, 255);
+        justify-content: center;
+    }
+
+    .ApplicantMainBodyHeaderCtn2{
+        margin: 30px 0;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+    }
+
+
+
 }
