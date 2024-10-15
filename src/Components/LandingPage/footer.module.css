@@ -3,7 +3,7 @@
 html,
 body {
     box-sizing: border-box;
-    width: 100vw;
+    /* width: 100vw; */
     /* overflow-x: hidden; */
 }
 
@@ -14,6 +14,7 @@ body {
     box-sizing: border-box;
     font-family: "Epilogue", sans-serif;
     box-sizing: border-box;
+    border: 3px solid greenyellow;
 }
 
 
@@ -26,6 +27,7 @@ body {
     padding: 0px 10px;
     margin: 0 auto;
     justify-content: space-between;
+    border: 2px solid red;
 
 }
 
@@ -256,6 +258,14 @@ body {
         justify-content: space-between;
     }
 
+    .footer_input {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
     .about {
         grid-area: "about";
     }
@@ -273,6 +283,13 @@ body {
         width: 700px;
         text-align: left;
         padding-top: 64px;
+    }
+}
+
+@media screen and (min-width:800px) {
+    .foot_note {
+        flex-direction: row;
+        align-items: flex-start;
     }
 }
 

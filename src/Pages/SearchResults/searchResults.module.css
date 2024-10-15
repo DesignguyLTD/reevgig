@@ -1,0 +1,198 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+* {
+    font-family: 'PP Neue Montreal';
+}
+
+
+
+.container {
+    width: fit-content;
+    margin: 2rem auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+.content {
+    overflow-x: hidden;
+    border: 5px solid red;
+    width: 930px;
+    margin: 0 auto;
+
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 3px solid yellow;
+}
+
+.list p {
+    width: 124px;
+    height: 41px;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    color: #545a62;
+    line-height: 19.6px;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav_btn {
+    background-color: #2b2b2b;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.list p:hover,
+.list p:active,
+.list p:focus {
+    background-color: #272727;
+    color: #FEC200;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #85868D;
+    font-size: 16px;
+    line-height: 32.2px;
+    padding-top: 16px;
+    width: fit-content;
+}
+
+.text hr {
+    height: 23px;
+    border: none;
+    outline: 1px solid black;
+}
+
+.filter {
+    display: none;
+}
+
+.text span {
+    color: #000;
+}
+
+.number {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19.6px;
+}
+
+.all_cards {
+    /* width: max-content; */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 15px;
+    border: 3px solid palevioletred;
+
+
+
+}
+
+@media screen and (min-width: 500px) {
+    .all_cards {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .list p {
+        width: 144.67px;
+        height: 41px;
+        border-radius: 8px;
+        border: 1px solid #d9d9d9;
+        color: #545a62;
+        line-height: 19.6px;
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #85868D;
+        font-size: 23px;
+        line-height: 32.2px;
+        padding-top: 16px;
+    }
+
+    .all_cards {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .all_cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content {
+        overflow-x: hidden;
+        width: 810px;
+
+    }
+
+    .filter {
+        display: block;
+    }
+
+    .nav_btn {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .content {
+        overflow-x: hidden;
+        width: 850px;
+
+    }
+}
+
+
+@media screen and (min-width:1024px) {
+    .all_cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content {
+        overflow-x: hidden;
+        width: 930px;
+
+    }
+}

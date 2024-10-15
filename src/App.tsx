@@ -10,6 +10,7 @@ import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import React from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
+import SearchResults from "./Pages/SearchResults/searchResults";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 
 // import Footer from "./LandingPage/Footer";
@@ -48,6 +49,7 @@ function App() {
               />
             }
           />
+          <Route path="/results" element={<SearchResults />} />
         </Routes>
       </Router>
     </div>

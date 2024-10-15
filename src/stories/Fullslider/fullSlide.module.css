@@ -7,13 +7,13 @@
 
 .cover_up {
     background-color: #FCFDFF;
+    position: relative;
 
 }
 
 .container {
     margin: 0rem auto;
-    padding: 2rem 60px;
-
+    padding: 2rem 0;
 
 }
 
@@ -21,7 +21,7 @@
 .profile_heading {
     display: flex;
     justify-content: space-between;
-    padding-left: 8px;
+
 }
 
 .profile_image {
@@ -64,6 +64,7 @@
     background-color: white;
     width: 137px;
     padding: 16px;
+    cursor: pointer;
 }
 
 .order {
@@ -77,7 +78,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-
+    cursor: pointer;
 }
 
 .btn {
@@ -87,7 +88,58 @@
     gap: 8px;
 }
 
+.talents {
+    background-color: #272727;
+    box-shadow: 0px 4px 8px 0px #00000026;
+    width: 132px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    position: absolute;
+    right: 3px;
+    top: 6.5rem;
+    height: 60px;
+    padding: 8px;
+    font-family: 'PP Neue Montreal';
+    z-index: 999;
+}
 
+.save,
+.report {
+    border-radius: 4px;
+}
+
+.save:hover,
+.report:hover {
+
+    background-color: #FEC200;
+}
+
+.save:hover .save_talent,
+.report:hover .report_talent {
+    color: #272727;
+}
+
+.save_talent,
+.report_talent {
+    width: 116px;
+    text-align: center;
+    background: none;
+    border-radius: 4px;
+    border: none;
+    font-size: 10px;
+    color: #D9D9D9;
+    line-height: 24px;
+}
+
+.options {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 
 
 .text {
@@ -134,8 +186,7 @@
 
 .overview_container {
     border: 1px solid #ECECEC;
-    max-width: 480px;
-    width: 100%;
+    width: 382px;
     text-align: left;
     padding: 24px 24px 32px 24px;
     border-radius: 8px;
@@ -193,7 +244,7 @@ div.view p:nth-child(3),
     border-radius: 8px;
     background-color: #ffffff;
     gap: 24px;
-    width: 480px;
+    width: 382px;
     text-align: center;
     margin-bottom: 24px;
 
@@ -209,16 +260,16 @@ div.view p:nth-child(3),
 
 .rate_ctn .rtn {
 
-    line-height: 22.4px;
+    line-height: 16.8px;
     color: #7D7D7D;
-    font-size: 16px;
+    font-size: 12px;
 
 
 }
 
 .rate_ctn .mny {
     color: #272727;
-    font-size: 19px;
+    font-size: 16px;
     line-height: 26.6px;
     font-weight: 500;
     padding: 8px 0px;
@@ -273,8 +324,7 @@ div.view p:nth-child(3),
 }
 
 .desc {
-    max-width: 597px;
-    width: 100%;
+    width: 382px;
     background-color: white;
     border: 1px solid #ECECEC;
     padding: 24px;
@@ -311,7 +361,7 @@ div.view p:nth-child(3),
 
 
 .resume {
-    width: 480px;
+    width: 382px;
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
@@ -348,11 +398,9 @@ div.view p:nth-child(3),
 }
 
 .recommended {
-    margin-bottom: 2rem;
-    max-width: 528px;
-    margin-top: 2rem;
+    margin: 2rem 0;
+    width: 432px;
     overflow-x: hidden;
-    width: 100%;
     background-color: #fafafa;
     text-align: left;
     border: 1px solid #e4e5e7;
@@ -389,6 +437,11 @@ div.responseDivTwo {
 }
 
 
+.below {
+    width: 432px;
+    margin: 2rem auto;
+}
+
 
 
 
@@ -416,6 +469,97 @@ div.responseDivTwo {
     .name {
         font-size: 16px;
     }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .profile_heading {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 8px;
+
+    }
+
+    .desc {
+        width: 600px;
+
+    }
+
+    .below {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .rate_ctn {
+
+        width: 600px;
+
+
+    }
+
+    .overview_container {
+        width: 600px;
+
+    }
+
+    .overview {
+        display: grid;
+        column-gap: 24px;
+        width: fit-content;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resume {
+        width: 600px;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+        border-radius: 8px;
+        border: 1px solid #ECECEC;
+        background-color: #FFFFFF;
+    }
+
+    .recommended {
+        margin: 2rem 0;
+        width: 648px;
+        overflow-x: hidden;
+        border: 1px solid #e4e5e7;
+
+    }
+
+
+    .rate_ctn hr {
+        width: 2px;
+        background-color: #ECECEC;
+        border: none;
+        outline: none;
+        height: 81px;
+    }
+
+    .rate_ctn .rtn {
+
+        line-height: 22.4px;
+        color: #7D7D7D;
+        font-size: 16px;
+
+
+    }
+
+    .rate_ctn .mny {
+        color: #272727;
+        font-size: 19px;
+        line-height: 26.6px;
+        font-weight: 500;
+        padding: 8px 0px;
+    }
+
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -446,6 +590,11 @@ div.responseDivTwo {
         align-items: flex-start;
         flex-direction: row;
         justify-content: space-between;
+        gap: 24px;
+    }
+
+    .container {
+        width: 1193px;
     }
 
 }

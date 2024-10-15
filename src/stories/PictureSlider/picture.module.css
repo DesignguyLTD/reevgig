@@ -8,13 +8,11 @@
     max-width: 350px;
     width: 100%;
     margin: 0 auto;
-
-}
-
-.display_section {
-
     position: relative;
+
 }
+
+/* .display_section {} */
 
 .display_image {
     width: 100%;
@@ -95,9 +93,9 @@
     }
 }
 
-@media screen and (min-width: 1024) {
+@media screen and (min-width: 1024px) {
     .container {
-        max-width: 579px;
+        max-width: 597px;
         width: 100%;
 
     }

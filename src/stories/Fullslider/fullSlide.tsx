@@ -1,7 +1,8 @@
+import React, { useState } from "react";
+
 import CardsOne from "../Cards/Card-I";
 import Footer from "../../Components/LandingPage/Footer";
 import PictureSlider from "../PictureSlider/pictureSlider";
-import React from "react";
 import { Response } from "../ReviewResponse/response";
 import { Reviews } from "../Review/review";
 import styling from "./fullSlide.module.css";
@@ -26,6 +27,11 @@ export const FullSlide = ({
   p2,
   ...props
 }: SlideProp) => {
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+
+  const popUp = () => {
+    setShowPopup(!showPopup);
+  };
   return (
     <div className={styling.cover_up}>
       <div className={styling.container} {...props}>
@@ -54,24 +60,42 @@ export const FullSlide = ({
               Place Order
               <img
                 src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728239969/arrow-right_tdf3bn.svg"
+                alt="Placing order icon"
+              />
+            </button>
+            <button className={styling.options} onClick={popUp}>
+              <img
+                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728837098/iconamoon_menu-kebab-vertical_xsrikf.svg"
                 alt=""
               />
             </button>
           </div>
+          {showPopup && (
+            <div className={styling.talents}>
+              <div className={styling.save}>
+                <button className={styling.save_talent}>Save Talent</button>
+              </div>
+              <div className={styling.report}>
+                <button className={styling.report_talent}>Report Talent</button>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className={styling.content}>
           <div style={{ marginBottom: "2rem" }}>
-            <PictureSlider
-              images={[
-                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-              ]}
-            />
+            <div>
+              <PictureSlider
+                images={[
+                  `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                  `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                  `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                  `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                  `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                  `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                ]}
+              />
+            </div>
             <div className={styling.desc}>
               <h2>Description</h2>
               <div className={styling.desc_words}>
@@ -250,61 +274,65 @@ export const FullSlide = ({
             </div>
           </div>
         </div>
-        <div className={styling.review}>
-          <Reviews
-            five={700}
-            four={300}
-            three={150}
-            two={20}
-            one={8}
-            star={[
-              `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
-              `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
-            ]}
-            starPoint={4.9}
-          />
-        </div>
-        <div className={styling.responseDiv}>
-          <Response
-            userName={"User's Name"}
-            review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
-            timePeriod={"2 weeks ago"}
-            star={[
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-            ]}
-            starNumber={4}
-            sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
-            sellerName="Seller's name"
-          />
-        </div>
 
-        <div className={styling.responseDivTwo}>
-          <Response
-            userName={"User's Name"}
-            review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
-            timePeriod={"2 weeks ago"}
-            star={[
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-              "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-            ]}
-            starNumber={4}
-            sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
-            sellerName="Seller's name"
-          />
-        </div>
-        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <p>See more</p>
-          <img
-            src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728397633/arrow-right1_hktwcu.svg"
-            alt=""
-          />
+        <div className={styling.below}>
+          <div className={styling.review}>
+            <Reviews
+              five={700}
+              four={300}
+              three={150}
+              two={20}
+              one={8}
+              star={[
+                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
+                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
+              ]}
+              starPoint={4.9}
+            />
+          </div>
+
+          <div className={styling.responseDiv}>
+            <Response
+              userName={"User's Name"}
+              review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
+              timePeriod={"2 weeks ago"}
+              star={[
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+              ]}
+              starNumber={4}
+              sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
+              sellerName="Seller's name"
+            />
+          </div>
+
+          <div className={styling.responseDivTwo}>
+            <Response
+              userName={"User's Name"}
+              review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
+              timePeriod={"2 weeks ago"}
+              star={[
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+              ]}
+              starNumber={4}
+              sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
+              sellerName="Seller's name"
+            />
+          </div>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <p>See more</p>
+            <img
+              src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728397633/arrow-right1_hktwcu.svg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <div>
