@@ -18,7 +18,7 @@
 
 
 .contain {
-    width: max-content;
+    /*width: max-content;*/
     margin: 0px auto;
     /* border: 2px solid red; */
 
@@ -32,7 +32,7 @@
 
 .holder_two {
     /* padding: 8px 12px 8px 8px; */
-    width: max-content;
+    /*width: max-content;*/
     /*margin: 0 auto;*/
     padding: 24px 16px;
     /* border: 3px solid yellow; */
@@ -547,6 +547,15 @@ label ~ input {
 
 .PersonalVerifyCtn{
     margin-bottom: 10px;
+}
+
+.LangLabel{
+    font-family: 'PP Neue Montreal', 'sans-serif';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.6px;
+    text-align: left;
 }
 
 @media screen and (min-width: 765px) {

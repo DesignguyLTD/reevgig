@@ -63,6 +63,7 @@ interface InputProps {
     maxContent?: number;
     name?: string;
     value?: string;
+    labelSub?: string;
 }
 
 /**
@@ -90,6 +91,7 @@ const Input: React.FC<InputProps> = ({
                                          focused,
                                          error,
                                          disabled,
+                                         labelSub,
                                          label,
                                          onChange,
                                          errorMessage,
@@ -116,6 +118,12 @@ const Input: React.FC<InputProps> = ({
             {label &&
                 <div className={`${styles.InputLabel} ${labelStyle} ${styles[`InputLabel--${size}`]}`}>{label}</div>}
 
+            {labelSub &&
+                <div
+                 className={styles['storybook-labelSub']}
+                >{labelSub}</div>
+            }
+
             {isTextArea ?
                 <textarea
                     cols={30}
@@ -135,7 +143,7 @@ const Input: React.FC<InputProps> = ({
                         resize: 'vertical',
                         maxHeight: '100%',
                         maxWidth: '100%',
-                        minWidth: '100%',
+                        // minWidth: '100%',
                         padding: '10px',
                         height: '106px'
                     }}

@@ -1,5 +1,5 @@
 import {City, Country, State} from "country-state-city";
-import React, {useEffect, useState,} from "react";
+import React, {useEffect, useRef, useState,} from "react";
 
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
@@ -7,6 +7,10 @@ import {Helmet} from "react-helmet";
 import Input from "../../stories/FieldInput-I/input";
 import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import style from "./profile.module.css";
+import styles from "../OverView/OverviewPage.module.css";
+import {recommendedIntrests, recommendedLanguages} from "../Onboarding/onboarding/dataset";
+import TagInput from "../../Components/TagInput/tagInput";
+import FileUpload from "../../Components/FileUpload/fileUpload";
 
 interface Props {
     page: number;
@@ -250,6 +254,44 @@ const ProfileSave = ({page, setPage}: Props) => {
         console.log(selectImages);
     };
 
+    const [header, setHeader] = React.useState('Public');
+
+    const handleHeader = (value: string) => {
+        setHeader(value);
+    }
+
+    const [profileLang, setprofileLang] = useState<string[]>(() => {
+            const savedFormValues2 = localStorage.getItem('ProfileForm');
+            return savedFormValues2 ? JSON.parse(savedFormValues2).profileLang : [];
+        }
+    );
+
+    const [profileIntrest, setprofileIntrest] = useState<string[]>(() => {
+            const savedFormValues2 = localStorage.getItem('ProfileForm');
+            return savedFormValues2 ? JSON.parse(savedFormValues2).profileIntrest : [];
+        }
+    );
+
+
+    const [first, setFirst] = useState<string | null>(() => {
+        const savedFormValues2 = localStorage.getItem('ProfileForm');
+        return savedFormValues2 ? JSON.parse(savedFormValues2).UserVerification : '';
+    });
+
+    const targetDivRef3 = useRef<HTMLDivElement>(null);
+
+
+    const VibrateDiv3 = () => {
+        if (targetDivRef3.current) {
+            targetDivRef3.current.classList.add(styles.shake);
+            setTimeout(() => {
+                targetDivRef3.current?.classList.remove(styles.shake);
+            }, 500); // Duration of the shake animation
+        }
+    };
+
+    // VibrateDiv3()
+
     return (
         <>
 
@@ -275,138 +317,202 @@ const ProfileSave = ({page, setPage}: Props) => {
             </Helmet>
 
             <section className={style.container_two}>
-                <div className={style.holder_two}>
-                    <div className={style.avatar_container}>
-                        <p className={style.avatar}>Display Avatar</p>
-                        <p className={style.secondary} style={{paddingTop: "-10px"}}>
-                            Select to change
-                        </p>
-                        <div className={style.avatar_selection}>
-                            <div className={style.main_container}>
-                                <img src={selectImages} alt="Avatar"/>
-                            </div>
-                            <div className={style.thumbnail}>
-                                {imageList.map((image, index) => (
-                                    <img
-                                        key={index}
-                                        src={image}
-                                        alt={`avatar ${index + 1}`}
-                                        onClick={() => handleAvatarChange(image)}
-                                    />
-                                ))}
-                            </div>
+                <div className={styles.headerBtn}>
+                    <div style={{width: '100%'}} className={styles.Btn}>
+                        <div className={styles.header} style={{
+                            color: header === 'Public' ? 'black' : '',
+                            borderBottom: header === 'Public' ? 'solid 2px black' : ''
+                        }} onClick={() => handleHeader(('Public'))}>Public Profile
+                        </div>
+                        <div className={styles.header} style={{
+                            color: header === 'Personal' ? 'black' : '',
+                            borderBottom: header === 'Personal' ? 'solid 2px black' : ''
+                        }} onClick={() => handleHeader(('Personal'))}>Personal Profile
                         </div>
                     </div>
-                    <form className={style.contain}>
-                        <div>
-                            <Input
-                                label="Display Name"
-                                size="small"
-                                isTextArea={false}
-                                name="DisplayName"
-                                value={formValues.DisplayName}
-                                placeholder="Others will see this name"
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className={style.name}>
+                    {/*<div className={styles.timeFrame}>*/}
+                    {/*    Last 30 days <img*/}
+                    {/*    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725753843/Reev/Icon_Stroke_d2hmut.svg"*/}
+                    {/*    alt="arrowDown"/>*/}
+                    {/*</div>*/}
+                </div>
+                <div className={style.holder_two}>
+                    { header === 'Public' ?
+                        (
                             <div>
-                                <Input
-                                    value={formValues.Firstname}
-                                    label="First Name"
-                                    isTextArea={false}
-                                    name="Firstname"
-                                    placeholder="First name"
-                                    onChange={handleInputChange}
-                                />
+                                <div className={style.avatar_container}>
+                                    <p className={style.avatar}>Display Avatar</p>
+                                    <p className={style.secondary} style={{paddingTop: "-10px"}}>
+                                        Select to change
+                                    </p>
+                                    <div className={style.avatar_selection}>
+                                        <div className={style.main_container}>
+                                            <img src={selectImages} alt="Avatar"/>
+                                        </div>
+                                        <div className={style.thumbnail}>
+                                            {imageList.map((image, index) => (
+                                                <img
+                                                    key={index}
+                                                    src={image}
+                                                    alt={`avatar ${index + 1}`}
+                                                    onClick={() => handleAvatarChange(image)}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={style.contain}>
+                                        <Input
+                                            label="Display Name"
+                                            size="small"
+                                            isTextArea={false}
+                                            name="DisplayName"
+                                            value={formValues.DisplayName}
+                                            placeholder="Others will see this name"
+                                            onChange={handleInputChange}
+                                        />
+                                    <br/>
+                                    <Input
+                                        size="small"
+                                        isTextArea={true}
+                                        placeholder="I am a"
+                                        label='About me (professional info only)'
+                                        labelSub='Do not share any information that would show your race or personal location'
+                                    />
+                                    <br/>
+
+                                    <div>
+                                        <TagInput
+                                            subLabel2={'Popular Languages spoken'}
+                                            label='Language' recommendedTags={recommendedLanguages}
+                                            placeholder={'Enter preferred Languages'} maxTags={3} setTags={setprofileLang}
+                                            tags={profileLang}/>
+                                    </div>
+
+                                    <div>
+
+                                        <TagInput
+                                            label='Intrests' recommendedTags={recommendedIntrests}
+                                            placeholder={'Enter Intrests'} maxTags={2} setTags={setprofileIntrest}
+                                            tags={profileIntrest}/>
+                                    </div>
+
+
+                                </div>
                             </div>
+                        )
+                        :(
+                            // personal
                             <div>
-                                <Input
-                                    value={formValues.Lastname}
-                                    label="Last Name"
-                                    size="small"
-                                    isTextArea={false}
-                                    name="Lastname"
-                                    placeholder="Last name"
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <Input
-                                value={formValues.email}
-                                label="Work email address"
-                                size="small"
-                                type="email"
-                                isTextArea={false}
-                                name="email"
-                                onChange={handleInputChange}
-                            />
-                        </div>
+                                <div className={style.contain}>
+                                    <div className={style.name}>
+                                        <div>
+                                            <Input
+                                                value={formValues.Firstname}
+                                                label="First Name"
+                                                isTextArea={false}
+                                                name="Firstname"
+                                                placeholder="First name"
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div>
+                                            <Input
+                                                value={formValues.Lastname}
+                                                label="Last Name"
+                                                size="small"
+                                                isTextArea={false}
+                                                name="Lastname"
+                                                placeholder="Last name"
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <Input
+                                            value={formValues.email}
+                                            label="Work email address"
+                                            size="small"
+                                            type="email"
+                                            isTextArea={false}
+                                            name="email"
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
 
-                        {/* this is the code for the country */}
+                                    {/* this is the code for the country */}
 
-                        <div className="dropdown">
-                            <Dropdown
-                                label="Country"
-                                onChange={(option: OptionType) => handleCountry(option)}
-                                options={countries}
-                                defaultText={"Choose Country"}
-                                size="small"
-                            />
-                        </div>
+                                    <div className="dropdown">
+                                        <Dropdown
+                                            label="Country"
+                                            onChange={(option: OptionType) => handleCountry(option)}
+                                            options={countries}
+                                            defaultText={"Choose Country"}
+                                            size="small"
+                                        />
+                                    </div>
 
-                        {/* ------------------------------------------------------------ */}
+                                    {/* ------------------------------------------------------------ */}
 
-                        {states.length > 0 && (
-                            <div className="dropdown">
-                                <Dropdown
-                                    label="State"
-                                    onChange={(option: OptionType) => handleState(option)}
-                                    options={states}
-                                    defaultText={"Choose State"}
-                                    size="small"
-                                />
-                            </div>
-                        )}
+                                    {states.length > 0 && (
+                                        <div className="dropdown">
+                                            <Dropdown
+                                                label="State"
+                                                onChange={(option: OptionType) => handleState(option)}
+                                                options={states}
+                                                defaultText={"Choose State"}
+                                                size="small"
+                                            />
+                                        </div>
+                                    )}
 
-                        {/*
+                                    {/*
               -------------------------------------------------------
             ---------------------------------------------------------- */}
-                        {cities.length > 0 && (
-                            <div className="dropdown">
-                                <Dropdown
-                                    label="City"
-                                    onChange={(option: OptionType) => null}
-                                    options={cities}
-                                    defaultText={"Choose City"}
-                                    size="small"
-                                />
-                            </div>
-                        )}
+                                    {cities.length > 0 && (
+                                        <div className="dropdown">
+                                            <Dropdown
+                                                label="City"
+                                                onChange={(option: OptionType) => null}
+                                                options={cities}
+                                                defaultText={"Choose City"}
+                                                size="small"
+                                            />
+                                        </div>
+                                    )}
 
-                        {/* ----------------------------------------------------- */}
+                                    {/* ----------------------------------------------------- */}
 
-                        {/* This is for the phone number */}
+                                    {/* This is for the phone number */}
 
-                        {/* ----------------------------------------------------- */}
+                                    {/* ----------------------------------------------------- */}
 
-                        <div>
-                            <PhoneInput
-                                label="Office/Work Contact Number"
-                                options={phoneCode}
-                                onCountryChange={handlePhoneCodeChange}
-                                value={phoneNumber}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    setPhoneNumber(e.target.value);
-                                    setFormValues((prevValues) => ({
-                                        ...prevValues,
-                                        contactNumber: e.target.value,
-                                    }));
-                                }}
-                            />
-                        </div>
-                    </form>
+                                    <div>
+                                        <PhoneInput
+                                            label="Office/Work Contact Number"
+                                            options={phoneCode}
+                                            onCountryChange={handlePhoneCodeChange}
+                                            value={phoneNumber}
+                                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                                setPhoneNumber(e.target.value);
+                                                setFormValues((prevValues) => ({
+                                                    ...prevValues,
+                                                    contactNumber: e.target.value,
+                                                }));
+                                            }}
+                                        />
+                                    </div>
+
+                                    {/*<div className={styles.fileHeader}>Valid Identification</div>*/}
+                                    <br/>
+                                    <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'}
+                                                label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}
+                                                allowedTypes={['image/png', 'image/jpeg']}/>
+                                </div>
+                        </div>)
+                    }
+
+
                     <div className={style.edit_holder_two}>
                         <ButtonII
                             hasIcon={false}

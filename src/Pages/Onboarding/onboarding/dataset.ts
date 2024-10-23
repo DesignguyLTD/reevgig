@@ -41,6 +41,10 @@ export const recommendedLanguages: string[] = [
     'Mandarin', 'Russian', 'Vietnamese', 'Japanese', 'Arabic'
 ];
 
+export const recommendedIntrests: string[] = [
+    'Power BI', 'Hardware'
+];
+
 export const recommendedSkills: string[] = [
     'Python', 'HTML', 'PHP', 'C++', 'Engineering', 'Frontend',
     'Backend', '3D Modelling', 'Arduino', 'Vue.js'

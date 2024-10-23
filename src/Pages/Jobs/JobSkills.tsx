@@ -13,13 +13,13 @@ interface skillInt {
 export default function JobSkills({handlePopUp}: skillInt) {
 
     const [skilltags1, setSkilltags1] = useState<string[]>(() => {
-            const savedFormValues1 = localStorage.getItem('onboardingForm2');
-            return savedFormValues1 ? JSON.parse(savedFormValues1).SkillSet : [];
+            const savedFormValues1 = localStorage.getItem('JobSkills');
+            return savedFormValues1 ? JSON.parse(savedFormValues1).SkillSet1 : [];
         }
     );
     const [skilltags2, setSkilltags2] = useState<string[]>(() => {
-            const savedFormValues2 = localStorage.getItem('onboardingForm2');
-            return savedFormValues2 ? JSON.parse(savedFormValues2).SkillSet : [];
+            const savedFormValues2 = localStorage.getItem('JobSkills');
+            return savedFormValues2 ? JSON.parse(savedFormValues2).SkillSet2 : [];
         }
     );
 
@@ -104,11 +104,14 @@ export default function JobSkills({handlePopUp}: skillInt) {
                 <p className={style.level}>
                     Language
                 </p>
-                <TagInput
-                    subLabel2={'Popular Languages spoken'}
-                    label='' recommendedTags={recommendedLanguages}
-                    placeholder={'Enter preferred Languages'} maxTags={5} setTags={setSkilltags2}
-                    tags={skilltags2}/>
+                <div className={style.TagInputWidthCtrl}>
+                    <TagInput
+                        subLabel2={'Popular Languages spoken'}
+                        label='' recommendedTags={recommendedLanguages}
+                        placeholder={'Enter preferred Languages'} maxTags={5} setTags={setSkilltags2}
+                        tags={skilltags2}/>
+                </div>
+
 
             </div>
         </div>

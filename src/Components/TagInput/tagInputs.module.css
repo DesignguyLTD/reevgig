@@ -1,7 +1,6 @@
 .tagInput {
     font-family: "PP Neue Montreal";
     margin: 10px auto;
-    max-width: 262px;
     width: 100%;
 }
 
@@ -207,7 +206,7 @@
     .tagInput {
         font-family: "PP Neue Montreal";
         margin: 10px auto;
-        max-width: 508px;
+
         width: 100%;
     }
 
@@ -247,7 +246,6 @@
     .tagInput {
         font-family: "PP Neue Montreal";
         margin: 10px auto;
-        max-width: 530px;
         width: 100%;
     }
 

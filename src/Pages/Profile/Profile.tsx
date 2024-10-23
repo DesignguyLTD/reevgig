@@ -13,7 +13,7 @@ interface Props {
 
 const Profile = ({page, setPage}: Props) => {
 
-    const [header, setHeader] = React.useState('Overview');
+    const [header, setHeader] = React.useState('Public');
 
     const handleHeader = (value: string) => {
         setHeader(value);
@@ -161,6 +161,7 @@ const Profile = ({page, setPage}: Props) => {
                                     label="Edit Profile"
                                     primary={true}
                                     size="medium"
+                                    onClick={handleNavigate}
                                 />
                             </div>
                         </div>
@@ -236,6 +237,7 @@ const Profile = ({page, setPage}: Props) => {
                                     label="Edit Profile"
                                     primary={true}
                                     size="medium"
+                                    onClick={handleNavigate}
                                 />
                             </div>
                         </div>

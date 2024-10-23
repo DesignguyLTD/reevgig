@@ -10,6 +10,10 @@
     max-width: 310px;
 }
 
+.TagInputWidthCtrl{
+    max-width: 268px;
+}
+
 
 .overall_container {
     display: inline-flex;
@@ -386,6 +390,10 @@ TimeLine styling codes */
         font-size: 20px;
     }
 
+    .TagInputWidthCtrl{
+        max-width: 540px;
+    }
+
     .text1 {
         color: rgb(0, 0, 0);
         font-family: PP Neue Montreal;
@@ -560,6 +568,11 @@ TimeLine styling codes */
         /*width: ;*/
         justify-content: flex-start;
     }
+
+    .TagInputWidthCtrl{
+        max-width: 580px;
+    }
+
 
     .nav_container {
         display: flex;

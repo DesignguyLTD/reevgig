@@ -9,6 +9,12 @@
     text-align: left;
 }
 
+.storybook-labelSub{
+    font-size: 14px;
+    color: #74767E;
+    width: 100%;
+    margin: 2px 0;
+}
 .InputError {
     box-sizing: border-box;
     font-family: 'PP Neue Montreal', 'sans-serif';
