@@ -21,6 +21,8 @@
 .profile_heading {
     display: flex;
     justify-content: space-between;
+    width: 95%;
+    margin: 1.5rem auto;
 
 }
 
@@ -45,7 +47,7 @@
     font-weight: 500;
     font-family: 'PP Neue Montreal';
     color: #18191C;
-    line-height: 26.6px;
+    line-height: 5px;
 
 }
 
@@ -53,7 +55,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 1rem;
 }
 
 
@@ -65,6 +66,7 @@
     width: 137px;
     padding: 16px;
     cursor: pointer;
+    display: none;
 }
 
 .order {
@@ -82,10 +84,20 @@
 }
 
 .btn {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .talents {
@@ -106,6 +118,8 @@
     font-family: 'PP Neue Montreal';
     z-index: 999;
 }
+
+
 
 .save,
 .report {
@@ -146,7 +160,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-top: 10px;
+    padding-top: 1px;
 }
 
 .text p {
@@ -324,7 +338,7 @@ div.view p:nth-child(3),
 }
 
 .desc {
-    width: 382px;
+    width: 350px;
     background-color: white;
     border: 1px solid #ECECEC;
     padding: 24px;
@@ -442,6 +456,11 @@ div.responseDivTwo {
     margin: 2rem auto;
 }
 
+@media screen and (min-width: 580px) {
+    .desc {
+        width: 480px;
+    }
+}
 
 
 
@@ -464,17 +483,23 @@ div.responseDivTwo {
 
     .title {
         font-size: 19px;
+        line-height: 26.6px;
     }
 
     .name {
         font-size: 16px;
     }
 
-    .btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
+    .send {
+        display: block;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .text {
+        padding-top: 10px;
     }
 
     .profile_heading {
@@ -583,6 +608,7 @@ div.responseDivTwo {
     .text p:nth-child(3) {
         display: block;
     }
+
 
 
     .content {

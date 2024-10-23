@@ -54,6 +54,12 @@ export const FullSlide = ({
             </div>
           </div>
           <div className={styling.btn}>
+            <button className={styling.icon}>
+              <img
+                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1729117007/Vector_kbgwig.svg"
+                alt="icon"
+              />
+            </button>
             <button className={styling.send}>Send Message</button>
 
             <button className={styling.order}>
