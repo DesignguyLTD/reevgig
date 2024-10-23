@@ -5,14 +5,14 @@
 }
 
 .container {
-    border: 2px solid red;
+
     text-align: left;
     background-color: #fff;
     border-radius: 8px;
     border: 1px solid #1414140D;
     box-shadow: 0px 1px 2px 0px #00000008;
-    padding: 16px;
-    width: 250px;
+    padding: 14px;
+    width: 356px;
 
 }
 
@@ -78,6 +78,10 @@
 
 }
 
+.to_hide {
+    display: flex;
+}
+
 .prof {
     display: flex;
     justify-content: space-between;
@@ -115,22 +119,23 @@
 
 .each_skill {
     background-color: #FFFBAA;
-    padding: 3px;
+    padding: 3px 12px;
     border-radius: 160px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #272727;
     color: rgb(39, 39, 39);
-    font-family: Poppins;
+    font-family: 'PP Neue Montreal';
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
     text-align: left;
+    /* width: 43px; */
 }
 
 .one_skill {
-    padding: 3px;
+    padding: 2px 5px;
     border-radius: 160px;
     background-color: #F7F7F7;
     display: inline-flex;
@@ -138,11 +143,12 @@
     align-items: center;
     border: 1px solid #272727;
     color: rgb(39, 39, 39);
-    font-family: Poppins;
+    font-family: 'PP Neue Montreal';
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
     text-align: left;
+
 }
 
 .hold_skills {
@@ -167,14 +173,14 @@
 
 @media (min-width: 768px) {
     .container {
-        width: 340px;
+        width: 376px;
 
     }
 }
 
 @media (min-width: 1024px) {
     .container {
-        width: 300px;
+        width: 260px;
 
     }
 }

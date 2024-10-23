@@ -1,0 +1,626 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+* {
+    font-family: 'PP Neue Montreal';
+
+}
+
+.cover_up {
+    background-color: #FCFDFF;
+    position: relative;
+
+}
+
+.container {
+    margin: 0rem auto;
+    padding: 2rem 0;
+
+}
+
+
+.profile_heading {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 1.5rem auto;
+
+}
+
+.profile_image {
+    width: 51px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile_image img {
+    width: 50px;
+    height: 50px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'PP Neue Montreal';
+    color: #18191C;
+    line-height: 5px;
+
+}
+
+.profile_ctn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.send {
+    border: 1px solid black;
+    border-radius: 160px;
+    color: black;
+    background-color: white;
+    width: 137px;
+    padding: 16px;
+    cursor: pointer;
+    display: none;
+}
+
+.order {
+    border: 1px solid #2B2B2B;
+    border-radius: 160px;
+    color: white;
+    background-color: #2B2B2B;
+    width: 137px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.talents {
+    background-color: #272727;
+    box-shadow: 0px 4px 8px 0px #00000026;
+    width: 132px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    position: absolute;
+    right: 3px;
+    top: 6.5rem;
+    height: 60px;
+    padding: 8px;
+    font-family: 'PP Neue Montreal';
+    z-index: 999;
+}
+
+
+
+.save,
+.report {
+    border-radius: 4px;
+}
+
+.save:hover,
+.report:hover {
+
+    background-color: #FEC200;
+}
+
+.save:hover .save_talent,
+.report:hover .report_talent {
+    color: #272727;
+}
+
+.save_talent,
+.report_talent {
+    width: 116px;
+    text-align: center;
+    background: none;
+    border-radius: 4px;
+    border: none;
+    font-size: 10px;
+    color: #D9D9D9;
+    line-height: 24px;
+}
+
+.options {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+.text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 1px;
+}
+
+.text p {
+    margin: 0;
+
+}
+
+.name {
+    color: #474C54;
+    font-size: 14px;
+    line-height: 26.6px;
+}
+
+.text p:nth-child(2) {
+    color: #d4a200;
+    background-color: #fff3cc;
+    border: 1px solid #d4a200;
+    border-radius: 160px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: 'PP Neue Montreal';
+    line-height: 16.8px;
+    display: none;
+}
+
+.text p:nth-child(3) {
+    color: #007aff;
+    background-color: #007AFF40;
+    border: 1px solid #007aff;
+    border-radius: 160px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: 'PP Neue Montreal';
+    line-height: 16.8px;
+    display: none;
+}
+
+.overview_container {
+    border: 1px solid #ECECEC;
+    width: 382px;
+    text-align: left;
+    padding: 24px 24px 32px 24px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+
+.overview {
+    display: grid;
+    row-gap: 24px;
+    width: fit-content;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.view {
+    max-width: 144px;
+    width: 100%;
+    text-align: left;
+
+}
+
+.over_text {
+    color: #18191C;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: "inter";
+    line-height: 28px;
+    padding: 8px 0px 24px 0px;
+}
+
+div.view p:nth-child(2) {
+    font-family: 'PP Neue Montreal';
+    padding: 8px 0;
+    font-size: 12px;
+    color: #767F8C;
+    line-height: 16.8px;
+}
+
+div.view p:nth-child(3),
+.nmb {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'PP Neue Montreal';
+    color: #18191C;
+    line-height: 22.4px;
+}
+
+
+.rate_ctn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ECECEC;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    gap: 24px;
+    width: 382px;
+    text-align: center;
+    margin-bottom: 24px;
+
+}
+
+.rate_ctn hr {
+    width: 2px;
+    background-color: #ECECEC;
+    border: none;
+    outline: none;
+    height: 81px;
+}
+
+.rate_ctn .rtn {
+
+    line-height: 16.8px;
+    color: #7D7D7D;
+    font-size: 12px;
+
+
+}
+
+.rate_ctn .mny {
+    color: #272727;
+    font-size: 16px;
+    line-height: 26.6px;
+    font-weight: 500;
+    padding: 8px 0px;
+}
+
+.skill {
+    background-color: #FFFBAA;
+    padding: 3px 12px;
+    border-radius: 160px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #272727;
+    color: rgb(39, 39, 39);
+    font-family: 'PP Neue Montreal';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+}
+
+.sk_set {
+    padding: 3px 10px;
+    border-radius: 160px;
+    background-color: #F7F7F7;
+    border: 1px solid #272727;
+    color: rgb(39, 39, 39);
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+}
+
+.hold_skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 8px;
+}
+
+.skill_ctn {
+    text-align: left;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.desc {
+    width: 350px;
+    background-color: white;
+    border: 1px solid #ECECEC;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 32px;
+}
+
+.desc h2 {
+    color: #18191C;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 26.6px;
+    padding-bottom: 11px;
+}
+
+.desc_words {
+    text-align: "left";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.desc_words .passage {
+    height: 100%;
+    color: #5E6670;
+    font-size: 16px;
+    line-height: 22.4px;
+    font-family: 'PP Neue Montreal';
+    width: 100%;
+    margin: 0;
+}
+
+
+.resume {
+    width: 382px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #ECECEC;
+    background-color: #FFFFFF;
+}
+
+.resume h2 {
+
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 26.6px;
+    color: #272727;
+    padding-bottom: 4px;
+}
+
+.resume_upload {
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.recommend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 100px 20px 44px;
+    width: 100%;
+}
+
+.recommended {
+    margin: 2rem 0;
+    width: 432px;
+    overflow-x: hidden;
+    background-color: #fafafa;
+    text-align: left;
+    border: 1px solid #e4e5e7;
+
+}
+
+.recommended h1 {
+    color: #404145;
+    font-size: 24px;
+    line-height: 31.2px;
+    padding: 35px 30px 0px;
+    font-weight: 500;
+}
+
+.review {
+    padding-bottom: 40px;
+    width: fit-content;
+}
+
+.responseDiv {
+    border: 1px solid #DADBDD;
+    padding: 45px 0px;
+    border-left: none;
+    border-right: none;
+    /* margin-top: 40px; */
+    width: fit-content;
+}
+
+div.responseDivTwo {
+    border: none;
+    padding: 45px 0px;
+
+    width: fit-content;
+}
+
+
+.below {
+    width: 432px;
+    margin: 2rem auto;
+}
+
+@media screen and (min-width: 580px) {
+    .desc {
+        width: 480px;
+    }
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .profile_image {
+        width: 80.77px;
+        height: 80px;
+    }
+
+    .profile_image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile_ctn {
+        gap: 16px;
+    }
+
+    .title {
+        font-size: 19px;
+        line-height: 26.6px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .send {
+        display: block;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .text {
+        padding-top: 10px;
+    }
+
+    .profile_heading {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 8px;
+
+    }
+
+    .desc {
+        width: 600px;
+
+    }
+
+    .below {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .rate_ctn {
+
+        width: 600px;
+
+
+    }
+
+    .overview_container {
+        width: 600px;
+
+    }
+
+    .overview {
+        display: grid;
+        column-gap: 24px;
+        width: fit-content;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resume {
+        width: 600px;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+        border-radius: 8px;
+        border: 1px solid #ECECEC;
+        background-color: #FFFFFF;
+    }
+
+    .recommended {
+        margin: 2rem 0;
+        width: 648px;
+        overflow-x: hidden;
+        border: 1px solid #e4e5e7;
+
+    }
+
+
+    .rate_ctn hr {
+        width: 2px;
+        background-color: #ECECEC;
+        border: none;
+        outline: none;
+        height: 81px;
+    }
+
+    .rate_ctn .rtn {
+
+        line-height: 22.4px;
+        color: #7D7D7D;
+        font-size: 16px;
+
+
+    }
+
+    .rate_ctn .mny {
+        color: #272727;
+        font-size: 19px;
+        line-height: 26.6px;
+        font-weight: 500;
+        padding: 8px 0px;
+    }
+
+
+}
+
+@media screen and (min-width: 1024px) {
+    .profile_ctn {
+        gap: 39px;
+    }
+
+    .title {
+        font-size: 23px;
+
+    }
+
+    .name {
+        font-size: 19px;
+    }
+
+    .text p:nth-child(2) {
+        display: block;
+    }
+
+    .text p:nth-child(3) {
+        display: block;
+    }
+
+
+
+    .content {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .container {
+        width: 1193px;
+    }
+
+}

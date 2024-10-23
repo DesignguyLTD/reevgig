@@ -1,0 +1,122 @@
+@import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
+
+* {
+    font-family: 'PP Neue Montreal';
+}
+
+.container {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+/* .display_section {} */
+
+.display_image {
+    width: 100%;
+    height: min-content;
+    object-fit: contain;
+}
+
+.left_arrow {
+    position: absolute;
+    cursor: pointer;
+    width: 41.46px;
+    height: 41.46px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40%;
+    left: -20px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 1.73px 4.32px 0px #00000026;
+    z-index: 1000;
+}
+
+.left_arrow img {
+    transform: rotate(-180deg);
+}
+
+.right_arrow {
+    position: absolute;
+    cursor: pointer;
+    width: 41.46px;
+    height: 41.46px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    top: 40%;
+    right: -20px;
+    box-shadow: 0px 1.73px 4.32px 0px #00000026;
+    z-index: 1000;
+}
+
+.thumbnail {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.thumbnail_image {
+    width: 86.37px;
+}
+
+.thumbnail_image img {
+    width: 100%;
+    height: 51.82px;
+    object-fit: cover;
+}
+
+.images {
+    transform: scale(1);
+}
+
+.images_hover {
+    transform: scale(1.02);
+}
+
+@media screen and (min-width: 480px) {
+    .container {
+        max-width: 400px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 580px) {
+    .container {
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    .container {
+        max-width: 600px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 647px;
+        width: 100%;
+
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 597px;
+        width: 100%;
+
+    }
+}
