@@ -50,6 +50,14 @@
     background: rgb(254, 194, 0);
 }
 
+.storybookButton:hover .Buttoninvert{
+    filter: invert(1);
+}
+
+.storybookButton:active .Buttoninvert{
+    filter: none;
+}
+
 .storybookButton:active, .noLabel:active {
     color: rgb(254, 194, 0);
     box-sizing: border-box;

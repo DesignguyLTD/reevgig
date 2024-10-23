@@ -4,22 +4,6 @@ import appstyle from "../../../Pages/DashBoard/ApplicantProfile/ApplicantProfile
 import style from "../../OverView/OverviewPage.module.css";
 
 const ApplicantProfilePage = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
-    );
-    const UserType  = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
-
-    const getSidebarState = (x: boolean): boolean => {
-        setIsSidebarOpen(x);
-        return x;
-    }
-
-    const getPage = (x: string): string => {
-        setCurrentPage(x);
-        localStorage.setItem('currentPage', currentPage);
-        return x;
-    }
     const [header, setHeader] = React.useState('Proposal');
 
     const handleHeader = (value: string) => {
@@ -28,8 +12,8 @@ const ApplicantProfilePage = () => {
 
     return (
         <div>
-            <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
-            <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
+
+            <div>
                 <div className={appstyle.ApplicantCnt}>
                   <div className={appstyle.ApplicantHeaderCnt}>
                       <div className={appstyle.ApplicantHeaderText}>

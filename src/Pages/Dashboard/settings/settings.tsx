@@ -10,8 +10,8 @@ interface SettingList {
 const settingLists: SettingList[] = [
     {name: 'Account Settings', path: '/accountSettings'},
     {name: 'Notification', path: '/notification'},
-    {name: 'Privacy Policy', path: '/dashboard'},
-    {name: 'About Us', path: '/dashboard'}
+    {name: 'Privacy Policy', path: '/'},
+    {name: 'About Us', path: '/'}
 ];
 
 const Settings: React.FC = () => {

@@ -151,7 +151,7 @@ const LandingPage = () => {
                             {!isOpen &&
                                 <div className={styles.btn1}>
                                     <ButtonII size={'large'} primary={true} hasIcon={true} icon={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727781978/Reev/1st%20oct/Frame_1618869363_t6u1mi.svg'}
-                                              isLabelVisible={true}
+                                              isLabelVisible={true} invert={'invert'}
                                               label={'Explore Freelance Talents'} onClick={CTABtn}/>
                                 </div>
 

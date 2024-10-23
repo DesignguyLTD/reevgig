@@ -127,11 +127,15 @@ li {
 
 .deskTabIcon:hover, .deskTabIcon:active {
     color: #000000;
-    background-color: #F3CF57;
+    background-color: #fec200;
     border-left: 2px solid #060606;
     flex-direction: column;
     width: 99%;
     align-items: center;
+}
+
+a{
+    color: rgb(125, 125, 125);
 }
 
 .dodo {
@@ -153,8 +157,8 @@ li {
 }
 
 .mobileIcon:hover {
-    color: #f7cf31;
-    border-left: 2px solid #f7cf31;
+    color: #fec200;
+    border-left: 2px solid #fec200;
 
 }
 
@@ -187,7 +191,7 @@ i {
     visibility: hidden;
     width: 74px;
     background-color: #252525;
-    color: #f7cf31;
+    color: #fec200;
     text-align: center;
     border-radius: 5px;
     padding: 5px 0;
@@ -295,7 +299,7 @@ i {
 
 .deskTabIcon.active{
     color: #000000;
-    background-color: #F3CF57;
+    background-color: #fec200;
     border-left: 2px solid #060606;
     flex-direction: column;
     width: 99%;
@@ -303,8 +307,8 @@ i {
 }
 
 .mobileIcon.active{
-    color: #f7cf31;
-    border-left: 2px solid #f7cf31;
+    color: #fec200;
+    border-left: 2px solid #fec200;
 }
 
 
@@ -360,7 +364,7 @@ i {
 
     .userName {
         display: block;
-        color: rgb(247, 207, 49);
+        color: #fec200;
         font-family: PP Neue Montreal;
         font-size: 14px;
         font-weight: 400;
@@ -431,7 +435,7 @@ i {
 
     .userName {
         display: block;
-        color: rgb(247, 207, 49);
+        color: #fec200;
         font-family: PP Neue Montreal;
         font-size: 16px;
         font-weight: 400;

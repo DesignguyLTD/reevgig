@@ -27,30 +27,13 @@ const NotificationPage = () => {
         false
     ])
 
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
-    );
-
-
-    const getSidebarState = (x: boolean): boolean => {
-        setIsSidebarOpen(x);
-        return x;
-    }
-
-    const getPage = (x: string): string => {
-        setCurrentPage(x);
-        localStorage.setItem('currentPage', x);
-        return x;
-    }
-
     return (
         <div>
-            <Sidebar logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
-            <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
+
+            <div>
                 <div className={styles.ctn}>
                     <div className={styles.settingPages}>
-                        <Link to="/dashboard" className={styles.backToSettings}>
+                        <Link to="/overview" className={styles.backToSettings}>
                             <img src={cloudImages.backArrow} alt="Back Arrow"/>
                             <p>Settings</p>
                         </Link>

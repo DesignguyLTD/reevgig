@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import style from './header.module.css';
 
 interface HeaderProps {
@@ -21,18 +21,21 @@ const Header = ({auth}: HeaderProps) => {
     };
 
     const handleDashNav = ()=>{
-        navigate('/dashboard')
+        navigate('/overview')
     }
 
     return (
         <nav className={style.navContainer}>
             <div className={style.upperSec}>
                 <div className={style.logo} aria-label={'logo'}>
-                    <img
-                        className={style.logo}
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg"
-                        alt="logo"
-                    />
+                    <Link to='/'>
+                        <img
+                            className={style.logo}
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg"
+                            alt="logo"
+                        />
+                    </Link>
+
                 </div>
 
                 {auth ? (

@@ -98,12 +98,16 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                 </div>
 
                 <div className={styles.lastCont}>
-                    <div style={{ cursor: 'pointer' }}>
-                        <img
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
-                            alt="bell"
-                        />
-                    </div>
+
+                    <Link style={{textDecoration: 'none'}} to='/notification'>
+                        <div style={{ cursor: 'pointer' }}>
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
+                                alt="bell"
+                            />
+                        </div>
+                    </Link>
+
 
                     <div ref={profileRef} className={styles.Userbtn} onClick={handleProfile}>
                         <img
@@ -127,7 +131,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
             <div style={{ position: 'relative' }}>
                 <div ref={navSearchRef}
                      className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
-                    <Link to={`${logo}`} className={styles.Link}>
+                    <Link style={{textDecoration: 'none'}} to={`${logo}`} className={styles.Link}>
                         <div className={styles.logo}>
                             <img
                                 src={
@@ -158,12 +162,9 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                     </button>
 
                     <ul className={styles.upperSideBar}>
+                        <Link style={{textDecoration: 'none'}} to='/overview'>
                         <li
                             className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Overview' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('Overview');
-                                getPage?.('Overview');
-                            }}
                         >
                             {isOpen ? (
                                 <div className={styles.dodo}>
@@ -177,179 +178,165 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 </div>
                             )}
                         </li>
+                        </Link>
 
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Profile' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('Profile');
-                                getPage?.('Profile');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-user"></i>
-                                    Profile
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-user"></i>
-                                    <span className={styles.tooltiptext}>Profile</span>
-                                </div>
-                            )}
-                        </li>
-
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PostAJob' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('PostAJob');
-                                getPage?.('PostAJob');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-add"></i>
-                                    Post a Job
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-add"></i>
-                                    <span className={styles.tooltiptext}>Post a Job</span>
-                                </div>
-                            )}
-                        </li>
-
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Message' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('Message');
-                                getPage?.('Message');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-envelope"></i>
-                                    Message
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-envelope"></i>
-                                    <span className={styles.tooltiptext}>Message</span>
-                                </div>
-                            )}
-                        </li>
-
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'SavedEmployee' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('SavedEmployee');
-                                getPage?.('SavedEmployee');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-users"></i>
-                                    Saved Employee
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-users"></i>
-                                    <span className={styles.tooltiptext}>Saved Employee</span>
-                                </div>
-                            )}
-                        </li>
-
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PlanBillings' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('PlanBillings');
-                                getPage?.('PlanBillings');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-receipt"></i>
-                                    Plan & Billings
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-receipt"></i>
-                                    <span className={styles.tooltiptext}>Plan & Billings</span>
-                                </div>
-                            )}
-                        </li>
-
-                        {UserType !== 'Client' && (
+                        <Link style={{textDecoration: 'none'}} to='/profile'>
                             <li
-                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Review' ? styles.active : ''}`}
-                                onClick={() => {
-                                    setActiveItem('Review');
-                                    getPage?.('Review');
-                                }}
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Profile' ? styles.active : ''}`}
                             >
                                 {isOpen ? (
                                     <div className={styles.dodo}>
-                                        <i className="fi fi-sr-star"></i>
-                                        Reviews
+                                        <i className="fi fi-sr-user"></i>
+                                        Profile
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
-                                        <i className="fi fi-sr-star"></i>
-                                        <span className={styles.tooltiptext}>Reviews</span>
+                                        <i className="fi fi-sr-user"></i>
+                                        <span className={styles.tooltiptext}>Profile</span>
                                     </div>
                                 )}
                             </li>
-                        )}
+                        </Link>
 
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Settings' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('Settings');
-                                getPage?.('Settings');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-settings"></i>
-                                    Settings
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-settings"></i>
-                                    <span className={styles.tooltiptext}>Settings</span>
-                                </div>
+                        <Link style={{textDecoration: 'none'}} to='/postproject'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PostAJob' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-add"></i>
+                                        Post a Job
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-add"></i>
+                                        <span className={styles.tooltiptext}>Post a Job</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
+
+                        <Link style={{textDecoration: 'none'}} to='/message'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Message' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-envelope"></i>
+                                        Message
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-envelope"></i>
+                                        <span className={styles.tooltiptext}>Message</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
+
+                        <Link style={{textDecoration: 'none'}} to='/saved'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'SavedEmployee' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-users"></i>
+                                        Saved Employee
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-users"></i>
+                                        <span className={styles.tooltiptext}>Saved Employee</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
+                        <Link style={{textDecoration: 'none'}} to='/payment'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PlanBillings' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-receipt"></i>
+                                        Plan & Billings
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-receipt"></i>
+                                        <span className={styles.tooltiptext}>Plan & Billings</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
+
+                        <Link style={{textDecoration: 'none'}} to='/review'>
+                            {UserType !== 'Client' && (
+                                <li
+                                    className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Review' ? styles.active : ''}`}
+                                >
+                                    {isOpen ? (
+                                        <div className={styles.dodo}>
+                                            <i className="fi fi-sr-star"></i>
+                                            Reviews
+                                        </div>
+                                    ) : (
+                                        <div className={styles.dodom}>
+                                            <i className="fi fi-sr-star"></i>
+                                            <span className={styles.tooltiptext}>Reviews</span>
+                                        </div>
+                                    )}
+                                </li>
                             )}
-                        </li>
+                        </Link>
+
+                        <Link style={{textDecoration: 'none'}} to='/settings'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Settings' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-settings"></i>
+                                        Settings
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-settings"></i>
+                                        <span className={styles.tooltiptext}>Settings</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
                     </ul>
 
                     <ul className={styles.lowerSideBar}>
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Help' ? styles.active : ''}`}
-                            onClick={() => {
-                                setActiveItem('Help');
-                                getPage?.('Help');
-                            }}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-interrogation"></i>
-                                    Help
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-interrogation"></i>
-                                    <span className={styles.tooltiptext}>Help</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link style={{textDecoration: 'none'}} to='/help'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Help' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-interrogation"></i>
+                                        Help
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-interrogation"></i>
+                                        <span className={styles.tooltiptext}>Help</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
 
                         <li
                             className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Logout' ? styles.active : ''}`}
                             onClick={() => {
-                                setActiveItem('Logout');
                                 // Handle logout logic here
-                                // For example:
-                                // logout();
-                                // navigate('/login');
                             }}
                         >
                             {isOpen ? (

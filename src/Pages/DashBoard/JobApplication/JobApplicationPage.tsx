@@ -58,23 +58,8 @@ const jobApplications: JobApplication[] = [
     },
 ];
 const JobApplicationPage = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
-    );
+
     const [header, setHeader] = React.useState('All');
-    const UserType  = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
-
-    const getSidebarState = (x: boolean): boolean => {
-        setIsSidebarOpen(x);
-        return x;
-    }
-
-    const getPage = (x: string): string => {
-        setCurrentPage(x);
-        localStorage.setItem('currentPage', x);
-        return x;
-    }
 
 
     const [applications, setApplications] = useState<JobApplication[]>(jobApplications);
@@ -94,8 +79,8 @@ const JobApplicationPage = () => {
     }
     return (
         <div>
-            <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
-            <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
+
+            <div>
                 <div className={JAStyles.JobHeaderText}>
                     Job Application
                 </div>
