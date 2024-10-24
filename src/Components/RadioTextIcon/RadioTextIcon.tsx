@@ -11,7 +11,7 @@ interface RadioTextIconProps {
     selectedOption?: string;
 }
 
-const RadioTextIcon = ({text1, Icon, text2, name, value, selectedOption, handleRadioChange}:RadioTextIconProps) => {
+const RadioTextIcon = ({text1, Icon, text2, name, value, selectedOption, handleRadioChange}: RadioTextIconProps) => {
     const isSelected = selectedOption === value;
     const radioContainerClass = isSelected ? `${radioStyle.RadioContainer} ${radioStyle.RadioContainerSelected}` : radioStyle.RadioContainer;
     const radioTextClass = radioStyle.RadioText;

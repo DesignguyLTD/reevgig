@@ -1,0 +1,211 @@
+/* src/components/ResponsiveTable.css */
+.table-container {
+    overflow-x: auto;
+    /*margin: 20px;*/
+    height: 400px;
+}
+
+thead {
+    border-radius: 6px;
+    background: rgb(43, 43, 43);
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 700px;
+    border-radius: 6px;
+}
+
+.responsive-table th {
+    padding: 9px;
+    text-align: left;
+}
+
+.width {
+    width: 20%;
+
+}
+
+.responsive-table td {
+    padding: 9px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 0.6px;
+    text-align: left;
+}
+
+.responsive-table th {
+    color: rgb(255, 255, 255);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.6px;
+    text-align: left;
+}
+
+/*.responsive-table tr:nth-child(even) {*/
+/*    background-color: #f9f9f9;*/
+/*}*/
+.responsive-table tr {
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.client-name {
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 0.7px;
+    text-align: left;
+}
+
+.view-order {
+    color: rgb(151, 149, 157);
+    font-family: PP Neue Montreal;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 1px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.status-badge.completed {
+    border-radius: 20px;
+    background: rgba(26, 147, 46, 0.18);
+    color: rgb(26, 147, 46);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.status-badge.delayed {
+    border-radius: 20px;
+    color: rgb(223, 165, 16);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    background: rgba(226, 177, 51, 0.18);
+}
+
+.status-badge.overdue {
+    border-radius: 20px;
+    color: rgb(238, 32, 28);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    background: rgba(238, 32, 28, 0.18);
+}
+
+.status-badge.in-progress {
+    color: rgb(230, 95, 43);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    border-radius: 20px;
+    width: 82%;
+    background: rgba(230, 95, 43, 0.18);
+}
+
+.progress-circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.progress-circle svg {
+    transform: rotate(363deg);
+    width: 50px;
+    height: 50px;
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 5;
+}
+
+.progress-circle circle:first-child {
+    stroke: #ddd;
+}
+
+.progress-circle circle:last-child {
+    stroke: #4caf50;
+    stroke-dasharray: 82;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.progress-circle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+}
+
+@media (max-width: 768px) {
+    .responsive-table {
+        min-width: 100%;
+    }
+
+    .responsive-table th {
+        display: none;
+    }
+
+    .responsive-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .responsive-table tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .responsive-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+}

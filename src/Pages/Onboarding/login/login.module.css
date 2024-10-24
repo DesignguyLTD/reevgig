@@ -1,15 +1,15 @@
-.container{
+.container {
     margin-top: 100px;
 
 }
 
-.headerText{
+.headerText {
     max-width: 270px;
     width: 100%;
     margin: 0 auto;
 }
 
-.headerText h1{
+.headerText h1 {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 33px;
@@ -19,13 +19,13 @@
     text-align: center;
 }
 
-.ThirdPartiesAuthContainer{
+.ThirdPartiesAuthContainer {
     display: inline-flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.orText{
+.orText {
     display: inline-flex;
     flex-direction: row;
     width: 100%;
@@ -35,20 +35,20 @@
     margin: 10px 0;
 }
 
-.orText span{
+.orText span {
     padding: 10px;
 }
 
-.orText hr{
+.orText hr {
     border: 0;
     width: 100%;
     height: 1px;
     background-color: #5b5656;
 }
 
-.lowerText{
+.lowerText {
     margin-top: 16px;
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 16px;
     font-weight: 400;
     line-height: 140%;
@@ -56,12 +56,12 @@
     text-align: center;
 }
 
-.makeYellow{
+.makeYellow {
     color: rgb(254, 194, 0);
     cursor: pointer;
 }
 
-.forgotKeepLogin{
+.forgotKeepLogin {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -69,13 +69,13 @@
     justify-content: space-between;
 }
 
-.Keepmeloggedin{
+.Keepmeloggedin {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
 }
 
-.checkBoxtext, .lowerText2{
+.checkBoxtext, .lowerText2 {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 12px;
@@ -85,7 +85,7 @@
     text-align: center;
 }
 
-.forgotPword{
+.forgotPword {
     color: rgb(254, 194, 0);
     cursor: pointer;
     font-family: PP Neue Montreal;
@@ -97,9 +97,9 @@
     text-decoration: none;
 }
 
-.headEmail{
+.headEmail {
     color: rgb(24, 24, 24);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 16px;
     font-weight: 400;
     margin: 0;
@@ -109,43 +109,44 @@
 }
 
 @media (min-width: 765px) {
-    .container{
+    .container {
         margin-top: 172px;
     }
-    .headerText{
+
+    .headerText {
         max-width: 506px;
         width: 100%;
         margin: 0 auto;
 
     }
 
-    .forgotPword{
+    .forgotPword {
         color: rgb(254, 194, 0);
     }
 
-    .forgotPword, .checkBoxtext .lowerText2{
+    .forgotPword, .checkBoxtext .lowerText2 {
         font-size: 14px;
     }
 
-    .headerText h1{
+    .headerText h1 {
         font-size: 36px;
     }
 }
 
 
 @media (min-width: 1024px) {
-    .container{
+    .container {
         margin-top: 200px;
     }
 
-    .headerText{
+    .headerText {
         max-width: 533px;
         width: 100%;
         margin: 0 auto;
 
     }
 
-    .headerText h1{
+    .headerText h1 {
         font-size: 36px;
     }
 }

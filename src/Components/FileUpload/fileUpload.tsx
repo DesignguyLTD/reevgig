@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, DragEvent } from 'react';
+import React, {ChangeEvent, DragEvent, useState} from 'react';
 import styles from './fileUpload.module.css';
 
 interface FileUploadProps {
@@ -10,11 +10,11 @@ interface FileUploadProps {
     vibrate?: any;
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ vibrate,allowedTypes, id , label, file , setFile}) => {
+const FileUpload: React.FC<FileUploadProps> = ({vibrate, allowedTypes, id, label, file, setFile}) => {
     const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [isDragging, setIsDragging] = useState<boolean>(false);
-    const [fileLabel , setFileLabel] = useState<string>(localStorage.getItem(`fileLabel${id}`)||'');
+    const [fileLabel, setFileLabel] = useState<string>(localStorage.getItem(`fileLabel${id}`) || '');
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0];
@@ -44,32 +44,32 @@ const FileUpload: React.FC<FileUploadProps> = ({ vibrate,allowedTypes, id , labe
         setIsDragging(false);
     };
 
-  const validateFile = (file: File) => {
-    const maxSize = 1024 * 1024; // 1MB in bytes
-    setLoading(true);
+    const validateFile = (file: File) => {
+        const maxSize = 1024 * 1024; // 1MB in bytes
+        setLoading(true);
 
-    if (!allowedTypes.includes(file.type)) {
-        setError(`File should be in ${allowedTypes.join(', ')} format.`);
-        setFile(null);
-    } else if (file.size > maxSize) {
-        setError('File should not be more than 1MB.');
-        setFile(null);
-    } else {
-        setError('');
-        const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '');
-        setFileLabel(sanitizedFileName);
-        localStorage.setItem(`fileLabel${id}`, sanitizedFileName);
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            if (reader.result) {
-                setFile(reader.result as string);
-            }
-        };
-        reader.readAsDataURL(file);
-    }
+        if (!allowedTypes.includes(file.type)) {
+            setError(`File should be in ${allowedTypes.join(', ')} format.`);
+            setFile(null);
+        } else if (file.size > maxSize) {
+            setError('File should not be more than 1MB.');
+            setFile(null);
+        } else {
+            setError('');
+            const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '');
+            setFileLabel(sanitizedFileName);
+            localStorage.setItem(`fileLabel${id}`, sanitizedFileName);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                if (reader.result) {
+                    setFile(reader.result as string);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
 
-    setLoading(false);
-};
+        setLoading(false);
+    };
 
     const removeFile = () => {
         setFile(null);
@@ -100,12 +100,13 @@ const FileUpload: React.FC<FileUploadProps> = ({ vibrate,allowedTypes, id , labe
             onDragLeave={handleDragLeave}
         >
             {file ? (
-                <></>)
+                    <></>)
                 :
                 (<div>
-                    <label   htmlFor={id} className={styles.inputComponent} >
+                    <label htmlFor={id} className={styles.inputComponent}>
                         Attach File
-                        <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_qchl7c.svg" alt="Attach file icon"/>
+                        <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_qchl7c.svg"
+                             alt="Attach file icon"/>
                     </label>
                     <input
                         id={id}
@@ -113,16 +114,19 @@ const FileUpload: React.FC<FileUploadProps> = ({ vibrate,allowedTypes, id , labe
                         type="file"
                         onChange={handleFileChange}
                     />
-                    <p className={styles.firstText}>{label ? label :'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}</p>
+                    <p className={styles.firstText}>{label ? label : 'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}</p>
                     {loading && <p>Loading...</p>}
                 </div>)
             }
 
             {file && <div className={styles.fileUploadedCont}>
-                <p className={styles.fileUploaded}>{truncateFileName(fileLabel, 20)} <img onClick={removeFile} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg" alt="close"/></p>
+                <p className={styles.fileUploaded}>{truncateFileName(fileLabel, 20)} <img onClick={removeFile}
+                                                                                          src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg"
+                                                                                          alt="close"/></p>
                 <div className={styles.yellowunderline}></div>
             </div>}
-            <div className={styles.secText}>File should be in {filteredTypes.join(', ')} format and not more than 5mb</div>
+            <div className={styles.secText}>File should be in {filteredTypes.join(', ')} format and not more than 5mb
+            </div>
 
             {error && <div className={styles.error}>{error}</div>}
         </div>

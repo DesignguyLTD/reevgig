@@ -1,0 +1,177 @@
+.settingPages {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: auto;
+    width: 290px;
+}
+
+.backToSettings,
+.currentPage {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 15px;
+}
+
+.backToSettings {
+    text-decoration: none;
+    color: #000000;
+}
+
+.currentPage {
+    color: #97979D;
+}
+
+.displayName,
+.firstName,
+.lastName,
+.mail,
+.password,
+.country,
+.state,
+.city,
+.phone {
+    margin-top: 15px;
+}
+
+/* Image upload styling */
+
+.imageborder {
+    width: 80px;
+    height: 80px;
+    border: none;
+    background: #D9D9D9;
+    border-radius: 50%;
+    position: relative;
+}
+
+.image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.imageUploaderCtn {
+    background: #404145;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2px;
+    left: 60px;
+    color: white;
+}
+
+.profileForm {
+    margin: 0px;
+    width: 290px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.labelName {
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-left: 15px;
+}
+
+.country {
+    position: relative;
+    z-index: 3;
+}
+
+.state {
+    position: relative;
+    z-index: 2;
+}
+
+.city {
+    position: relative;
+    z-index: 1;
+}
+
+.btnCtn {
+    margin-top: 30px;
+}
+
+.passwordCtn {
+    width: 290px;
+    margin: auto;
+    padding-top: 60px;
+}
+
+h3 {
+    text-align: left;
+    font-weight: normal;
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 10px;
+}
+
+.passwordChange {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .ctn {
+        width: 700px;
+    }
+
+    .settingPages {
+        margin: 0px;
+        width: 510px;
+    }
+
+    .backToSettings,
+    .currentPage {
+        font-size: 16px;
+    }
+
+    .profileForm {
+        margin: 0px;
+        width: 510px;
+        padding-bottom: 50px;
+    }
+
+    .labelName {
+        padding-left: 0px;
+    }
+
+    h3 {
+        border-bottom: none;
+        padding: 0px;
+        margin-bottom: 15px;
+    }
+
+    .passwordCtn {
+        width: 100%;
+        margin: 0;
+        border-top: 1px solid #D9D9D9;
+        padding-top: 20px;
+    }
+
+    .btnCtn {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .passwordCtn {
+        width: 700px;
+
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .profileForm {
+        margin: 0px;
+        width: 530px;
+    }
+}

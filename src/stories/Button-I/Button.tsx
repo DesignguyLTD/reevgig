@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './button.module.css'; // Import CSS module
+import React from "react";
+import styles from "./button.module.css"; // Import CSS module
 
 interface ButtonProps {
     /**
@@ -21,7 +21,7 @@ interface ButtonProps {
      * Sets the size of the button.
      * @default 'medium'
      */
-    size?: 'small' | 'medium' | 'large';
+    size?: "small" | "medium" | "large";
 
     /**
      * The text displayed on the button.
@@ -39,6 +39,10 @@ interface ButtonProps {
     onClick?: () => void;
 
     imgLink?: string;
+
+    style?: object;
+
+    className?: string;
 }
 
 /**
@@ -57,34 +61,41 @@ interface ButtonProps {
 
 export const Button = ({
                            primary = false,
-                           size = 'medium',
+                           size = "medium",
                            BorderColor,
                            label,
                            disabled = false,
-                            icon,
-                            imgLink,
+                           icon,
+                           imgLink,
+                           style = {},
+                           className = "",
                            ...props
                        }: ButtonProps) => {
-    const mode = primary ? styles['storybook-button--primary'] : styles['storybook-button--secondary'];
-    const disable = disabled ? styles['storybook-button--disabled'] : '';
+    const mode = primary
+        ? styles["storybook-button--primary"]
+        : styles["storybook-button--secondary"];
+    const disable = disabled ? styles["storybook-button--disabled"] : "";
 
     // Join all classes using CSS modules
     const buttonClasses = [
-        styles['storybook-button'],
+        styles["storybook-button"],
         styles[`storybook-button--${size}`],
         mode,
-        disable
-    ].join(' ');
+        disable,
+    ].join(" ");
 
     return (
         <button
             disabled={disabled}
             type="button"
             className={buttonClasses}
-            style={{borderColor: BorderColor}}
-            {...props}
-        >
-            {icon && <span className={styles['icon']}><img src={imgLink} alt="btn icon"/></span>}
+            style={{borderColor: BorderColor, ...style}}
+            {...props}>
+            {icon && (
+                <span className={styles["icon"]}>
+          <img src={imgLink} alt="btn icon"/>
+        </span>
+            )}
             {label}
         </button>
     );

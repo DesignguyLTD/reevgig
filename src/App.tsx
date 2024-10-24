@@ -1,48 +1,36 @@
-import React from 'react';
-import './App.css';
-import Header from "./stories/Header/header";
-import {
-    HashRouter as Router, Route, Routes
-} from "react-router-dom";
-import SignUp from "./Pages/Onboarding/SignUp/signUp";
+import "./App.css";
+import Dashboard from "./Pages/DashBoard/Dashboard";
+import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import Login from "./Pages/Onboarding/login/login";
-import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
-import Sidebar from "./stories/SideBar/sideBar";
+import React from "react";
+import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
+import SignUp from "./Pages/Onboarding/SignUp/signUp";
+import { HashRouter as Router, Link, Route, Routes } from "react-router-dom";
 
+// import Footer from "./LandingPage/Footer";
 
 
 function App() {
-
-
     return (
         <div className="App">
-            {/**/}
-            {/*<Sidebar/>*/}
-
             <Router basename="/">
                 <Routes>
-                    <Route path="/"  element={
-                        <>
-                            <Header auth={true}/>
-                            <h1>
-                                <header className="App-header">
-                                    <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png'
-                                         className="App-logo" alt="logo"/>
-                                </header>
-                            </h1>
-                        </>
-                        }
-                    />
-                    <Route path="/signup" element={<SignUp/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/resetpassword" element={<ResetPassword/>}/>
-                    <Route path="/onboarding" element={<OnBoarding/>}/>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/resetpassword" element={<ResetPassword />} />
+                    <Route path="/onboarding" element={<OnBoarding />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/jobapplication" element={<JobApplicationPage />} />
+                    <Route path="*" element={<h1>404 page <Link to={'/dashboard'}>Dashboard</Link></h1>} />
                 </Routes>
             </Router>
 
         </div>
     );
-}
+};
+
 
 export default App;

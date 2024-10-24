@@ -107,8 +107,6 @@ const ResetPassword = () => {
         }
 
 
-
-
         setFormErrors(newErrors);
 
         // If all values are valid, return true
@@ -214,13 +212,15 @@ const ResetPassword = () => {
 
                         <form>
                             <Input isTextArea={false} type={'password'} label='New Password' placeholder='Reev100%'
-                                   size='small' onChange={handleInputChange} name={'password'} error={!!formErrors.password}
+                                   size='small' onChange={handleInputChange} name={'password'}
+                                   error={!!formErrors.password}
                                    errorMessage={formErrors.password}
                                    value={formValues.password}
                             />
 
                             <Input isTextArea={false} type={'password'} label='New Password' placeholder='Reev100%'
-                                   size='small' onChange={handleInputChange} name={'confirmPassword'} error={!!formErrors.confirmPassword}
+                                   size='small' onChange={handleInputChange} name={'confirmPassword'}
+                                   error={!!formErrors.confirmPassword}
                                    errorMessage={formErrors.confirmPassword}
                                    value={formValues.confirmPassword}
                             />

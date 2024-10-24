@@ -97,7 +97,7 @@ const Input: React.FC<InputProps> = ({
                                          size = 'small',
                                          type = 'text',
                                          isTextArea,
-                                        value,
+                                         value,
                                          maxContent, name,
                                      }: InputProps) => {
     const [isFocused, setIsFocused] = useState(focused);

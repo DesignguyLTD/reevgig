@@ -1,0 +1,85 @@
+/* toggle.module.css */
+.toggleCtn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 15px;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.toggleCtn--small {
+    width: 50px;
+    height: 25px;
+}
+
+.toggleCtn--medium {
+    width: 75px;
+    /* Adjusted width for medium */
+    height: 35px;
+    /* Adjusted height for medium */
+}
+
+.toggleCtn--large {
+    width: 100px;
+    /* Adjusted width for large */
+    height: 45px;
+    /* Adjusted height for large */
+}
+
+.activeToggleCtn {
+    display: flex;
+    align-items: end;
+    border: 1px solid #000000;
+    background: #000000;
+
+}
+
+.toggle {
+    border-radius: 50px;
+    background: grey;
+    transition: transform 0.3s ease;
+    /* Add transition */
+}
+
+.toggleCtn--small .toggle {
+    width: 20px;
+    /* Smaller toggle */
+    height: 20px;
+    /* Smaller toggle */
+}
+
+.toggleCtn--medium .toggle {
+    width: 25px;
+    /* Medium toggle */
+    height: 25px;
+    /* Medium toggle */
+}
+
+.toggleCtn--large .toggle {
+    width: 30px;
+    /* Larger toggle */
+    height: 30px;
+    /* Larger toggle */
+}
+
+.active {
+    transform: translateX(calc(100% - 22px));
+    /* Move based on container width */
+    background: #FEC200;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Media queries for responsiveness */
+    /* ... */
+}
+
+@media (max-width: 320px) {
+    /* Media queries for responsiveness */
+    /* ... */
+}
