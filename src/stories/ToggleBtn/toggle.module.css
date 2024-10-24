@@ -1,3 +1,4 @@
+/* toggle.module.css */
 .toggleCtn {
     display: flex;
     flex-direction: column;
@@ -17,108 +18,68 @@
 }
 
 .toggleCtn--medium {
-    width: 50px;
-    height: 25px;
+    width: 75px;
+    /* Adjusted width for medium */
+    height: 35px;
+    /* Adjusted height for medium */
 }
 
 .toggleCtn--large {
-    width: 50px;
-    height: 25px;
+    width: 100px;
+    /* Adjusted width for large */
+    height: 45px;
+    /* Adjusted height for large */
 }
 
 .activeToggleCtn {
+    display: flex;
+    align-items: end;
     border: 1px solid #000000;
     background: #000000;
+
 }
 
 .toggle {
     border-radius: 50px;
     background: grey;
+    transition: transform 0.3s ease;
+    /* Add transition */
 }
 
 .toggleCtn--small .toggle {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    /* Smaller toggle */
+    height: 20px;
+    /* Smaller toggle */
 }
 
 .toggleCtn--medium .toggle {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    /* Medium toggle */
+    height: 25px;
+    /* Medium toggle */
 }
 
 .toggleCtn--large .toggle {
-    width: 22px;
-    height: 22px;
+    width: 30px;
+    /* Larger toggle */
+    height: 30px;
+    /* Larger toggle */
 }
 
-
 .active {
-    align-self: flex-end;
+    transform: translateX(calc(100% - 22px));
+    /* Move based on container width */
     background: #FEC200;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .toggleCtn--small {
-        width: 43px;
-        height: 20px;
-    }
-
-    .toggleCtn--medium {
-        width: 50px;
-        height: 25px;
-    }
-
-    .toggleCtn--large {
-        width: 50px;
-        height: 25px;
-    }
-
-    .toggleCtn--small .toggle {
-        width: 18px;
-        height: 18px;
-    }
-
-
-    .toggleCtn--medium .toggle {
-        width: 22px;
-        height: 22px;
-    }
-
-    .toggleCtn--large .toggle {
-        width: 22px;
-        height: 22px;
-    }
+    /* Media queries for responsiveness */
+    /* ... */
 }
 
 @media (max-width: 320px) {
-    .toggleCtn--small {
-        width: 40px;
-        height: 18px;
-    }
-
-    .toggleCtn--medium {
-        width: 50px;
-        height: 25px;
-    }
-
-    .toggleCtn--large {
-        width: 50px;
-        height: 25px;
-    }
-
-    .toggleCtn--small .toggle {
-        width: 16px;
-        height: 16px;
-    }
-
-
-    .toggleCtn--medium .toggle {
-        width: 22px;
-        height: 22px;
-    }
-
-    .toggleCtn--large .toggle {
-        width: 22px;
-        height: 22px;
-    }
+    /* Media queries for responsiveness */
+    /* ... */
 }

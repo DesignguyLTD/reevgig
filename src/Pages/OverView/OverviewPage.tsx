@@ -1,7 +1,7 @@
-import React from 'react';
-import style from "./OverviewPage.module.css";
 import JobApplication from "../../Components/DashBoard/JobApplication";
-import ResponsiveTable from "../Dashboard/playGround";
+import React from "react";
+import ResponsiveTable from "../DashBoard/playGround";
+import style from "./OverviewPage.module.css";
 
 const OverviewPage = () => {
     const [header, setHeader] = React.useState('Overview');
@@ -28,11 +28,11 @@ const OverviewPage = () => {
                     </div>
                     <div className={style.timeFrame}>
                         Last 30 days <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725753843/Reev/Icon_Stroke_d2hmut.svg"
-                        alt="arrowDown"/>
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725753843/Reev/Icon_Stroke_d2hmut.svg"
+                            alt="arrowDown" />
                     </div>
                 </div>
-                <br/>
+                <br />
                 <div>
                     {header === 'Overview' &&
                         <div className={style.overview}>
@@ -41,24 +41,24 @@ const OverviewPage = () => {
                                     <div className={style.Estimate}>
                                         <img
                                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752189/Reev/Frame_1171275861_qbbiiv.svg"
-                                            alt="earn"/>
+                                            alt="earn" />
                                         <div className={style.earnText}>Total money earned</div>
                                         <div className={style.earnValue}>$53,00989</div>
                                         <div className={style.increaseText}><img
                                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Frame_1171275867_mjlidk.svg"
-                                            alt="increase"/>12% increase from last month
+                                            alt="increase" />12% increase from last month
                                         </div>
                                     </div>
-                                    <div className={style.Estimate} style={{background: 'rgba(240, 194, 116, 0.15)'}}>
+                                    <div className={style.Estimate} style={{ background: 'rgba(240, 194, 116, 0.15)' }}>
                                         <img
                                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/client_ibnny6.svg"
-                                            alt="earn"/>
+                                            alt="earn" />
                                         <div className={style.earnText}>Clients</div>
                                         <div className={style.earnValue}>101 <span>/120</span></div>
                                         <div className={style.increaseText}>
                                             <img
                                                 src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Frame_1171275867_mjlidk.svg"
-                                                alt="increase"/>2% increase from last month
+                                                alt="increase" />2% increase from last month
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@ const OverviewPage = () => {
                                     <div className={style.ActiveProject}>
 
                                     </div>
-                                    <ResponsiveTable/>
+                                    <ResponsiveTable />
                                 </div>
 
                             </div>
@@ -77,10 +77,10 @@ const OverviewPage = () => {
                     }
 
                     {header === 'Job' && <div className={style.JobCtn}>
-                        <JobApplication/>
-                        <JobApplication/>
-                        <JobApplication/>
-                        <JobApplication/>
+                        <JobApplication />
+                        <JobApplication />
+                        <JobApplication />
+                        <JobApplication />
                     </div>
                     }
 

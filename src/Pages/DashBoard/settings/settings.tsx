@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./settings.module.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface SettingList {
     name: string;
@@ -8,10 +8,10 @@ interface SettingList {
 }
 
 const settingLists: SettingList[] = [
-    {name: 'Account Settings', path: '/accountSettings'},
-    {name: 'Notification', path: '/notification'},
-    {name: 'Privacy Policy', path: '/dashboard'},
-    {name: 'About Us', path: '/dashboard'}
+    { name: 'Account Settings', path: '/accountSettings' },
+    { name: 'Notification', path: '/notification' },
+    { name: 'Privacy Policy', path: '/dashboard' },
+    { name: 'About Us', path: '/dashboard' }
 ];
 
 const Settings: React.FC = () => {
@@ -19,7 +19,7 @@ const Settings: React.FC = () => {
         <div className={styles.ctn}>
             <div className={styles.backward}>
                 <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/ep_back_typnii.svg"
-                     alt="Back Arrow"/>
+                    alt="Back Arrow" />
                 <p>Settings</p>
             </div>
             <ul>
@@ -28,7 +28,7 @@ const Settings: React.FC = () => {
                         <Link to={item.path}>
                             {item.name}
                             <img src="https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/Group_weumlx.svg"
-                                 alt="Forward Arrow"/>
+                                alt="Forward Arrow" />
                         </Link>
                     </li>
                 ))}

@@ -1,0 +1,396 @@
+.ctn {
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 280px;
+}
+
+.walletBillingCtn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.billingCtn {
+    padding: 10px;
+    background: #FFF3CC;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #D4A200;
+}
+
+.walletCtn {
+    padding: 10px;
+    width: 260px;
+    background: #03A86226;
+    opacity: 15;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #009B59;
+}
+
+.billingCtn {
+    padding: 10px;
+    width: 260px;
+    background: #FFF3CC;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #D4A200;
+}
+
+.levelUpIcon {
+    background: #03A862;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.wallet {
+    background: #03A862;
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.walletBtn,
+.addMoneyBtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
+.billingMethod {
+    width: 200px;
+}
+
+.billingMethod h5 {
+    font-size: 14px;
+    margin: 20px 0px 10px 0px;
+    color: #797979;
+}
+
+.billingMethod p {
+    line-height: 18px;
+    font-size: 12px;
+}
+
+.addMoneySect {
+    display: flex;
+    justify-content: space-between;
+}
+
+.walletPrice,
+.cardNum {
+    padding-bottom: 20px;
+    font-weight: normal;
+}
+
+.delCard {
+    display: flex;
+    justify-content: space-between;
+    width: 262px;
+}
+
+.withdrawBtnCtn {
+    margin-top: 20px;
+}
+
+.withdrawBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FEC200;
+    padding-top: 20px;
+}
+
+.paymentAssurance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: black;
+    padding: 2px;
+    margin: 20px 0px 0px 0px;
+    background: #FFF3CC;
+}
+
+.assuranceText {
+    font-size: 7px;
+}
+
+.projectCtn {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    margin-bottom: 30px;
+}
+
+thead {
+    background: #2B2B2B;
+    color: white;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5E5;
+    font-size: 14px;
+    margin-right: 90px;
+    width: 10px;
+    line-height: 20px;
+}
+
+.nameAndDesc {
+    line-height: 20px;
+}
+
+.desc {
+    font-size: 10px;
+    color: #97959D;
+}
+
+.paymentStatusCtn {
+    width: 10px;
+}
+
+.paymentStatus {
+    border-radius: 15px;
+    font-weight: 400;
+    padding: 5px 15px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.paid {
+    background-color: #1A932E2E;
+    color: #1A932E;
+}
+
+.pending {
+    background-color: #E2B1332E;
+    color: #DFA510;
+}
+
+.withheld {
+    background-color: #EE201C2E;
+    color: #EE201C;
+}
+
+.reversed {
+    background: #007AFF26;
+    color: #007AFF;
+}
+
+.transactionDate {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+select {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+/* .downloadIcon {
+    cursor: pointer;
+    position: absolute;
+}
+
+.menu {
+    background: black;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    left: 30px;
+}
+
+.menu p {
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+} */
+
+.transactAndPaginationPages {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.transactionPage {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #7C8493;
+    font-size: 10px;
+}
+
+.selectedTransactPage {
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #D6DDEB;
+}
+
+.paginationControls {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+
+.pageControlBtn {
+    background: none;
+    padding: 5px 8px;
+    border: none;
+}
+
+.pageIndex {
+    display: flex;
+    gap: 1px;
+}
+
+.currentpageIndex {
+    background: black;
+    color: #D4A200;
+    padding: 5px 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nextpageIndex {
+    padding: 10px 15px;
+}
+
+
+@media (min-width: 768px) {
+    .ctn {
+        width: 665px;
+    }
+
+    .billingCtn,
+    .walletCtn {
+        padding: 20px 50px 20px 20px;
+        width: 590px;
+    }
+
+    .delCard {
+        width: 590px;
+    }
+
+    .withdrawBtnCtn {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .paymentAssurance {
+        gap: 30px;
+        padding: 10px;
+        margin: 20px 0px 0px 0px;
+    }
+
+    .assuranceText {
+        font-size: 15px;
+    }
+
+    .transactAndPaginationPages {
+        gap: 0px;
+    }
+
+    .transactionDate {
+        width: 95%;
+        border-collapse: inherit;
+        min-width: 600px;
+    }
+
+    .transactionPage {
+        font-size: 14px;
+    }
+
+    .selectedTransactPage {
+        padding: 8px 12px 8px 12px;
+    }
+
+    .pageControlBtn {
+        padding: 8px 12px;
+    }
+
+    .currentpageIndex {
+        padding: 10px 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ctn {
+        width: 780px;
+        border: 1px solid #0000001A;
+        padding: 20px;
+    }
+
+    .walletBillingCtn {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .billingCtn,
+    .walletCtn {
+        padding: 20px;
+        width: 350px;
+    }
+
+    .delCard {
+        width: 340px;
+    }
+
+    .paymentAssurance {
+        gap: 30px;
+        width: 700px;
+    }
+
+    .assuranceText {
+        letter-spacing: 1px;
+    }
+
+    .projectCtn {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    table {
+        width: 100%;
+        min-width: unset;
+    }
+
+
+    .transactionDate {
+        width: 97%;
+        border-collapse: collapse;
+        min-width: 600px;
+    }
+}

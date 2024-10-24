@@ -1,12 +1,12 @@
-import React from 'react';
-import Sidebar from "../../stories/SideBar/sideBar";
-import style from '../OverView/OverviewPage.module.css';
-import OverviewPage from "../OverView/OverviewPage";
 import Jobs from "../Jobs/Jobs";
-import ProfileMain from "../Profile/ProfileMain";
-import Settings from "./settings/settings";
+import OverviewPage from "../OverView/OverviewPage";
 import PaymentCard from "./planAndBillings/paymentCard/paymentCard";
-
+import ProfileMain from "../Profile/ProfileMain";
+import React from "react";
+import Settings from "./settings/settings";
+import Sidebar from "../../stories/SideBar/sideBar";
+import Talent from "./talent/talent";
+import style from "../OverView/OverviewPage.module.css";
 
 const Dashboard = () => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
@@ -29,20 +29,20 @@ const Dashboard = () => {
 
     return (
         <div>
-            <Sidebar logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
+            <Sidebar logo={'/'} getSidebarState={getSidebarState} getPage={getPage} />
             <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
                 {currentPage === 'Overview' &&
-                    <OverviewPage/>
+                    <OverviewPage />
                 }
 
                 {currentPage === 'Profile' &&
                     <>
-                        <ProfileMain/>
+                        <ProfileMain />
                     </>
                 }
 
                 {currentPage === 'PostAJob' &&
-                    <Jobs/>
+                    <Jobs />
                 }
 
                 {currentPage === 'Message' &&
@@ -54,11 +54,15 @@ const Dashboard = () => {
                 }
 
                 {currentPage === 'PlanBillings' &&
-                    <PaymentCard/>
+                    <PaymentCard />
+                }
+
+                {currentPage === 'SavedTalents' &&
+                    <Talent />
                 }
 
                 {currentPage === 'Settings' &&
-                    <Settings/>
+                    <Settings />
                 }
             </div>
         </div>
