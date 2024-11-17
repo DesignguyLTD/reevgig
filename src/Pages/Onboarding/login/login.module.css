@@ -1,12 +1,23 @@
 .container {
     margin-top: 100px;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
 
+}
+
+.btb{
+    text-align: center;
 }
 
 .headerText {
     max-width: 270px;
     width: 100%;
     margin: 0 auto;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .headerText h1 {

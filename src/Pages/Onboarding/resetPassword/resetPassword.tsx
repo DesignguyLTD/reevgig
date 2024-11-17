@@ -155,7 +155,7 @@ const ResetPassword = () => {
                             <br/>
                             <br/>
 
-                            <div className={login.btn}>
+                            <div className={reset.btn}>
                                 <ButtonII
                                     label='Send'
                                     primary={true}
@@ -189,7 +189,7 @@ const ResetPassword = () => {
                             <div className={reset.lowerText}>
                                 Haven’t gotten a mail yet? <span onClick={handleBack} className={signUp.makeYellow}>Resend email</span>
                             </div>
-                            <div className={login.btn}>
+                            <div className={reset.btn}>
                                 <ButtonII
                                     label='Verify code'
                                     primary={true}
@@ -227,7 +227,7 @@ const ResetPassword = () => {
 
                             <br/>
                             <br/>
-                            <div className={login.btn}>
+                            <div className={reset.btn}>
                                 <ButtonII
                                     label='Reset Password'
                                     primary={true}

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
 * {
     padding: 0;
     margin: 0;
@@ -713,7 +716,7 @@ display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
         transition: margin-left 0.3s ease;
-
+        margin: 150px 2px 37px 200px;
     }
 }
 
@@ -726,9 +729,8 @@ display: inline-flex;
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
-        margin: 70px 2px 37px 120px;
+        margin: 70px 2px 37px 200px;
         transition: margin-left 0.3s ease;
-
     }
 
 
