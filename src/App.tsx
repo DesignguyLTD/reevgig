@@ -1,10 +1,10 @@
-import React from "react";
+import React, {Suspense} from "react";
 import {Link, Route, Routes, useLocation} from "react-router-dom";
 import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
-import LandingPage from "./Pages/LandingPage/LandingPage";
+// import LandingPage from "./Pages/LandingPage/LandingPage";
 import DashboardLayout from "./DashboardLayout";
 import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
@@ -15,21 +15,13 @@ import ProfileMain from "./Pages/Profile/ProfileMain";
 import Jobs from "./Pages/Jobs/Jobs";
 import PaymentPage from "./Pages/paymentPage/paymentPage";
 import Settings from "./Pages/DashBoard/settings/settings";
+import './App.css';
+
+const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
 
 const App: React.FC = () => {
-    // const [userType, setUserType] = React.useState('Client');
     const location = useLocation();
-    // useEffect(() => {
-    //     const UserTypeLS = localStorage.getItem('userType');
-    //     if (UserTypeLS === null || !['Client', 'Freelancer'].includes(UserTypeLS)) {
-    //         localStorage.setItem('userType', 'Client');
-    //         setUserType('Client');
-    //     } else {
-    //         setUserType(UserTypeLS);
-    //     }
-    // }, []);
-    //
-    // console.log('UserType: ', userType);
+
 
     const userType: string = localStorage.getItem('userType') ?? 'Client';
 
@@ -38,6 +30,15 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
+            <Suspense
+                fallback={
+                    <div className="loading">
+                        <div className='loading'>
+                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg" alt="logo" />
+                        </div>
+                    </div>
+                }
+            >
             {!noSidebarRoutes.includes(location.pathname) ? (
                 <DashboardLayout>
                     <Routes>
@@ -68,6 +69,7 @@ const App: React.FC = () => {
                     </Routes>
                 </>
             )}
+            </Suspense>
         </div>
     );
 };
