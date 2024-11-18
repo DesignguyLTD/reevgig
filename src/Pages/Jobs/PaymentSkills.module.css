@@ -20,14 +20,14 @@
     justify-content: flex-start;
 }
 
-.paymentInputCtn{
+.paymentInputCtn {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
 }
 
-.paymentFormCtn{
+.paymentFormCtn {
     display: inline-flex;
     flex-direction: column;
 }
@@ -39,7 +39,7 @@
     border: none;
 }
 
-.checkboxCtn, .BtnCtn p{
+.checkboxCtn, .BtnCtn p {
     color: rgb(172, 172, 172);
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -56,7 +56,7 @@
 
 }
 
-.BtnCtn{
+.BtnCtn {
     margin: 15px 0;
     display: inline-flex;
     flex-direction: column;
@@ -64,39 +64,39 @@
     align-items: center;
 }
 
-.BtnCtn p{
+.BtnCtn p {
     text-align: center;
 }
 
-.LocalDepoCtn{
+.LocalDepoCtn {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
 }
 
-.LocalDepo{
+.LocalDepo {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.LocalDepo1{
+.LocalDepo1 {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap:10px;
+    gap: 10px;
 }
 
-.LocalDepoInfoCtn{
+.LocalDepoInfoCtn {
     display: inline-flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 5px;
-    justify-content:center;
+    justify-content: center;
 }
 
-.LocalDepoInfo1{
+.LocalDepoInfo1 {
     color: rgb(83, 83, 83);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -106,7 +106,7 @@
     text-align: left;
 }
 
-.LocalDepoInfo2{
+.LocalDepoInfo2 {
     color: rgb(83, 83, 83);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -116,12 +116,12 @@
     text-align: left;
 }
 
-.LocalDepoInfo3 img{
+.LocalDepoInfo3 img {
     cursor: pointer;
-   -webkit-user-drag: none;
+    -webkit-user-drag: none;
 }
 
-.total1{
+.total1 {
 
     color: rgb(83, 83, 83);
     font-family: PP Neue Montreal;
@@ -132,7 +132,7 @@
     text-align: left;
 }
 
-.total2{
+.total2 {
     color: rgb(83, 83, 83);
     font-family: PP Neue Montreal;
     font-size: 12px;
@@ -143,7 +143,7 @@
 }
 
 
-.LocalDepo2{
+.LocalDepo2 {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -152,7 +152,7 @@
     margin: 10px 0;
 }
 
-.LocalDepo3{
+.LocalDepo3 {
     align-items: flex-start;
     display: inline-flex;
     flex-direction: column;
@@ -160,14 +160,14 @@
     padding: 10px;
 }
 
-.LocalDepo3Ctn{
+.LocalDepo3Ctn {
     margin-top: 10px;
     border-top: 1px dashed rgba(39, 39, 39, 0.5);
 
 }
 
 
-.LocalDepo2Text{
+.LocalDepo2Text {
     color: rgb(0, 17, 34);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -177,7 +177,7 @@
     text-align: center;
 }
 
-.LocalDepo2Text2{
+.LocalDepo2Text2 {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -192,7 +192,7 @@
     cursor: pointer;
 }
 
-.LocalDepo3Text2{
+.LocalDepo3Text2 {
     color: rgb(83, 83, 83);
     font-family: Poppins;
     font-size: 14px;
@@ -202,7 +202,7 @@
     text-align: left;
 }
 
-.LocalDepo3Text1{
+.LocalDepo3Text1 {
     color: rgb(83, 83, 83);
     font-family: Poppins;
     font-size: 14px;
@@ -226,7 +226,7 @@
     }
 
 
-    .LocalDepoInfo1{
+    .LocalDepoInfo1 {
         color: rgb(83, 83, 83);
         font-family: PP Neue Montreal;
         font-size: 16px;
@@ -236,7 +236,7 @@
         text-align: left;
     }
 
-    .LocalDepoInfo2{
+    .LocalDepoInfo2 {
         color: rgb(83, 83, 83);
         font-family: PP Neue Montreal;
         font-size: 16px;
@@ -258,7 +258,7 @@
         border-radius: 16px;
     }
 
-    .total1{
+    .total1 {
 
         color: rgb(83, 83, 83);
         font-family: PP Neue Montreal;
@@ -269,7 +269,7 @@
         text-align: left;
     }
 
-    .total2{
+    .total2 {
         color: rgb(83, 83, 83);
         font-family: PP Neue Montreal;
         font-size: 16px;
@@ -279,22 +279,22 @@
         text-align: left;
     }
 
-    .paymentInputCtn{
+    .paymentInputCtn {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .PaymentSkillsTop{
+    .PaymentSkillsTop {
         gap: 20px;
     }
 
-    .LocalDepoInfoCtn{
+    .LocalDepoInfoCtn {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
-        justify-content:center;
+        justify-content: center;
     }
 
 }
@@ -309,7 +309,7 @@
         border-radius: 16px;
     }
 
-    .paymentInputCtn{
+    .paymentInputCtn {
         display: inline-flex;
         flex-direction: column;
         align-items: center;

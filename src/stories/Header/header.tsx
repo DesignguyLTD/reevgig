@@ -20,7 +20,7 @@ const Header = ({auth}: HeaderProps) => {
         setToggle(!toggle);
     };
 
-    const handleDashNav = ()=>{
+    const handleDashNav = () => {
         navigate('/overview')
     }
 

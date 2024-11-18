@@ -96,17 +96,17 @@
     padding: 5px;
 }
 
-.ThumbHeaderText{
+.ThumbHeaderText {
 
 }
 
-.fileItem{
+.fileItem {
     position: relative;
     width: 100px;
 
 }
 
-.fileUploadedThumbnailCont{
+.fileUploadedThumbnailCont {
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -118,7 +118,7 @@
     padding: 5px;
 }
 
-.ThumbHeaderText{
+.ThumbHeaderText {
     /* body medium */
     color: rgb(27, 27, 27);
     font-family: PP Neue Montreal;
@@ -129,7 +129,7 @@
     text-align: left;
 }
 
-.ThumbSubText{
+.ThumbSubText {
     /* body2 */
     color: rgb(113, 114, 121);
     font-family: PP Neue Montreal;
@@ -140,14 +140,14 @@
     text-align: left;
 }
 
-.removeIcon{
+.removeIcon {
     position: absolute;
     top: 2px;
     right: 1px;
 }
 
 
-.fileThumbnail{
+.fileThumbnail {
     width: 90px;
     height: 90px;
     border-radius: 8px;
@@ -198,13 +198,13 @@
 
 @media (min-width: 768px) {
 
-    .removeIcon{
+    .removeIcon {
         position: absolute;
         top: 4px;
         right: -31px;
     }
 
-    .fileUploadedThumbnailCont{
+    .fileUploadedThumbnailCont {
         display: inline-flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -215,6 +215,7 @@
         width: 100%;
         padding: 10px;
     }
+
     .fileContainer {
         max-width: 504px;
         width: 100%;
@@ -244,13 +245,13 @@
         width: 480px;
     }
 
-    .fileUploadedCont{
+    .fileUploadedCont {
         width: 100%;
         max-width: 504px;
         padding: 15px;
     }
 
-    .fileThumbnail{
+    .fileThumbnail {
         width: 125px;
         height: 125px;
     }

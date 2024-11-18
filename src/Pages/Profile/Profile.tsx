@@ -47,7 +47,7 @@ const Profile = ({page, setPage, userType}: Props) => {
         avatar: 'https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611444/Group_9_Copy_2_iqlh3i.svg',
     };
 
-    const verifiedImg={
+    const verifiedImg = {
         unverified: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/Property_1_Not_Verified_m9l5i7.svg',
         pending: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/Property_1_Pending_j3o6ij.svg',
         verified: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354102/Reev/8th%20oct/Property_1_Verified_fky5d5.svg'
@@ -110,7 +110,7 @@ const Profile = ({page, setPage, userType}: Props) => {
                     {/*</div>*/}
                 </div>
                 <div className={style.holder}>
-                    { header === 'Public' ? (
+                    {header === 'Public' ? (
 
                         <div className={style.PublicCtn}>
                             <div className={style.topCtn}>
@@ -123,10 +123,13 @@ const Profile = ({page, setPage, userType}: Props) => {
                                         <div className={style.topUserNameSubtext}>Akin125</div>
                                     </div>
                                     <div className={style.topUserStatus}>
-                                        <div  className={style.topUserNametext}>Status</div>
+                                        <div className={style.topUserNametext}>Status</div>
                                         <div className={style.topUserStatusBtn}>
-                                            <div className={style.topUserStatusBtn1}>{userType === 'Freelancer' ? 'Freelancer' : 'Recruiter'}</div>
-                                            <div className={style.topUserStatusBtn2}>Verified <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354102/Reev/8th%20oct/Vector_cqm2en.svg" alt="verified"/></div>
+                                            <div
+                                                className={style.topUserStatusBtn1}>{userType === 'Freelancer' ? 'Freelancer' : 'Recruiter'}</div>
+                                            <div className={style.topUserStatusBtn2}>Verified <img
+                                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354102/Reev/8th%20oct/Vector_cqm2en.svg"
+                                                alt="verified"/></div>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +137,9 @@ const Profile = ({page, setPage, userType}: Props) => {
                             <div className={style.midCtn}>
                                 <div className={style.topUserNametext}>About me (Professional info only)</div>
                                 <div className={style.midSubtext}>
-                                    For 10 years, I’ve specialised in interface, experience & interaction design as well as working in user research and product strategy for product agencies, big tech companies & start-ups.
+                                    For 10 years, I’ve specialised in interface, experience & interaction design as well
+                                    as working in user research and product strategy for product agencies, big tech
+                                    companies & start-ups.
                                 </div>
                             </div>
                             <div className={style.bottomCtn}>
@@ -191,12 +196,13 @@ const Profile = ({page, setPage, userType}: Props) => {
                         </div>
 
                     ) : (
-                        <div  className={style.PersonalCtn}>
+                        <div className={style.PersonalCtn}>
                             <div className={style.PersonaltopCtn}>
 
                                 <div className={style.PersonaltopCtnMain}>
                                     <div className={style.topAvatar}>
-                                        <img style={{width: '60px', height: '60px'}} src={finalValue.avatar} alt="Avatar"/>
+                                        <img style={{width: '60px', height: '60px'}} src={finalValue.avatar}
+                                             alt="Avatar"/>
                                     </div>
                                     <div className={style.PersonaltopUserCtn}>
                                         <div className={style.PersonaltopUserName}>
@@ -232,7 +238,9 @@ const Profile = ({page, setPage, userType}: Props) => {
 
                                     <div className={style.PersonaltopUserName}>
                                         <div className={style.PersonaltopUserNametext}>Address</div>
-                                        <div className={style.PersonaltopUserNameSubtext}>4517 Washington Ave. Manchester, Kentucky 39495</div>
+                                        <div className={style.PersonaltopUserNameSubtext}>4517 Washington Ave.
+                                            Manchester, Kentucky 39495
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -240,17 +248,23 @@ const Profile = ({page, setPage, userType}: Props) => {
                             <div className={style.PersonaltopCtn}>
                                 <div className={style.PersonalVerifyCtn}>
                                     <div className={style.PersonalVerifyText}>Verify Identity</div>
-                                    <div className={style.PersonalVerifySubText}>To remove all limit on your aacount, we need to verify your identity</div>
+                                    <div className={style.PersonalVerifySubText}>To remove all limit on your aacount, we
+                                        need to verify your identity
+                                    </div>
                                 </div>
 
                                 <div className={style.PersonalVerifyDocCtn}>
                                     <div className={style.PersonalVerifyText}>Valid Identification Document</div>
                                     <div className={style.PersonalVerifyStatusCtn}>
                                         <div className={style.PersonalVerifyDoc}>
-                                            National ID <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/ep_picture-filled_bk8wgo.svg" alt="ID"/>
+                                            National ID <img
+                                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/ep_picture-filled_bk8wgo.svg"
+                                            alt="ID"/>
                                         </div>
                                         <br/>
-                                        <img src={userType === 'Freelancer' ? verifiedImg.verified : verifiedImg.unverified} alt="verified state"/>
+                                        <img
+                                            src={userType === 'Freelancer' ? verifiedImg.verified : verifiedImg.unverified}
+                                            alt="verified state"/>
                                     </div>
                                 </div>
                             </div>
@@ -345,5 +359,7 @@ export default Profile;
 //     </div>
 //     <div className={style.edit_holder}>
 //         <button className={style.edit} onClick={handleNavigate}>Edit Profile</button>
-{/*    </div>*/}
-{/*</div>*/}
+{/*    </div>*/
+}
+{/*</div>*/
+}

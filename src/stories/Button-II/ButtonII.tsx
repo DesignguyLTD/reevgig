@@ -58,7 +58,7 @@ export const ButtonII = ({
                              primary,
                              size = 'medium',
                              label,
-                                invert,
+                             invert,
                              disabled,
                              icon,
                              ...props
@@ -81,7 +81,7 @@ export const ButtonII = ({
             {...props}
         >
             {isLabelVisible && <div>{label}</div>}
-            {hasIcon && <img className={ styles[`Button${invert}`]} src={icon} alt="icon"/>}
+            {hasIcon && <img className={styles[`Button${invert}`]} src={icon} alt="icon"/>}
         </button>
     );
 };

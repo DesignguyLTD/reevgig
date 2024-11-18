@@ -92,7 +92,7 @@ const RadioButton: React.FC<RadioProps> = ({
                     />
                     <div className={style.checkmark}>{subHead}</div>
                 </div>
-                <p  style={{color: appliedColor, width: styleP? '131px': ''}} className={style.value}>
+                <p style={{color: appliedColor, width: styleP ? '131px' : ''}} className={style.value}>
                     {value}
                 </p>
             </label>

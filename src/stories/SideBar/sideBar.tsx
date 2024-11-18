@@ -11,7 +11,7 @@ interface SidebarProps {
     UserType?: string | null;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getPage, UserType }: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage, UserType}: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
@@ -81,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
     return (
         <>
             <div className={styles.upperNav}>
-                <div style={{ cursor: 'pointer' }} onClick={handleNavSearchDisplay}>
+                <div style={{cursor: 'pointer'}} onClick={handleNavSearchDisplay}>
                     <img
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/pixelarticons_menu_bl8vvb.svg"
                         alt="menu"
@@ -94,13 +94,13 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/icons_n8fkxi.svg"
                         alt="Search"
                     />
-                    <input type="text" placeholder={'Search for anything...'} />
+                    <input type="text" placeholder={'Search for anything...'}/>
                 </div>
 
                 <div className={styles.lastCont}>
 
                     <Link style={{textDecoration: 'none'}} to='/notification'>
-                        <div style={{ cursor: 'pointer' }}>
+                        <div style={{cursor: 'pointer'}}>
                             <img
                                 src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
                                 alt="bell"
@@ -122,13 +122,13 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                     </div>
                     {isProfileOpen && (
                         <div className={styles.profile}>
-                            <ProfileNav />
+                            <ProfileNav/>
                         </div>
                     )}
                 </div>
             </div>
 
-            <div style={{ position: 'relative' }}>
+            <div style={{position: 'relative'}}>
                 <div ref={navSearchRef}
                      className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
                     <Link style={{textDecoration: 'none'}} to={`${logo}`} className={styles.Link}>
@@ -144,7 +144,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                         </div>
 
                         <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
-                            {UserType === 'Freelancer'? 'FREELANCER’S DASHBOARD' : 'RECRUITER’S DASHBOARD'}
+                            {UserType === 'Freelancer' ? 'FREELANCER’S DASHBOARD' : 'RECRUITER’S DASHBOARD'}
                         </div>
                     </Link>
 
@@ -163,21 +163,21 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
 
                     <ul className={styles.upperSideBar}>
                         <Link style={{textDecoration: 'none'}} to='/overview'>
-                        <li
-                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Overview' ? styles.active : ''}`}
-                        >
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <div>Overview</div>
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <span className={styles.tooltiptext}>Overview</span>
-                                </div>
-                            )}
-                        </li>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Overview' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <div>Overview</div>
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <span className={styles.tooltiptext}>Overview</span>
+                                    </div>
+                                )}
+                            </li>
                         </Link>
 
                         <Link style={{textDecoration: 'none'}} to='/profile'>
@@ -205,13 +205,14 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-add"></i>
-                                        {UserType === 'Freelancer'? 'Post a Gig' : 'Post a Job'}
+                                        {UserType === 'Freelancer' ? 'Post a Gig' : 'Post a Job'}
 
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
                                         <i className="fi fi-sr-add"></i>
-                                        <span className={styles.tooltiptext}>   {UserType === 'Freelancer'? 'Post a Gig' : 'Post a Job'}</span>
+                                        <span
+                                            className={styles.tooltiptext}>   {UserType === 'Freelancer' ? 'Post a Gig' : 'Post a Job'}</span>
                                     </div>
                                 )}
                             </li>
@@ -244,14 +245,14 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-users"></i>
-                                        {UserType === 'Freelancer'? 'Saved job' : 'Saved Employee'}
+                                        {UserType === 'Freelancer' ? 'Saved job' : 'Saved Employee'}
 
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
                                         <i className="fi fi-sr-users"></i>
                                         <span className={styles.tooltiptext}>
-                                            {UserType === 'Freelancer'? 'Saved Job' : 'Saved Employee'}
+                                            {UserType === 'Freelancer' ? 'Saved Job' : 'Saved Employee'}
                                         </span>
                                     </div>
                                 )}
@@ -265,14 +266,14 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-receipt"></i>
-                                        {UserType === 'Freelancer'? 'Payment & Earnings' : 'Plan & Billings'}
+                                        {UserType === 'Freelancer' ? 'Payment & Earnings' : 'Plan & Billings'}
 
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
                                         <i className="fi fi-sr-receipt"></i>
                                         <span className={styles.tooltiptext}>
-                                               {UserType === 'Freelancer'? 'Payment & Earnings' : 'Plan & Billings'}
+                                               {UserType === 'Freelancer' ? 'Payment & Earnings' : 'Plan & Billings'}
                                         </span>
                                     </div>
                                 )}

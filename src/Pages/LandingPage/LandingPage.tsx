@@ -142,14 +142,19 @@ const LandingPage = () => {
                         <div className={styles.Ctn1}>
                             <div className={styles.heroText}>
 
-                                The <span className={styles.heroTextBG1}>Hardware  <div className={styles.heroTextBGTag}>reevgig</div></span> <br/> Marketplace  for<br/> Creators & Innovators
+                                The <span className={styles.heroTextBG1}>Hardware  <div
+                                className={styles.heroTextBGTag}>reevgig</div></span> <br/> Marketplace
+                                for<br/> Creators & Innovators
                             </div>
                             <div className={styles.heroSubText}>
-                                Connect with top-tier freelance <br className={styles.br}/><span className={styles.heroTextBG2}>hardware engineers </span><br className={styles.br2}/> to bring your ideas to life.
+                                Connect with top-tier freelance <br className={styles.br}/><span
+                                className={styles.heroTextBG2}>hardware engineers </span><br className={styles.br2}/> to
+                                bring your ideas to life.
                             </div>
                             {!isOpen &&
                                 <div className={styles.btn1}>
-                                    <ButtonII size={'large'} primary={true} hasIcon={true} icon={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727781978/Reev/1st%20oct/Frame_1618869363_t6u1mi.svg'}
+                                    <ButtonII size={'large'} primary={true} hasIcon={true}
+                                              icon={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727781978/Reev/1st%20oct/Frame_1618869363_t6u1mi.svg'}
                                               isLabelVisible={true} invert={'invert'}
                                               label={'Explore Freelance Talents'} onClick={CTABtn}/>
                                 </div>
@@ -158,14 +163,15 @@ const LandingPage = () => {
                         </div>
 
 
-
                     </div>
 
                     {isOpen &&
                         <div className={styles.serachCtnMain} ref={CTA}>
                             <div className={styles.serchTextCtn}>
                                 <div className={styles.serchText1}>Decentralized Freelancing</div>
-                                <div className={styles.serchText2}>No racial profiling, just business, <br/>safe transactions</div>
+                                <div className={styles.serchText2}>No racial profiling, just business, <br/>safe
+                                    transactions
+                                </div>
                             </div>
                             <div className={styles.SearchCtn}>
                                 <Search onSearch={() => {
@@ -345,7 +351,7 @@ const LandingPage = () => {
                     <FAQ/>
                 </div>
 
-                    {/*<Footer/>*/}
+                {/*<Footer/>*/}
 
             </div>
             <div className={styles.footer}>

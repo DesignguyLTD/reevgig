@@ -50,11 +50,11 @@
     background: rgb(254, 194, 0);
 }
 
-.storybookButton:hover .Buttoninvert{
+.storybookButton:hover .Buttoninvert {
     filter: invert(1);
 }
 
-.storybookButton:active .Buttoninvert{
+.storybookButton:active .Buttoninvert {
     filter: none;
 }
 

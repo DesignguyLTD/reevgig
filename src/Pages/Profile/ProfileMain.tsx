@@ -6,7 +6,8 @@ interface ProfileMainProps {
     userType: string;
 
 }
-const ProfileMain = ({userType}:ProfileMainProps) => {
+
+const ProfileMain = ({userType}: ProfileMainProps) => {
     const [page, setPage] = React.useState<number>(1);
     return (
         <div>

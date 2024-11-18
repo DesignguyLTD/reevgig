@@ -100,7 +100,7 @@ const CustomDropdown = memo(
                 onBlur={() => setIsFocused(false)}
             >
                 <div
-                    style={{ width }}
+                    style={{width}}
                     className={`${dropdownHeaderClass}  ${styles[`Dropdown--${size}`]}`}
                     onClick={() => setIsOpen(!isOpen)}
                 >
@@ -118,7 +118,7 @@ const CustomDropdown = memo(
           </span>
                 </div>
                 <div
-                    style={{ width }}
+                    style={{width}}
                     ref={dropdownRef}
                     className={`${styles.dropdownList} ${isOpen ? styles.dropdownListOpen : styles.dropdownListClose} ${styles[`Dropdown--${size}`]}`}
                 >

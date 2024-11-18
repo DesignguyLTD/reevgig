@@ -92,15 +92,17 @@ const JobApplicationPage = () => {
                                         color: header === 'All' ? 'black' : '',
                                         borderBottom: header === 'All' ? 'solid 2px black' : ''
                                     }} onClick={() => handleHeader(('All'))}
-                                    >All Applications ({allApps.length})</div>
-                                    <div  className={JAStyles.overAllHeaderText}
-                                          style={{
-                                              color: header === 'shortlistedApps' ? 'black' : '',
-                                              borderBottom: header === 'shortlistedApps' ? 'solid 2px black' : ''
-                                          }} onClick={() => handleHeader(('shortlistedApps'))}
-                                    >Shortlisted ({shortlistedApps.length})</div>
+                                    >All Applications ({allApps.length})
+                                    </div>
+                                    <div className={JAStyles.overAllHeaderText}
+                                         style={{
+                                             color: header === 'shortlistedApps' ? 'black' : '',
+                                             borderBottom: header === 'shortlistedApps' ? 'solid 2px black' : ''
+                                         }} onClick={() => handleHeader(('shortlistedApps'))}
+                                    >Shortlisted ({shortlistedApps.length})
+                                    </div>
                                 </div>
-                                <div  className={JAStyles.overAllHeaderSort}>
+                                <div className={JAStyles.overAllHeaderSort}>
                                     Sort <img
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
                                     alt="arrowDown"/>
@@ -111,9 +113,11 @@ const JobApplicationPage = () => {
                             {/*All Application*/}
                             {header === 'All' && (
                                 <div>
-                                    <div  className={JAStyles.allAppsHeaderCtn}>
+                                    <div className={JAStyles.allAppsHeaderCtn}>
                                         <div>
-                                            <div className={JAStyles.overAllHeaderText}>All Applications ({allApps.length})</div>
+                                            <div className={JAStyles.overAllHeaderText}>All Applications
+                                                ({allApps.length})
+                                            </div>
                                         </div>
                                         <div className={JAStyles.overAllHeaderSort}>
                                             Sort<img
@@ -136,14 +140,16 @@ const JobApplicationPage = () => {
 
                             {/*shortlisted mobile*/}
                             <div className={JAStyles.controlScreenDisplay1}>
-                                { header === 'shortlistedApps' && (
+                                {header === 'shortlistedApps' && (
                                     <div className={JAStyles.applicationsColumn2}>
                                         <div>
-                                            <div  className={JAStyles.allAppsHeaderCtn}>
+                                            <div className={JAStyles.allAppsHeaderCtn}>
                                                 <div>
-                                                    <div  className={JAStyles.overAllHeaderText}>Shortlisted ({shortlistedApps.length})</div>
+                                                    <div className={JAStyles.overAllHeaderText}>Shortlisted
+                                                        ({shortlistedApps.length})
+                                                    </div>
                                                 </div>
-                                                <div  className={JAStyles.overAllHeaderSort}>
+                                                <div className={JAStyles.overAllHeaderSort}>
                                                     Sort<img
                                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
                                                     alt="arrowDown"/>
@@ -151,7 +157,7 @@ const JobApplicationPage = () => {
                                             </div>
                                         </div>
                                         {shortlistedApps.map((app) => (
-                                            <div  >
+                                            <div>
 
                                                 <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
 
@@ -169,32 +175,33 @@ const JobApplicationPage = () => {
 
                         <div className={JAStyles.controlScreenDisplay2}>
                             {/*{ header === 'shortlistedApps' && (*/}
-                                <div className={JAStyles.applicationsColumn}>
-                                    <div style={{width: '77%'}}>
-                                        <div  className={JAStyles.allAppsHeaderCtn}>
-                                            <div>
-                                                <div  className={JAStyles.overAllHeaderText}>Shortlisted ({shortlistedApps.length})</div>
+                            <div className={JAStyles.applicationsColumn}>
+                                <div style={{width: '77%'}}>
+                                    <div className={JAStyles.allAppsHeaderCtn}>
+                                        <div>
+                                            <div className={JAStyles.overAllHeaderText}>Shortlisted
+                                                ({shortlistedApps.length})
                                             </div>
-                                            <div  className={JAStyles.overAllHeaderSort}>
-                                                Sort<img
-                                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
-                                                alt="arrowDown"/>
-                                            </div>
+                                        </div>
+                                        <div className={JAStyles.overAllHeaderSort}>
+                                            Sort<img
+                                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455544/Reev/27th%20Sept%202024/vuesax_bold_arrow-down_lbstcw.svg"
+                                            alt="arrowDown"/>
                                         </div>
                                     </div>
-                                    {shortlistedApps.map((app) => (
-                                        <div >
-
-                                            <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
-
-                                            <br/>
-                                        </div>
-                                    ))}
                                 </div>
+                                {shortlistedApps.map((app) => (
+                                    <div>
+
+                                        <JobCard key={app.id} app={app} onToggleShortlist={toggleShortlist}/>
+
+                                        <br/>
+                                    </div>
+                                ))}
+                            </div>
 
                             {/*// )}*/}
                         </div>
-
 
 
                     </div>

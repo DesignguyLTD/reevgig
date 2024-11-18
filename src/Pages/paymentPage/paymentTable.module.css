@@ -5,7 +5,7 @@
     overflow: auto;
 }
 
-.project{
+.project {
     color: rgb(0, 0, 0);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -218,7 +218,7 @@
     background: rgba(238, 32, 28, 0.18);
 }
 
-.status-Reversed{
+.status-Reversed {
     color: rgb(0, 122, 255);
     font-family: PP Neue Montreal;
     font-size: 12px;
@@ -233,7 +233,7 @@
     align-items: center;
 }
 
-.MoreCtn{
+.MoreCtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -244,7 +244,7 @@
     bottom: 0;
 }
 
-.MoreList{
+.MoreList {
     list-style: none;
     border-radius: 8px;
     background: rgb(39, 39, 39);
@@ -255,7 +255,7 @@
     align-items: center;
 }
 
-.MoreListli1, .MoreListli2{
+.MoreListli1, .MoreListli2 {
     color: rgb(217, 217, 217);
     font-family: PP Neue Montreal;
     font-size: 10px;
@@ -269,7 +269,7 @@
 
 }
 
-.MoreListli1:hover, .MoreListli2:hover{
+.MoreListli1:hover, .MoreListli2:hover {
     border-radius: 4px;
     color: rgb(39, 39, 39);
     background: rgb(254, 194, 0);
@@ -284,12 +284,12 @@
 
 }
 
-.MoreListli1 img{
+.MoreListli1 img {
     filter: invert(1);
 }
 
 
-@media (min-width: 425px){
+@media (min-width: 425px) {
     .tableCtn {
         width: 172%;
         border-collapse: collapse;
@@ -310,7 +310,7 @@
     }
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .tableCtn {
         width: 100%;
         border-collapse: collapse;

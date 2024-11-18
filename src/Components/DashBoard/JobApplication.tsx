@@ -2,7 +2,13 @@ import React, {useEffect, useRef, useState} from 'react';
 import style from "../../Pages/OverView/OverviewPage.module.css";
 import {useNavigate} from "react-router-dom";
 
-const JobApplication = () => {
+
+interface JobApplicationProps {
+    userType: string;
+
+}
+
+const JobApplication = ({userType}: JobApplicationProps) => {
     const [popUp, setPopUp] = useState(false);
     const popupRef = useRef<HTMLDivElement | null>(null);
     const handlePopUp = () => {
@@ -28,7 +34,11 @@ const JobApplication = () => {
     let navigate = useNavigate()
 
     const handleNavigation = () => {
-        navigate('/jobapplication')
+        if (userType === 'Freelancer') {
+            navigate('/talent');
+        } else {
+            navigate('/jobapplication');
+        }
     }
     return (
         <div>
@@ -47,12 +57,14 @@ const JobApplication = () => {
                 <div className={style.JobHeaderCtnMiddle}>
                     <div className={style.JobExp3}>Active</div>
                     <div className={style.JobApplicant2}>
-                        <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/Img_xttjod.svg"
-                             alt="applicants"/> 234 Applicants
+                        <img
+                            src={userType === 'Freelancer' ? 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1731889747/Reev/Vector_rdfutv.svg' : "https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/Img_xttjod.svg"}
+                            alt="applicants"/> 234 {userType === 'Freelancer' ? 'Views' : 'Applicants'}
                     </div>
                 </div>
                 <div className={style.JobHeaderCtn2}>
-                    <button className={style.edit} onClick={handleNavigation}>Job Application <img
+                    <button className={style.edit}
+                            onClick={handleNavigation}>{userType === 'Freelancer' ? 'View Details' : 'Job Application'}<img
                         src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/arrow-right_bsh2zk.svg'
                         alt="Icon"/></button>
                     <img style={{cursor: 'pointer'}}

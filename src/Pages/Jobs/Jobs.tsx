@@ -20,7 +20,7 @@ interface propsType {
 
 }
 
-export default function Jobs({userType} : propsType) {
+export default function Jobs({userType}: propsType) {
     const [activeComponent, setActiveComponent] = useState("jobs_brief");
     const [popModal, setPopModal] = useState<boolean>(false);
 
@@ -61,11 +61,11 @@ export default function Jobs({userType} : propsType) {
 
     const handlePayment = () => {
         setPopModal(false)
-        if(selectedValue1 === 'Paid Listing'){
+        if (selectedValue1 === 'Paid Listing') {
             setActiveComponent('payment_skills')
 
-        }else{
-               setActiveComponent('jobs_brief')
+        } else {
+            setActiveComponent('jobs_brief')
         }
 
     }

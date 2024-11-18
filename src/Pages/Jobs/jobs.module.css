@@ -10,7 +10,7 @@
     max-width: 310px;
 }
 
-.TagInputWidthCtrl{
+.TagInputWidthCtrl {
     max-width: 268px;
 }
 
@@ -151,14 +151,13 @@ TimeLine styling codes */
     gap: 20px;
 }
 
-.rateSkill{
+.rateSkill {
 
 }
 
-#paymenttype2{
+#paymenttype2 {
     width: 200px;
 }
-
 
 
 .Budget {
@@ -390,7 +389,7 @@ TimeLine styling codes */
         font-size: 20px;
     }
 
-    .TagInputWidthCtrl{
+    .TagInputWidthCtrl {
         max-width: 540px;
     }
 
@@ -569,7 +568,7 @@ TimeLine styling codes */
         justify-content: flex-start;
     }
 
-    .TagInputWidthCtrl{
+    .TagInputWidthCtrl {
         max-width: 580px;
     }
 

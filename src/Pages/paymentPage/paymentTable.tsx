@@ -14,11 +14,51 @@ export interface TableRow {
 
 // Sample data for the table
 const data: TableRow[] = [
-    { id: 1, clientName: 'Steven Terry', project: 'Embedded system circuit', price: '$800', PayoutDate: 'May 25, 2023', PaymentStatus: 'Paid', OrderID: '#15627' },
-    { id: 2, clientName: 'Audrey Jones', project: 'Landing page', price: '$300', PayoutDate: 'Jun 20, 2023', PaymentStatus: 'Pending', OrderID: '#15627' },
-    { id: 3, clientName: 'Molly Mills', project: 'Landing page', price: '$180', PayoutDate: 'July 13, 2023', PaymentStatus: 'Withheld', OrderID: '#15627' },
-    { id: 4, clientName: 'Orlando Vesa', project: 'Landing page', price: '$920', PayoutDate: 'Dec 20, 2023', PaymentStatus: 'Reversed', OrderID: '#15627' },
-    { id: 5, clientName: 'Brian Fischer', project: 'Landing page', price: '$200', PayoutDate: 'Mar 15, 2024', PaymentStatus: 'Reversed', OrderID: '#15627' },
+    {
+        id: 1,
+        clientName: 'Steven Terry',
+        project: 'Embedded system circuit',
+        price: '$800',
+        PayoutDate: 'May 25, 2023',
+        PaymentStatus: 'Paid',
+        OrderID: '#15627'
+    },
+    {
+        id: 2,
+        clientName: 'Audrey Jones',
+        project: 'Landing page',
+        price: '$300',
+        PayoutDate: 'Jun 20, 2023',
+        PaymentStatus: 'Pending',
+        OrderID: '#15627'
+    },
+    {
+        id: 3,
+        clientName: 'Molly Mills',
+        project: 'Landing page',
+        price: '$180',
+        PayoutDate: 'July 13, 2023',
+        PaymentStatus: 'Withheld',
+        OrderID: '#15627'
+    },
+    {
+        id: 4,
+        clientName: 'Orlando Vesa',
+        project: 'Landing page',
+        price: '$920',
+        PayoutDate: 'Dec 20, 2023',
+        PaymentStatus: 'Reversed',
+        OrderID: '#15627'
+    },
+    {
+        id: 5,
+        clientName: 'Brian Fischer',
+        project: 'Landing page',
+        price: '$200',
+        PayoutDate: 'Mar 15, 2024',
+        PaymentStatus: 'Reversed',
+        OrderID: '#15627'
+    },
 ];
 
 const PaymentTable: React.FC = () => {
@@ -48,12 +88,12 @@ const PaymentTable: React.FC = () => {
             <table className={styles.tableCtn}>
                 <thead className={styles.header}>
                 <tr>
-                    <th style={{ borderRadius: '6px 0 0 6px' }}>Client Name</th>
+                    <th style={{borderRadius: '6px 0 0 6px'}}>Client Name</th>
                     <th>Project</th>
                     <th>Price</th>
                     <th>Payout Date</th>
                     <th>Payment Status</th>
-                    <th style={{ borderRadius: '0 6px 6px 0' }}>Order ID</th>
+                    <th style={{borderRadius: '0 6px 6px 0'}}>Order ID</th>
                 </tr>
                 </thead>
                 <tbody className={styles.body}>
@@ -68,10 +108,16 @@ const PaymentTable: React.FC = () => {
                                 </div>
                             </div>
                         </td>
-                        <td><div className={styles.project}>{row.project}</div></td>
-                        <td><div className={styles.project}>{row.price}</div></td>
-                        <td><div className={styles.project}>{row.PayoutDate}</div></td>
-                        <td style={{ textAlign: 'center' }}>
+                        <td>
+                            <div className={styles.project}>{row.project}</div>
+                        </td>
+                        <td>
+                            <div className={styles.project}>{row.price}</div>
+                        </td>
+                        <td>
+                            <div className={styles.project}>{row.PayoutDate}</div>
+                        </td>
+                        <td style={{textAlign: 'center'}}>
                                 <span className={`${styles['status-badge']} ${styles[`status-${row.PaymentStatus}`]}`}>
                                     {row.PaymentStatus}
                                 </span>
@@ -80,7 +126,7 @@ const PaymentTable: React.FC = () => {
                             <div className={styles.project}>
                                 {row.OrderID}
                                 <img
-                                    style={{ cursor: 'pointer' }}
+                                    style={{cursor: 'pointer'}}
                                     onClick={() => handleToggle(row.id)}
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/iconamoon_menu-kebab-vertical_khgrwt.svg"
                                     alt="more"
@@ -94,11 +140,15 @@ const PaymentTable: React.FC = () => {
                                     />
                                     <div className={styles.MoreList}>
                                         <li className={styles.MoreListli1}>
-                                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/document-download_xaeinf.svg" alt="report" />
+                                            <img
+                                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/document-download_xaeinf.svg"
+                                                alt="report"/>
                                             Download Invoice
                                         </li>
                                         <li className={styles.MoreListli2}>
-                                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/marketeq_caution-sign-circle_k7hvfj.svg" alt="report" />
+                                            <img
+                                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/marketeq_caution-sign-circle_k7hvfj.svg"
+                                                alt="report"/>
                                             Report Transaction
                                         </li>
                                     </div>

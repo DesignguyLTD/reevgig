@@ -8,12 +8,12 @@ import {Country} from "country-state-city";
 import {ButtonII} from "../../../../stories/Button-II/ButtonII";
 
 
-interface PaymentTransProps{
+interface PaymentTransProps {
     getActivePage: (x: string) => string;
 
 }
 
-const Payment = ({getActivePage} :PaymentTransProps) => {
+const Payment = ({getActivePage}: PaymentTransProps) => {
 
     const [country, setCountry] = useState<string>("");
     const [formData, setFormData] = useState({
@@ -49,7 +49,9 @@ const Payment = ({getActivePage} :PaymentTransProps) => {
         <div className={styles.Ctn}>
             <div className={styles.topCtn}>
                 <div className={styles.topText}>
-                    <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Frame_1171275861_nmiuz8.svg" alt="BillIcon"/>
+                    <img
+                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Frame_1171275861_nmiuz8.svg"
+                        alt="BillIcon"/>
                     Card
                 </div>
                 <div className={styles.topCard}>
@@ -57,18 +59,26 @@ const Payment = ({getActivePage} :PaymentTransProps) => {
                         <div>Odediran Philip Oluseyi</div>
                         <div>4556 - 5642 - 06** - ****</div>
                     </div>
-                    <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/Group_1171275882_wwx9zq.svg" alt="Card"/>
+                    <img
+                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/Group_1171275882_wwx9zq.svg"
+                        alt="Card"/>
                 </div>
                 <div className={styles.topCardEdit}>
-                    <div className={styles.topText2}>Seyifunmi`s Visa Card <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Button_xxzerp.svg" alt="edit"/></div>
-                    <div className={styles.PaymentTopOneAddCard}><img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Add_wpc6ce.svg" alt="Add"/> Add another Card</div>
+                    <div className={styles.topText2}>Seyifunmi`s Visa Card <img
+                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Button_xxzerp.svg"
+                        alt="edit"/></div>
+                    <div className={styles.PaymentTopOneAddCard}><img
+                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Add_wpc6ce.svg"
+                        alt="Add"/> Add another Card
+                    </div>
                 </div>
             </div>
 
             <div className={styles.btmCtn}>
                 <div className={styles.paymentH4Ctn}>
                     <div className={styles.paymentH4}>Payment</div>
-                    <img src={cloudImages.exit} style={{cursor: 'pointer'}} onClick={() => getActivePage ? getActivePage('back') : ''} alt="cancel icon"/>
+                    <img src={cloudImages.exit} style={{cursor: 'pointer'}}
+                         onClick={() => getActivePage ? getActivePage('back') : ''} alt="cancel icon"/>
                 </div>
                 <form className={styles.paymentForm}>
                     {/*<div className={styles.radioCtn}>*/}

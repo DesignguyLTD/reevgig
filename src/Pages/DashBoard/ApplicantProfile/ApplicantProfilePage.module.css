@@ -1,8 +1,8 @@
-.ApplicantCnt{
+.ApplicantCnt {
     width: 100%;
 }
 
-.ApplicantHeaderUserCnt{
+.ApplicantHeaderUserCnt {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -11,7 +11,7 @@
     gap: 10px;
 }
 
-.ApplicantHeaderUserMainCnt{
+.ApplicantHeaderUserMainCnt {
     margin: 20px 0 0 0;
     display: inline-flex;
     flex-direction: column;
@@ -23,21 +23,21 @@
     justify-content: center;
 }
 
-.ApplicantMainBodyHeaderCtn{
+.ApplicantMainBodyHeaderCtn {
     padding: 10px;
     width: 100%;
     border: 1px solid rgb(214, 221, 235);
     background: rgb(255, 255, 255);
 }
 
-.ApplicantMainBodyHeaderCtn2{
+.ApplicantMainBodyHeaderCtn2 {
     margin: 30px 0;
     display: inline-flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.ApplicantHeaderText{
+.ApplicantHeaderText {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -51,7 +51,7 @@
     text-align: left;
 }
 
-.ApplicantHeaderUserData{
+.ApplicantHeaderUserData {
     display: inline-flex;
     flex-direction: row;
     align-items: flex-start;
@@ -59,18 +59,19 @@
     justify-content: flex-start;
     gap: 10px;
 }
-.ApplicantHeaderUser{
+
+.ApplicantHeaderUser {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.ApplicantHeaderUserData img{
+.ApplicantHeaderUserData img {
     width: 50px;
     height: 50px;
 }
 
-.ApplicantHeaderUserText1{
+.ApplicantHeaderUserText1 {
     /* body medium */
     color: rgb(24, 25, 28);
     font-family: PP Neue Montreal;
@@ -81,7 +82,7 @@
     text-align: left;
 }
 
-.ApplicantHeaderUserText2{
+.ApplicantHeaderUserText2 {
     /* body2 */
     color: rgb(71, 76, 84);
     font-family: PP Neue Montreal;
@@ -92,17 +93,17 @@
     text-align: left;
 }
 
-.ApplicantHeaderBtn1{
+.ApplicantHeaderBtn1 {
     display: none;
 }
 
-.ApplicantHeaderBtn3{
+.ApplicantHeaderBtn3 {
     display: block;
     width: 35px;
     height: 35px;
 }
 
-.ApplicantHeaderBtnCtn{
+.ApplicantHeaderBtnCtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -110,7 +111,8 @@
     gap: 5px;
     justify-content: space-between;
 }
-.ApplicantHeaderBtn2{
+
+.ApplicantHeaderBtn2 {
     border-radius: 160px;
     background: rgb(43, 43, 43);
     color: rgb(255, 255, 255);
@@ -133,14 +135,14 @@
 }
 
 
-.ApplicantHeaderBtn2:hover{
+.ApplicantHeaderBtn2:hover {
     box-sizing: border-box;
     border-bottom: 2px solid rgb(0, 0, 0);
     background: rgb(254, 194, 0);
     color: rgb(19, 19, 19);
 }
 
-.ApplicantHeaderBtn2:active{
+.ApplicantHeaderBtn2:active {
     box-sizing: border-box;
     border: 1px solid rgb(254, 194, 0);
     border-radius: 160px;
@@ -149,7 +151,7 @@
 
 }
 
-.ApplicantHeaderCtrlText{
+.ApplicantHeaderCtrlText {
     color: rgb(124, 132, 147);
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -161,7 +163,7 @@
     cursor: pointer;
 }
 
-.ApplicantHeaderCtrl{
+.ApplicantHeaderCtrl {
     display: inline-flex;
     flex-direction: row;
     align-items: flex-start;
@@ -169,10 +171,11 @@
     gap: 20px;
 }
 
-.Resumé{
+.Resumé {
     width: 300px;
 }
-.ProposalCtn{
+
+.ProposalCtn {
     box-sizing: border-box;
     /* primary color/3001 */
     border: 1px solid rgb(236, 236, 236);
@@ -182,7 +185,7 @@
     margin: 10px auto;
 }
 
-.ProposalText1{
+.ProposalText1 {
     color: rgb(24, 25, 28);
     font-family: PP Neue Montreal;
     font-size: 19px;
@@ -192,7 +195,7 @@
     text-align: left;
 }
 
-.ProposalText2{
+.ProposalText2 {
     color: rgb(94, 102, 112);
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -201,7 +204,8 @@
     letter-spacing: 0;
     text-align: left;
 }
-.ApplicantMainBody2{
+
+.ApplicantMainBody2 {
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid rgb(236, 236, 236);
@@ -212,7 +216,8 @@
     flex-direction: row;
     align-items: center;
 }
-.ApplicantMainBody3{
+
+.ApplicantMainBody3 {
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid rgb(236, 236, 236);
@@ -226,17 +231,18 @@
 
 }
 
-.ApplicantMainBodyRate{
+.ApplicantMainBodyRate {
     border-right: 2px solid rgb(236, 236, 236);
     margin-right: 10px;
     width: 50%;
 }
 
-.ApplicantMainBodySkill{
+.ApplicantMainBodySkill {
     width: 50%;
 
 }
-.ApplicantMainBodyRateText2{
+
+.ApplicantMainBodyRateText2 {
     /* body medium */
     color: rgb(39, 39, 39);
     font-family: PP Neue Montreal;
@@ -246,10 +252,11 @@
     letter-spacing: 0;
     text-align: center;
 }
-.ApplicantMainBodyRateText1{
+
+.ApplicantMainBodyRateText1 {
     /* body 3 */
     color: rgb(125, 125, 125);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 12px;
     font-weight: 400;
     line-height: 140%;
@@ -257,10 +264,10 @@
     text-align: center;
 }
 
-.ApplicantMainBodySkillTag1{
+.ApplicantMainBodySkillTag1 {
     /* body 3 */
     color: rgb(39, 39, 39);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 12px;
     font-weight: 400;
     line-height: 140%;
@@ -273,10 +280,10 @@
     background: rgb(255, 235, 170);
 }
 
-.ApplicantMainBodySkillTag2{
+.ApplicantMainBodySkillTag2 {
     /* body 3 */
     color: rgb(39, 39, 39);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 12px;
     font-weight: 400;
     line-height: 140%;
@@ -289,14 +296,14 @@
     background: rgb(247, 247, 247);
 }
 
-.ApplicantMainBodySkillTag2Ctn{
+.ApplicantMainBodySkillTag2Ctn {
     display: inline-flex;
     flex-direction: row;
     width: 100%;
     gap: 10px;
 }
 
-.ApplicantMainBody3TopText{
+.ApplicantMainBody3TopText {
     color: rgb(24, 25, 28);
     font-family: PP Neue Montreal;
     font-size: 13.35px;
@@ -306,28 +313,29 @@
     text-align: left;
 }
 
-.ApplicantMainBody3MiddleComp{
+.ApplicantMainBody3MiddleComp {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
 }
 
-.ApplicantMainBody3Middle1{
+.ApplicantMainBody3Middle1 {
     width: 20px;
     height: 20px;
 }
 
-.ApplicantMainBody3Middle2{
+.ApplicantMainBody3Middle2 {
     color: rgb(118, 127, 140);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 10.01px;
     font-weight: 400;
     line-height: 140%;
     letter-spacing: 0;
     text-align: left;
 }
-.ApplicantMainBody3Middle{
+
+.ApplicantMainBody3Middle {
     display: inline-flex;
     width: 100%;
     flex-direction: row;
@@ -336,11 +344,11 @@
     justify-content: space-between;
 }
 
-.ApplicantMainBody3Top{
+.ApplicantMainBody3Top {
 
 }
 
-.ApplicantMainBody3Middle3{
+.ApplicantMainBody3Middle3 {
     color: rgb(24, 25, 28);
     font-family: PP Neue Montreal;
     font-size: 13.35px;
@@ -350,20 +358,20 @@
     text-align: left;
 }
 
-.ApplicantMainBody{
+.ApplicantMainBody {
     display: inline-flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
 }
 
-.ApplicantMainBodyLowerCtn{
+.ApplicantMainBodyLowerCtn {
     width: 100%;
 }
 
 @media (min-width: 768px) {
 
-    .ApplicantMainBody3{
+    .ApplicantMainBody3 {
         box-sizing: border-box;
         padding: 30px;
         border: 1px solid rgb(236, 236, 236);
@@ -376,20 +384,21 @@
         gap: 10px;
 
     }
-    .ApplicantHeaderCnt{
+
+    .ApplicantHeaderCnt {
         max-width: 640px;
         width: 100%;
     }
 
-    .ApplicantHeaderBtn3{
+    .ApplicantHeaderBtn3 {
         display: none;
     }
 
-    .ApplicantHeaderUserText1{
+    .ApplicantHeaderUserText1 {
         font-size: 19px;
     }
 
-    .ApplicantHeaderUserText2{
+    .ApplicantHeaderUserText2 {
         font-size: 16px;
     }
 
@@ -402,11 +411,11 @@
         justify-content: space-between;
     }
 
-    .Resumé{
+    .Resumé {
         width: 600px;
     }
 
-    .ApplicantHeaderCtrl{
+    .ApplicantHeaderCtrl {
         display: inline-flex;
         flex-direction: row;
         align-items: flex-start;
@@ -415,11 +424,12 @@
         margin: 20px 0 0 0;
     }
 
-    .ApplicantHeaderBtn2{
-        width:  100%;
+    .ApplicantHeaderBtn2 {
+        width: 100%;
 
     }
-    .ApplicantHeaderBtn1{
+
+    .ApplicantHeaderBtn1 {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -429,7 +439,7 @@
         padding: 10px 13px;
         gap: 3px;
         background: #FFFFFF;
-        width:  100%;
+        width: 100%;
         color: rgb(39, 39, 39);
         font-family: PP Neue Montreal;
         font-size: 14px;
@@ -458,37 +468,38 @@
         background: rgb(254, 194, 0);
     }
 }
+
 @media (min-width: 1024px) {
-    .Resumé{
+    .Resumé {
         width: 400px;
     }
-    .ApplicantHeaderCnt{
+
+    .ApplicantHeaderCnt {
         width: 640px;
         max-width: 100%;
     }
 
-    .ApplicantMainBodyLowerCtn{
+    .ApplicantMainBodyLowerCtn {
         width: 800px;
     }
 
 
-
-    .ApplicantMainBodyHeaderCtn{
+    .ApplicantMainBodyHeaderCtn {
         padding: 10px;
         width: 50%;
         border: 1px solid rgb(214, 221, 235);
         background: rgb(255, 255, 255);
     }
 
-    .ApplicantHeaderUserText1{
+    .ApplicantHeaderUserText1 {
         font-size: 23px;
     }
 
-    .ApplicantHeaderUserText2{
+    .ApplicantHeaderUserText2 {
         font-size: 19px;
     }
 
-    .ApplicantMainBody3{
+    .ApplicantMainBody3 {
         box-sizing: border-box;
         padding: 40px;
         border: 1px solid rgb(236, 236, 236);
@@ -502,14 +513,14 @@
 
     }
 
-    .ApplicantMainBody{
+    .ApplicantMainBody {
         display: inline-flex;
         flex-direction: row;
         gap: 20px;
         width: 100%;
     }
 
-    .ApplicantHeaderUserMainCnt{
+    .ApplicantHeaderUserMainCnt {
         margin: 20px 0 0 0;
         display: inline-flex;
         flex-direction: column;
@@ -517,19 +528,18 @@
         width: 1000px;
         max-width: 140%;
         padding: 10px;
-         border: none;
+        border: none;
         background: rgb(255, 255, 255);
         justify-content: center;
     }
 
-    .ApplicantMainBodyHeaderCtn2{
+    .ApplicantMainBodyHeaderCtn2 {
         margin: 30px 0;
         display: inline-flex;
         flex-direction: column;
         gap: 20px;
         width: 50%;
     }
-
 
 
 }

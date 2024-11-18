@@ -49,8 +49,9 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
 
     return (
         <div className={styles.PaymentSkillsCtn}>
-            <div style={{cursor: 'pointer'}} className={styles.PaymentSkillsTop} onClick={() => setActiveComponent('jobs_skills')}>
-                <img  src={cloudImages.backArrow} alt=""/>
+            <div style={{cursor: 'pointer'}} className={styles.PaymentSkillsTop}
+                 onClick={() => setActiveComponent('jobs_skills')}>
+                <img src={cloudImages.backArrow} alt=""/>
                 Payment
             </div>
 
@@ -95,7 +96,7 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
             <div className={styles.paymentInputCtn}>
                 {selectedValue1 === 'Card' ?
                     <div className={styles.paymentInputCtn}>
-                        <form className={styles.paymentFormCtn} >
+                        <form className={styles.paymentFormCtn}>
                             <div className={styles.paymentInputCtn}>
                                 <div className={styles.names}>
                                     <div className={styles.firstNameCtn}>
@@ -207,7 +208,8 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
                                     size="medium"
                                 />
                                 <br/>
-                                <p>Your personal data will be used to process your order, support your experience throughout the
+                                <p>Your personal data will be used to process your order, support your experience
+                                    throughout the
                                     website and for other purposes described in our privacy policy.</p>
                             </div>
                         </form>
@@ -215,59 +217,67 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
                     </div>
                     :
                     <div className={styles.LocalDepoCtn}>
-                      <div className={styles.LocalDepo}>
-                          <div className={styles.LocalDepo1}>
-                              <div className={styles.LocalDepoInfoCtn}>
-                                  <div className={styles.LocalDepoInfo1}>Bank: </div>
-                                  <div className={styles.LocalDepoInfo2}>Name of Bank</div>
-                              </div>
-                              <div className={styles.LocalDepoInfoCtn}>
-                                  <div className={styles.LocalDepoInfo1}>Account Name: </div>
-                                  <div className={styles.LocalDepoInfo2}>Account name here</div>
-                              </div>
-                              <div className={styles.LocalDepoInfoCtn}>
-                                  <div className={styles.LocalDepoInfo1}>Account Number: </div>
-                                  <div className={styles.LocalDepoInfo2}>1234567890</div>
-                                  <div className={styles.LocalDepoInfo3}>
-                                      <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Button_jlb6ek.svg" alt="copyIcon"/>
-                                  </div>
-                              </div>
-                              <div className={styles.LocalDepoInfoCtn}>
-                                  <div className={styles.LocalDepoInfo1}>Payment ID: </div>
-                                  <div className={styles.LocalDepoInfo2}>1234567890</div>
-                                  <div className={styles.LocalDepoInfo3}>
-                                      <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Button_jlb6ek.svg" alt="copyIcon"/>
-                                  </div>
-                              </div>
-                              <div className={styles.LocalDepoInfoCtn}>
-                                  <div className={styles.total1}>Total: </div>
-                                  <div className={styles.total2}>$50</div>
-                              </div>
-                          </div>
+                        <div className={styles.LocalDepo}>
+                            <div className={styles.LocalDepo1}>
+                                <div className={styles.LocalDepoInfoCtn}>
+                                    <div className={styles.LocalDepoInfo1}>Bank:</div>
+                                    <div className={styles.LocalDepoInfo2}>Name of Bank</div>
+                                </div>
+                                <div className={styles.LocalDepoInfoCtn}>
+                                    <div className={styles.LocalDepoInfo1}>Account Name:</div>
+                                    <div className={styles.LocalDepoInfo2}>Account name here</div>
+                                </div>
+                                <div className={styles.LocalDepoInfoCtn}>
+                                    <div className={styles.LocalDepoInfo1}>Account Number:</div>
+                                    <div className={styles.LocalDepoInfo2}>1234567890</div>
+                                    <div className={styles.LocalDepoInfo3}>
+                                        <img
+                                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Button_jlb6ek.svg"
+                                            alt="copyIcon"/>
+                                    </div>
+                                </div>
+                                <div className={styles.LocalDepoInfoCtn}>
+                                    <div className={styles.LocalDepoInfo1}>Payment ID:</div>
+                                    <div className={styles.LocalDepoInfo2}>1234567890</div>
+                                    <div className={styles.LocalDepoInfo3}>
+                                        <img
+                                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Button_jlb6ek.svg"
+                                            alt="copyIcon"/>
+                                    </div>
+                                </div>
+                                <div className={styles.LocalDepoInfoCtn}>
+                                    <div className={styles.total1}>Total:</div>
+                                    <div className={styles.total2}>$50</div>
+                                </div>
+                            </div>
 
-                          <div className={styles.LocalDepo2}>
+                            <div className={styles.LocalDepo2}>
                                 <div className={styles.LocalDepo2Text}>
                                     Use this account for this transaction only
                                 </div>
-                              
-                              <div>
-                                  <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Group_1171275883_pzbwki.svg" alt="Ban"/>
-                              </div>
-                              <div className={styles.LocalDepo2Text}>Expires in <strong>30:00</strong></div>
 
-                              <ButtonII
-                                  hasIcon={false}
-                                  isLabelVisible={true}
-                                  label="Click here after making payment"
-                                  primary={true}
-                                  size="medium"
-                              />
+                                <div>
+                                    <img
+                                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727455543/Reev/27th%20Sept%202024/Group_1171275883_pzbwki.svg"
+                                        alt="Ban"/>
+                                </div>
+                                <div className={styles.LocalDepo2Text}>Expires in <strong>30:00</strong></div>
 
-                              <div  className={styles.LocalDepo2Text2}>
-                                  <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg" alt="download"/>
-                                  Download Payment Invoice
-                              </div>
-                          </div>
+                                <ButtonII
+                                    hasIcon={false}
+                                    isLabelVisible={true}
+                                    label="Click here after making payment"
+                                    primary={true}
+                                    size="medium"
+                                />
+
+                                <div className={styles.LocalDepo2Text2}>
+                                    <img
+                                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993475/Reev/material-symbols-light_download_s4i16q.svg"
+                                        alt="download"/>
+                                    Download Payment Invoice
+                                </div>
+                            </div>
 
                             <div className={styles.LocalDepo3Ctn}>
                                 <div className={styles.LocalDepo3}>
@@ -285,7 +295,7 @@ const PaymentSkills = ({setActiveComponent}: givenProps) => {
 
                             </div>
 
-                      </div>
+                        </div>
                     </div>
 
                 }

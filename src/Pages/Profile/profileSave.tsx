@@ -338,7 +338,7 @@ const ProfileSave = ({page, setPage, userType}: Props) => {
                     {/*</div>*/}
                 </div>
                 <div className={style.holder_two}>
-                    { header === 'Public' ?
+                    {header === 'Public' ?
                         (
                             <div>
                                 <div className={style.avatar_container}>
@@ -363,15 +363,15 @@ const ProfileSave = ({page, setPage, userType}: Props) => {
                                     </div>
                                 </div>
                                 <div className={style.contain}>
-                                        <Input
-                                            label="Display Name"
-                                            size="small"
-                                            isTextArea={false}
-                                            name="DisplayName"
-                                            value={formValues.DisplayName}
-                                            placeholder="Others will see this name"
-                                            onChange={handleInputChange}
-                                        />
+                                    <Input
+                                        label="Display Name"
+                                        size="small"
+                                        isTextArea={false}
+                                        name="DisplayName"
+                                        value={formValues.DisplayName}
+                                        placeholder="Others will see this name"
+                                        onChange={handleInputChange}
+                                    />
                                     <br/>
                                     <Input
                                         size="small"
@@ -386,7 +386,8 @@ const ProfileSave = ({page, setPage, userType}: Props) => {
                                         <TagInput
                                             subLabel2={'Popular Languages spoken'}
                                             label='Language' recommendedTags={recommendedLanguages}
-                                            placeholder={'Enter preferred Languages'} maxTags={3} setTags={setprofileLang}
+                                            placeholder={'Enter preferred Languages'} maxTags={3}
+                                            setTags={setprofileLang}
                                             tags={profileLang}/>
                                     </div>
 
@@ -408,7 +409,8 @@ const ProfileSave = ({page, setPage, userType}: Props) => {
                                                size='small' name={'CVName'}
                                         />
                                         <br/>
-                                        <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'}
+                                        <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst}
+                                                    id={'pngjpg'}
                                                     label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}
                                                     allowedTypes={['image/png', 'image/jpeg']}/>
 
@@ -431,7 +433,7 @@ const ProfileSave = ({page, setPage, userType}: Props) => {
 
                             </div>
                         )
-                        :(
+                        : (
                             // personal
                             <div>
                                 <div className={style.contain}>
@@ -539,7 +541,7 @@ const ProfileSave = ({page, setPage, userType}: Props) => {
                                                 label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}
                                                 allowedTypes={['image/png', 'image/jpeg']}/>
                                 </div>
-                        </div>)
+                            </div>)
                     }
 
 

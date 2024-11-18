@@ -1,17 +1,13 @@
 import React from 'react';
 import Sidebar from "../../stories/SideBar/sideBar";
 import style from '../OverView/OverviewPage.module.css';
-import OverviewPage from "../OverView/OverviewPage";
-import Jobs from "../Jobs/Jobs";
-import ProfileMain from "../Profile/ProfileMain";
-import Settings from './settings/settings';
-import PaymentPage from '../paymentPage/paymentPage';
 
 interface DashboardProps {
     UserType: string | null;
 
 }
-const Dashboard = ({UserType} :DashboardProps) => {
+
+const Dashboard = ({UserType}: DashboardProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
     const [currentPage, setCurrentPage] = React.useState<string>(
         localStorage.getItem('currentPage') || 'Overview'
@@ -34,48 +30,47 @@ const Dashboard = ({UserType} :DashboardProps) => {
         <div>
             <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
             <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
-            {/*    <div>*/}
-            {/*        {currentPage === 'Overview' &&*/}
-            {/*            // <OverviewPage/>*/}
-            {/*        }*/}
+                {/*    <div>*/}
+                {/*        {currentPage === 'Overview' &&*/}
+                {/*            // <OverviewPage/>*/}
+                {/*        }*/}
 
-            {/*        {currentPage === 'Profile' &&*/}
-            {/*            <>*/}
-            {/*                /!*<ProfileMain/>*!/*/}
-            {/*            </>*/}
-            {/*        }*/}
+                {/*        {currentPage === 'Profile' &&*/}
+                {/*            <>*/}
+                {/*                /!*<ProfileMain/>*!/*/}
+                {/*            </>*/}
+                {/*        }*/}
 
-            {/*        /!*{currentPage === 'PostAJob' &&*!/*/}
-            {/*        /!*    <Jobs/>*!/*/}
-            {/*        /!*}*!/*/}
+                {/*        /!*{currentPage === 'PostAJob' &&*!/*/}
+                {/*        /!*    <Jobs/>*!/*/}
+                {/*        /!*}*!/*/}
 
-            {/*        {currentPage === 'Message' &&*/}
-            {/*            <h1>Development in progress ....</h1>*/}
-            {/*        }*/}
+                {/*        {currentPage === 'Message' &&*/}
+                {/*            <h1>Development in progress ....</h1>*/}
+                {/*        }*/}
 
-            {/*        {currentPage === 'SavedEmployee' &&*/}
-            {/*            <h1>Development in progress ....</h1>*/}
-            {/*        }*/}
+                {/*        {currentPage === 'SavedEmployee' &&*/}
+                {/*            <h1>Development in progress ....</h1>*/}
+                {/*        }*/}
 
-            {/*        {currentPage === 'PlanBillings' &&*/}
-            {/*            // <PaymentPage/>*/}
-            {/*        }*/}
+                {/*        {currentPage === 'PlanBillings' &&*/}
+                {/*            // <PaymentPage/>*/}
+                {/*        }*/}
 
-            {/*        {currentPage === 'Settings' &&*/}
-            {/*            // <Settings/>*/}
-            {/*        }*/}
-            {/*    </div>*/}
-            {/*    :*/}
-            {/*    <div>*/}
-            {/*        Freelancer*/}
-            {/*    </div>    {   UserType === 'Client' ?*/}
+                {/*        {currentPage === 'Settings' &&*/}
+                {/*            // <Settings/>*/}
+                {/*        }*/}
+                {/*    </div>*/}
+                {/*    :*/}
+                {/*    <div>*/}
+                {/*        Freelancer*/}
+                {/*    </div>    {   UserType === 'Client' ?*/}
 
 
+                {/*    }*/}
 
-            {/*    }*/}
-
-            {/*</div>*/}
-        </div>
+                {/*</div>*/}
+            </div>
         </div>
     );
 };

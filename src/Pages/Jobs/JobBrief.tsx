@@ -91,7 +91,8 @@ export default function JobBrief({setActiveComponent, userType}: jobProps) {
                             subLabel1={'For best results, add 3 - 5 skills'}
                             // subLabel2={'Popular skills for Circuit Design'}
                             label='' recommendedTags={recommendedSkills}
-                            placeholder={'Start typing to view & select options. If entering your own tags, press enter to save'} maxTags={10} setTags={setSearchTag}
+                            placeholder={'Start typing to view & select options. If entering your own tags, press enter to save'}
+                            maxTags={10} setTags={setSearchTag}
                             tags={searchTag}/>
 
                     </div>

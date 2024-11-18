@@ -31,7 +31,7 @@ const faqs: FAQItem[] = [
         question: 'Can I exchange an item?',
         answer: 'Exchanges are possible within 30 days of purchase. Contact our support team to initiate an exchange.',
     },
-    ];
+];
 
 const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -58,7 +58,7 @@ const FAQ: React.FC = () => {
                         </div>
                         <div
                             className={`${styles.faqAnswer} ${openIndex === index ? styles.open : ''}`}
-                            style={{ maxHeight: openIndex === index ? '75px' : '0px' }} // Adjust max-height for smooth transitions
+                            style={{maxHeight: openIndex === index ? '75px' : '0px'}} // Adjust max-height for smooth transitions
                         >
                             <div className={styles.faqAnswerContent}>{faq.answer}</div>
                         </div>

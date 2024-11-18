@@ -31,7 +31,7 @@ const App: React.FC = () => {
     //
     // console.log('UserType: ', userType);
 
-    const userType:string = 'Freelancer';
+    const userType: string = localStorage.getItem('userType') ?? 'Client';
 
     // Define routes where the sidebar should not be shown
     const noSidebarRoutes = ['/', '/onboarding', '/signup', '/login', '/resetpassword'];
@@ -41,30 +41,30 @@ const App: React.FC = () => {
             {!noSidebarRoutes.includes(location.pathname) ? (
                 <DashboardLayout>
                     <Routes>
-                        <Route path="/accountSettings" element={<AccountSettings />} />
-                        <Route path="/notification" element={<NotificationPage />} />
-                        <Route path="/applicantprofile" element={<ApplicantProfilePage />} />
-                        <Route path="/jobapplication" element={<JobApplicationPage />} />
-                        <Route path="/overview" element={<OverviewPage />} />
-                        <Route path="/profile" element={<ProfileMain userType={userType} />} />
-                        <Route path="/postproject" element={<Jobs userType={userType}/>} />
-                        <Route path="/message" element={<h1>Development in progress ....</h1>} />
-                        <Route path="/saved" element={<h1>Development in progress ....</h1>} />
-                        <Route path="/help" element={<h1>Development in progress ....</h1>} />
-                        <Route path="/payment" element={<PaymentPage />} />
-                        <Route path="/settings" element={<Settings />} />
-                        <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>} />
+                        <Route path="/accountSettings" element={<AccountSettings/>}/>
+                        <Route path="/notification" element={<NotificationPage/>}/>
+                        <Route path="/applicantprofile" element={<ApplicantProfilePage/>}/>
+                        <Route path="/jobapplication" element={<JobApplicationPage/>}/>
+                        <Route path="/overview" element={<OverviewPage userType={userType}/>}/>
+                        <Route path="/profile" element={<ProfileMain userType={userType}/>}/>
+                        <Route path="/postproject" element={<Jobs userType={userType}/>}/>
+                        <Route path="/message" element={<h1>Development in progress ....</h1>}/>
+                        <Route path="/saved" element={<h1>Development in progress ....</h1>}/>
+                        <Route path="/help" element={<h1>Development in progress ....</h1>}/>
+                        <Route path="/payment" element={<PaymentPage/>}/>
+                        <Route path="/settings" element={<Settings/>}/>
+                        <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>}/>
                     </Routes>
                 </DashboardLayout>
             ) : (
                 <>
                     <Routes>
-                        <Route path="/" element={<LandingPage />} />
-                        <Route path="/signup" element={<SignUp />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/resetpassword" element={<ResetPassword />} />
-                        <Route path="/onboarding" element={<OnBoarding />} />
-                        <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>} />
+                        <Route path="/" element={<LandingPage/>}/>
+                        <Route path="/signup" element={<SignUp/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/resetpassword" element={<ResetPassword/>}/>
+                        <Route path="/onboarding" element={<OnBoarding/>}/>
+                        <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>}/>
                     </Routes>
                 </>
             )}

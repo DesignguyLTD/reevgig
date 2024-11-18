@@ -24,29 +24,29 @@ export default function Footer() {
                             Find your dream job easier.
                         </p>
                     </div>
-          <div className={style.footer_links}>
-            <div className={style.about}>
-              <Link to={"/"} className={style.h3}>
-                About
-              </Link>
+                    <div className={style.footer_links}>
+                        <div className={style.about}>
+                            <Link to={"/"} className={style.h3}>
+                                About
+                            </Link>
 
-              <Link to="/" className={style.links}>
-                Companies
-              </Link>
-              <Link to={"/"} className={style.links}>
-                Pricing
-              </Link>
-              <Link to={"/"} className={style.links}>
-                Terms
-              </Link>
-              <Link to={"/"} className={style.links}>
-                Privacy
-              </Link>
-            </div>
-            <div className={style.resource}>
-              <Link to={"/"} className={style.h3}>
-                Resources
-              </Link>
+                            <Link to="/" className={style.links}>
+                                Companies
+                            </Link>
+                            <Link to={"/"} className={style.links}>
+                                Pricing
+                            </Link>
+                            <Link to={"/"} className={style.links}>
+                                Terms
+                            </Link>
+                            <Link to={"/"} className={style.links}>
+                                Privacy
+                            </Link>
+                        </div>
+                        <div className={style.resource}>
+                            <Link to={"/"} className={style.h3}>
+                                Resources
+                            </Link>
 
                             <Link to={"/"} className={style.links}>
                                 Help Docs
@@ -59,15 +59,15 @@ export default function Footer() {
                             </Link>
                         </div>
 
-            <div className={style.notification}>
-              <div>
-                <Link to={"#"} className={style.h3}>
-                  Get job notifications
-                </Link>
-                <p className={style.latest_jobs}>
-                  The latest job new, articles, sent to your inbox weekly
-                </p>
-              </div>
+                        <div className={style.notification}>
+                            <div>
+                                <Link to={"#"} className={style.h3}>
+                                    Get job notifications
+                                </Link>
+                                <p className={style.latest_jobs}>
+                                    The latest job new, articles, sent to your inbox weekly
+                                </p>
+                            </div>
 
                             <form className={style.footer_input}>
                                 <div className={style.input_container}>
@@ -90,42 +90,42 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
 
 
-        <div className={style.bottom}>
-          <hr className={style.hr} />
-          <div className={style.foot_note}>
-            <p>2024 @ ReevGig. All rights reserved.</p>
-            <div className={style.social_links}>
-              <Link to={"#"} className={style.socials}>
-                <img
-                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Facebook_diwfby.svg"
-                  alt=""
-                />
-              </Link>
-              <Link to={"/"} className={style.socials}>
-                <img
-                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Instagram_cwl3ok.svg"
-                  alt=""
-                />
-              </Link>
-              <Link to={"/"} className={style.socials}>
-                <img
-                  src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/LinkedIn_wz4doc.svg"
-                  alt=""
-                />
-              </Link>
+            <div className={style.bottom}>
+                <hr className={style.hr}/>
+                <div className={style.foot_note}>
+                    <p>2024 @ ReevGig. All rights reserved.</p>
+                    <div className={style.social_links}>
+                        <Link to={"#"} className={style.socials}>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Facebook_diwfby.svg"
+                                alt=""
+                            />
+                        </Link>
+                        <Link to={"/"} className={style.socials}>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/Instagram_cwl3ok.svg"
+                                alt=""
+                            />
+                        </Link>
+                        <Link to={"/"} className={style.socials}>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337693/LinkedIn_wz4doc.svg"
+                                alt=""
+                            />
+                        </Link>
 
-                            <Link to={"/"} className={style.socials}>
-                                <img
-                                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337794/Twitter_rerq8m.svg"
-                                    alt=""
-                                />
-                            </Link>
-                        </div>
+                        <Link to={"/"} className={style.socials}>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726337794/Twitter_rerq8m.svg"
+                                alt=""
+                            />
+                        </Link>
                     </div>
                 </div>
+            </div>
 
         </footer>
     );

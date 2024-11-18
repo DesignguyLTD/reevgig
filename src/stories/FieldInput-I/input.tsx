@@ -120,7 +120,7 @@ const Input: React.FC<InputProps> = ({
 
             {labelSub &&
                 <div
-                 className={styles['storybook-labelSub']}
+                    className={styles['storybook-labelSub']}
                 >{labelSub}</div>
             }
 

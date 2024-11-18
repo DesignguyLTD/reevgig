@@ -134,7 +134,7 @@ li {
     align-items: center;
 }
 
-a{
+a {
     color: rgb(125, 125, 125);
 }
 
@@ -297,7 +297,7 @@ i {
 }
 
 
-.deskTabIcon.active{
+.deskTabIcon.active {
     color: #000000;
     background-color: #fec200;
     border-left: 2px solid #060606;
@@ -306,7 +306,7 @@ i {
     align-items: center;
 }
 
-.mobileIcon.active{
+.mobileIcon.active {
     color: #fec200;
     border-left: 2px solid #fec200;
 }

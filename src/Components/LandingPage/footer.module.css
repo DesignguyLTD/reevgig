@@ -5,7 +5,7 @@ body {
     box-sizing: border-box;
     width: 100vw;
     font-family: "Epilogue", sans-serif;
-     /*overflow-x: scroll;*/
+    /*overflow-x: scroll;*/
     letter-spacing: 1px;
 }
 
@@ -62,8 +62,7 @@ body {
     grid-template-areas:
         "about about"
         "resource resource"
-        "notification notification"
-    ;
+        "notification notification";
     justify-content: left;
     align-items: start;
     width: fit-content;
@@ -87,7 +86,6 @@ body {
     padding-bottom: 16px;
     text-decoration: none;
 }
-
 
 
 .notification .h3 {
@@ -135,7 +133,7 @@ body {
 }
 
 
-.input_container>input {
+.input_container > input {
     width: 118px;
     height: 44px;
     font-family: "Epilogue", sans-serif;
@@ -146,8 +144,7 @@ body {
 }
 
 
-
-.input_container>input::placeholder {
+.input_container > input::placeholder {
     /*padding-left: 2rem;*/
 
 }
@@ -219,7 +216,7 @@ body {
 }
 
 @media screen and (min-width: 500px) {
-    .input_container>input {
+    .input_container > input {
         width: 196px;
         padding-left: 46px;
     }
@@ -251,13 +248,11 @@ body {
     }
 
 
-
     .footer_links {
         display: grid;
         grid-template-areas:
             "about resource"
-            "notification notification"
-        ;
+            "notification notification";
         justify-content: left;
         align-items: start;
         width: 436px;
@@ -321,8 +316,7 @@ body {
     .footer_links {
         grid-template-areas:
             "about resource notification"
-            "about resource notification"
-        ;
+            "about resource notification";
         justify-content: center;
         align-items: start;
         width: fit-content;
@@ -331,7 +325,7 @@ body {
     }
 
 
-    .input_container>input {
+    .input_container > input {
         width: 234px;
         height: 44px;
         font-family: "Epilogue", sans-serif;
@@ -340,12 +334,12 @@ body {
 
     }
 
-    .input_container>input::placeholder {
+    .input_container > input::placeholder {
         /*padding-left: 2.4rem;*/
 
     }
 
-    .input_container>img {
+    .input_container > img {
         position: absolute;
         top: .85rem;
         left: 1rem;
@@ -355,11 +349,11 @@ body {
         width: 376px;
     }
 
-    .footer_links>div>.links {
+    .footer_links > div > .links {
         padding: 16px 0;
     }
 
-    .footer_links>div>.h3 {
+    .footer_links > div > .h3 {
         padding-bottom: 20px;
     }
 
