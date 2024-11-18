@@ -1,7 +1,5 @@
 import React from 'react';
-import Sidebar from "../../../stories/SideBar/sideBar";
 import appstyle from "../../../Pages/DashBoard/ApplicantProfile/ApplicantProfilePage.module.css";
-import style from "../../OverView/OverviewPage.module.css";
 
 const ApplicantProfilePage = () => {
     const [header, setHeader] = React.useState('Proposal');

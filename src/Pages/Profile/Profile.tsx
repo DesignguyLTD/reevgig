@@ -4,14 +4,16 @@ import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
 
 import {useLocation, useNavigate} from "react-router-dom";
-import { ButtonII } from "../../stories/Button-II/ButtonII";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
+import FileDisplay from "./FileDisplay";
 
 interface Props {
     page: number;
     setPage: (page: number) => void;
+    userType: string;
 }
 
-const Profile = ({page, setPage}: Props) => {
+const Profile = ({page, setPage, userType}: Props) => {
 
     const [header, setHeader] = React.useState('Public');
 
@@ -123,7 +125,7 @@ const Profile = ({page, setPage}: Props) => {
                                     <div className={style.topUserStatus}>
                                         <div  className={style.topUserNametext}>Status</div>
                                         <div className={style.topUserStatusBtn}>
-                                            <div className={style.topUserStatusBtn1}>Recruiter</div>
+                                            <div className={style.topUserStatusBtn1}>{userType === 'Freelancer' ? 'Freelancer' : 'Recruiter'}</div>
                                             <div className={style.topUserStatusBtn2}>Verified <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354102/Reev/8th%20oct/Vector_cqm2en.svg" alt="verified"/></div>
                                         </div>
                                     </div>
@@ -140,7 +142,7 @@ const Profile = ({page, setPage}: Props) => {
                                     <div className={style.topUserNametext}>Language Spoken</div>
                                     <div className={style.profileTagsCtn}>
                                         <div className={style.profileTags}>English</div>
-                                        <div className={style.profileTags}>Spanis</div>
+                                        <div className={style.profileTags}>Spanish</div>
                                         <div className={style.profileTags}>Yoruba</div>
                                     </div>
                                 </div>
@@ -153,6 +155,28 @@ const Profile = ({page, setPage}: Props) => {
                                     </div>
                                 </div>
                             </div>
+
+                            {userType === 'Freelancer' &&
+                                <div className={style.bottomCtn}>
+                                    <div className={style.bottomLanguage}>
+                                        <div className={style.topUserNametext}>Your CV/Resume</div>
+                                        <div className={style.profileTagsCtn}>
+                                            <FileDisplay/>
+                                            <FileDisplay/>
+                                        </div>
+                                    </div>
+
+                                    <div className={style.bottomIntrests}>
+                                        <div className={style.topUserNametext}>Your Portfolio Link</div>
+                                        <div className={style.profileTagsCtn}>
+                                            <div className={style.profileLinks}>pinterest.com/portfoliolink</div>
+                                            <div className={style.profileLinks}>pinterest.com/portfoliolink</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+
                             <div className={style.continue}>
                                 <br/>
                                 <ButtonII
@@ -170,7 +194,8 @@ const Profile = ({page, setPage}: Props) => {
                         <div  className={style.PersonalCtn}>
                             <div className={style.PersonaltopCtn}>
 
-                                <div className={style.PersonaltopCtnMain}>                                    <div className={style.topAvatar}>
+                                <div className={style.PersonaltopCtnMain}>
+                                    <div className={style.topAvatar}>
                                         <img style={{width: '60px', height: '60px'}} src={finalValue.avatar} alt="Avatar"/>
                                     </div>
                                     <div className={style.PersonaltopUserCtn}>
@@ -225,7 +250,7 @@ const Profile = ({page, setPage}: Props) => {
                                             National ID <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/ep_picture-filled_bk8wgo.svg" alt="ID"/>
                                         </div>
                                         <br/>
-                                        <img src={verifiedImg.unverified} alt="verified state"/>
+                                        <img src={userType === 'Freelancer' ? verifiedImg.verified : verifiedImg.unverified} alt="verified state"/>
                                     </div>
                                 </div>
                             </div>

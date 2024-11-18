@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import reset from './resetPassword.module.css'
 import {useNavigate} from "react-router-dom";
 import Input from "../../../stories/FieldInput-I/input";
-import login from "../login/login.module.css";
 import OTPInput from "../../../stories/OtherInputsType/OTPInput/OTPInput";
 import signUp from "../SignUp/signUp.module.css";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";

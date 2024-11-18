@@ -3,8 +3,6 @@ import Toggle from "../../../../stories/ToggleBtn/toggle";
 import cloudImages from "../../../../assets";
 import styles from "./notification.module.css";
 import {Link} from "react-router-dom";
-import Sidebar from "../../../../stories/SideBar/sideBar";
-import style from "../../../OverView/OverviewPage.module.css";
 
 const notificationTypes = [
     {

@@ -1,11 +1,10 @@
-import React, {useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from './LandingPage.module.css';
 import Header from "../../stories/Header/header";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Search from "../../Components/LandingPage/Search/search";
 import CardI from "../../stories/Cards/Card-I";
 import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
-import Footer from '../../Components/LandingPage/Footer';
 
 const LandingPage = () => {
     const CTA = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation, Link } from "react-router-dom";
+import {Link, Route, Routes, useLocation} from "react-router-dom";
 import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
@@ -17,8 +17,21 @@ import PaymentPage from "./Pages/paymentPage/paymentPage";
 import Settings from "./Pages/DashBoard/settings/settings";
 
 const App: React.FC = () => {
+    // const [userType, setUserType] = React.useState('Client');
     const location = useLocation();
-    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
+    // useEffect(() => {
+    //     const UserTypeLS = localStorage.getItem('userType');
+    //     if (UserTypeLS === null || !['Client', 'Freelancer'].includes(UserTypeLS)) {
+    //         localStorage.setItem('userType', 'Client');
+    //         setUserType('Client');
+    //     } else {
+    //         setUserType(UserTypeLS);
+    //     }
+    // }, []);
+    //
+    // console.log('UserType: ', userType);
+
+    const userType:string = 'Freelancer';
 
     // Define routes where the sidebar should not be shown
     const noSidebarRoutes = ['/', '/onboarding', '/signup', '/login', '/resetpassword'];
@@ -33,11 +46,10 @@ const App: React.FC = () => {
                         <Route path="/applicantprofile" element={<ApplicantProfilePage />} />
                         <Route path="/jobapplication" element={<JobApplicationPage />} />
                         <Route path="/overview" element={<OverviewPage />} />
-                        <Route path="/profile" element={<ProfileMain />} />
-                        <Route path="/postproject" element={<Jobs />} />
+                        <Route path="/profile" element={<ProfileMain userType={userType} />} />
+                        <Route path="/postproject" element={<Jobs userType={userType}/>} />
                         <Route path="/message" element={<h1>Development in progress ....</h1>} />
                         <Route path="/saved" element={<h1>Development in progress ....</h1>} />
-                        <Route path="/review" element={<h1>Development in progress ....</h1>} />
                         <Route path="/help" element={<h1>Development in progress ....</h1>} />
                         <Route path="/payment" element={<PaymentPage />} />
                         <Route path="/settings" element={<Settings />} />

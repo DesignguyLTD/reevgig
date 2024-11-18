@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef, useState } from "react";
+import React, {memo, useCallback, useEffect, useRef, useState} from "react";
 import styles from "./dropdown.module.css";
 
 interface OptionType {

@@ -1,6 +1,5 @@
 import React from "react";
 import PaymentTable from "../../../paymentPage/paymentTable";
-import ResponsiveTable from "../../playGround";
 import stylesOne from './paymentTransact.module.css';
 
 interface PaymentTransProps{

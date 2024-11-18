@@ -15,7 +15,12 @@ interface OptionType {
     label: string;
 }
 
-export default function Jobs() {
+interface propsType {
+    userType: string;
+
+}
+
+export default function Jobs({userType} : propsType) {
     const [activeComponent, setActiveComponent] = useState("jobs_brief");
     const [popModal, setPopModal] = useState<boolean>(false);
 
@@ -42,7 +47,7 @@ export default function Jobs() {
     const renderComponent = () => {
         switch (activeComponent) {
             case "jobs_brief":
-                return <JobBrief setActiveComponent={setActiveComponent}/>;
+                return <JobBrief userType={userType} setActiveComponent={setActiveComponent}/>;
             case "jobs_timeline":
                 return <JobTimeline setActiveComponent={setActiveComponent}/>;
             case "jobs_skills":
@@ -50,7 +55,7 @@ export default function Jobs() {
             case "payment_skills":
                 return <PaymentSkills setActiveComponent={setActiveComponent}/>;
             default:
-                return <JobBrief/>;
+                return <JobBrief userType={userType}/>;
         }
     };
 

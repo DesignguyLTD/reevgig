@@ -3,11 +3,9 @@ import styles from './PaymentSkills.module.css'
 import cloudImages from "../../assets";
 import style from "./jobs.module.css";
 import RadioButton from "../../stories/RadioButton/RadioButton";
-import Radio from "../../stories/Radio/radio";
 import Input from "../../stories/FieldInput-I/input";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
 import CheckBox from "../../stories/CheckBox/checkbox";
-import {Button} from "../../stories/Button-I/Button";
 import {Country} from "country-state-city";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 

@@ -4,10 +4,13 @@ import CounterInput from "./CounterInput";
 import CounterTextarea from "./CounterTextarea";
 import FileUploadTwo from "../../Components/FileUpload/fileUploadTwo";
 import style from "./jobs.module.css";
+import TagInput from "../../Components/TagInput/tagInput";
+import {recommendedSkills} from "../Onboarding/onboarding/dataset";
 
 
 interface jobProps {
     setActiveComponent?: (component: string) => void;
+    userType: string;
 }
 
 interface UploadedFile {
@@ -17,7 +20,7 @@ interface UploadedFile {
 }
 
 
-export default function JobBrief({setActiveComponent}: jobProps) {
+export default function JobBrief({setActiveComponent, userType}: jobProps) {
     const [text, setText] = useState<string>("");
     const [textarea, setTextArea] = useState<string>("");
     const [fileUploaded, setFileUploaded] = useState<UploadedFile[]>([]);
@@ -40,6 +43,11 @@ export default function JobBrief({setActiveComponent}: jobProps) {
             setActiveComponent("jobs_timeline")
         }
     }
+    const [searchTag, setSearchTag] = useState<string[]>(() => {
+            const savedFormValues1 = localStorage.getItem('searchTag');
+            return savedFormValues1 ? JSON.parse(savedFormValues1).SkillSet1 : [];
+        }
+    );
 
     return (
         <>
@@ -73,6 +81,19 @@ export default function JobBrief({setActiveComponent}: jobProps) {
                                 placeholder="I can..."
                             />
                         </div>
+                    </div>
+                    <br/>
+                    <div>
+                        <p className={style.level}>
+                            Search (Optional)
+                        </p>
+                        <TagInput
+                            subLabel1={'For best results, add 3 - 5 skills'}
+                            // subLabel2={'Popular skills for Circuit Design'}
+                            label='' recommendedTags={recommendedSkills}
+                            placeholder={'Start typing to view & select options. If entering your own tags, press enter to save'} maxTags={10} setTags={setSearchTag}
+                            tags={searchTag}/>
+
                     </div>
 
                     <div style={{marginTop: "0.6rem", marginBottom: '0.6rem'}}>

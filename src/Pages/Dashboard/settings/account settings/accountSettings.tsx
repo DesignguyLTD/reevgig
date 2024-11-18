@@ -6,8 +6,6 @@ import styles from "./accountSettings.module.css";
 import {City, Country, State} from "country-state-city";
 import {Link} from "react-router-dom";
 import {Button} from "../../../../stories/Button-I/Button";
-import Sidebar from "../../../../stories/SideBar/sideBar";
-import style from "../../../OverView/OverviewPage.module.css";
 
 const AccountSettings: React.FC = () => {
     const [image, setImage] = useState<string | null>(null);

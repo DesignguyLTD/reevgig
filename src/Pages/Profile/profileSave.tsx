@@ -15,10 +15,11 @@ import FileUpload from "../../Components/FileUpload/fileUpload";
 interface Props {
     page: number;
     setPage: (page: number) => void;
+    userType: string;
 
 }
 
-const ProfileSave = ({page, setPage}: Props) => {
+const ProfileSave = ({page, setPage, userType}: Props) => {
     interface FormValues {
         DisplayName: string;
         Firstname: string;
@@ -399,6 +400,35 @@ const ProfileSave = ({page, setPage}: Props) => {
 
 
                                 </div>
+
+                                {userType === 'Freelancer' &&
+                                    <div>
+                                        <Input isTextArea={false} type={'text'} label='CV/Resume Name'
+                                               placeholder='Circuit Design CV'
+                                               size='small' name={'CVName'}
+                                        />
+                                        <br/>
+                                        <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'}
+                                                    label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}
+                                                    allowedTypes={['image/png', 'image/jpeg']}/>
+
+                                        <br/>
+                                        <br/>
+                                        <Input isTextArea={false} type={'text'} label='Portfolio Link 1'
+                                               placeholder='pinterest.com/portfoliolink'
+                                               size='small' name={'CVName'}
+                                        />
+                                        <br/>
+                                        <Input isTextArea={false} type={'text'} label='Portfolio Link 1'
+                                               placeholder='pinterest.com/portfoliolink'
+                                               size='small' name={'CVName'}
+                                        />
+
+                                    </div>
+
+                                }
+
+
                             </div>
                         )
                         :(

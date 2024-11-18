@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import Sidebar from "../../../stories/SideBar/sideBar";
-import style from "../../OverView/OverviewPage.module.css";
 import JAStyles from "./JobApplicationPage.module.css";
 
 type JobApplication = {

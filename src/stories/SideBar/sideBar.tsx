@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './sideBar.module.css';
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import ProfileNav from "../../Components/DashBoard/ProfileNav";
 
 interface SidebarProps {
@@ -144,7 +144,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                         </div>
 
                         <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
-                            RECRUITER’S DASHBOARD
+                            {UserType === 'Freelancer'? 'FREELANCER’S DASHBOARD' : 'RECRUITER’S DASHBOARD'}
                         </div>
                     </Link>
 
@@ -205,12 +205,13 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-add"></i>
-                                        Post a Job
+                                        {UserType === 'Freelancer'? 'Post a Gig' : 'Post a Job'}
+
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
                                         <i className="fi fi-sr-add"></i>
-                                        <span className={styles.tooltiptext}>Post a Job</span>
+                                        <span className={styles.tooltiptext}>   {UserType === 'Freelancer'? 'Post a Gig' : 'Post a Job'}</span>
                                     </div>
                                 )}
                             </li>
@@ -243,12 +244,15 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-users"></i>
-                                        Saved Employee
+                                        {UserType === 'Freelancer'? 'Saved job' : 'Saved Employee'}
+
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
                                         <i className="fi fi-sr-users"></i>
-                                        <span className={styles.tooltiptext}>Saved Employee</span>
+                                        <span className={styles.tooltiptext}>
+                                            {UserType === 'Freelancer'? 'Saved Job' : 'Saved Employee'}
+                                        </span>
                                     </div>
                                 )}
                             </li>
@@ -261,12 +265,15 @@ const Sidebar: React.FC<SidebarProps> = ({ collapse, logo, getSidebarState, getP
                                 {isOpen ? (
                                     <div className={styles.dodo}>
                                         <i className="fi fi-sr-receipt"></i>
-                                        Plan & Billings
+                                        {UserType === 'Freelancer'? 'Payment & Earnings' : 'Plan & Billings'}
+
                                     </div>
                                 ) : (
                                     <div className={styles.dodom}>
                                         <i className="fi fi-sr-receipt"></i>
-                                        <span className={styles.tooltiptext}>Plan & Billings</span>
+                                        <span className={styles.tooltiptext}>
+                                               {UserType === 'Freelancer'? 'Payment & Earnings' : 'Plan & Billings'}
+                                        </span>
                                     </div>
                                 )}
                             </li>

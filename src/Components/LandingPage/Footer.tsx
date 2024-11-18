@@ -1,5 +1,5 @@
-import { Button } from "../../stories/Button-I/Button";
-import { Link } from "react-router-dom";
+import {Button} from "../../stories/Button-I/Button";
+import {Link} from "react-router-dom";
 import React from "react";
 import style from "./footer.module.css";
 

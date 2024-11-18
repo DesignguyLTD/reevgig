@@ -87,6 +87,7 @@ export default function JobSkills({handlePopUp}: skillInt) {
                 }} options={[{value: '>1 Year', label: '>1 Year'}, {value: '2 Years', label: '2 Years'}]}
                           defaultText={"Select"}/>
             </div>
+
             <div>
                 <p className={style.level}>
                     Skills
