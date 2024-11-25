@@ -231,8 +231,8 @@ body {
     }
 
     .inner_container {
-        display: flex;
-        flex-direction: column;
+        /* display: flex; */
+        /* flex-direction: column; */
         gap: 16px;
         width: 676px;
         align-items: start;
@@ -298,15 +298,15 @@ body {
 
     .outer_container {
         margin: 0 auto;
-        width: 1192px;
+        width: 95%;
         text-align: left;
     }
 
     .inner_container {
         margin: 64px auto;
-        width: 1192px;
+        width: auto;
         flex-direction: row;
-        gap: 3rem;
+        gap: 2rem;
         align-items: start;
         padding: 0;
         justify-content: space-between;
@@ -365,5 +365,15 @@ body {
 
     .bottom {
         margin: 138px 0 0;
+    }
+
+    .footer_input {
+        flex-direction: column;
+    }
+}
+
+@media (width > 1130px) {
+    .footer_input {
+        flex-direction: row;
     }
 }

@@ -4,6 +4,9 @@
     font-family: 'PP Neue Montreal';
 }
 
+.big_container {
+    background-color: #FCFDff;
+}
 
 
 .container {
@@ -11,16 +14,25 @@
     margin: 2rem auto;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 20px;
+}
+
+.overall {
+    overflow: hidden;
 }
 
 
 .content {
-    overflow-x: hidden;
-    width: 930px;
+    width: 100%;
     margin: 0 auto;
+    container-type: normal;
 
 }
+
+.filter {
+    display: none;
+}
+
 
 .list {
     display: flex;
@@ -41,6 +53,29 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.listing {
+    border: 1px solid #d9d9d9;
+    font-family: 'PP Neue Montreal';
+    width: 144.67px;
+    height: 41px;
+    border-radius: 8px;
+    color: #545A62;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19.6px;
+
+}
+
+.listing:hover {
+    background-color: #272727;
+    color: #FEC200;
+}
+
+.active_list {
+    background-color: #272727;
+    color: #FEC200;
 }
 
 .nav_btn {
@@ -81,9 +116,6 @@
     outline: 1px solid black;
 }
 
-.filter {
-    display: none;
-}
 
 .text span {
     color: #000;
@@ -100,11 +132,12 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 15px;
+    padding: 10px;
 
 
 
 }
+
 
 @media screen and (min-width: 500px) {
     .all_cards {
@@ -112,6 +145,7 @@
         align-items: center;
         justify-content: center;
         width: fit-content;
+        gap: 12px;
 
         grid-template-columns: repeat(2, 1fr);
     }
@@ -153,16 +187,11 @@
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 850px) {
     .all_cards {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .content {
-        overflow-x: hidden;
-        width: 810px;
-
-    }
 
     .filter {
         display: block;
@@ -173,13 +202,6 @@
     }
 }
 
-@media screen and (min-width: 900px) {
-    .content {
-        overflow-x: hidden;
-        width: 850px;
-
-    }
-}
 
 
 @media screen and (min-width:1024px) {
@@ -187,9 +209,4 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .content {
-        overflow-x: hidden;
-        width: 930px;
-
-    }
 }

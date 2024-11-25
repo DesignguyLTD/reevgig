@@ -1,48 +1,56 @@
+.main_cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .input_cover {
-    width: 91.4%;
-    height: 64px;
+
     box-sizing: border-box;
     border: 1px solid #27272780;
     border-radius: 6px;
     background: #E6E6E6;
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     justify-content: space-between;
     margin-top: 10px;
+    height: 64px;
 }
 
 .search_side {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+
+    height: 100%;
+    width: 100%;
 }
 
 .search_side input {
     outline: none;
     border: none;
-    width: 100%;
+    width: 95%;
     color: rgb(125, 125, 125);
     font-family: PP Neue Montreal;
     font-size: 16px;
     font-weight: 500;
     line-height: 140%;
     text-align: left;
+    height: inherit;
     background-color: #E6E6E6;
+    margin-left: 8px;
 }
 
 .hr {
-    height: 42px;
-    border: .2px solid rgb(0, 0, 0);
+    height: 46px;
+    border: .2px solid rgba(0, 0, 0, .5);
 }
 
 .talent_side {
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     justify-content: space-between;
 }
 
@@ -69,63 +77,67 @@
 
 
 
-/*
+
 @media (min-width: 765px) {
     .input_cover {
         width: 725px;
-        height: 88px;
-        
+        height: 64px;
+
     }
-    
-    
-    
+
+
+
     .search_side {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
         gap: 10px;
     }
-    
+
     .search_side input {
         outline: none;
         border: none;
-        height: 50px;
-        width: 520px;
+        width: inherit;
         color: rgb(125, 125, 125);
         font-family: PP Neue Montreal;
         font-size: 16px;
         font-weight: 500;
         line-height: 140%;
         text-align: left;
+        height: inherit;
+        background-color: #E6E6E6;
+        margin-left: 48px;
     }
 
     .hr {
         height: 42px;
         border: .2px solid rgb(0, 0, 0);
     }
-    
+
     .talent_side {
-        display: inline-flex;
+        display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         justify-content: space-between;
     }
-    
+
     .talent {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
-        
-        
+
+
     }
-    
+
     .heroCtnMain {
         gap: 40px;
     }
 }
 
-*/
+
+
+
 
 @media (min-width: 1024px) {
 
@@ -137,6 +149,14 @@
         width: 91.4%;
         height: 64px;
 
+    }
+
+    .talent_side {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 63px;
+        justify-content: space-between;
     }
 
 

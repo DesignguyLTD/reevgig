@@ -4,6 +4,7 @@ import { Link, Route, HashRouter as Router, Routes } from "react-router-dom";
 
 import Dashboard from "./Pages/DashBoard/Dashboard";
 import { FullSlide } from "./stories/Fullslider/fullSlide";
+import { HelmetProvider } from "react-helmet-async";
 import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Login from "./Pages/Onboarding/login/login";
@@ -17,42 +18,44 @@ import SignUp from "./Pages/Onboarding/SignUp/signUp";
 
 function App() {
   return (
-    <div className="App">
-      <Router basename="/">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/onboarding" element={<OnBoarding />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/jobapplication" element={<JobApplicationPage />} />
-          <Route
-            path="*"
-            element={
-              <h1>
-                404 page <Link to={"/dashboard"}>Dashboard</Link>
-              </h1>
-            }
-          />
-          <Route
-            path="/talents"
-            element={
-              <FullSlide
-                profileImage={
-                  "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg"
-                }
-                title={"Senior UI/UX Designer"}
-                userName={"Jimmy Joe"}
-                duration={"Full-time"}
-                sponsored={"Sponsored"}
-              />
-            }
-          />
-          <Route path="/results" element={<SearchResults />} />
-        </Routes>
-      </Router>
-    </div>
+    <HelmetProvider>
+      <div className="App">
+        <Router basename="/">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/resetpassword" element={<ResetPassword />} />
+            <Route path="/onboarding" element={<OnBoarding />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/jobapplication" element={<JobApplicationPage />} />
+            <Route
+              path="*"
+              element={
+                <h1>
+                  404 page <Link to={"/dashboard"}>Dashboard</Link>
+                </h1>
+              }
+            />
+            <Route
+              path="/talents"
+              element={
+                <FullSlide
+                  profileImage={
+                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg"
+                  }
+                  title={"Senior UI/UX Designer"}
+                  userName={"Jimmy Joe"}
+                  duration={"Full-time"}
+                  sponsored={"Sponsored"}
+                />
+              }
+            />
+            <Route path="/results" element={<SearchResults />} />
+          </Routes>
+        </Router>
+      </div>
+    </HelmetProvider>
   );
 }
 
