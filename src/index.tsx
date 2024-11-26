@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import AppWrapper from "./AppWrapper";
+import {ToastContainer} from "react-toastify";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -10,6 +11,19 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <AppWrapper/>
+       <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            style={{ fontFamily: 'Poppins', fontSize: '12px', fontWeight: 300, letterSpacing: '1px'}}
+/>
     </React.StrictMode>
 );
 

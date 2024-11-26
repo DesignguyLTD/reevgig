@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import style from "../../Pages/OverView/OverviewPage.module.css";
 import {useNavigate} from "react-router-dom";
+import OverFlowMenu from "../HelperComponents/OverFlowMenu";
 
 
 interface JobApplicationProps {
@@ -9,27 +10,43 @@ interface JobApplicationProps {
 }
 
 const JobApplication = ({userType}: JobApplicationProps) => {
-    const [popUp, setPopUp] = useState(false);
-    const popupRef = useRef<HTMLDivElement | null>(null);
-    const handlePopUp = () => {
-        setPopUp(!popUp)
-    }
+    const [isOpen, setIsOpen] = useState(false);
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+    const buttonRef = useRef<HTMLDivElement | null>(null);
 
-    const handleClickOutside = (event: MouseEvent) => {
-        if (
-            popupRef.current &&
-            !popupRef.current.contains(event.target as Node)
-        ) {
-            setPopUp(false);
+    const handleMouseToggleMenu = () => {
+        if (buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            setMenuPosition({
+                top: rect.bottom,
+                left: rect.left,
+            });
+        }
+        setIsOpen((prev) => !prev);
+    };
+
+    const handleKeyToggleMenu = (event: React.KeyboardEvent) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault(); // Prevent default spacebar scrolling behavior
+            handleMouseToggleMenu();
         }
     };
 
     useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+        const handleClickOutside = (event: MouseEvent) => {
+            if (buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
         };
-    }, [popUp]);
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+
+
 
     let navigate = useNavigate()
 
@@ -67,20 +84,31 @@ const JobApplication = ({userType}: JobApplicationProps) => {
                             onClick={handleNavigation}>{userType === 'Freelancer' ? 'View Details' : 'Job Application'}<img
                         src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/arrow-right_bsh2zk.svg'
                         alt="Icon"/></button>
-                    <img style={{cursor: 'pointer'}}
-                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/entypo_dots-three-vertical_nfqlzb.svg"
-                         alt="moreInfo" onClick={handlePopUp}/>
-                </div>
 
-                {popUp &&
-                    <div className={style.popUp} ref={popupRef}>
-                        <ul>
-                            <li className={style.popList}>Promote Job</li>
-                            <li className={style.popList}>Edit Job</li>
-                            <li className={style.popList}>Mark as Expired</li>
-                        </ul>
+                    <div ref={buttonRef}
+                         onClick={handleMouseToggleMenu}
+                         onKeyDown={handleKeyToggleMenu}
+                         tabIndex={0} // Makes it focusable
+                         role="button" // Improves semantics
+                         aria-expanded={isOpen}
+                         aria-label="More options" >
+                        <img style={{cursor: 'pointer'}}
+                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725902025/Reev/entypo_dots-three-vertical_nfqlzb.svg"
+                             alt="moreInfo"/>
                     </div>
-                }
+
+                </div>
+                 <OverFlowMenu isOpen={isOpen} position={menuPosition}
+                               background={true}
+
+                 >
+                         <div className={style.popUp}>
+                             <li className={style.popList}>Promote Job</li>
+                             <li className={style.popList}>Edit Job</li>
+                             <li className={style.popList}>Mark as Expired</li>
+                         </div>
+                 </OverFlowMenu>
+
             </div>
         </div>
     );

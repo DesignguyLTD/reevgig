@@ -1,13 +1,29 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PaymentTable from "../../../paymentPage/paymentTable";
 import stylesOne from './paymentTransact.module.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from "react-toastify";
+
 
 interface PaymentTransProps {
     getActivePage: (x: string) => string;
-
 }
 
+
+
 const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
+
+    useEffect(() => {
+        toast.info('Be rest assured that your payment is safe in your wallet till the project is completed', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
+    }, []);
+
     return (
         <div className={stylesOne.PaymentTransact}>
             <div className={stylesOne.PaymentTopCtn}>
@@ -55,15 +71,15 @@ const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
                          alt="Add"/>
                     Withdraw
                 </div>
-                <div className={stylesOne.PaymentMiddleToast}>
-                    <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/material-symbols_info-outline_xxnsls.svg"
-                        alt="info"/>
-                    Be rest assured that your payment is safe in your wallet till the project is completed
-                    <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Cross_ar9qqh.svg"
-                        alt="close"/>
-                </div>
+                {/*<div className={stylesOne.PaymentMiddleToast}>*/}
+                {/*    <img*/}
+                {/*        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859250/Reev/2nd%20oct/material-symbols_info-outline_xxnsls.svg"*/}
+                {/*        alt="info"/>*/}
+                {/*    Be rest assured that your payment is safe in your wallet till the project is completed*/}
+                {/*    <img*/}
+                {/*        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Cross_ar9qqh.svg"*/}
+                {/*        alt="close"/>*/}
+                {/*</div>*/}
             </div>
 
             <div className={stylesOne.PaymentBottomCtn}>

@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState,} from "react";
 
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 import Input from "../../stories/FieldInput-I/input";
 import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import style from "./profile.module.css";

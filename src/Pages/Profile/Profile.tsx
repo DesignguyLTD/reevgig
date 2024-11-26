@@ -1,11 +1,12 @@
-import {Helmet} from "react-helmet";
-import React from "react";
+import React, {useEffect} from "react";
 import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
-
 import {useLocation, useNavigate} from "react-router-dom";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import FileDisplay from "./FileDisplay";
+import {toast} from "react-toastify";
+
+
 
 interface Props {
     page: number;
@@ -17,10 +18,26 @@ const Profile = ({page, setPage, userType}: Props) => {
 
     const [header, setHeader] = React.useState('Public');
 
-    const handleHeader = (value: string) => {
-        setHeader(value);
+
+
+    const handleToast = () => {
+        toast.warn('Your personal information will not be visible to the public, this is for KYC purposes', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+
+        });
     }
 
+    const handleHeader = (value: string) => {
+        setHeader(value);
+        if(value === 'Personal'){
+            handleToast();
+        }
+    }
     interface FormValues {
         DisplayName: string;
         Firstname: string;
@@ -69,26 +86,6 @@ const Profile = ({page, setPage, userType}: Props) => {
 
     return (
         <>
-            <Helmet>
-                <title>Profile Saved</title>
-                <meta
-                    name="description"
-                    content="This content of that of the already set profile"
-                />
-                <link
-                    rel="canonical"
-                    href="https://DesignguyLTD.github.io/reevgig/#/saved"
-                />
-                <meta property="og:title" content="Profile Saved"/>
-                <meta
-                    property="og:description"
-                    content="This is the editable part of the profile"
-                />
-                <meta
-                    property="og:image"
-                    content="https://res.cloudinary.com/do5wu6ikf/image/upload/v1715619760/Reev/reev_nu0qvs.png"
-                />
-            </Helmet>
             <section className={style.container}>
                 <div className={styles.headerBtn}>
                     <div style={{width: '100%'}} className={styles.Btn}>

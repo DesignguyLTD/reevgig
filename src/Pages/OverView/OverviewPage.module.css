@@ -303,15 +303,38 @@
 }
 
 
+/*.popUp {*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 82px;*/
+    /*z-index: 100;*/
+/*    width: 124px;*/
+/*    background: rgb(39, 39, 39);*/
+/*    border-radius: 4px;*/
+/*    color: white;*/
+
+/*    text-align: left;*/
+/*}*/
+
+/*li.popList {*/
+/*    padding: 4px 4px 4px 8px;*/
+/*    text-align: left;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+.popList:hover {
+    background: rgb(255, 196, 0);
+    color: rgb(39, 39, 39);
+
+}
+
 .popUp {
-    position: absolute;
-    right: 0;
-    top: 82px;
-    z-index: 100;
     width: 124px;
-    background: rgb(39, 39, 39);
-    border-radius: 4px;
-    color: white;
+        background: rgb(39, 39, 39);
+        border-radius: 4px;
+        color: white;
+    padding: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -321,20 +344,18 @@
     font-weight: 500;
     line-height: 140%;
     letter-spacing: 1px;
-    text-align: left;
 }
 
 .popList {
-    padding: 4px 4px 4px 8px;
-    text-align: left;
-    border-radius: 4px;
-}
-
-.popList:hover {
-    background: rgb(255, 196, 0);
-    color: rgb(39, 39, 39);
+    list-style: none;
+    padding: 8px 12px;
+    margin: 0;
+    cursor: pointer;
+    width: 124px;
 
 }
+
+
 
 .ActiveProject {
     margin: 20px 0;
@@ -614,16 +635,16 @@
     }
 
     .popUp {
-        right: 0;
-        top: 60px;
+        /*right: 0;*/
+        /*top: 60px;*/
     }
 }
 
 
 @media (min-width: 1024px) {
     .popUp {
-        right: -110px;
-        top: 30px;
+        /*right: -110px;*/
+        /*top: 30px;*/
     }
 
     .JobHeader {
