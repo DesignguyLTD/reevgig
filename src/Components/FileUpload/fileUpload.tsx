@@ -125,9 +125,9 @@ const FileUpload: React.FC<FileUploadProps> = ({vibrate, allowedTypes, id, label
                                                                                           alt="close"/></p>
                 <div className={styles.yellowunderline}></div>
             </div>}
+            <br/>
             <div className={styles.secText}>File should be in {filteredTypes.join(', ')} format and not more than 5mb
             </div>
-
             {error && <div className={styles.error}>{error}</div>}
         </div>
     );

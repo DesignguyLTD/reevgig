@@ -8,14 +8,18 @@ interface SidebarProps {
     logo?: string;
     getSidebarState?: (x: boolean) => boolean;
     getPage?: (x: string) => string;
+    UserType?: string | null;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage}: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPage, UserType}: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(collapse ?? false);
     const [show, setShow] = useState(false);
     const navSearchRef = useRef<HTMLDivElement | null>(null);
     const profileRef = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
     const [isProfileOpen, setProfileIsOpen] = useState(false);
+
+    // New state for active menu item
+    const [activeItem, setActiveItem] = useState<string>(localStorage.getItem('currentPage') || 'Overview');
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -25,7 +29,6 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
         event.stopPropagation();
         setProfileIsOpen((prev) => !prev);
     };
-
 
     useEffect(() => {
         getSidebarState && getSidebarState(isOpen);
@@ -70,7 +73,6 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
         };
     }, [isProfileOpen]);
 
-
     let navigate = useNavigate();
     const handleNavigation = () => {
         navigate('/saved');
@@ -96,12 +98,16 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                 </div>
 
                 <div className={styles.lastCont}>
-                    <div style={{cursor: 'pointer'}}>
-                        <img
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
-                            alt="bell"
-                        />
-                    </div>
+
+                    <Link style={{textDecoration: 'none'}} to='/notification'>
+                        <div style={{cursor: 'pointer'}}>
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Auto_Layout_Horizontal_pgthlg.svg"
+                                alt="bell"
+                            />
+                        </div>
+                    </Link>
+
 
                     <div ref={profileRef} className={styles.Userbtn} onClick={handleProfile}>
                         <img
@@ -125,7 +131,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
             <div style={{position: 'relative'}}>
                 <div ref={navSearchRef}
                      className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
-                    <Link to={`${logo}`} className={styles.Link}>
+                    <Link style={{textDecoration: 'none'}} to={`${logo}`} className={styles.Link}>
                         <div className={styles.logo}>
                             <img
                                 src={
@@ -138,7 +144,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                         </div>
 
                         <div className={isOpen ? styles.usertypeOpen : styles.usertypeClose}>
-                            RECRUITER’S DASHBOARD
+                            {UserType === 'Freelancer' ? 'FREELANCER’S DASHBOARD' : 'RECRUITER’S DASHBOARD'}
                         </div>
                     </Link>
 
@@ -156,132 +162,191 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                     </button>
 
                     <ul className={styles.upperSideBar}>
-                        {/*<Link to={`${overview}`} className={styles.Link}>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Overview') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <div>Overview</div>
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-apps"></i>
-                                    <span className={styles.tooltiptext}>Overview</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link style={{textDecoration: 'none'}} to='/overview'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Overview' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <div>Overview</div>
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-apps"></i>
+                                        <span className={styles.tooltiptext}>Overview</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
 
-                        {/*</Link>*/}
-                        {/*<Link to={`${profile}`} className={styles.Link}>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Profile') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-user"></i>
-                                    Profile
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-user"></i>
-                                    <span className={styles.tooltiptext}>Profile</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link style={{textDecoration: 'none'}} to='/profile'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Profile' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-user"></i>
+                                        Profile
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-user"></i>
+                                        <span className={styles.tooltiptext}>Profile</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
 
-                        {/*</Link>*/}
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('PostAJob') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-add"></i>
-                                    Post a Job
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-add"></i>
-                                    <span className={styles.tooltiptext}>Post a Job</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link style={{textDecoration: 'none'}} to='/postproject'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PostAJob' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-add"></i>
+                                        {UserType === 'Freelancer' ? 'Post a Gig' : 'Post a Job'}
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Message') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-envelope"></i>
-                                    Message
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-envelope"></i>
-                                    <span className={styles.tooltiptext}>Message</span>
-                                </div>
-                            )}
-                        </li>
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-add"></i>
+                                        <span
+                                            className={styles.tooltiptext}>   {UserType === 'Freelancer' ? 'Post a Gig' : 'Post a Job'}</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('SavedEmployee') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-users"></i>
-                                    Saved Employee
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-users"></i>
-                                    <span className={styles.tooltiptext}>Saved Employee</span>
-                                </div>
-                            )}
-                        </li>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('PlanBillings') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-receipt"></i>
-                                    Plan & Billings
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-receipt"></i>
-                                    <span className={styles.tooltiptext}>Plan & Billings</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link style={{textDecoration: 'none'}} to='/message'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Message' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-envelope"></i>
+                                        Message
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-envelope"></i>
+                                        <span className={styles.tooltiptext}>Message</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}
-                            onClick={() => getPage ? getPage('Settings') : ''}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-settings"></i>
-                                    Settings
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-settings"></i>
-                                    <span className={styles.tooltiptext}>Settings</span>
-                                </div>
+
+                        <Link style={{textDecoration: 'none'}} to='/saved'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'SavedEmployee' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-users"></i>
+                                        {UserType === 'Freelancer' ? 'Saved job' : 'Saved Employee'}
+
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-users"></i>
+                                        <span className={styles.tooltiptext}>
+                                            {UserType === 'Freelancer' ? 'Saved Job' : 'Saved Employee'}
+                                        </span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
+                        <Link style={{textDecoration: 'none'}} to='/payment'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'PlanBillings' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-receipt"></i>
+                                        {UserType === 'Freelancer' ? 'Payment & Earnings' : 'Plan & Billings'}
+
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-receipt"></i>
+                                        <span className={styles.tooltiptext}>
+                                               {UserType === 'Freelancer' ? 'Payment & Earnings' : 'Plan & Billings'}
+                                        </span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
+
+                        <Link style={{textDecoration: 'none'}} to='/review'>
+                            {UserType !== 'Client' && (
+                                <li
+                                    className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Review' ? styles.active : ''}`}
+                                >
+                                    {isOpen ? (
+                                        <div className={styles.dodo}>
+                                            <i className="fi fi-sr-star"></i>
+                                            Reviews
+                                        </div>
+                                    ) : (
+                                        <div className={styles.dodom}>
+                                            <i className="fi fi-sr-star"></i>
+                                            <span className={styles.tooltiptext}>Reviews</span>
+                                        </div>
+                                    )}
+                                </li>
                             )}
-                        </li>
+                        </Link>
+
+                        <Link style={{textDecoration: 'none'}} to='/settings'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Settings' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-settings"></i>
+                                        Settings
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-settings"></i>
+                                        <span className={styles.tooltiptext}>Settings</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
+
                     </ul>
 
                     <ul className={styles.lowerSideBar}>
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
-                            {isOpen ? (
-                                <div className={styles.dodo}>
-                                    <i className="fi fi-sr-interrogation"></i>
-                                    Help
-                                </div>
-                            ) : (
-                                <div className={styles.dodom}>
-                                    <i className="fi fi-sr-interrogation"></i>
-                                    <span className={styles.tooltiptext}>Help</span>
-                                </div>
-                            )}
-                        </li>
+                        <Link style={{textDecoration: 'none'}} to='/help'>
+                            <li
+                                className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Help' ? styles.active : ''}`}
+                            >
+                                {isOpen ? (
+                                    <div className={styles.dodo}>
+                                        <i className="fi fi-sr-interrogation"></i>
+                                        Help
+                                    </div>
+                                ) : (
+                                    <div className={styles.dodom}>
+                                        <i className="fi fi-sr-interrogation"></i>
+                                        <span className={styles.tooltiptext}>Help</span>
+                                    </div>
+                                )}
+                            </li>
+                        </Link>
 
-                        <li className={isOpen ? styles.deskTabIcon : styles.mobileIcon}>
+
+                        <li
+                            className={`${isOpen ? styles.deskTabIcon : styles.mobileIcon} ${activeItem === 'Logout' ? styles.active : ''}`}
+                            onClick={() => {
+                                // Handle logout logic here
+                            }}
+                        >
                             {isOpen ? (
                                 <div className={styles.dodo}>
                                     <i className="fi fi-sr-exit"></i>
@@ -299,6 +364,7 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
             </div>
         </>
     );
+
 };
 
 export default Sidebar;

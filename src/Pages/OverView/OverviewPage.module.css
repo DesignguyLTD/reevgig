@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
 * {
     padding: 0;
     margin: 0;
@@ -16,12 +19,14 @@
     width: 100%;
 }
 
+
 .Btn {
     display: inline-flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 100%;
-    gap: 35px;
+    width: 74%;
+    gap: 10px;
+    align-items: center;
 }
 
 .header {
@@ -87,7 +92,7 @@
     gap: 15px;
     text-align: center;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .Estimate {
@@ -134,20 +139,7 @@
 }
 
 .increaseText {
-    color: rgb(6, 6, 6);
-    font-family: PP Neue Montreal;
-    font-size: 9.01px;
-    font-weight: 400;
-    line-height: 10.81px;
-    /*letter-spacing: 2%;*/
-    text-align: left;
     display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.timeFrame {
-    display: none;
     flex-direction: row;
     align-items: center;
     gap: 4px;
@@ -156,7 +148,21 @@
     font-size: 10px;
     font-weight: 400;
     line-height: 19px;
-    /*letter-spacing: 1%;*/
+    text-align: left;
+    cursor: pointer;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.timeFrame {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(6, 6, 6);
+    font-family: Satoshi;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19px;
     text-align: left;
     cursor: pointer;
 }
@@ -182,26 +188,22 @@
 .JobCtn {
     display: inline-flex;
     flex-direction: column;
-    gap: 10px;
     width: 100%;
     align-items: flex-start;
-    /*max-width: 500px;*/
-
+    overflow-x: auto;
 }
 
 .JobHeader {
-    margin-top: 20px;
     box-sizing: border-box;
     border: 1px solid rgb(181, 182, 186);
-    border-radius: 8px;
-    padding: 5px;
+    /*border-radius: 8px;*/
+    padding: 10px;
     gap: 10px;
-
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 658px;
     position: relative;
 }
 
@@ -213,9 +215,10 @@
 }
 
 .JobText {
+    /* Body/Large/500 */
     color: rgb(24, 25, 28);
-    font-family: 'Inter';
-    font-size: 15px;
+    font-family: Inter;
+    font-size: 18px;
     font-weight: 500;
     line-height: 28px;
     letter-spacing: 0;
@@ -224,10 +227,9 @@
 
 .JobPriceCtn {
     display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: 5px;
-
 }
 
 .JobExp {
@@ -239,17 +241,17 @@
 }
 
 .JobExp1 {
-    color: rgb(254, 194, 0);
-    font-family: PP Neue Montreal;
-    font-size: 8px;
+    color: rgb(85, 65, 0);
+    font-family: Neue Montreal;
+    font-size: 12px;
     font-weight: 400;
-    line-height: 9px;
-    letter-spacing: 1px;
+    line-height: 12px;
+    letter-spacing: 0;
     text-align: left;
     text-transform: capitalize;
-    border-radius: 160px;
-    background: rgb(39, 39, 39);
-    padding: 3px;
+    padding: 5px;
+    border-radius: 86.88px;
+    background: rgb(255, 235, 170);
 
 }
 
@@ -300,31 +302,39 @@
 
 }
 
-.JobHeaderCtnMiddle {
-    display: none;
-}
 
-.JobExp3 {
-    display: none;
-}
+/*.popUp {*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 82px;*/
+    /*z-index: 100;*/
+/*    width: 124px;*/
+/*    background: rgb(39, 39, 39);*/
+/*    border-radius: 4px;*/
+/*    color: white;*/
 
-.JobApplicant2 {
-    display: none;
-}
+/*    text-align: left;*/
+/*}*/
 
-.JobPrice2 {
-    display: none;
+/*li.popList {*/
+/*    padding: 4px 4px 4px 8px;*/
+/*    text-align: left;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+.popList:hover {
+    background: rgb(255, 196, 0);
+    color: rgb(39, 39, 39);
+
 }
 
 .popUp {
-    position: absolute;
-    right: 0;
-    top: 82px;
-    z-index: 100;
     width: 124px;
-    background: rgb(39, 39, 39);
-    border-radius: 4px;
-    color: white;
+        background: rgb(39, 39, 39);
+        border-radius: 4px;
+        color: white;
+    padding: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -334,28 +344,198 @@
     font-weight: 500;
     line-height: 140%;
     letter-spacing: 1px;
-    text-align: left;
 }
 
 .popList {
-    padding: 4px 4px 4px 8px;
+    list-style: none;
+    padding: 8px 12px;
+    margin: 0;
+    cursor: pointer;
+    width: 124px;
+
+}
+
+
+
+.ActiveProject {
+    margin: 20px 0;
+    display: inline-flex;
+    flex-direction: row;
+    align-content: center;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ActiveProjectText {
+    color: rgb(0, 0, 0);
+    font-family: Outfit;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
     text-align: left;
-    border-radius: 4px;
 }
 
-.popList:hover {
-    background: rgb(255, 196, 0);
-    color: rgb(39, 39, 39);
-
+.ActiveProjectSpan {
+    color: rgb(149, 149, 149);
+    font-family: Outfit;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 120%;
+    letter-spacing: 0px;
+    text-align: left;
 }
 
-@media (min-width: 425px) {
-    .JobHeader {
-        width: 397px;
-    }
+.ActiveProjectCont {
+    width: 100%;
+}
+
+.ActiveProjectBtn {
+    cursor: pointer;
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: 0;
+    text-align: left;
+    border-radius: 160px;
+    background: rgb(39, 39, 39);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 4px;
+}
+
+.JobHeaderCtnMiddle {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.JobExp3 {
+    color: rgb(26, 147, 46);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: rgba(26, 147, 46, 0.18);
+}
+
+.JobPrice2 {
+    /* body 3 */
+    color: rgb(118, 127, 140);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.JobApplicant2 {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: rgb(149, 151, 157);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+
+/*@media (min-width: 375px) {*/
+/*    .Btn {*/
+/*        display: inline-flex;*/
+/*        flex-direction: row;*/
+/*        justify-content: flex-start;*/
+/*        !*width: 0;*!*/
+/*        gap: 35px;*/
+/*    }*/
+
+/*}*/
+/*@media (min-width: 425px) {*/
+/*    .JobHeader {*/
+/*        width: 397px;*/
+/*    }*/
+/*}*/
+.graph2 {
+    width: 300px;
 }
 
 @media (min-width: 765px) {
+    .graph2 {
+        width: 400px;
+    }
+
+    .ActiveProject {
+        margin: 20px 0;
+        display: inline-flex;
+        flex-direction: row;
+        align-content: center;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ActiveProjectText {
+        color: rgb(0, 0, 0);
+        font-family: Outfit;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 20.05px;
+        letter-spacing: -0.36px;
+        text-align: left;
+    }
+
+    .ActiveProjectSpan {
+        color: rgb(149, 149, 149);
+        font-family: Outfit;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 120%;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+
+    .ActiveProjectBtn {
+        color: rgb(254, 194, 0);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20.05px;
+        letter-spacing: 0;
+        text-align: left;
+        border-radius: 160px;
+        background: rgb(39, 39, 39);
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .headerBtn {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+
+    }
 
 
     .JobText {
@@ -395,34 +575,6 @@
         align-items: center;
     }
 
-    .JobApplicant2 {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
-        color: rgb(30, 30, 30);
-        font-family: Inter;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0;
-        text-align: left;
-    }
-
-    .JobExp3 {
-        color: rgb(85, 65, 0);
-        font-family: PP Neue Montreal;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 9px;
-        letter-spacing: 1px;
-        text-align: left;
-        border-radius: 86.88px;
-        background: rgb(255, 235, 170);
-        text-transform: capitalize;
-        padding: 5px;
-        display: block;
-    }
 
     .JobExp2 {
         display: none;
@@ -454,13 +606,14 @@
         display: inline-flex;
         flex-direction: row;
         gap: 15px;
+        padding: 20px;
         text-align: center;
         width: 100%;
         align-items: flex-start;
     }
 
     .Estimate {
-        width: 241.39px;
+        width: 300px;
         padding: 15px;
         gap: 8px;
     }
@@ -472,26 +625,26 @@
         gap: 4px;
         color: rgb(6, 6, 6);
         font-family: Satoshi;
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 19px;
         text-align: left;
         cursor: pointer;
-        width: 50%;
+        /*width: 50%;*/
         justify-content: flex-start;
     }
 
     .popUp {
-        right: 0;
-        top: 60px;
+        /*right: 0;*/
+        /*top: 60px;*/
     }
 }
 
 
 @media (min-width: 1024px) {
     .popUp {
-        right: -110px;
-        top: 30px;
+        /*right: -110px;*/
+        /*top: 30px;*/
     }
 
     .JobHeader {
@@ -530,13 +683,19 @@
         align-items: flex-start;
         margin: 150px 2px 37px 120px;
         transition: margin-left 0.3s ease;
+    }
 
+    .ActiveProjectCont {
+        width: 80%;
     }
 
 
 }
 
 @media (min-width: 1280px) {
+    .ActiveProjectCont {
+        width: 100%;
+    }
 
     .overview {
         display: inline-flex;
@@ -584,7 +743,7 @@
         flex-direction: column;
         align-items: flex-start;
         transition: margin-left 0.3s ease;
-
+        margin: 150px 2px 37px 200px;
     }
 }
 
@@ -597,9 +756,8 @@
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
-        margin: 70px 2px 37px 120px;
+        margin: 70px 2px 37px 200px;
         transition: margin-left 0.3s ease;
-
     }
 
 

@@ -10,6 +10,7 @@
     width: 80px;
     height: 100%;
     position: fixed;
+    z-index: 2; /*Matthew placed this z-index to ensure the specificity of the settings component*/
     top: 0;
     left: 0;
     transition: all .3s ease;
@@ -38,7 +39,7 @@
 .usertypeOpen {
     color: rgb(241, 241, 241);
     font-family: Satoshi;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 22px;
     text-align: center;
@@ -48,7 +49,7 @@
 .usertypeClose {
     color: rgb(241, 241, 241);
     font-family: Satoshi;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 400;
     line-height: 15px;
     text-align: center;
@@ -126,11 +127,15 @@ li {
 
 .deskTabIcon:hover, .deskTabIcon:active {
     color: #000000;
-    background-color: #F3CF57;
+    background-color: #fec200;
     border-left: 2px solid #060606;
     flex-direction: column;
     width: 99%;
     align-items: center;
+}
+
+a {
+    color: rgb(125, 125, 125);
 }
 
 .dodo {
@@ -152,8 +157,8 @@ li {
 }
 
 .mobileIcon:hover {
-    color: #f7cf31;
-    border-left: 2px solid #f7cf31;
+    color: #fec200;
+    border-left: 2px solid #fec200;
 
 }
 
@@ -184,12 +189,12 @@ i {
 
 .tooltiptext {
     visibility: hidden;
-    width: 74px;
+    width: 100px;
     background-color: #252525;
-    color: #f7cf31;
+    color: #fec200;
     text-align: center;
     border-radius: 5px;
-    padding: 5px 0;
+    padding: 10px 0;
     position: absolute;
     z-index: 1;
     left: 115px;
@@ -291,9 +296,37 @@ i {
     right: 6px;
 }
 
+
+.deskTabIcon.active {
+    color: #000000;
+    background-color: #fec200;
+    border-left: 2px solid #060606;
+    flex-direction: column;
+    width: 99%;
+    align-items: center;
+}
+
+.mobileIcon.active {
+    color: #fec200;
+    border-left: 2px solid #fec200;
+}
+
+
+.active {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
 @media (min-width: 760px) {
     .upperSideBar {
         padding: 0 0 260px 0;
+    }
+
+    .profile {
+        position: absolute;
+        top: 100px;
+        display: block;
+        right: 20px;
     }
 
 
@@ -331,7 +364,7 @@ i {
 
     .userName {
         display: block;
-        color: rgb(247, 207, 49);
+        color: #fec200;
         font-family: PP Neue Montreal;
         font-size: 14px;
         font-weight: 400;
@@ -363,11 +396,9 @@ i {
 }
 
 @media (min-width: 1024px) {
-    .profile {
-        display: none;
-    }
-
-
+    /*.profile {*/
+    /*    display: none;*/
+    /*}*/
     .upperSideBar {
         padding: 0 0 250px 0;
     }
@@ -404,7 +435,7 @@ i {
 
     .userName {
         display: block;
-        color: rgb(247, 207, 49);
+        color: #fec200;
         font-family: PP Neue Montreal;
         font-size: 16px;
         font-weight: 400;
