@@ -1,78 +1,61 @@
-import React from 'react';
+import Jobs from "../Jobs/Jobs";
+import OverviewPage from "../OverView/OverviewPage";
+import PaymentCard from "./planAndBillings/paymentCard/paymentCard";
+import ProfileMain from "../Profile/ProfileMain";
+import React from "react";
+import Settings from "./settings/settings";
 import Sidebar from "../../stories/SideBar/sideBar";
-import style from '../OverView/OverviewPage.module.css';
+import Talent from "./talent/talent";
+import style from "../OverView/OverviewPage.module.css";
 
-interface DashboardProps {
-    UserType: string | null;
+const Dashboard = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
+  const [currentPage, setCurrentPage] = React.useState<string>(
+    localStorage.getItem("currentPage") || "Overview"
+  );
 
-}
+  const getSidebarState = (x: boolean): boolean => {
+    setIsSidebarOpen(x);
+    return x;
+  };
 
-const Dashboard = ({UserType}: DashboardProps) => {
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
-    );
+  const getPage = (x: string): string => {
+    setCurrentPage(x);
+    localStorage.setItem("currentPage", x);
+    return x;
+  };
 
+  return (
+    <div>
+      <Sidebar logo={"/"} getSidebarState={getSidebarState} getPage={getPage} />
+      <div
+        className={`${style.container} ${isSidebarOpen ? style.shifted : ""}`}>
+        {currentPage === "Overview" && <OverviewPage />}
 
-    const getSidebarState = (x: boolean): boolean => {
-        setIsSidebarOpen(x);
-        return x;
-    }
+        {currentPage === "Profile" && (
+          <>
+            <ProfileMain />
+          </>
+        )}
 
-    const getPage = (x: string): string => {
-        setCurrentPage(x);
-        localStorage.setItem('currentPage', x);
-        return x;
-    }
+        {currentPage === "PostAJob" && <Jobs />}
 
+        {/*        {currentPage === 'Message' &&*/}
+        {/*            <h1>Development in progress ....</h1>*/}
+        {/*        }*/}
 
-    return (
-        <div>
-            <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState} getPage={getPage}/>
-            <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
-                {/*    <div>*/}
-                {/*        {currentPage === 'Overview' &&*/}
-                {/*            // <OverviewPage/>*/}
-                {/*        }*/}
+        {/*        {currentPage === 'SavedEmployee' &&*/}
+        {/*            <h1>Development in progress ....</h1>*/}
+        {/*        }*/}
 
-                {/*        {currentPage === 'Profile' &&*/}
-                {/*            <>*/}
-                {/*                /!*<ProfileMain/>*!/*/}
-                {/*            </>*/}
-                {/*        }*/}
+        {currentPage === "PlanBillings" && <PaymentCard />}
 
-                {/*        /!*{currentPage === 'PostAJob' &&*!/*/}
-                {/*        /!*    <Jobs/>*!/*/}
-                {/*        /!*}*!/*/}
+        {currentPage === "SavedTalents" && <Talent />}
 
-                {/*        {currentPage === 'Message' &&*/}
-                {/*            <h1>Development in progress ....</h1>*/}
-                {/*        }*/}
-
-                {/*        {currentPage === 'SavedEmployee' &&*/}
-                {/*            <h1>Development in progress ....</h1>*/}
-                {/*        }*/}
-
-                {/*        {currentPage === 'PlanBillings' &&*/}
-                {/*            // <PaymentPage/>*/}
-                {/*        }*/}
-
-                {/*        {currentPage === 'Settings' &&*/}
-                {/*            // <Settings/>*/}
-                {/*        }*/}
-                {/*    </div>*/}
-                {/*    :*/}
-                {/*    <div>*/}
-                {/*        Freelancer*/}
-                {/*    </div>    {   UserType === 'Client' ?*/}
-
-
-                {/*    }*/}
-
-                {/*</div>*/}
-            </div>
-        </div>
-    );
+        {currentPage === "Settings" && <Settings />}
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;
