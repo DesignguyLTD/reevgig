@@ -6,7 +6,7 @@
 
 .faqHeadertext {
     color: rgb(43, 43, 43);
-    font-family: PP Neue Montreal;
+    font-family: var(--font-secondary-family);
     font-size: 28px;
     font-weight: 500;
     line-height: 140%;
@@ -22,7 +22,7 @@
 }
 
 .faqItem {
-    /*background: #f9f9f9;*/
+    background: #ffffff;
     border-radius: 8px;
     padding: 15px;
     cursor: pointer;
@@ -39,7 +39,7 @@
     justify-content: space-between;
     align-items: center;
     color: rgb(39, 39, 39);
-    font-family: PP Neue Montreal;
+    font-family: DM Sans;
     font-size: 19px;
     font-weight: 500;
     line-height: 140%;
@@ -74,7 +74,7 @@
     opacity: 0;
     transition: max-height 0.4s ease, opacity 0.4s ease;
     color: rgb(125, 125, 125);
-    font-family: PP Neue Montreal;
+    font-family: DM Sans;
     font-size: 12px;
     font-weight: 400;
     line-height: 140%;
@@ -83,11 +83,25 @@
     width: 72%;
 }
 
+.faqAnswer {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.faqItem {
+    cursor: pointer;
+}
+
+
 .faqAnswer.open {
     max-height: 100%;
     opacity: 1;
     color: #666;
     margin-top: 0;
+}
+
+.faqQuestion1 {
+    width: 250px;
 }
 
 @media (min-width: 768px) {
@@ -96,6 +110,10 @@
         opacity: 1;
         color: #666;
         margin-top: 0;
+    }
+
+    .faqQuestion1 {
+        width: 600px;
     }
 
     .faqItems {
@@ -108,7 +126,7 @@
         opacity: 0;
         transition: height 0.4s ease, opacity 0.4s ease;
         color: rgb(125, 125, 125);
-        font-family: PP Neue Montreal;
+        font-family: var(--font-secondary-family);
         font-size: 18px;
         font-weight: 400;
         line-height: 140%;
@@ -122,7 +140,7 @@
         justify-content: space-between;
         align-items: center;
         color: rgb(39, 39, 39);
-        font-family: PP Neue Montreal;
+        font-family: var(--font-secondary-family);
         font-size: 22px;
         font-weight: 500;
         line-height: 140%;
@@ -133,7 +151,7 @@
 
     .faqHeadertext {
         color: rgb(43, 43, 43);
-        font-family: PP Neue Montreal;
+        font-family: var(--font-secondary-family);
         font-size: 48px;
         font-weight: 500;
         line-height: 140%;
@@ -144,7 +162,11 @@
 
 @media (min-width: 1024px) {
     .faqItems {
-        /*grid-template-columns: 1fr 1fr; !* Switch to one column *!*/
+        grid-template-columns: 1fr 1fr; /* Switch to one column */
+    }
+
+    .faqQuestion1 {
+        width: 300px;
     }
 
     .faqItem {

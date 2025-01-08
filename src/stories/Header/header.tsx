@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import style from './header.module.css';
 
 interface HeaderProps {
@@ -13,20 +14,28 @@ interface HeaderProps {
  * - `auth`: Specifies if the user is authenticated.
  */
 const Header = ({auth}: HeaderProps) => {
+    let navigate = useNavigate();
     const [toggle, setToggle] = useState(false);
     const handleToggle = () => {
         setToggle(!toggle);
     };
 
+    const handleDashNav = () => {
+        navigate('/overview')
+    }
+
     return (
         <nav className={style.navContainer}>
             <div className={style.upperSec}>
                 <div className={style.logo} aria-label={'logo'}>
-                    <img
-                        className={style.logo}
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg"
-                        alt="logo"
-                    />
+                    <Link to='/'>
+                        <img
+                            className={style.logo}
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/logo_ocj4df.svg"
+                            alt="logo"
+                        />
+                    </Link>
+
                 </div>
 
                 {auth ? (
@@ -47,7 +56,7 @@ const Header = ({auth}: HeaderProps) => {
                                     </div>
                                 )}
                             </div>
-                            <div className={style.Item2}>
+                            <div onClick={handleDashNav} className={style.Item2}>
                                 <img
                                     className={style.averterIcon}
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715021/Reev/avater_do28oz.svg"
@@ -85,7 +94,7 @@ const Header = ({auth}: HeaderProps) => {
                                     alt="Help"
                                 />
                             </div>
-                            <div className={style.Item2}>
+                            <div onClick={handleDashNav} className={style.Item2}>
                                 <img
                                     className={style.averterIcon}
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715021/Reev/avater_do28oz.svg"

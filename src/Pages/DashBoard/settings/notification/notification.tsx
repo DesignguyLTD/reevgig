@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import Sidebar from "../../../../stories/SideBar/sideBar";
+import React, {useState} from "react";
 import Toggle from "../../../../stories/ToggleBtn/toggle";
 import cloudImages from "../../../../assets";
-import style from "../../../OverView/OverviewPage.module.css";
 import styles from "./notification.module.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const notificationTypes = [
     {
         title: "Application and Account status",
         desc: "Stay informed about any change or updates related to your active job application"
     },
-    { title: "Career tips", desc: "Get visible insights and tips to help navigate your professional journey" },
+    {title: "Career tips", desc: "Get visible insights and tips to help navigate your professional journey"},
     {
         title: "Recommended Jobs",
         desc: "Get personalized suggestions for jobs that align with your skills and interests."
     },
-    { title: "Feedbacks", desc: "Receive request to provide feedback and participate in user studies and surveys" },
+    {title: "Feedbacks", desc: "Receive request to provide feedback and participate in user studies and surveys"},
 ]
 
-const Notification = () => {
+const NotificationPage = () => {
     const [toggleState, setToggleState] = useState([
         false,
         false,
@@ -27,46 +25,29 @@ const Notification = () => {
         false
     ])
 
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
-    );
-
-
-    const getSidebarState = (x: boolean): boolean => {
-        setIsSidebarOpen(x);
-        return x;
-    }
-
-    const getPage = (x: string): string => {
-        setCurrentPage(x);
-        localStorage.setItem('currentPage', x);
-        return x;
-    }
-
     return (
         <div>
-            <Sidebar logo={'/'} getSidebarState={getSidebarState} getPage={getPage} />
-            <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
+
+            <div>
                 <div className={styles.ctn}>
                     <div className={styles.settingPages}>
-                        <Link to="/dashboard" className={styles.backToSettings}>
-                            <img src={cloudImages.backArrow} alt="Back Arrow" />
+                        <Link to="/overview" className={styles.backToSettings}>
+                            <img src={cloudImages.backArrow} alt="Back Arrow"/>
                             <p>Settings</p>
                         </Link>
                         <div className={styles.currentPage}>
-                            <img src={cloudImages.fwdArrow} alt="Forward Arrow" />
+                            <img src={cloudImages.fwdArrow} alt="Forward Arrow"/>
                             <p>Notification</p>
                         </div>
                     </div>
                     <div className={styles.notify_sect}>
                         <div className={styles.notify_title}>
+                    <span>
+                        <img src={cloudImages.notification} alt='bell'/>
+                    </span>
                             <span>
-                                <img src={cloudImages.notification} alt='bell' />
-                            </span>
-                            <span>
-                                <p>Notification</p>
-                            </span>
+                        <p>Notification</p>
+                    </span>
                         </div>
                         <div>
                             {
@@ -92,12 +73,12 @@ const Notification = () => {
                             }
                         </div>
                         <div className={styles.jobNotify_title}>
+                    <span>
+                        <img src={cloudImages.notification} alt='bell'/>
+                    </span>
                             <span>
-                                <img src={cloudImages.notification} alt='bell' />
-                            </span>
-                            <span>
-                                <p>Job Notification</p>
-                            </span>
+                        <p>Job Notification</p>
+                    </span>
                         </div>
                         <div className={styles.notify_alert}>
                             <h5>Job and Company alerts</h5>
@@ -113,4 +94,4 @@ const Notification = () => {
     )
 }
 
-export default Notification
+export default NotificationPage;

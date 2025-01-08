@@ -1,13 +1,11 @@
 import Dropdown from "../../../../stories/OtherInputsType/dropdown/dropdown";
 import Input from "../../../../stories/FieldInput-I/input";
-import React, { ChangeEvent, useRef, useState } from "react";
-import Sidebar from "../../../../stories/SideBar/sideBar";
-import cloudImages from "../../../../assets";
-import style from "../../../OverView/OverviewPage.module.css";
+import React, {ChangeEvent, useRef, useState} from "react";
+import cloudImages from "../../../../assets/index.js";
 import styles from "./accountSettings.module.css";
-import { City, Country, State } from "country-state-city";
-import { Link } from "react-router-dom";
-import { Button } from "../../../../stories/Button-I/Button";
+import {City, Country, State} from "country-state-city";
+import {Link} from "react-router-dom";
+import {Button} from "../../../../stories/Button-I/Button";
 
 const AccountSettings: React.FC = () => {
     const [image, setImage] = useState<string | null>(null);
@@ -81,35 +79,18 @@ const AccountSettings: React.FC = () => {
         label: `+ ${country.phonecode.replace(/\+/g, "")}`
     }));
 
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
-    const [currentPage, setCurrentPage] = React.useState<string>(
-        localStorage.getItem('currentPage') || 'Overview'
-    );
-
-
-    const getSidebarState = (x: boolean): boolean => {
-        setIsSidebarOpen(x);
-        return x;
-    }
-
-    const getPage = (x: string): string => {
-        setCurrentPage(x);
-        localStorage.setItem('currentPage', x);
-        return x;
-    }
 
     return (
         <div>
-            <Sidebar logo={'/'} getSidebarState={getSidebarState} getPage={getPage} />
-            <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
+            <div>
                 <div className={styles.ctn}>
                     <div className={styles.settingPages}>
-                        <Link to="/dashboard" className={styles.backToSettings}>
-                            <img src={cloudImages.backArrow} alt="Back Arrow" />
+                        <Link to="/settings" className={styles.backToSettings}>
+                            <img src={cloudImages.backArrow} alt="Back Arrow"/>
                             <p>Settings</p>
                         </Link>
                         <div className={styles.currentPage}>
-                            <img src={cloudImages.fwdArrow} alt="Forward Arrow" />
+                            <img src={cloudImages.fwdArrow} alt="Forward Arrow"/>
                             <p>Account Settings</p>
                         </div>
                     </div>
@@ -120,8 +101,8 @@ const AccountSettings: React.FC = () => {
                                 type="file"
                                 accept="image/*"
                                 ref={fileInputRef}
-                                style={{ display: 'none' }}
-                                onChange={({ target: { files } }) => {
+                                style={{display: 'none'}}
+                                onChange={({target: {files}}) => {
                                     if (files && files[0]) {
                                         setFileName(files[0].name);
                                         setImage(URL.createObjectURL(files[0]));
@@ -129,10 +110,10 @@ const AccountSettings: React.FC = () => {
                                 }}
                             />
                             <div className={styles.imageborder}>
-                                {image && <img src={image} alt={fileName} className={styles.image} />}
+                                {image && <img src={image} alt={fileName} className={styles.image}/>}
                                 <span className={styles.imageUploaderCtn}>
-                                    <img src={cloudImages.upload} alt="Upload" onClick={handleImageClick} />
-                                </span>
+							<img src={cloudImages.upload} alt="Upload" onClick={handleImageClick}/>
+						</span>
                             </div>
                         </div>
                         <div className={styles.displayName}>
@@ -196,7 +177,7 @@ const AccountSettings: React.FC = () => {
                         <div className={styles.country}>
                             <Dropdown
                                 label='Country'
-                                onChange={({ value }) => setCountry(value)}
+                                onChange={({value}) => setCountry(value)}
                                 errorMessage="Country must be selected"
                                 options={countryOptions}
                                 defaultText={country === "" ? "Select a country" : country}
@@ -207,7 +188,7 @@ const AccountSettings: React.FC = () => {
                             <div className={styles.state}>
                                 <Dropdown
                                     label='State'
-                                    onChange={({ value }) => setState(value)}
+                                    onChange={({value}) => setState(value)}
                                     errorMessage="State must be selected"
                                     options={stateOptions}
                                     size="small"
@@ -217,7 +198,7 @@ const AccountSettings: React.FC = () => {
                             <div className={styles.city}>
                                 <Dropdown
                                     label='City'
-                                    onChange={({ value }) => setCity(value)}
+                                    onChange={({value}) => setCity(value)}
                                     errorMessage="City must be selected"
                                     options={cityOptions}
                                     size="small"
@@ -229,7 +210,7 @@ const AccountSettings: React.FC = () => {
                         <div className={styles.phone}>
                             <Dropdown
                                 label='Office/Work Contact Number*'
-                                onChange={({ value }) => setPhoneCode(value)}
+                                onChange={({value}) => setPhoneCode(value)}
                                 options={phoneOptions}
                                 defaultText={country ? `+ ${Country.getAllCountries().filter((fetchedCountry) => fetchedCountry.isoCode === country)[0].phonecode.replace(/\+/g, "")}` : phoneCode === "" ? "+234" : phoneCode}
                             />
@@ -247,8 +228,8 @@ const AccountSettings: React.FC = () => {
                                 label='Save Changes'
                                 BorderColor='black'
                                 icon={false}
-                            // onClick={handleSaveChange(`${accountData.firstName}`)}
-                            // onClick={() => setDisplayName(`${accountData.firstName} ${accountData.lastName}`)}
+                                // onClick={handleSaveChange(`${accountData.firstName}`)}
+                                // onClick={() => setDisplayName(`${accountData.firstName} ${accountData.lastName}`)}
                             />
                         </div>
                     </form>

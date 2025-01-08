@@ -3,23 +3,27 @@ import {ButtonII} from "../../stories/Button-II/ButtonII";
 import CounterInput from "./CounterInput";
 import CounterTextarea from "./CounterTextarea";
 import FileUploadTwo from "../../Components/FileUpload/fileUploadTwo";
-import RadioButton from "../../stories/RadioButton/RadioButton";
 import style from "./jobs.module.css";
+import TagInput from "../../Components/TagInput/tagInput";
+import {recommendedSkills} from "../Onboarding/onboarding/dataset";
 
 
 interface jobProps {
     setActiveComponent?: (component: string) => void;
+    userType: string;
 }
 
-export default function JobBrief({setActiveComponent}: jobProps) {
+interface UploadedFile {
+    id: string;
+    name: string;
+    src: string;
+}
+
+
+export default function JobBrief({setActiveComponent, userType}: jobProps) {
     const [text, setText] = useState<string>("");
     const [textarea, setTextArea] = useState<string>("");
-    const [fileUploaded, setFileUploaded] = useState<string | null>("");
-    const [selectedValue, setSelectedValue] = useState<string>("");
-
-    const handleRadioChange = (value: string) => {
-        setSelectedValue(value);
-    };
+    const [fileUploaded, setFileUploaded] = useState<UploadedFile[]>([]);
 
     const handleTextChange = (value: string) => {
         setText(value); // Update the state when the value changes
@@ -39,13 +43,18 @@ export default function JobBrief({setActiveComponent}: jobProps) {
             setActiveComponent("jobs_timeline")
         }
     }
+    const [searchTag, setSearchTag] = useState<string[]>(() => {
+            const savedFormValues1 = localStorage.getItem('searchTag');
+            return savedFormValues1 ? JSON.parse(savedFormValues1).SkillSet1 : [];
+        }
+    );
 
     return (
         <>
             <div className={style.brief_container}>
                 <div>
                     <div>
-                        <p className={style.label_text}>Give your project brief a title</p>
+                        <div className={style.label_text}>Give your project brief a title</div>
 
                         <div className={style.counting_numbers}>
                             <CounterInput
@@ -60,7 +69,7 @@ export default function JobBrief({setActiveComponent}: jobProps) {
                         </div>
                     </div>
                     <div style={{paddingTop: "1rem"}}>
-                        <p className={style.label_text}>What service(s) can you provide?</p>
+                        <div className={style.label_text}>What service(s) can you provide?</div>
                         <div className={style.counting_numbers}>
                             <CounterTextarea
                                 maxLength={2000}
@@ -73,46 +82,33 @@ export default function JobBrief({setActiveComponent}: jobProps) {
                             />
                         </div>
                     </div>
-
-                    <div style={{marginTop: "0.6rem", marginBottom: '0.6rem'}}>
-                        <FileUploadTwo
-                            file={fileUploaded}
-                            setFile={setFileUploaded}
-                            allowedTypes={["application/pdf"]}
-                            id={"Job-file-upload"}
-                        />
-                    </div>
+                    <br/>
                     <div>
                         <p className={style.level}>
-                            What level of experience will you need?
+                            Search (Optional)
                         </p>
-                        <div className={style.radio_btn}>
-                            <RadioButton
-                                id={'Experience'}
-                                name={"Beginner"}
-                                value={"Beginner"}
-                                selectedValue={selectedValue}
-                                onChange={handleRadioChange}
-                            />
+                        <TagInput
+                            subLabel1={'For best results, add 3 - 5 skills'}
+                            // subLabel2={'Popular skills for Circuit Design'}
+                            label='' recommendedTags={recommendedSkills}
+                            placeholder={'Start typing to view & select options. If entering your own tags, press enter to save'}
+                            maxTags={10} setTags={setSearchTag}
+                            tags={searchTag}/>
 
-                            <RadioButton
-                                name={"Intermediate"}
-                                value={"Intermediate"}
-                                selectedValue={selectedValue}
-                                onChange={handleRadioChange}
-                                id={'Experience'}
+                    </div>
 
-                            />
-                            <RadioButton
-                                id={'Experience'}
-
-                                name={"expert"}
-                                value={"Expert"}
-                                selectedValue={selectedValue}
-                                onChange={handleRadioChange}
+                    <div style={{marginTop: "0.6rem", marginBottom: '0.6rem'}}>
+                        <div className={style.label_text}>You can add images to help communicate better</div>
+                        <div className={style.pictureUploadCont}>
+                            <FileUploadTwo
+                                files={fileUploaded}
+                                setFiles={setFileUploaded}
+                                allowedTypes={["image/png", "image/jpeg"]}
+                                id={"Job-file-upload"}
                             />
                         </div>
                     </div>
+
 
                     <div className={style.continue}>
                         <ButtonII

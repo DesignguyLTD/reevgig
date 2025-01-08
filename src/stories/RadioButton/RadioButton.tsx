@@ -19,9 +19,14 @@ interface RadioProps {
     gap?: string;
     enableSelectedStyles?: boolean;
     id?: string;
+    subHead?: string;
+    styleP?: boolean;
 }
 
 const RadioButton: React.FC<RadioProps> = ({
+                                               styleP,
+
+                                               subHead,
                                                id,
                                                name,
                                                value,
@@ -85,9 +90,9 @@ const RadioButton: React.FC<RadioProps> = ({
                         checked={selectedValue === value}
                         onChange={handleChange}
                     />
-                    <div className={style.checkmark}></div>
+                    <div className={style.checkmark}>{subHead}</div>
                 </div>
-                <p style={{color: appliedColor}} className={style.value}>
+                <p style={{color: appliedColor, width: styleP ? '131px' : ''}} className={style.value}>
                     {value}
                 </p>
             </label>
