@@ -109,6 +109,26 @@
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.walletPrice,
+.cardNum {
+    padding-bottom: 20px;
+    font-weight: normal;
+}
+
+.delCard {
+    display: flex;
+    justify-content: space-between;
+    width: 262px;
+}
+
+.withdrawBtnCtn {
+    margin-top: 20px;
+}
+
+.withdrawBtn {
+    display: flex;
     align-items: center;
     width: 90%;
     gap: 3px;
