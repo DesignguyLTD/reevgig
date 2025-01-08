@@ -7,4 +7,4 @@ const cloudImages = {
     notification: "https://res.cloudinary.com/doijevrqo/image/upload/v1725720422/notification_fbfz3d.svg",
 }
 
-export default cloudImages
+export default cloudImages;

@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Sidebar from "../../../../stories/SideBar/sideBar";
 import Toggle from "../../../../stories/ToggleBtn/toggle";
 import cloudImages from "../../../../assets";
 import styles from "./notification.module.css";

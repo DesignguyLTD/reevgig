@@ -1,39 +1,42 @@
+import { City, Country, State } from "country-state-city";
+import React, { ChangeEvent, useRef, useState } from "react";
+
+import { Button } from "../../../../stories/Button-I/Button";
 import Dropdown from "../../../../stories/OtherInputsType/dropdown/dropdown";
 import Input from "../../../../stories/FieldInput-I/input";
-import React, {ChangeEvent, useRef, useState} from "react";
-import cloudImages from "../../../../assets/index.js";
+import { Link } from "react-router-dom";
+import Sidebar from "../../../../stories/SideBar/sideBar";
+import cloudImages from "../../../../assets";
+import style from "../../../OverView/OverviewPage.module.css";
 import styles from "./accountSettings.module.css";
-import {City, Country, State} from "country-state-city";
-import {Link} from "react-router-dom";
-import {Button} from "../../../../stories/Button-I/Button";
 
 const AccountSettings: React.FC = () => {
-    const [image, setImage] = useState<string | null>(null);
-    const [fileName, setFileName] = useState<string>("no file");
-    const [country, setCountry] = useState<string>("");
-    const [city, setCity] = useState<string>("");
-    const [state, setState] = useState<string>("");
-    const [phoneCode, setPhoneCode] = useState<string>("");
+  const [image, setImage] = useState<string | null>(null);
+  const [fileName, setFileName] = useState<string>("no file");
+  const [country, setCountry] = useState<string>("");
+  const [city, setCity] = useState<string>("");
+  const [state, setState] = useState<string>("");
+  const [phoneCode, setPhoneCode] = useState<string>("");
 
-    const [accountData, setAccountData] = useState({
-        displayName: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        telephone: "",
-        oldPassword: "",
-        newPassword: "",
-        confirmPassword: ""
-    })
+  const [accountData, setAccountData] = useState({
+    displayName: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    telephone: "",
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setAccountData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAccountData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
     // const handleBtnChange = () => {
     // 	setAccountData((prev) => ({
@@ -42,21 +45,24 @@ const AccountSettings: React.FC = () => {
     // 	}))
     // }
 
-    const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const handleImageClick = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current.click();
-        }
-    };
+  const handleImageClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
-    const handlePasswordChange = () => {
-        if (accountData.password === accountData.oldPassword && accountData.newPassword === accountData.confirmPassword) {
-            console.log("Password change submitted successfully.");
-        } else {
-            console.log("Password does not match");
-        }
-    };
+  const handlePasswordChange = () => {
+    if (
+      accountData.password === accountData.oldPassword &&
+      accountData.newPassword === accountData.confirmPassword
+    ) {
+      console.log("Password change submitted successfully.");
+    } else {
+      console.log("Password does not match");
+    }
+  };
 
 
     const countryOptions = Country.getAllCountries().map((country) => ({
@@ -210,7 +216,7 @@ const AccountSettings: React.FC = () => {
                         <div className={styles.phone}>
                             <Dropdown
                                 label='Office/Work Contact Number*'
-                                onChange={({value}) => setPhoneCode(value)}
+                                onChange={({ value }) => setPhoneCode(value)}
                                 options={phoneOptions}
                                 defaultText={country ? `+ ${Country.getAllCountries().filter((fetchedCountry) => fetchedCountry.isoCode === country)[0].phonecode.replace(/\+/g, "")}` : phoneCode === "" ? "+234" : phoneCode}
                             />
@@ -228,8 +234,8 @@ const AccountSettings: React.FC = () => {
                                 label='Save Changes'
                                 BorderColor='black'
                                 icon={false}
-                                // onClick={handleSaveChange(`${accountData.firstName}`)}
-                                // onClick={() => setDisplayName(`${accountData.firstName} ${accountData.lastName}`)}
+                            // onClick={handleSaveChange(`${accountData.firstName}`)}
+                            // onClick={() => setDisplayName(`${accountData.firstName} ${accountData.lastName}`)}
                             />
                         </div>
                     </form>
