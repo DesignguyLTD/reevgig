@@ -14,7 +14,7 @@ interface Props {
     userType: string;
 }
 
-const Profile = ({page, setPage, userType}: Props) => {
+const Profile = ({setPage, userType}: Props) => {
 
     const [header, setHeader] = React.useState('Public');
 
