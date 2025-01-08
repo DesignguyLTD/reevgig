@@ -3,6 +3,7 @@ import {Link, Route, Routes, useLocation} from "react-router-dom";
 import Login from "./Pages/Onboarding/login/login";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
+import SearchResults from "./Pages/SearchResults/searchResults";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 // import LandingPage from "./Pages/LandingPage/LandingPage";
 import DashboardLayout from "./DashboardLayout";
@@ -16,7 +17,7 @@ import Jobs from "./Pages/Jobs/Jobs";
 import PaymentPage from "./Pages/paymentPage/paymentPage";
 import Settings from "./Pages/DashBoard/settings/settings";
 import './App.css';
-
+import { FullSlide } from "./stories/Fullslider/fullSlide";
 const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
 
 const App: React.FC = () => {
@@ -60,6 +61,21 @@ const App: React.FC = () => {
             ) : (
                 <>
                     <Routes>
+                        <Route
+                            path="/talents"
+                            element={
+                                <FullSlide
+                                    profileImage={
+                                        "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg"
+                                    }
+                                    title={"Senior UI/UX Designer"}
+                                    userName={"Jimmy Joe"}
+                                    duration={"Full-time"}
+                                    sponsored={"Sponsored"}
+                                />
+                            }
+                        />
+                        <Route path="/results" element={<SearchResults />} />
                         <Route path="/" element={<LandingPage/>}/>
                         <Route path="/signup" element={<SignUp/>}/>
                         <Route path="/login" element={<Login/>}/>
