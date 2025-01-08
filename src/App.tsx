@@ -5,7 +5,6 @@ import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SearchResults from "./Pages/SearchResults/searchResults";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
-// import LandingPage from "./Pages/LandingPage/LandingPage";
 import DashboardLayout from "./DashboardLayout";
 import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
@@ -17,7 +16,7 @@ import Jobs from "./Pages/Jobs/Jobs";
 import PaymentPage from "./Pages/paymentPage/paymentPage";
 import Settings from "./Pages/DashBoard/settings/settings";
 import './App.css';
-import { FullSlide } from "./stories/Fullslider/fullSlide";
+import {FullSlide}  from "./stories/Fullslider/fullSlide";
 const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
 
 const App: React.FC = () => {
@@ -27,7 +26,7 @@ const App: React.FC = () => {
     const userType: string = localStorage.getItem('userType') ?? 'Client';
 
     // Define routes where the sidebar should not be shown
-    const noSidebarRoutes = ['/', '/onboarding', '/signup', '/login', '/resetpassword'];
+    const noSidebarRoutes = ['/', '/onboarding', '/signup', '/login', '/resetpassword',"/talents","/results" ];
 
     return (
         <div className="App">
