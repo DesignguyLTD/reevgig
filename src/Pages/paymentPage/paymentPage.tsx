@@ -1,6 +1,6 @@
 import React from 'react';
 import Payment from '../DashBoard/planAndBillings/paymentCard/paymentCard';
-import PaymentTransact from '../DashBoard/planAndBillings/paymentTransaction/paymentTransact';
+import PaymentTransact from "../DashBoard/planAndBillings/paymentTransaction/paymentTransact";
 
 const PaymentPage = () => {
     const [currentPage, setCurrentPage] = React.useState<string>(
