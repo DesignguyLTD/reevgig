@@ -1,13 +1,60 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.mainCtn{
+.heroTextBG1 {
+    background: #fff3cc;
+    padding: 4px 10px 4px 0;
+    font-family: var(--font-primary-land-family);
+    font-weight: 700;
+    border-radius: 20px 0 0 20px;
+    border-right: #fec200 5px solid;
+    position: relative;
+}
+
+.heroTextBGTag {
+    border-radius: 5px 5px 5px 0px;
+    color: rgb(19, 19, 19);
+    font-family: var(--font-primary-land-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 113.86%;
+    text-align: center;
+    background: rgb(254, 194, 0);
+    position: absolute;
+    right: -53px;
+    top: -26px;
+    padding: 7px;
+}
+
+
+.heroTextBG2 {
+    border-radius: 20px 0 0 20px;
+    padding: 1px 5px 1px 0;
+    background: #fff3cc;
+    font-family: var(--font-primary-land-family);
+
+}
+
+.br {
+    display: block;
+}
+
+.br2 {
+    display: none;
+}
+
+.mainCtn {
     display: grid;
     margin: 100px auto;
-    /* width: 100%; */
+    width: 100%;
     justify-items: stretch;
+    /*max-width: 1024px;*/
+    position: relative;
+    left: 0;
+    right: 0;
+    /*background: #f2f0ec;*/
 }
 
 .heroCtn {
@@ -16,52 +63,37 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1726092932/Reev/Group_1171275873_cfvzxz.svg);
+    /*background-image: url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1726092932/Reev/Group_1171275873_cfvzxz.svg);*/
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: auto; /* You can set it to 'contain' or 'cover' based on your design needs */
 }
 
-.heroText{
-    color: rgb(30, 30, 30);
-    font-family: PP Neue Montreal;
+.heroText {
+    color: rgb(19, 19, 19);
+
+    font-family: var(--font-primary-land-family);
     font-size: 40px;
-    font-weight: 500;
-    line-height: 140%;
-    text-align: center;
-}
-
-.heroSubText{
-    color: rgb(30, 30, 30);
-    font-family: PP Neue Montreal;
-    font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 106%;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+}
+
+.serchText1 {
+    color: #4f4f4f;
+
+    font-family: var(--font-primary-land-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 124%;
+    letter-spacing: 0;
     text-align: center;
 }
 
-.Ctn2 img{
-    width: 310px;
-    height: 310px;
-}
-
-.Ctn2{
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.btn1{
-    display: none;
-}
-
-.btn2{
-    display: block;
-}
-
-.Ctn1{
+.serchTextCtn {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -69,14 +101,75 @@
 
 }
 
-.SearchCtn{
+.serachCtnMain {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+
+}
+
+.serchText2 {
+    color: rgb(123, 123, 123);
+    font-family: var(--font-primary-land-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 124%;
+    letter-spacing: 0;
+    text-align: center;
+
+}
+
+.heroSubText {
+    color: rgb(30, 30, 30);
+    font-family: var(--font-primary-land-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 124%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.Ctn2 img {
+    width: 310px;
+    height: 310px;
+}
+
+.Ctn2 {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.heroCtnMain{
+/*.btn1 {*/
+/*    display: none;*/
+/*}*/
+
+.btn2 {
+    display: block;
+}
+
+.Ctn1 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.SearchCtn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: #060606;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.heroCtnMain {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -84,7 +177,7 @@
     margin-bottom: 30px;
 }
 
-.featuredJobWrapper{
+.featuredJobWrapper {
     width: 100%;
     display: inline-flex;
     margin: 10px auto;
@@ -92,17 +185,18 @@
     align-items: center;
 }
 
-.featuredJobCtn{
+.featuredJobCtn {
     background: rgb(43, 43, 43);
     padding: 10px;
     width: 100%;
+    /*max-width: 366px;*/
     display: inline-flex;
     margin: 10px auto;
     flex-direction: column;
     align-items: center;
 }
 
-.featuredJobTop{
+.featuredJobTop {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -118,7 +212,7 @@
     margin-bottom: 20px;
 }
 
-.featuredJobTitle{
+.featuredJobTitle {
     color: rgb(254, 194, 0);
     font-family: PP Neue Montreal;
     font-size: 28px;
@@ -127,7 +221,7 @@
     text-align: left;
 }
 
-.featuredJob{
+.featuredJob {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -135,11 +229,11 @@
     cursor: pointer;
 }
 
-.featuredJob:hover{
+.featuredJob:hover {
     color: #FFFFFF;
 }
 
-.featuredJobCard{
+.featuredJobCard {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -151,7 +245,7 @@
 
 }
 
-.ClientsCtn{
+.ClientsCtn {
     margin-top: 20px;
     padding: 20px;
     display: inline-flex;
@@ -161,14 +255,14 @@
     margin-bottom: 20px;
 }
 
-.clientTextCtn{
+.clientTextCtn {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
 }
 
-.clientHeader{
+.clientHeader {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -181,18 +275,18 @@
 
 }
 
-.clientHeader img{
+.clientHeader img {
     width: 98px;
     height: 11px;
     z-index: -10;
 }
 
-.clientImg{
+.clientImg {
     width: 300px;
     height: 300px;
 }
 
-.clientText{
+.clientText {
     color: rgb(43, 43, 43);
     font-family: PP Neue Montreal;
     font-size: 28px;
@@ -202,9 +296,9 @@
     margin-bottom: 10px;
 }
 
-.clientSubText{
+.clientSubText {
     color: rgb(69, 69, 69);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 14px;
     font-weight: 400;
     line-height: 140%;
@@ -212,7 +306,7 @@
 }
 
 
-.client{
+.client {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -220,7 +314,7 @@
 
 }
 
-.clientSteps{
+.clientSteps {
     border-radius: 8px;
     background: rgb(43, 43, 43);
     padding: 16px 8px 16px 24px;
@@ -231,14 +325,14 @@
     width: 300px;
 }
 
-.stepList{
+.stepList {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
 }
 
-.number{
+.number {
     color: rgb(43, 43, 43);
     font-family: PP Neue Montreal;
     font-size: 10px;
@@ -257,7 +351,7 @@
     justify-content: center;
 }
 
-.stepCtn{
+.stepCtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -265,7 +359,7 @@
     /*padding: 20px;*/
 }
 
-.stepText{
+.stepText {
     color: rgb(217, 217, 217);
     font-family: PP Neue Montreal;
     font-size: 12px;
@@ -274,7 +368,7 @@
     text-align: left;
 }
 
-.clientBtn{
+.clientBtn {
     color: rgb(254, 194, 0);
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -291,13 +385,13 @@
     justify-content: center;
 }
 
-.clientBtn:hover{
+.clientBtn:hover {
     cursor: pointer;
     color: #FFFFFF;
     border: 1px solid rgb(255, 255, 255);
 }
 
-.talentComp{
+.talentComp {
     border-radius: 0px 12px 12px 0px;
     background: rgb(254, 204, 43);
     padding: 32px 24px 32px 24px;
@@ -307,7 +401,8 @@
     width: 320px;
     gap: 15px;
 }
-.talentCtn{
+
+.talentCtn {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -315,13 +410,13 @@
     gap: 20px;
 }
 
-.talentImg{
+.talentImg {
     width: 300px;
     height: 300px;
 }
 
 
-.talentHeader{
+.talentHeader {
     color: rgb(39, 39, 39);
     font-family: PP Neue Montreal;
     font-size: 20px;
@@ -335,14 +430,14 @@
 
 }
 
-.talentTextCtn{
+.talentTextCtn {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
 }
 
-.talentText{
+.talentText {
     color: rgb(39, 39, 39);
     font-family: PP Neue Montreal;
     font-size: 28px;
@@ -351,7 +446,7 @@
     text-align: left;
 }
 
-.talentSubText{
+.talentSubText {
     color: rgb(39, 39, 39);
     font-family: PP Neue Montreal;
     font-size: 14px;
@@ -361,7 +456,7 @@
     width: 300px;
 }
 
-.talentBtn{
+.talentBtn {
     width: 243px;
     /*height: 43px;*/
     border-radius: 45px;
@@ -376,17 +471,18 @@
     cursor: pointer;
 }
 
-.talentBtn:hover{
+.talentBtn:hover {
     color: #FFFFFF;
 }
 
-.talentStepList{
+.talentStepList {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
 }
-.talentStep{
+
+.talentStep {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -394,7 +490,7 @@
 
 }
 
-.talentNumber{
+.talentNumber {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -413,7 +509,7 @@
     background: rgb(39, 39, 39);
 }
 
-.talentStepText{
+.talentStepText {
     color: rgb(39, 39, 39);
     font-family: PP Neue Montreal;
     font-size: 12px;
@@ -422,81 +518,96 @@
     text-align: left;
 }
 
-.talentStepCtn{
+.talentStepCtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
 }
 
-.clientTalentCtn{
+.clientTalentCtn {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 50px 0;
 }
 
-@media  (min-width: 425px){
-    .heroCtn{
+@media (min-width: 425px) {
+    .heroCtn {
         width: 89%;
     }
 
-    .Ctn1{
+    .Ctn1 {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
 
-    .clientBtn{
+    .clientBtn {
         font-size: 19px;
         padding: 18px 27px;
     }
 
-    .stepText{
+    .stepText {
         font-size: 19px;
-            line-height: 100%;
+        line-height: 100%;
     }
 
-    .number{
+    .number {
         font-size: 12px;
     }
 
-    .clientSteps{
+    .clientSteps {
         width: 90%;
         gap: 30px;
     }
-    .stepList{
+
+    .stepList {
         gap: 30px;
     }
 }
 
-@media  (min-width: 768px){
+@media (min-width: 768px) {
+    .clientTalentCtn {
+        margin: 80px 0;
+    }
 
-    .talentImg{
+    .br {
+        display: none;
+    }
+
+    .br2 {
+        display: block;
+    }
+
+    .talentImg {
         width: 400px;
         height: 400px;
     }
 
-    .talentCtn{
+    .talentCtn {
         flex-direction: row;
         max-width: 700px;
-         width: 100%;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
 
     }
 
-    .featuredJobWrapper{
+    .featuredJobWrapper {
         width: 100%;
     }
 
-    .featuredJobCtn{
+    .featuredJobCtn {
         padding: 30px;
+        width: 100%;
+        /*max-width: 760px;*/
     }
 
-    .featuredJobCard{
+    .featuredJobCard {
         display: inline-flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -509,63 +620,71 @@
 
     }
 
-    .Ctn2{
+    .Ctn2 {
         gap: 55px;
     }
 
-    .heroCtn{
+    .heroCtn {
         width: 70%;
         max-width: 768px;
         background-size: contain;
     }
 
-    .Ctn2 img{
+    .Ctn2 img {
         width: 510px;
         height: 510px;
     }
 
-    .heroText{
+    .heroText {
         color: rgb(30, 30, 30);
-        font-family: PP Neue Montreal;
+        font-family: var(--font-primary-land-family);
         font-size: 48px;
-        font-weight: 500;
-        line-height: 140%;
+        font-weight: 700;
+        line-height: 106%;
+        letter-spacing: 0;
+        font-style: normal;
         text-align: center;
     }
 
-    .heroSubText{
-        font-size: 23px;
+    .heroSubText {
+        color: rgb(30, 30, 30);
+        font-family: var(--font-primary-land-family);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 124%;
+        letter-spacing: 0;
+        text-align: center;
     }
 
 
-    .mainCtn{
-        margin: 100px auto;
+    .mainCtn {
+        margin: 140px auto;
 
     }
 
-    .heroCtnMain{
+    .heroCtnMain {
         margin-bottom: 40px;
     }
 
-    .clientHeader{
-      line-height: 18px;
+    .clientHeader {
+        line-height: 18px;
         letter-spacing: 0.5px;
         font-size: 24px;
     }
 
 
-    .ClientsCtn{
+    .ClientsCtn {
         padding: 20px 0 0 39px;
         margin-bottom: 30px;
     }
 
-    .clientHeader img{
+    .clientHeader img {
         width: 115px;
         height: 15px;
         z-index: -10;
     }
 
-    .clientText{
+    .clientText {
         color: rgb(43, 43, 43);
         font-family: PP Neue Montreal;
         font-size: 33px;
@@ -574,7 +693,7 @@
         text-align: left;
     }
 
-    .clientSubText{
+    .clientSubText {
         color: rgb(69, 69, 69);
         font-family: PP Neue Montreal;
         font-size: 16px;
@@ -584,16 +703,16 @@
         width: 63%;
     }
 
-    .clientImg{
+    .clientImg {
         width: 500px;
         height: 500px;
     }
 
-    .client{
+    .client {
         align-items: flex-start;
     }
 
-    .stepList{
+    .stepList {
         flex-direction: row;
         position: absolute;
         top: -16px;
@@ -602,17 +721,17 @@
         width: 700px;
     }
 
-    .stepCtn{
+    .stepCtn {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .stepText{
+    .stepText {
         font-size: 23px;
         line-height: 130%;
     }
 
-    .clientSteps{
+    .clientSteps {
         padding: 30px;
         align-items: flex-end;
         height: 145px;
@@ -621,69 +740,76 @@
         width: 100%;
     }
 
-    .number{
+    .number {
         font-size: 20px;
         padding: 7px;
     }
 
-    .clientSteps{
+    .clientSteps {
         position: relative;
     }
 
 
-
-
-
 }
 
-@media  (min-width: 1024px){
+@media (min-width: 1024px) {
+
+    .clientTalentCtn {
+        /*margin: 100px 0;*/
+    }
+
+    .featuredJobCtn {
+        padding: 30px;
+        width: 100%;
+        /*max-width: 1024px;*/
+    }
 
 
-    .talentComp{
+    .talentComp {
         width: 500px;
     }
 
-    .talentCtn{
+    .talentCtn {
         max-width: 910px;
         gap: 90px;
     }
 
-    .client{
+    .client {
         flex-direction: row;
         align-items: center;
     }
 
-    .clientSteps{
+    .clientSteps {
         max-width: 800px;
         width: 100%;
     }
 
-    .stepList{
+    .stepList {
         width: 700px;
         flex-direction: row;
         position: absolute;
         top: -16px;
-         right: 0;
+        right: 0;
         left: 88px;
     }
 
-    .ClientsCtn{
+    .ClientsCtn {
         align-items: center;
         padding: 25px 0 0 50px;
         margin-bottom: 40px;
     }
 
-    .clientText{
+    .clientText {
         font-size: 48px;
         margin-bottom: 30px;
     }
 
-    .clientSubText{
+    .clientSubText {
         font-size: 19px;
         width: 400px;
     }
 
-    .featuredJobWrapper{
+    .featuredJobWrapper {
         width: 100%;
         display: inline-flex;
         margin: 10px auto;
@@ -692,56 +818,55 @@
         max-width: 1060px;
     }
 
-    .heroCtnMain{
+    .heroCtnMain {
         padding: 35px;
         margin: 50px;
     }
-    .btn1{
+
+    .btn1 {
         display: block;
     }
 
-    .btn2{
+    .btn2 {
         display: none;
     }
 
-    .heroCtn{
+    .heroCtn {
         /*padding: 35px;*/
         width: 100%;
         max-width: 1024px;
         background-size: contain;
-        flex-direction: row;
+        /*flex-direction: row;*/
         justify-content: space-between;
         background-position: center Right;
     }
 
-    .heroSubText{
-        text-align: left;
+    .heroText {
         color: rgb(30, 30, 30);
-        font-family:PP Neue Montreal;
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 106%;
-        letter-spacing: -0.7px;
-    }
-
-    .heroText{
-        text-align: left;
-        color: rgb(30, 30, 30);
-        font-family: PP Neue Montreal;
+        font-family: var(--font-primary-land-family);
         font-size: 64px;
-        font-weight: 500;
+        font-weight: 700;
         line-height: 106%;
-        letter-spacing: -1px;
+        letter-spacing: 0;
+        font-style: normal;
+        text-align: center;
     }
 
-    .Ctn1{
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
+    .heroSubText {
+        color: rgb(30, 30, 30);
+        font-family: var(--font-primary-land-family);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 124%;
+        letter-spacing: 0;
+        text-align: center;
     }
 
-    .mainCtn{
+    .Ctn1 {
+        gap: 40px;
+    }
+
+    .mainCtn {
         margin: 140px auto;
     }
 
@@ -749,23 +874,33 @@
 }
 
 @media (min-width: 1280px) {
-    .heroCtn{
+    .featuredJobCtn {
+        padding: 30px;
+        width: 100%;
+        /*max-width: 1280px;*/
+    }
+
+    .clientTalentCtn {
+        /*margin: 100px 0;*/
+    }
+
+    .heroCtn {
         padding: 35px;
         width: 100%;
         max-width: 1280px;
         background-size: contain;
-        flex-direction: row;
+        /*flex-direction: row;*/
         justify-content: space-between;
         background-position: center Right;
         gap: 70px;
     }
 
-    .clientSteps{
+    .clientSteps {
         max-width: 1000px;
         width: 100%;
     }
 
-    .stepList{
+    .stepList {
         max-width: 1000px;
         width: 100%;
         flex-direction: row;

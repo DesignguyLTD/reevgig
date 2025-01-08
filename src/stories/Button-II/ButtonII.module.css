@@ -17,9 +17,9 @@
     letter-spacing: 0.32px;
     line-height: 39px;
     text-align: center;
-    justify-content: center;
-    width: 340px;
+    width: 300px;
     height: 56px;
+    justify-content: space-around;
 
 }
 
@@ -48,6 +48,14 @@
     border-radius: 160px;
     color: rgb(19, 19, 19);
     background: rgb(254, 194, 0);
+}
+
+.storybookButton:hover .Buttoninvert {
+    filter: invert(1);
+}
+
+.storybookButton:active .Buttoninvert {
+    filter: none;
 }
 
 .storybookButton:active, .noLabel:active {
@@ -171,7 +179,7 @@
         letter-spacing: 0.32px;
         line-height: 39px;
         text-align: center;
-        justify-content: center;
+        justify-content: space-around;
         width: 340px;
         height: 56px;
     }

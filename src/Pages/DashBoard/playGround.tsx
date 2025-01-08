@@ -83,18 +83,25 @@ const ResponsiveTable: React.FC = () => {
                     <tr key={row.id}>
                         <td>
                             <div className={styles.info}>
-                                <img                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993477/Reev/Group_28_e9ifn2.svg" // Update with the correct path to the user's profile image
+                                <img
+                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725993477/Reev/Group_28_e9ifn2.svg" // Update with the correct path to the user's profile image
 
-                                                         className="avatar"/>
+                                    className="avatar"/>
                                 <div>
                                     <div className={styles.clientName}>{row.clientName}</div>
                                     <div className={styles.clientOrder}>View order</div>
                                 </div>
                             </div>
                         </td>
-                        <td>{row.project}</td>
-                        <td className='width'>{row.price}</td>
-                        <td>{row.deliveredIn}</td>
+                        <td>
+                            <div className={styles.project}>{row.project}</div>
+                        </td>
+                        <td className='width'>
+                            <div className={styles.project}>{row.price}</div>
+                        </td>
+                        <td>
+                            <div className={styles.project}>{row.deliveredIn}</div>
+                        </td>
                         <td>
                             {/*             className={`status-badge ${row.status.toLowerCase().replace(' ', '-')}`}*/}
                             <span

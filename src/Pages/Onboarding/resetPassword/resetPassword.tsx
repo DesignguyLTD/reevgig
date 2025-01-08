@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import reset from './resetPassword.module.css'
 import {useNavigate} from "react-router-dom";
 import Input from "../../../stories/FieldInput-I/input";
-import login from "../login/login.module.css";
 import OTPInput from "../../../stories/OtherInputsType/OTPInput/OTPInput";
 import signUp from "../SignUp/signUp.module.css";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
@@ -155,7 +154,7 @@ const ResetPassword = () => {
                             <br/>
                             <br/>
 
-                            <div className={login.btn}>
+                            <div className={reset.btn}>
                                 <ButtonII
                                     label='Send'
                                     primary={true}
@@ -189,7 +188,7 @@ const ResetPassword = () => {
                             <div className={reset.lowerText}>
                                 Haven’t gotten a mail yet? <span onClick={handleBack} className={signUp.makeYellow}>Resend email</span>
                             </div>
-                            <div className={login.btn}>
+                            <div className={reset.btn}>
                                 <ButtonII
                                     label='Verify code'
                                     primary={true}
@@ -227,7 +226,7 @@ const ResetPassword = () => {
 
                             <br/>
                             <br/>
-                            <div className={login.btn}>
+                            <div className={reset.btn}>
                                 <ButtonII
                                     label='Reset Password'
                                     primary={true}
