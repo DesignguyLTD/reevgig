@@ -12,7 +12,7 @@ import Login from "./Pages/Onboarding/login/login";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import OverviewPage from "./Pages/OverView/OverviewPage";
-import PaymentPage from "./Pages/paymentPage/paymentPage";
+// import PaymentPage from "./Pages/paymentPage/paymentPage";
 import ProfileMain from "./Pages/Profile/ProfileMain";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SearchResults from "./Pages/SearchResults/searchResults";
@@ -49,7 +49,8 @@ const App: React.FC = () => {
               />
             </div>
           </div>
-        }>
+        }
+      >
         {!noSidebarRoutes.includes(location.pathname) ? (
           <DashboardLayout>
             <Routes>
@@ -80,11 +81,12 @@ const App: React.FC = () => {
                 path="/saved"
                 element={<h1>Development in progress ....</h1>}
               />
+              <Route path="/searchResults" element={<SearchResults />} />
               <Route
                 path="/help"
                 element={<h1>Development in progress ....</h1>}
               />
-              <Route path="/payment" element={<PaymentPage />} />
+              {/* <Route path="/payment" element={<PaymentPage />} /> */}
               <Route path="/settings" element={<Settings />} />
               <Route
                 path="*"
@@ -104,7 +106,6 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
               <Route path="/onboarding" element={<OnBoarding />} />
-              <Route path="/searchResults" element={<SearchResults />} />
               <Route
                 path="*"
                 element={

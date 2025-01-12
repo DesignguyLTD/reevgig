@@ -29,16 +29,17 @@ const Dashboard = () => {
     <div>
       <Sidebar logo={"/"} getSidebarState={getSidebarState} getPage={getPage} />
       <div
-        className={`${style.container} ${isSidebarOpen ? style.shifted : ""}`}>
-        {currentPage === "Overview" && <OverviewPage />}
+        className={`${style.container} ${isSidebarOpen ? style.shifted : ""}`}
+      >
+        {currentPage === "Overview" && <OverviewPage userType={""} />}
 
         {currentPage === "Profile" && (
           <>
-            <ProfileMain />
+            <ProfileMain userType={""} />
           </>
         )}
 
-        {currentPage === "PostAJob" && <Jobs />}
+        {currentPage === "PostAJob" && <Jobs userType={""} />}
 
         {/*        {currentPage === 'Message' &&*/}
         {/*            <h1>Development in progress ....</h1>*/}

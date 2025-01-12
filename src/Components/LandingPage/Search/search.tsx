@@ -44,7 +44,7 @@ const Search: React.FC<SearchProps> = ({
   };
   return (
     <div className={styling.main_cover}>
-      <div className={styling.input_cover}>
+      <div className={styling.covering}>
         <div className={styling.search_side}>
           <input
             type="text"

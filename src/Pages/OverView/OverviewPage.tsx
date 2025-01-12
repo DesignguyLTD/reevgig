@@ -3,12 +3,16 @@ import React from "react";
 import ResponsiveTable from "../DashBoard/playGround";
 import style from "./OverviewPage.module.css";
 
+interface OverviewPageProps {
+  userType: string;
+}
+
 const OverviewPage = ({ userType }: OverviewPageProps) => {
   const [header, setHeader] = React.useState("Overview");
-
   const handleHeader = (value: string) => {
     setHeader(value);
   };
+  
   return (
     <div>
       {/*<div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>*/}
@@ -21,7 +25,8 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                 color: header === "Overview" ? "black" : "",
                 borderBottom: header === "Overview" ? "solid 2px black" : "",
               }}
-              onClick={() => handleHeader("Overview")}>
+              onClick={() => handleHeader("Overview")}
+            >
               {userType === "Freelancer" ? "Active Projects" : "Overview"}
             </div>
             <div
@@ -30,7 +35,8 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                 color: header === "Job" ? "black" : "",
                 borderBottom: header === "Job" ? "solid 2px black" : "",
               }}
-              onClick={() => handleHeader("Job")}>
+              onClick={() => handleHeader("Job")}
+            >
               {userType === "Freelancer" ? "My Gigs" : " Job Applications"}
             </div>
           </div>
@@ -65,7 +71,8 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                   </div>
                   <div
                     className={style.Estimate}
-                    style={{ background: "rgba(240, 194, 116, 0.15)" }}>
+                    style={{ background: "rgba(240, 194, 116, 0.15)" }}
+                  >
                     <img
                       src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/client_ibnny6.svg"
                       alt="earn"
@@ -108,10 +115,10 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
 
           {header === "Job" && (
             <div className={style.JobCtn}>
-              <JobApplication />
-              <JobApplication />
-              <JobApplication />
-              <JobApplication />
+              <JobApplication userType={""} />
+              <JobApplication userType={""} />
+              <JobApplication userType={""} />
+              <JobApplication userType={""} />
             </div>
           )}
         </div>
