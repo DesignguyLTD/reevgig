@@ -36,6 +36,9 @@ interface ButtonIIProps {
      * Optional click handler function to be executed when the button is clicked.
      */
     onClick?: () => void;
+
+    icon?: string;
+    invert?: string;
 }
 
 /**
@@ -55,7 +58,9 @@ export const ButtonII = ({
                              primary,
                              size = 'medium',
                              label,
+                             invert,
                              disabled,
+                             icon,
                              ...props
                          }: ButtonIIProps) => {
     const mode = primary ? styles.storybookButtonPrimary : styles.storybookButtonSecondary;
@@ -76,7 +81,7 @@ export const ButtonII = ({
             {...props}
         >
             {isLabelVisible && <div>{label}</div>}
-            {hasIcon && <i style={{height: '34px'}} className="fi fi-bs-plus"></i>}
+            {hasIcon && <img className={styles[`Button${invert}`]} src={icon} alt="icon"/>}
         </button>
     );
 };

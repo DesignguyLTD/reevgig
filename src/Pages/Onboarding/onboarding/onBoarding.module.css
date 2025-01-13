@@ -1,8 +1,8 @@
-.container{
+.container {
     margin-top: 100px;
 }
 
-.progressContainer{
+.progressContainer {
     display: inline-flex;
     flex-direction: row;
     width: 100%;
@@ -13,8 +13,7 @@
 }
 
 
-
-.circle{
+.circle {
     cursor: pointer;
     width: 20px;
     font-size: 10px;
@@ -30,14 +29,15 @@
     transition: all 0.5s linear;
 
 }
-.line{
+
+.line {
     width: 40px;
     height: 2px;
     background: #404145;
     transition: width 1s ease-in-out;
 }
 
-.stageCont{
+.stageCont {
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
@@ -49,21 +49,21 @@
 
 }
 
-.randCont{
+.randCont {
     display: inline-flex;
     max-width: 300px;
     width: 100%;
     flex-direction: column;
 }
 
-.avaterCont{
+.avaterCont {
     position: relative;
     width: 150px;
     height: 150px;
     margin-bottom: 10px;
 }
 
-.avaterimg{
+.avaterimg {
     width: 124px;
     height: 124px;
     border-radius: 50%;
@@ -72,7 +72,7 @@
 
 }
 
-.camera{
+.camera {
     position: absolute;
     top: 96px;
     /* right: 41px; */
@@ -82,30 +82,40 @@
     background-size: contain;
 }
 
-.formContainer{
+.formContainer {
     margin-bottom: 15px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
 }
 
-.btn{
+.btn {
     margin-top: 32px;
 }
 
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .shake {
     animation: shake 0.5s;
 }
 
-.fileHeader{
+.fileHeader {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 16px;
@@ -116,16 +126,14 @@
 }
 
 
-
-
-.headerText{
+.headerText {
     max-width: 90%;
     width: 100%;
     margin: 0 auto;
     padding: 8px;
 }
 
-.headerText h1{
+.headerText h1 {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 33px;
@@ -135,9 +143,9 @@
     text-align: center;
 }
 
-.headSubText{
+.headSubText {
     color: rgb(24, 24, 24);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 16px;
     font-weight: 400;
     margin: 0;
@@ -145,28 +153,28 @@
     text-align: center;
 }
 
-.tagContainer{
+.tagContainer {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.LowerContainer{
+.LowerContainer {
     margin: 30px auto;
 }
 
-.btnCont{
+.btnCont {
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.btnCont .storybookButton{
+.btnCont .storybookButton {
     width: 340px;
 }
 
-.tagHeader{
+.tagHeader {
     color: rgb(24, 24, 24);
     font-family: PP Neue Montreal;
     font-size: 19px;
@@ -176,7 +184,7 @@
     text-align: center;
 }
 
-.tagLabel{
+.tagLabel {
     text-align: left;
     color: rgb(74, 75, 81);
     font-family: PP Neue Montreal;
@@ -186,12 +194,12 @@
     letter-spacing: 0;
 }
 
-@media (min-width: 768px){
-    .container{
+@media (min-width: 768px) {
+    .container {
         margin-top: 172px;
     }
 
-    .circle{
+    .circle {
         cursor: pointer;
         width: 30px;
         font-size: 16px;
@@ -208,7 +216,7 @@
 
     }
 
-    .line{
+    .line {
         width: 100px;
         height: 2px;
         background: #404145;
@@ -216,7 +224,7 @@
 
     }
 
-    .stageCont{
+    .stageCont {
         display: inline-flex;
         flex-direction: column;
         gap: 10px;
@@ -226,32 +234,32 @@
 
     }
 
-    .randCont{
+    .randCont {
         display: inline-flex;
         max-width: 530px;
         width: 100%;
         flex-direction: column;
     }
 
-    .headerText{
+    .headerText {
         /*max-width: 506px;*/
         width: 100%;
         margin: 0 auto;
 
     }
 
-    .headerText h1{
+    .headerText h1 {
         font-size: 36px;
     }
 
-    .btnCont{
+    .btnCont {
         display: inline-flex;
         flex-direction: row;
         gap: 20px;
         margin-bottom: 30px;
     }
 
-    .tagHeader{
+    .tagHeader {
         color: rgb(24, 24, 24);
         font-family: PP Neue Montreal;
         font-size: 16px;
@@ -261,19 +269,19 @@
         text-align: center;
     }
 
-    .LowerContainer{
+    .LowerContainer {
         margin: 40px auto;
     }
 
 }
 
 
-@media (min-width: 1024px){
-    .container{
+@media (min-width: 1024px) {
+    .container {
         margin-top: 200px;
     }
 
-    .stageCont{
+    .stageCont {
         display: inline-flex;
         flex-direction: column;
         gap: 10px;
@@ -283,7 +291,7 @@
 
     }
 
-    .randCont{
+    .randCont {
         display: inline-flex;
         max-width: 574px;
         width: 100%;
@@ -291,14 +299,14 @@
     }
 
 
-    .headerText{
+    .headerText {
         max-width: 600px;
         width: 100%;
         margin: 0 auto;
 
     }
 
-    .headerText h1{
+    .headerText h1 {
         font-size: 36px;
     }
 }

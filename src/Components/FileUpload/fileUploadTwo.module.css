@@ -1,0 +1,124 @@
+.overallContainer {
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: rgb(85, 85, 85);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    align-items: center;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: left;
+    background: rgb(255, 255, 255);
+    width: auto;
+    /* padding: 10px; */
+    transition: height 0.5s linear;
+    /* height: 140px; */
+}
+
+.overallContainer.dragging {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.input {
+    /*width: 70%;*/
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    visibility: hidden;
+    display: none;
+}
+
+.inputComponent:hover {
+    background: rgb(254, 194, 0);
+    color: rgb(37, 37, 37);
+}
+
+.inputComponent {
+    cursor: pointer;
+    width: 300px;
+    /*height: 178px;*/
+    display: inline-flex;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: center;
+    color: rgb(37, 37, 37);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1.08px dashed rgb(151, 149, 157);
+    border-radius: 16px;
+
+    /* secondary color/2001 */
+    background: rgb(255, 235, 170);
+}
+
+.inputComponent img {
+    margin: 0 10px;
+}
+
+.secText {
+    color: rgb(85, 85, 85);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    padding: 4px 0px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0.1px;
+    text-align: left;
+}
+
+.labelStyle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelStyle img {
+    width: 50px;
+    height: 50px;
+}
+
+.filetext1 {
+    /* body medium */
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.filetextCont {
+    color: #0F0F0F;
+}
+
+.filetext1 span {
+    color: rgb(103, 103, 103);
+}
+
+.filetext2 {
+    color: rgb(103, 103, 103);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+@media (min-width: 760px) {
+    .inputComponent {
+        width: 478px;
+        height: 178px;
+    }
+}

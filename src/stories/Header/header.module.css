@@ -7,6 +7,7 @@
     max-width: 100%;
     width: 100%;
     position: fixed;
+    z-index: 1; /*Matthew placed this z-index to ensure the specificity of the settings component*/
     top: 0;
     z-index: 10000;
 }

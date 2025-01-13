@@ -17,8 +17,10 @@
     letter-spacing: 0.32px;
     line-height: 39px;
     text-align: center;
-    justify-content: center;
     width: 300px;
+    height: 56px;
+    justify-content: space-around;
+
 }
 
 .noLabel {
@@ -46,6 +48,14 @@
     border-radius: 160px;
     color: rgb(19, 19, 19);
     background: rgb(254, 194, 0);
+}
+
+.storybookButton:hover .Buttoninvert {
+    filter: invert(1);
+}
+
+.storybookButton:active .Buttoninvert {
+    filter: none;
 }
 
 .storybookButton:active, .noLabel:active {
@@ -87,7 +97,7 @@
 
 .storybookButtonSmall {
     font-size: 14px;
-    padding: 4px 18px;
+    /*padding: 4px 18px;*/
 }
 
 .noLabelPrimary {
@@ -153,5 +163,34 @@
 /*    color: rgba(39, 39, 39, 0.5);*/
 /*    background: rgb(255, 255, 255);*/
 /*}*/
+
+@media (min-width: 765px) {
+    .storybookButton {
+        align-items: center;
+        border: 0;
+        border-radius: 160px;
+        cursor: pointer;
+        display: inline-flex;
+        flex-direction: row;
+        font-family: PP Neue Montreal, "sans-serif";
+        font-size: 14px;
+        font-weight: 400;
+        gap: 6px;
+        letter-spacing: 0.32px;
+        line-height: 39px;
+        text-align: center;
+        justify-content: space-around;
+        width: 340px;
+        height: 56px;
+    }
+
+    .storybookButtonSecondary, .noLabelButtonSecondary {
+        color: rgb(0, 0, 0);
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 160px;
+        background: rgb(255, 255, 255);
+    }
+
+}
 
 

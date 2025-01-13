@@ -25,8 +25,8 @@ export const Default: Story = {
         placeholder: 'Username',
         default: true,
         options: [
-            { value: 'Male', label: 'Male' },
-            { value: 'Female', label: 'Female' },
+            {value: 'Male', label: 'Male'},
+            {value: 'Female', label: 'Female'},
         ],
         defaultText: 'Gender',
         error: false,

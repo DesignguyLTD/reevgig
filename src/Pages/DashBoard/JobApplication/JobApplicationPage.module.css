@@ -1,0 +1,301 @@
+.jobApplicationsContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.applicationsColumn {
+    /*flex: 1;*/
+}
+
+.jobCard {
+    border-radius: 8px;
+    padding: 15px;
+    background: rgb(255, 255, 255);
+    width: 300px;
+}
+
+.jobCardUserCtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.jobCardUserData {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.jobCardUserDataText1 {
+    /* body2 */
+    color: rgb(20, 20, 20);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.jobCardUserDataText2 {
+    /* Type@19 medium */
+    color: rgb(20, 20, 20);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.jobCardUserStatusCtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    gap: 6px;
+    justify-content: center;
+}
+
+.circle {
+    background: rgba(20, 20, 20, 0.7);
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+}
+
+.jobCardUserStatusText {
+    color: rgba(20, 20, 20, 0.7);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.jobCardUserSkill1 {
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    background: rgb(255, 235, 170);
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    width: 100%;
+    padding: 2px 5px;
+}
+
+.jobCardUserSkill1Ctn {
+    border-right: 1px solid rgb(214, 221, 235);
+    padding-right: 7px;
+}
+
+.jobCardUserSkill2 {
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+    box-sizing: border-box;
+    border: 1px solid rgb(39, 39, 39);
+    border-radius: 160px;
+    width: 100%;
+    padding: 2px 5px;
+    background: rgb(247, 247, 247);
+}
+
+.jobCardUserSkillCtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+
+.BtnCtn {
+    border-top: 1px solid rgb(214, 221, 235);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.Btn {
+    border-radius: 8px;
+    border: none;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgb(39, 39, 39);
+    color: rgb(217, 217, 217);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    text-align: center;
+    width: 144px;
+    height: 33px;
+    justify-content: center;
+}
+
+
+.applicationsColumn {
+    display: inline-flex;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100vh;
+    background: rgb(247, 247, 247);
+    overflow-y: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.applicationsColumn2 {
+    border-radius: 16px;
+    width: 100%;
+
+    height: 100vh;
+    background: rgb(247, 247, 247);
+}
+
+.JobHeaderText {
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.allAppsHeaderCtn, .shortlistedAppsHeaderCtn {
+    display: none;
+}
+
+.overAllHeaderCtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.overAllHeaderText {
+    color: rgb(64, 65, 69);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.overAllHeaderSort {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(64, 65, 69);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.overAllHeaderTextCtn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.controlScreenDisplay1 {
+    display: block;
+}
+
+.controlScreenDisplay2 {
+    display: none;
+}
+
+
+@media (min-width: 765px) {
+    .JobHeader {
+        max-width: 1000px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .controlScreenDisplay2 {
+        display: block;
+        width: 100%;
+    }
+
+    .controlScreenDisplay1 {
+        display: none;
+    }
+
+    .overAllHeaderSort, .overAllHeaderText {
+        font-size: 16px;
+    }
+
+    .allAppsHeaderCtn {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .jobApplicationsContainer {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 20px;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .overAllHeaderCtn {
+        display: none;
+    }
+
+    .allAppsHeaderCtn, .shortlistedAppsHeaderCtn {
+        display: inline-flex;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .JobHeader {
+        max-width: 1000px;
+        width: 100%;
+        padding: 10px;
+    }
+}

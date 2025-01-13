@@ -39,7 +39,7 @@ const Login = () => {
         }
 
         // Validate password
-        if(stage === 2){
+        if (stage === 2) {
             if (!formValues.password) {
                 newErrors.password = 'Required';
             } else {
@@ -72,21 +72,21 @@ const Login = () => {
         setStage(stage + 1);
     }
 
-    const handleSubmit =() => {
+    const handleSubmit = () => {
         const isFormValid = validateForm();
 
         if (isFormValid) {
             handleNext()
         }
 
-        if(stage === 2 && isFormValid){
+        if (stage === 2 && isFormValid) {
             navigate('/')
         }
     }
 
 
     const handleBack = () => {
-        if(stage > 1){
+        if (stage > 1) {
             setStage(stage - 1);
         }
     }
@@ -147,13 +147,14 @@ const Login = () => {
                         <br/>
 
                         <div className={login.lowerText}>
-                            Don’t have  an account? <Link style={{textDecoration: 'none'}} to='/signup'><span className={login.makeYellow}>Create Account</span></Link>
+                            Don’t have an account? <Link style={{textDecoration: 'none'}} to='/signup'><span
+                            className={login.makeYellow}>Create Account</span></Link>
                         </div>
 
                     </div>
                 )}
 
-                {stage=== 2 && (
+                {stage === 2 && (
                     <div className={login.headerText}>
                         <h1>Welcome</h1>
                         <p className={login.headEmail}>{formValues.email}</p>
@@ -171,7 +172,9 @@ const Login = () => {
                                     Keep me logged in
                                 </div>
                             </div>
-                            <div className={login.forgotPword}><Link style={{textDecoration: 'none', color: 'rgb(254, 194, 0)'}} to='/resetpassword'>Forgot Password?</Link></div>
+                            <div className={login.forgotPword}><Link
+                                style={{textDecoration: 'none', color: 'rgb(254, 194, 0)'}} to='/resetpassword'>Forgot
+                                Password?</Link></div>
                         </div>
 
                         <br/>

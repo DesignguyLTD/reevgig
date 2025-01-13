@@ -1,7 +1,6 @@
 @import url('https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
 
-
 /*.sb-show-main.sb-main-padded {*/
 /*    margin: 0; !important;*/
 /*    padding: 0; !important;*/
@@ -11,12 +10,19 @@
     width: 80px;
     height: 100%;
     position: fixed;
+    z-index: 2; /*Matthew placed this z-index to ensure the specificity of the settings component*/
     top: 0;
     left: 0;
     transition: all .3s ease;
     background-color: #252525;
     color: #7d7d7d;
     padding: 15px 0 15px 0;
+    z-index: 101;
+}
+
+.Link {
+    text-decoration: none;
+    color: #7d7d7d;
 }
 
 .logo {
@@ -25,7 +31,7 @@
 }
 
 .sidebarOpen {
-    width: 280px;
+    width: 220px;
     transition: all .3s ease;
     z-index: 1000;
 }
@@ -33,7 +39,7 @@
 .usertypeOpen {
     color: rgb(241, 241, 241);
     font-family: Satoshi;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 22px;
     text-align: center;
@@ -43,7 +49,7 @@
 .usertypeClose {
     color: rgb(241, 241, 241);
     font-family: Satoshi;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 400;
     line-height: 15px;
     text-align: center;
@@ -55,7 +61,7 @@
     color: #000000;
     cursor: pointer;
     margin-bottom: 0;
-    margin-left: 257px;
+    margin-left: 197px;
     z-index: 1000;
     transition: all .3s ease;
     border-radius: 50%;
@@ -92,7 +98,6 @@
 }
 
 
-
 .upperSideBar {
     transition: all .3s ease;
     list-style-type: none;
@@ -122,11 +127,15 @@ li {
 
 .deskTabIcon:hover, .deskTabIcon:active {
     color: #000000;
-    background-color: #F3CF57;
+    background-color: #fec200;
     border-left: 2px solid #060606;
     flex-direction: column;
     width: 99%;
     align-items: center;
+}
+
+a {
+    color: rgb(125, 125, 125);
 }
 
 .dodo {
@@ -148,12 +157,12 @@ li {
 }
 
 .mobileIcon:hover {
-    color: #f7cf31;
-    border-left: 2px solid #f7cf31;
+    color: #fec200;
+    border-left: 2px solid #fec200;
 
 }
 
-.mobileIcon{
+.mobileIcon {
     padding: 10px 0;
 
 }
@@ -180,12 +189,12 @@ i {
 
 .tooltiptext {
     visibility: hidden;
-    width: 74px;
+    width: 100px;
     background-color: #252525;
-    color: #f7cf31;
+    color: #fec200;
     text-align: center;
     border-radius: 5px;
-    padding: 5px 0;
+    padding: 10px 0;
     position: absolute;
     z-index: 1;
     left: 115px;
@@ -203,8 +212,8 @@ i {
     opacity: 1;
 }
 
-.upperNav{
-display: inline-flex;
+.upperNav {
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -215,13 +224,18 @@ display: inline-flex;
     background: rgb(252, 253, 255);
     padding: 10px;
     gap: 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
-.sidebar{
+.sidebar {
     display: none;
 }
 
-.navSerch{
+.navSerch {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -236,11 +250,11 @@ display: inline-flex;
     padding: 13px 10px 13px 13px;
 }
 
-.navSerch input:focus-within{
+.navSerch input:focus-within {
     outline: none;
 }
 
-.navSerch input{
+.navSerch input {
     border: none;
     /* body 3 */
     color: rgba(6, 6, 6, 0.4);
@@ -253,7 +267,7 @@ display: inline-flex;
     height: 17px;
 }
 
-.Userbtn{
+.Userbtn {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -263,11 +277,11 @@ display: inline-flex;
     cursor: pointer;
 }
 
-.userName{
+.userName {
     display: none;
 }
 
-.lastCont{
+.lastCont {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -275,16 +289,52 @@ display: inline-flex;
     gap: 10px;
 }
 
+.profile {
+    position: absolute;
+    top: 83px;
+    display: block;
+    right: 6px;
+}
+
+
+.deskTabIcon.active {
+    color: #000000;
+    background-color: #fec200;
+    border-left: 2px solid #060606;
+    flex-direction: column;
+    width: 99%;
+    align-items: center;
+}
+
+.mobileIcon.active {
+    color: #fec200;
+    border-left: 2px solid #fec200;
+}
+
+
+.active {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
 @media (min-width: 760px) {
     .upperSideBar {
         padding: 0 0 260px 0;
     }
 
-    .sidebar{
+    .profile {
+        position: absolute;
+        top: 100px;
+        display: block;
+        right: 20px;
+    }
+
+
+    .sidebar {
         display: block;
     }
 
-    .navSerch{
+    .navSerch {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -299,7 +349,7 @@ display: inline-flex;
         padding: 13px 10px 13px 13px;
     }
 
-    .navSerch input{
+    .navSerch input {
         border: none;
         width: 363px;
         height: 40px;
@@ -312,9 +362,9 @@ display: inline-flex;
         border-radius: 55px;
     }
 
-    .userName{
+    .userName {
         display: block;
-        color: rgb(247, 207, 49);
+        color: #fec200;
         font-family: PP Neue Montreal;
         font-size: 14px;
         font-weight: 400;
@@ -322,7 +372,7 @@ display: inline-flex;
         text-align: left;
     }
 
-    .Userbtn{
+    .Userbtn {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -332,21 +382,28 @@ display: inline-flex;
         gap: 5px;
     }
 
-    .lastCont{
+    .lastCont {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 40px;
     }
+
+    .menuIcon {
+        display: none;
+    }
 }
 
 @media (min-width: 1024px) {
+    /*.profile {*/
+    /*    display: none;*/
+    /*}*/
     .upperSideBar {
         padding: 0 0 250px 0;
     }
 
-    .navSerch{
+    .navSerch {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -362,7 +419,7 @@ display: inline-flex;
         gap: 10px;
     }
 
-    .navSerch input{
+    .navSerch input {
         border: none;
         width: 500px;
         height: 40px;
@@ -376,9 +433,9 @@ display: inline-flex;
         border-radius: 55px;
     }
 
-    .userName{
+    .userName {
         display: block;
-        color: rgb(247, 207, 49);
+        color: #fec200;
         font-family: PP Neue Montreal;
         font-size: 16px;
         font-weight: 400;
@@ -386,7 +443,7 @@ display: inline-flex;
         text-align: left;
     }
 
-    .Userbtn{
+    .Userbtn {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -396,7 +453,7 @@ display: inline-flex;
         gap: 10px;
     }
 
-    .lastCont{
+    .lastCont {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -404,18 +461,21 @@ display: inline-flex;
         gap: 50px;
     }
 
-    .upperNav{
+    .upperNav {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         width: 100%;
         box-sizing: border-box;
-        /* border */
         border-bottom: 1px solid rgb(217, 217, 217);
         background: rgb(252, 253, 255);
         padding: 20px;
         gap: 8px;
+    }
+
+    .menuIcon {
+        display: none;
     }
 
 }

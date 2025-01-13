@@ -1,0 +1,106 @@
+* {
+
+    font-family: PP Neue Montreal;
+}
+
+.container {
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid #C5C6C9;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.numbers {
+    font-size: 14px;
+    color: #D4A200;
+    font-weight: 400;
+    padding-right: 13.33px;
+    display: none;
+
+}
+
+
+.input::placeholder {
+    color: #404145;
+    opacity: 30%;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.input:active,
+.input:focus {
+    outline: none;
+}
+
+.input {
+    background-color: #FFF;
+    width: 270px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.counterInputCTN {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.label {
+    font-size: 12px;
+    color: #74767E;
+    line-height: 11px;
+    margin-bottom: 7px;
+    text-align: left;
+    width: 280px;
+}
+
+
+@media (min-width: 425px) {
+    /*.input {*/
+    /*    background-color: #FFF;*/
+    /*    width: 392px;*/
+    /*    padding: 10px;*/
+    /*    border-radius: 4px;*/
+    /*    border: 1px solid #C5C6C9;*/
+    /*    display: flex;*/
+    /*    align-items: center;*/
+    /*}*/
+    /*.container {*/
+    /*    width: 392px;*/
+    /*    border-radius: 4px;*/
+    /*    border: 1px solid #C5C6C9;*/
+    /*    display: flex;*/
+    /*    align-items: center;*/
+    /*}*/
+
+}
+
+@media (min-width: 650px) {
+    .numbers {
+        display: block;
+        /*position: absolute;*/
+    }
+}
+
+@media (min-width: 765px) {
+    .input {
+        width: 100%;
+    }
+
+    .container {
+        width: 551.33px;
+    }
+
+    .label {
+        font-size: 16px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./checkbox.module.css";
 
 
@@ -38,8 +38,8 @@ const CheckBox = ({
                       disabled,
                       onChange,
                       checked,
-                        name,
-                        value,
+                      name,
+                      value,
                       ...props
                   }: CheckBoxProps) => {
     const [isChecked, setIsChecked] = useState(checked);

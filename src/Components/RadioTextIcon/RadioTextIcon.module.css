@@ -1,6 +1,6 @@
-.RadioText{
+.RadioText {
     color: rgb(24, 24, 24);
-    font-family:PP Neue Montreal;
+    font-family: PP Neue Montreal;
     font-size: 19px;
     font-weight: 500;
     line-height: 130%;
@@ -8,7 +8,7 @@
     text-align: left;
 }
 
-.Radio{
+.Radio {
     position: absolute;
     top: 6px;
     height: 20px;
@@ -16,7 +16,7 @@
     right: 6px;
 }
 
-.RadioContainer{
+.RadioContainer {
     position: relative;
     max-width: 270.78px;
     display: inline-flex;
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 
-.textCont{
+.textCont {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -42,23 +42,23 @@
     border-color: rgb(254, 194, 0);
 }
 
-.Icon{
+.Icon {
     margin-bottom: 20px;
 }
 
 
-.RadioSelected{
+.RadioSelected {
     background-color: rgb(254, 194, 0);
     border: 1px solid rgb(254, 194, 0);
 }
 
-@media (min-width: 768px){
-    .RadioContainer{
+@media (min-width: 768px) {
+    .RadioContainer {
         max-width: 300.78px;
         width: 111%;
     }
 
-    .Icon{
+    .Icon {
         margin-bottom: 25px;
     }
 

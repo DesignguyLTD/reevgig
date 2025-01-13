@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from './tagInputs.module.css';
 
 interface TagInputProps {
@@ -10,9 +10,22 @@ interface TagInputProps {
     label: string;
     error?: boolean;
     errorMessage?: string;
+    subLabel1?: string;
+    subLabel2?: string;
 }
 
-const TagInput: React.FC<TagInputProps> = ({ error, errorMessage, label, tags, setTags, recommendedTags, maxTags = 5, placeholder = "Enter Your Language" }) => {
+const TagInput: React.FC<TagInputProps> = ({
+                                               subLabel1,
+                                               subLabel2,
+                                               error,
+                                               errorMessage,
+                                               label,
+                                               tags,
+                                               setTags,
+                                               recommendedTags,
+                                               maxTags = 5,
+                                               placeholder = "Enter Your Language"
+                                           }) => {
 
     const [inputValue, setInputValue] = useState<string>('');
 
@@ -53,27 +66,36 @@ const TagInput: React.FC<TagInputProps> = ({ error, errorMessage, label, tags, s
                     <div key={index} className={styles.tag}>
                         {tag}
                         <button onClick={() => removeTag(tag)}>
-                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_close_gvi0ib.svg" alt="close"/>
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_close_gvi0ib.svg"
+                                alt="close"/>
                         </button>
                     </div>
                 ))}
 
                 {tags.length < maxTags &&
-                    <input
-                        type="text"
-                        value={inputValue}
-                        onChange={handleInputChange}
-                        onKeyDown={handleInputKeyDown}
-                        placeholder={placeholder}
-                    />
+
+                    <>
+                        <input
+                            type="text"
+                            value={inputValue}
+                            onChange={handleInputChange}
+                            onKeyDown={handleInputKeyDown}
+                            placeholder={placeholder}
+                        />
+
+
+                    </>
+
                 }
             </div>
+            <div className={styles.recText}>{subLabel1}</div>
             <div className={styles.error}>
                 {error && <span>{errorMessage}</span>}
             </div>
 
             <div className={styles.recommendedTags}>
-                <div className={styles.recText}>Recommended tags:</div>
+                <div className={styles.recText2}>{subLabel2}</div>
                 <div className={styles.recommendedTags}>
                     {recommendedTags.map((tag, index) => (
                         <button
@@ -81,7 +103,9 @@ const TagInput: React.FC<TagInputProps> = ({ error, errorMessage, label, tags, s
                             onClick={() => handleTagClick(tag)}
                             className={styles.tagInactive}
                         >
-                            {tag} <img style={{marginLeft: '5px'}} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/add_rp8vwy.svg" alt="plus"/>
+                            {tag} <img style={{marginLeft: '5px'}}
+                                       src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/add_rp8vwy.svg"
+                                       alt="plus"/>
                         </button>
                     ))}
                 </div>
