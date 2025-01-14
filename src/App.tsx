@@ -17,6 +17,7 @@ import PaymentPage from "./Pages/paymentPage/paymentPage";
 import Settings from "./Pages/DashBoard/settings/settings";
 import './App.css';
 import {FullSlide}  from "./stories/Fullslider/fullSlide";
+import FreelancerApplication from "./Pages/freelancerApplication/freelancerApplication";
 const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
 
 const App: React.FC = () => {
@@ -51,6 +52,7 @@ const App: React.FC = () => {
                         <Route path="/postproject" element={<Jobs userType={userType}/>}/>
                         <Route path="/message" element={<h1>Development in progress ....</h1>}/>
                         <Route path="/saved" element={<h1>Development in progress ....</h1>}/>
+                        <Route path="/freelancer-application" element={<FreelancerApplication/>}/>
                         <Route path="/help" element={<h1>Development in progress ....</h1>}/>
                         <Route path="/payment" element={<PaymentPage/>}/>
                         <Route path="/settings" element={<Settings/>}/>
