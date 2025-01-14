@@ -47,6 +47,7 @@ const Search: React.FC<SearchProps> = ({
       <div className={styling.covering}>
         <div className={styling.search_side}>
           <input
+            className={styling.written}
             type="text"
             value={query}
             onChange={handleChange}

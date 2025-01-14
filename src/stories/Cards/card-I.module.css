@@ -11,7 +11,8 @@
   /* border: 1px solid #1414140D; */
   box-shadow: 0px 1px 2px 0px #00000008;
   padding: 16px;
-  width: 251px;
+  min-width: 274px;
+  width: 320px;
 }
 
 .main_skill {
@@ -24,8 +25,9 @@
   display: flex;
   justify-content: space-between;
   width: 234px;
-  gap: 3px;
+  gap: 6px;
   align-items: center;
+  width: max-content;
 }
 
 .skill_set {
@@ -58,7 +60,7 @@
 }
 
 .label {
-  font-size: 12px;
+  font-size: 14px;
   word-break: keep-all;
   letter-spacing: 0.5px;
   color: #141414b2;
@@ -146,6 +148,7 @@
   font-weight: 500;
   line-height: 18px;
   text-align: left;
+  width: max-content;
 }
 
 .hold_skills {
@@ -175,6 +178,6 @@
 
 @media (min-width: 1024px) {
   .container {
-    width: 270px;
+    width: 274px;
   }
 }

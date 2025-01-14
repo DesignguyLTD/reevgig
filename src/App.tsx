@@ -18,6 +18,7 @@ import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SearchResults from "./Pages/SearchResults/searchResults";
 import Settings from "./Pages/DashBoard/settings/settings";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
+import Congrats from "./Components/Congrats/Congrats";
 
 // import LandingPage from "./Pages/LandingPage/LandingPage";
 
@@ -82,6 +83,7 @@ const App: React.FC = () => {
                 element={<h1>Development in progress ....</h1>}
               />
               <Route path="/searchResults" element={<SearchResults />} />
+              <Route path="/congrats" element={<Congrats />} />
               <Route
                 path="/help"
                 element={<h1>Development in progress ....</h1>}
