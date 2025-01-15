@@ -256,14 +256,6 @@ body {
         justify-content: space-between;
     }
 
-    .footer_input {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
-
     .about {
         grid-area: "about";
     }
@@ -281,13 +273,6 @@ body {
         width: 700px;
         text-align: left;
         padding-top: 64px;
-    }
-}
-
-@media screen and (min-width:800px) {
-    .foot_note {
-        flex-direction: row;
-        align-items: flex-start;
     }
 }
 

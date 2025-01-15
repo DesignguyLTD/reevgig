@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import styling from "./search.module.css";
+import style from "./search.module.css";
 
 interface SearchProps {
   placeholder?: string;

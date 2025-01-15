@@ -1,13 +1,5 @@
-import "./App.css";
-
-import { Link, Route, Routes, useLocation } from "react-router-dom";
 import React, { Suspense } from "react";
-
-import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
-import ApplicantProfilePage from "./Pages/DashBoard/ApplicantProfile/ApplicantProfilePage";
-import DashboardLayout from "./DashboardLayout";
-import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
-import Jobs from "./Pages/Jobs/Jobs";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Login from "./Pages/Onboarding/login/login";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
@@ -18,10 +10,18 @@ import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SearchResults from "./Pages/SearchResults/searchResults";
 import Settings from "./Pages/DashBoard/settings/settings";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
-import Congrats from "./Components/Congrats/Congrats";
-
-// import LandingPage from "./Pages/LandingPage/LandingPage";
-
+import DashboardLayout from "./DashboardLayout";
+import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
+import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
+import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
+import ApplicantProfilePage from "./Pages/DashBoard/ApplicantProfile/ApplicantProfilePage";
+import OverviewPage from "./Pages/OverView/OverviewPage";
+import ProfileMain from "./Pages/Profile/ProfileMain";
+import Jobs from "./Pages/Jobs/Jobs";
+import PaymentPage from "./Pages/paymentPage/paymentPage";
+import Settings from "./Pages/DashBoard/settings/settings";
+import "./App.css";
+import { FullSlide } from "./stories/Fullslider/fullSlide";
 const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
 
 const App: React.FC = () => {
@@ -36,6 +36,8 @@ const App: React.FC = () => {
     "/signup",
     "/login",
     "/resetpassword",
+    "/talents",
+    "/results",
   ];
 
   return (
@@ -50,8 +52,7 @@ const App: React.FC = () => {
               />
             </div>
           </div>
-        }
-      >
+        }>
         {!noSidebarRoutes.includes(location.pathname) ? (
           <DashboardLayout>
             <Routes>
@@ -82,13 +83,11 @@ const App: React.FC = () => {
                 path="/saved"
                 element={<h1>Development in progress ....</h1>}
               />
-              <Route path="/searchResults" element={<SearchResults />} />
-              <Route path="/congrats" element={<Congrats />} />
               <Route
                 path="/help"
                 element={<h1>Development in progress ....</h1>}
               />
-              {/* <Route path="/payment" element={<PaymentPage />} /> */}
+              <Route path="/payment" element={<PaymentPage />} />
               <Route path="/settings" element={<Settings />} />
               <Route
                 path="*"
@@ -103,6 +102,21 @@ const App: React.FC = () => {
         ) : (
           <>
             <Routes>
+              <Route
+                path="/talents"
+                element={
+                  <FullSlide
+                    profileImage={
+                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg"
+                    }
+                    title={"Senior UI/UX Designer"}
+                    userName={"Jimmy Joe"}
+                    duration={"Full-time"}
+                    sponsored={"Sponsored"}
+                  />
+                }
+              />
+              <Route path="/results" element={<SearchResults />} />
               <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />

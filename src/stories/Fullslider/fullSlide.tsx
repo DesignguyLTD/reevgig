@@ -17,7 +17,7 @@ interface SlideProp {
   p2?: React.HtmlHTMLAttributes<HTMLParagraphElement>;
 }
 
-export const FullSlide = ({
+export  const FullSlide = ({
   profileImage,
   title,
   userName,

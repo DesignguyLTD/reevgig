@@ -1,11 +1,14 @@
 import React from 'react';
 import {HashRouter as Router} from 'react-router-dom';
 import App from './App';
+import {HelmetProvider} from "react-helmet-async";
 
 const AppWrapper: React.FC = () => {
     return (
         <Router>
-            <App/>
+            <HelmetProvider>
+                <App />
+            </HelmetProvider>
         </Router>
     );
 };
