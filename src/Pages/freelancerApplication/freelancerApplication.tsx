@@ -1,7 +1,18 @@
 import React, {useState} from 'react';
 import appstyle from "../DashBoard/ApplicantProfile/ApplicantProfilePage.module.css";
 import styles from "../Onboarding/onboarding/onBoarding.module.css";
-import CounterTextarea from "../Jobs/CounterTextarea";
+import Input from "../../stories/FieldInput-I/input";
+import {ButtonII} from "../../stories/Button-II/ButtonII";
+import mainStyle from './freelancerApplication.module.css';
+import style from "../Jobs/jobs.module.css";
+import FileUploadTwo from "../../Components/FileUpload/fileUploadTwo";
+import FileUploadThree from "../../Components/FileUpload/fileUploadThree";
+
+interface UploadedFile {
+    id: string;
+    name: string;
+    src: string;
+}
 
 const FreelancerApplication = () => {
     const [header, setHeader] = React.useState('Proposal');
@@ -10,6 +21,10 @@ const FreelancerApplication = () => {
     const [stage, setStage] = React.useState(1);
     const [doneStage, setDoneStage] = React.useState({stage1: false, stage2: false, stage3: false});
     const [textarea, setTextArea] = useState<string>("");
+    const [applicationStage, setApplicationStage] = useState<number>(1);
+
+
+
 
     const handleTextAreaChange = (value: string) => {
         setTextArea(value); // Update the state when the value changes
@@ -34,21 +49,48 @@ const FreelancerApplication = () => {
 
     const handleStage1 =()=>{
         setStage(1)
-        handleDone();
+
     }
 
     const handleStage2 =()=>{
         setStage(2)
-        handleDone();
+
     }
 
 
     const handleStage3 =()=>{
         setStage(3)
-        handleDone();
     }
 
+const handleApplicationStage = () => {
+    if (applicationStage < 3) {
+        setApplicationStage(prevStage => prevStage + 1);
+        if(applicationStage === 1){
+            handleStage1();
+            handleDone();
+        }
 
+        if(applicationStage === 2){
+            handleStage2();
+            handleDone();
+        }
+
+        if(applicationStage === 3){
+            handleStage3();
+            handleDone();
+
+        }
+    }
+
+};
+
+const handleApplicationStageBack = () => {
+    if (applicationStage > 1) {
+        setApplicationStage(prevStage => prevStage - 1);
+    }
+};
+
+    const [fileUploaded, setFileUploaded] = useState<UploadedFile[]>([]);
 
 
 
@@ -289,19 +331,19 @@ const FreelancerApplication = () => {
                             backgroundColor: 'white',
                             padding: '20px',
                             borderRadius: '8px',
-                            maxWidth: '500px',
+                            maxWidth: '550px',
                             width: '80%',
                             position: 'relative',
                         }}
                         onClick={e => e.stopPropagation()}
                     >
-                        <div>
-                            <div>Submit your Application</div>
+                        <div className={mainStyle.HeaderAppliCtn}>
+                            <div className={mainStyle.HeaderAppliText}>Submit your Application</div>
                             <button
                                 style={{
-                                    position: 'absolute',
-                                    top: '10px',
-                                    right: '10px',
+                                    // position: 'absolute',
+                                    // top: '10px',
+                                    // right: '10px',
                                     background: 'none',
                                     border: 'none',
                                     fontSize: '18px',
@@ -314,9 +356,12 @@ const FreelancerApplication = () => {
                                     alt="close"/>
                             </button>
                         </div>
+                        <hr/>
 
 
-                        <div className={styles.progressContainer}>
+                        <div  style={{
+                            margin: '4% auto'
+                        }} className={styles.progressContainer}>
                             <div
                                 className={styles.circle}
                                 style={{
@@ -325,7 +370,7 @@ const FreelancerApplication = () => {
                                 }}
                                 onClick={handleStage1}
                             >
-                                {doneStage.stage1 ? '✔' : '1'}
+                                {doneStage.stage1 ? <img style={{width:'10px', height:'10px'}} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737328890/Reev/17th%20Nov/Vector_zzv9sv.svg" alt="mark"/> : '1'}
 
                             </div>
                             <div className={styles.line}
@@ -338,11 +383,13 @@ const FreelancerApplication = () => {
                                 }}
                                 onClick={handleStage2}
                             >
-                                {doneStage.stage2 ? '✔' : '2'}
+                                {doneStage.stage2 ? <img style={{width:'10px', height:'10px'}}
+                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737328890/Reev/17th%20Nov/Vector_zzv9sv.svg"
+                                    alt="mark"/> : '2'}
                             </div>
                             {/*{UserType === 'Freelancer' &&*/}
 
-                                <>
+                            <>
                                     <div className={styles.line}
                                          style={{visibility: stage === 3 ? 'visible' : doneStage.stage2 ? 'visible' : 'hidden'}}></div>
                                     <div
@@ -353,28 +400,64 @@ const FreelancerApplication = () => {
                                         }}
                                         onClick={handleStage3}
                                     >
-                                        {doneStage.stage3 ? '✔' : '3'}
+                                        {doneStage.stage3 ? <img style={{width:'10px', height:'10px'}}
+                                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737328890/Reev/17th%20Nov/Vector_zzv9sv.svg"
+                                            alt="mark"/> : '3'}
                                     </div>
-                                </>
+                            </>
 
                             {/*}*/}
 
                         </div>
 
-                        {modalContent === 'Place Order' && (
+
+                        <div className={mainStyle.TextCtn}>
+                            <div className={mainStyle.TextHeader}>{applicationStage === 1 ? 'Write your proposal' : applicationStage === 2 ? 'Resume/CV' : ''}</div>
+                            <div  className={mainStyle.TextSub}>{applicationStage === 1 ? 'Be sure to include an updated resume' : applicationStage === 2 ? 'Be sure to include an updated resume' : ''} </div>
+                        </div>
+
+                        {(modalContent === 'Place Order' && applicationStage === 1)  && (
                             <div>
-                                <CounterTextarea
-                                    maxLength={2000}
-                                    label={
-                                        "This will help get your brief to the right client. Specifics help here."
-                                    }
-                                    value={textarea}
-                                    onChange={handleTextAreaChange}
-                                    placeholder="I can..."
-                                />
+                               <Input isTextArea={true} />
                                 {/* Add order form fields */}
                             </div>
                         )}
+
+                        {(modalContent === 'Place Order' && applicationStage === 2)  && (
+                            <div>
+                                <div className={style.pictureUploadCont}>
+                                    <FileUploadThree
+                                        files={fileUploaded}
+                                        setFiles={setFileUploaded}
+                                        allowedTypes={["application/pdf"]}
+                                        id={"Job-file-upload"}
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        {(modalContent === 'Place Order' && applicationStage === 3)  && (
+                            <div>
+                                <Input isTextArea={true} label='Proposal' />
+                                {/* Add order form fields */}
+                            </div>
+                        )}
+
+
+
+                        <div className={mainStyle.lowerSecCtn}>
+                            <div className={mainStyle.lowerSecStepCount}>Step {applicationStage}/3</div>
+                            <div className={mainStyle.lowerSec}>
+                                {applicationStage !== 1 &&
+                                    <button  onClick={handleApplicationStageBack} className={mainStyle.restylesec}>Back</button>
+
+                                }
+
+                                <button onClick={handleApplicationStage} className={mainStyle.restylePri}>Next</button>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             )}
