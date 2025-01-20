@@ -182,7 +182,6 @@ const SignUp = () => {
 
     return (
         <>
-            <Header auth={true}/>
             <div className={signUp.container}>
                 {stage === 1 && (
                     <div>

@@ -18,6 +18,7 @@ import Settings from "./Pages/DashBoard/settings/settings";
 import './App.css';
 import {FullSlide}  from "./stories/Fullslider/fullSlide";
 import FreelancerApplication from "./Pages/freelancerApplication/freelancerApplication";
+import GeneralLayout from "./GeneralLayout";
 const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
 
 const App: React.FC = () => {
@@ -61,6 +62,7 @@ const App: React.FC = () => {
                 </DashboardLayout>
             ) : (
                 <>
+                    <GeneralLayout>
                     <Routes>
                         <Route
                             path="/talents"
@@ -84,6 +86,7 @@ const App: React.FC = () => {
                         <Route path="/onboarding" element={<OnBoarding/>}/>
                         <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>}/>
                     </Routes>
+                    </GeneralLayout>
                 </>
             )}
             </Suspense>
