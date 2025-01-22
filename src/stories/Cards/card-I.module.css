@@ -1,7 +1,7 @@
 @import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
 
 * {
-  font-family: "PP Neue Montreal";
+  font-family: PP Neue Montreal;
 }
 
 .container {
@@ -126,7 +126,7 @@
   align-items: center;
   border: 1px solid #272727;
   color: rgb(39, 39, 39);
-  font-family: "PP Neue Montreal";
+  font-family: PP Neue Montreal;
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
@@ -143,12 +143,12 @@
   align-items: center;
   border: 1px solid #272727;
   color: rgb(39, 39, 39);
-  font-family: "PP Neue Montreal";
+  font-family: PP Neue Montreal;
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
-  width: max-content;
+  min-width: max-content;
 }
 
 .hold_skills {

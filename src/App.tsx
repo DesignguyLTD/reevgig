@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Login from "./Pages/Onboarding/login/login";
-import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
+// import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import OnBoarding from "./Pages/Onboarding/onboarding/onBoarding";
 import OverviewPage from "./Pages/OverView/OverviewPage";
 // import PaymentPage from "./Pages/paymentPage/paymentPage";
@@ -15,11 +15,8 @@ import AccountSettings from "./Pages/DashBoard/settings/account settings/account
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 import ApplicantProfilePage from "./Pages/DashBoard/ApplicantProfile/ApplicantProfilePage";
-import OverviewPage from "./Pages/OverView/OverviewPage";
-import ProfileMain from "./Pages/Profile/ProfileMain";
 import Jobs from "./Pages/Jobs/Jobs";
 import PaymentPage from "./Pages/paymentPage/paymentPage";
-import Settings from "./Pages/DashBoard/settings/settings";
 import "./App.css";
 import { FullSlide } from "./stories/Fullslider/fullSlide";
 const LandingPage = React.lazy(() => import("./Pages/LandingPage/LandingPage"));
@@ -102,20 +99,7 @@ const App: React.FC = () => {
         ) : (
           <>
             <Routes>
-              <Route
-                path="/talents"
-                element={
-                  <FullSlide
-                    profileImage={
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722501223/Avatar_display.svg"
-                    }
-                    title={"Senior UI/UX Designer"}
-                    userName={"Jimmy Joe"}
-                    duration={"Full-time"}
-                    sponsored={"Sponsored"}
-                  />
-                }
-              />
+              <Route path="/talents" element={<FullSlide />} />
               <Route path="/results" element={<SearchResults />} />
               <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<SignUp />} />

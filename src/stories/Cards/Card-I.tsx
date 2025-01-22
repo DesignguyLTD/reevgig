@@ -65,8 +65,7 @@ const CardsOne: React.FC<CardOneProps> = ({
         gap: containerGap,
         backgroundColor: backgroundColor,
       }}
-      className={styles.container}
-    >
+      className={styles.container}>
       <div className={styles.prof}>
         <div className={styles.image}>
           <img src={profileImage} alt="Profile" />
@@ -129,8 +128,7 @@ const CardsOne: React.FC<CardOneProps> = ({
                 <div
                   key={index}
                   style={{ width: skillWidth }}
-                  className={styles.one_skill}
-                >
+                  className={styles.one_skill}>
                   {skill}
                 </div>
               ))}

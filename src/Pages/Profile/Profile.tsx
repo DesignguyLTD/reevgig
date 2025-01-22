@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -340,78 +340,3 @@ const Profile = ({ setPage, userType }: Props) => {
 };
 
 export default Profile;
-
-// <div>
-//     <div className={style.avatar_container}>
-//         <p className={style.avatar}>Display Avatar</p>
-//         <p className={style.secondary} style={{paddingTop: "-10px"}}>
-//             Select to change
-//         </p>
-//         <img style={{width: '100px', height: '100px'}} src={finalValue.avatar} alt="Avatar"/>
-//     </div>
-//     <div>
-//         <div>
-//             <label htmlFor="Display Name">Display Name</label>
-//             <p
-//                 className={style.secondary}
-//                 style={{backgroundColor: "white"}}>
-//                 {finalValue.DisplayName}
-//             </p>
-//         </div>
-//         <div className={style.names}>
-//             <div>
-//                 <label htmlFor="First Name"> First Name</label>
-//                 <p className={style.secondary}>{finalValue.Firstname}</p>
-//             </div>
-//             <div>
-//                 <label htmlFor="Last Name"> Last Name</label>
-//                 <p className={style.secondary}>{finalValue.Lastname}</p>
-//             </div>
-//         </div>
-//         <div>
-//             <label htmlFor="Email">Work email address</label>
-//             <p className={style.secondary}>{finalValue.email}</p>
-//         </div>
-//         <div>
-//             <label htmlFor="Country">Country</label>
-//             <p
-//                 className={style.secondary}
-//                 style={{backgroundColor: "white"}}>
-//                 {finalValue.Country}
-//             </p>
-//         </div>
-//         <div className={style.names}>
-//             <div>
-//                 <label htmlFor="State">State</label>
-//                 <p
-//                     className={style.secondary}
-//                     style={{backgroundColor: "white"}}>
-//                     {finalValue.State}
-//                 </p>
-//             </div>
-//             <div>
-//                 <label htmlFor="City">City</label>
-//                 <p
-//                     className={style.secondary}
-//                     style={{backgroundColor: "white"}}>
-//                     {finalValue.City}
-//                 </p>
-//             </div>
-//         </div>
-//         <div>
-//             <label htmlFor="Number">Office/Work Contact Number</label>
-//             <p
-//                 className={style.secondary}
-//                 style={{backgroundColor: "white"}}>
-//                 {finalValue.countryCode} {finalValue.contactNumber}
-//             </p>
-//         </div>
-//     </div>
-//     <div className={style.edit_holder}>
-//         <button className={style.edit} onClick={handleNavigate}>Edit Profile</button>
-{
-  /*    </div>*/
-}
-{
-  /*</div>*/
-}
