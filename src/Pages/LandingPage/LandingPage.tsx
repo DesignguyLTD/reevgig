@@ -175,8 +175,7 @@ const LandingPage = () => {
                                 </div>
                             </div>
                             <div className={styles.SearchCtn}>
-                                <Search onSearch={() => {
-                                }}/>
+                          <Search onSearch={(query) => nav(`/results?search=${query}`)}/>
                             </div>
                         </div>
                     }

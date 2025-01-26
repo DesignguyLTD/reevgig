@@ -7,13 +7,15 @@ interface SearchProps {
   onSearch: (query: string) => void;
   debounceDelay?: number;
   borderRadius?: string;
+  value?: string;
 }
 
 const Search: React.FC<SearchProps> = ({
   placeholder = "Search...",
   onSearch,
   debounceDelay = 500,
-  borderRadius,
+    value,
+  borderRadius
 }) => {
   const [query, setQuery] = useState<string>("");
   const [timedOut, setTimedOut] = useState<NodeJS.Timeout | null>(null);
@@ -49,7 +51,7 @@ const Search: React.FC<SearchProps> = ({
           <input
             className={styling.written}
             type="text"
-            value={query}
+            value={query || value}
             onChange={handleChange}
             placeholder={placeholder}
             onKeyDown={handleKeyDown}
@@ -59,7 +61,7 @@ const Search: React.FC<SearchProps> = ({
         </div>
         <div className={styling.talent_side}>
           <hr className={styling.hr} />
-          <div className={styling.talent}>
+          <div className={styling.talent} onClick={handleSearch}>
             <p>Talent</p>
             <img
               src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1726006071/Vector_edrpho.svg"

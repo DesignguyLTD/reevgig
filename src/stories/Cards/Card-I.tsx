@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./card-I.module.css";
+import {useNavigate} from "react-router-dom";
 
 interface CardOneProps {
   profileImage: string;
@@ -52,6 +53,9 @@ const CardsOne: React.FC<CardOneProps> = ({
   hidePost,
   hideImage,
 }) => {
+
+  const nav = useNavigate()
+
   return (
     <div
       style={{
@@ -64,8 +68,9 @@ const CardsOne: React.FC<CardOneProps> = ({
         alignItems: containerAlign,
         gap: containerGap,
         backgroundColor: backgroundColor,
+        cursor: 'pointer'
       }}
-      className={styles.container}>
+      className={styles.container} onClick={()=> nav('/talents')}>
       <div className={styles.prof}>
         <div className={styles.image}>
           <img src={profileImage} alt="Profile" />
