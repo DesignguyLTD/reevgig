@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {Button} from "../../../stories/Button-I/Button";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
@@ -11,6 +11,7 @@ import Modal from "../../../Components/modals/mailModal/modal";
 import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
 import {countries} from "./countries";
 import signUp from "./signUp.module.css";
+import useAuthStore from "../../../store/AuthStore";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
@@ -179,6 +180,17 @@ const SignUp = () => {
             handleNext();
         }
     };
+
+
+    // const { data, loading, error, fetchData } = useAuthStore((state) => state);
+    //
+    // useEffect(() => {
+    //     fetchData();
+    // }, [fetchData]);
+    //
+    //
+    // console.log(data, loading, error)
+
 
     return (
         <>
