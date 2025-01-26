@@ -99,6 +99,21 @@
 .ThumbHeaderText {
 
 }
+.pdfDiv{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ffebaa;
+}
+
+.closeIc{
+    cursor: pointer;
+    filter: invert(1);
+}
 
 .fileItem {
     position: relative;
@@ -115,6 +130,19 @@
     overflow-x: scroll;
     max-width: 280px;
     width: 100%;
+    padding: 5px;
+}
+.fileUploadedThumbnailContpdf{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 40%;
+    gap: 5px;
+    overflow-y: scroll;
+    max-width: 280px;
+    width: 100%;
+    margin: 5% auto;
     padding: 5px;
 }
 
@@ -214,6 +242,18 @@
         max-width: 443px;
         width: 100%;
         padding: 10px;
+    }
+
+    .fileUploadedThumbnailContpdf{
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 67px;
+        max-width: 443px;
+        width: 100%;
+        padding: 10px;
+        overflow-x: auto;
     }
 
     .fileContainer {

@@ -137,7 +137,6 @@ const ResetPassword = () => {
 
     return (
         <>
-            <Header auth={true}/>
             <div className={reset.container}>
                 {stage === 1 && (
                     <div className={reset.stageContainer}>

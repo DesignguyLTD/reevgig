@@ -559,7 +559,6 @@ const OnBoarding = () => {
 
     return (
         <>
-            <Header auth={true}/>
             <div className={styles.container}>
                 {UserType === 'Client' && stage === 3 ?
                     <>

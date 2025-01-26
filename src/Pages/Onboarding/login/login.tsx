@@ -101,7 +101,6 @@ const Login = () => {
 
     return (
         <>
-            <Header auth={true}/>
             <div className={login.container}>
                 {stage === 1 && (
                     <div className={login.headerText}>
