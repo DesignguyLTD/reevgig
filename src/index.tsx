@@ -1,30 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import "./index.css";
+
 import AppWrapper from "./AppWrapper";
-import {ToastContainer} from "react-toastify";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ToastContainer } from "react-toastify";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-    <React.StrictMode>
-        <AppWrapper/>
-       <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-            style={{ fontFamily: 'Poppins', fontSize: '12px', fontWeight: 300, letterSpacing: '1px'}}
-/>
-    </React.StrictMode>
+  <React.StrictMode>
+    <AppWrapper />
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+      style={{
+        fontFamily: "Poppins",
+        fontSize: "12px",
+        fontWeight: 300,
+        letterSpacing: "1px",
+      }}
+    />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

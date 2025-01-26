@@ -1,0 +1,95 @@
+.container {
+  border: 1px solid #ececec;
+  background-color: #ffffff;
+  width: 280px;
+  height: fit-content;
+  border-radius: 8px;
+  padding: 14px;
+  margin: 0 auto;
+}
+
+.hold {
+  display: grid;
+  row-gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: top;
+  justify-content: center;
+  place-content: center;
+  text-align: left;
+}
+
+.titles {
+  color: #767f8c;
+  font-size: 12px;
+  font-family: PP Neue Montreal;
+  font-size: 12px;
+  line-height: 16.8px;
+  margin-top: 8px;
+}
+
+.info {
+  color: #18191c;
+  font-weight: 500;
+  font-family: PP Neue Montreal;
+  font-size: 16px;
+  line-height: 22.4px;
+  margin: 0px;
+}
+
+.heading {
+  color: #18191c;
+  font-weight: 500;
+  font-family: Inter;
+  font-size: 18px;
+  padding-bottom: 24px;
+  text-align: left;
+}
+
+.info_rate {
+  display: flex;
+  align-items: top;
+  gap: 8px;
+  color: #18191c;
+  font-weight: 500;
+  font-family: PP Neue Montreal;
+  font-size: 16px;
+  line-height: 22.4px;
+  margin: 0px;
+}
+
+@media screen and (width >= 425px) {
+  .container {
+    width: 380px;
+  }
+}
+
+@media screen and (width > 609px) {
+  .container {
+    width: 545px;
+  }
+}
+
+@media screen and (width > 748px) {
+  .hold {
+    gap: 24px;
+  }
+  .container {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ececec;
+    background-color: #ffffff;
+    height: fit-content;
+    border-radius: 8px;
+    padding: 24px;
+  }
+}
+
+@media screen and (width > 1020px) {
+  .container {
+    margin-left: 0;
+  }
+
+  .hold {
+    row-gap: 24px;
+  }
+}
