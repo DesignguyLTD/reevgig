@@ -182,14 +182,32 @@ const SignUp = () => {
     };
 
 
-    // const { data, loading, error, fetchData } = useAuthStore((state) => state);
-    //
-    // useEffect(() => {
-    //     fetchData();
-    // }, [fetchData]);
-    //
-    //
-    // console.log(data, loading, error)
+    const { data, loading, error, createData } = useAuthStore((state) => state);
+
+
+
+    console.log(data, loading, error)
+
+
+  const cc = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            // Pass both data and params to createData
+            await  createData( {
+                "first_name": "test",
+                "last_name": "test",
+                "email": "philipoluseyi@gmail.com",
+                "password": "Seyi123$",
+                "username": "Akin125",
+                "user_type": "CLIENT",
+                "country": "string",
+                "image": "string"
+            });
+
+        } catch (error) {
+            console.error('Error submitting data:', error);
+        }
+    };
 
 
     return (
@@ -377,6 +395,7 @@ const SignUp = () => {
                                     onClick={handleSubmit}
                                     isLabelVisible={true}
                                 />
+                                <button onClick={(e)=>cc(e)}>cc</button>
                             </div>
                         </form>
 
