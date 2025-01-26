@@ -35,15 +35,15 @@ export const FilterTwo = ({
         </div>
       </div>
       <div className={styling.dummy}>
-        <div className={styling.clear}>
+        <button className={styling.clear}>
           <span>Clear Filter</span>
           <img
             src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727734636/add_w8y40i.svg"
             alt="cancel logo"
           />
-        </div>
+        </button>
       </div>
-      <div>
+      <div className={styling.drop_container}>
         <Dropdown
           options={[
             "Power Efficiency Optimization",

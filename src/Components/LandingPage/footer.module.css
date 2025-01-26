@@ -71,14 +71,14 @@ body {
     margin-top: 40px;
 }
 
-.footer_links > div {
+.footer_links>div {
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.footer_links > div > .h3 {
+.footer_links>div>.h3 {
     color: #ffffff;
     font-weight: 500;
     font-size: 19px;
@@ -98,7 +98,7 @@ body {
 }
 
 
-.footer_links > div > .links {
+.footer_links>div>.links {
     list-style: none;
     text-align: left;
     line-height: 22.4px;
@@ -133,7 +133,8 @@ body {
 }
 
 
-.input_container > input {
+
+.input_container>input {
     width: 118px;
     height: 44px;
     font-family: "Epilogue", sans-serif;
@@ -144,12 +145,7 @@ body {
 }
 
 
-.input_container > input::placeholder {
-    /*padding-left: 2rem;*/
-
-}
-
-.input_container > img {
+.input_container>img {
     position: absolute;
     top: .85rem;
     left: .7rem;
@@ -180,7 +176,7 @@ body {
 
 }
 
-.social_links > .socials {
+.social_links>.socials {
     border: none;
     border-radius: 50%;
     background-color: rgba(97, 96, 96, 0.2);
@@ -216,7 +212,7 @@ body {
 }
 
 @media screen and (min-width: 500px) {
-    .input_container > input {
+    .input_container>input {
         width: 196px;
         padding-left: 46px;
     }
@@ -237,8 +233,8 @@ body {
     }
 
     .inner_container {
-        display: flex;
-        flex-direction: column;
+        /* display: flex; */
+        /* flex-direction: column; */
         gap: 16px;
         width: 676px;
         align-items: start;
@@ -298,15 +294,15 @@ body {
 
     .outer_container {
         margin: 0 auto;
-        width: 1192px;
+        width: 90%;
         text-align: left;
     }
 
     .inner_container {
         margin: 64px auto;
-        width: 1192px;
+        width: auto;
         flex-direction: row;
-        gap: 3rem;
+        gap: 2rem;
         align-items: start;
         padding: 0;
         justify-content: space-between;
@@ -325,7 +321,7 @@ body {
     }
 
 
-    .input_container > input {
+    .input_container>input {
         width: 234px;
         height: 44px;
         font-family: "Epilogue", sans-serif;
@@ -334,12 +330,12 @@ body {
 
     }
 
-    .input_container > input::placeholder {
+    .input_container>input::placeholder {
         /*padding-left: 2.4rem;*/
 
     }
 
-    .input_container > img {
+    .input_container>img {
         position: absolute;
         top: .85rem;
         left: 1rem;
@@ -349,11 +345,11 @@ body {
         width: 376px;
     }
 
-    .footer_links > div > .links {
+    .footer_links>div>.links {
         padding: 16px 0;
     }
 
-    .footer_links > div > .h3 {
+    .footer_links>div>.h3 {
         padding-bottom: 20px;
     }
 
@@ -364,5 +360,15 @@ body {
 
     .bottom {
         margin: 138px 0 0;
+    }
+
+    .footer_input {
+        flex-direction: column;
+    }
+}
+
+@media (width > 1130px) {
+    .footer_input {
+        flex-direction: row;
     }
 }

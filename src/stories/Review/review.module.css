@@ -1,44 +1,43 @@
 @import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
 
 * {
-    font-family: 'PP Neue Montreal';
+  font-family: PP Neue Montreal;
 }
 
 .container {
-    width: 372px;
+  width: 372px;
+  padding-left: 10px;
 }
 
 .text {
-    color: #18191C;
-    font-weight: 500;
-    font-size: 19px;
-    line-height: 26px;
-    margin: 0;
-    text-align: left;
-    padding-bottom: 8px;
+  color: #18191c;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 26px;
+  margin: 0;
+  text-align: left;
+  padding-bottom: 8px;
 }
 
 .inner {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    color: #18191C;
-
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: #18191c;
 }
 
 .inner p {
-    padding: 8px 0;
+  padding: 8px 0;
 }
 
 .staring {
-    display: flex;
-    color: #FFB33E;
-    font-size: 13px;
-
+  display: flex;
+  color: #ffb33e;
+  font-size: 13px;
 }
 
 .staring p {
-    padding-left: .3rem;
+  padding-left: 0.3rem;
 }
 
 .first,
@@ -46,17 +45,18 @@
 .third,
 .fourth,
 .fifth {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    font-size: 16px;
-    color: #446EE7;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-size: 16px;
+  color: #446ee7;
+  width: 85%;
 }
 
 .star {
-    padding: 14px 16px;
+  padding: 14px 16px;
 }
 
 .first label:nth-child(3),
@@ -64,22 +64,56 @@
 .third label:nth-child(3),
 .fourth label:nth-child(3),
 .fifth label:nth-child(3) {
-    justify-self: center;
+  justify-self: center;
 }
 
 progress {
+  width: 170px;
+  height: 8px;
+  border: none;
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e4e5e7;
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #ffb33e;
+  border-radius: 999px;
+}
+
+@media screen and (width > 425px) {
+  .first,
+  .second,
+  .third,
+  .fourth,
+  .fifth {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    font-size: 16px;
+    color: #446ee7;
+    width: 100%;
+  }
+
+  .star {
+    padding: 14px 16px;
+  }
+
+  progress {
     width: 200px;
     height: 8px;
     border: none;
     border-radius: 999px;
-}
-
-progress::-webkit-progress-bar {
-    background-color: #E4E5E7;
-    border-radius: 999px;
-}
-
-progress::-webkit-progress-value {
-    background-color: #FFB33E;
-    border-radius: 999px;
+  }
+  .inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    color: #18191c;
+  }
 }
