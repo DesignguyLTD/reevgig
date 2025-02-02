@@ -1,9 +1,8 @@
-import React, {useEffect} from "react";
+import "react-toastify/dist/ReactToastify.css";
 import PaymentTable from "../../../paymentPage/paymentTable";
-import stylesOne from './paymentTransact.module.css';
-import 'react-toastify/dist/ReactToastify.css';
-import {toast} from "react-toastify";
-
+import React, { useEffect } from "react";
+import stylesOne from "./paymentTransact.module.css";
+import { toast } from "react-toastify";
 
 interface PaymentTransProps {
     getActivePage: (x: string) => string;
@@ -11,7 +10,7 @@ interface PaymentTransProps {
 
 
 
-const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
+const PaymentTransact = ({ getActivePage }: PaymentTransProps) => {
 
     useEffect(() => {
         toast.info('Be rest assured that your payment is safe in your wallet till the project is completed', {
@@ -32,11 +31,11 @@ const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
                         <div>
                             <img
                                 src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Frame_1171275861_nmiuz8.svg"
-                                alt="BillIcon"/>
+                                alt="BillIcon" />
                         </div>
                         <div className={stylesOne.PaymentTopOneAdd}><img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Add_wpc6ce.svg"
-                            alt="Add"/> Add Money
+                            alt="Add" /> Add Money
                         </div>
                     </div>
                     <div className={stylesOne.PaymentTopOneText}>Wallet Balance</div>
@@ -47,28 +46,28 @@ const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
                         <div>
                             <img
                                 src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752189/Reev/Frame_1171275861_qbbiiv.svg"
-                                alt="BillIcon"/>
+                                alt="BillIcon" />
                         </div>
                         <div className={stylesOne.PaymentTopOneAdd}><img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859248/Reev/2nd%20oct/Add_wpc6ce.svg"
-                            alt="Add"/> Withdraw
+                            alt="Add" /> Withdraw
                         </div>
                     </div>
                     <div className={stylesOne.PaymentTopOneText}>Billing Method</div>
                     <div className={stylesOne.PaymentTopOneHeaderCtn}>
                         <div className={stylesOne.PaymentTopOneAmount}>1234 **** **** ****</div>
-                        <img style={{cursor: 'pointer'}}
-                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859249/Reev/2nd%20oct/Frame_1171275875_j08xwj.svg"
-                             alt="Delete"/>
+                        <img style={{ cursor: 'pointer' }}
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1727859249/Reev/2nd%20oct/Frame_1171275875_j08xwj.svg"
+                            alt="Delete" />
                     </div>
                 </div>
             </div>
 
             <div className={stylesOne.PaymentMiddleCtn}>
                 <div className={stylesOne.PaymentMiddleBtn}
-                     onClick={() => getActivePage ? getActivePage('withdraw') : ''}>
+                    onClick={() => getActivePage ? getActivePage('withdraw') : ''}>
                     <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Add_kzvi5c.svg"
-                         alt="Add"/>
+                        alt="Add" />
                     Withdraw
                 </div>
                 {/*<div className={stylesOne.PaymentMiddleToast}>*/}
@@ -83,15 +82,15 @@ const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
             </div>
 
             <div className={stylesOne.PaymentBottomCtn}>
-                <br/>
+                <br />
                 <div className={stylesOne.PaymentBottomTransaction}>
                     <div className={stylesOne.PaymentBottomTransactionText}>Transactions</div>
                     <div className={stylesOne.PaymentBottomDaysText}>Last 30 days<img
                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725753843/Reev/Icon_Stroke_d2hmut.svg"
-                        alt="arrowDown"/>
+                        alt="arrowDown" />
                     </div>
                 </div>
-                <PaymentTable/>
+                <PaymentTable />
             </div>
         </div>
     )
