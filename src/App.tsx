@@ -6,7 +6,7 @@ import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SearchResults from "./Pages/SearchResults/searchResults";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import DashboardLayout from "./DashboardLayout";
-import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
+import AccountSettings from "./Pages/DashBoard/settings/accountSettings/accountSettings";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 import ApplicantProfilePage from "./Pages/DashBoard/ApplicantProfile/ApplicantProfilePage";
@@ -16,6 +16,7 @@ import Jobs from "./Pages/Jobs/Jobs";
 import PaymentPage from "./Pages/paymentPage/paymentPage";
 import Settings from "./Pages/DashBoard/settings/settings";
 import './App.css';
+import Talent from './Pages/DashBoard/savedTalents/talent';
 import {FullSlide}  from "./stories/Fullslider/fullSlide";
 import FreelancerApplication from "./Pages/freelancerApplication/freelancerApplication";
 import GeneralLayout from "./GeneralLayout";
@@ -52,7 +53,7 @@ const App: React.FC = () => {
                         <Route path="/profile" element={<ProfileMain userType={userType}/>}/>
                         <Route path="/postproject" element={<Jobs userType={userType}/>}/>
                         <Route path="/message" element={<h1>Development in progress ....</h1>}/>
-                        <Route path="/saved" element={<h1>Development in progress ....</h1>}/>
+                        <Route path="/saved" element={<Talent/>}/>
                         <Route path="/freelancer-application" element={<FreelancerApplication/>}/>
                         <Route path="/help" element={<h1>Development in progress ....</h1>}/>
                         <Route path="/payment" element={<PaymentPage/>}/>
