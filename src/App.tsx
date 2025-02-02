@@ -6,7 +6,7 @@ import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
 import SearchResults from "./Pages/SearchResults/searchResults";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
 import DashboardLayout from "./DashboardLayout";
-import AccountSettings from "./Pages/DashBoard/settings/account settings/accountSettings";
+import AccountSettings from "./Pages/DashBoard/settings/accountSettings/accountSettings";
 import NotificationPage from "./Pages/DashBoard/settings/notification/notification";
 import JobApplicationPage from "./Pages/DashBoard/JobApplication/JobApplicationPage";
 import ApplicantProfilePage from "./Pages/DashBoard/ApplicantProfile/ApplicantProfilePage";

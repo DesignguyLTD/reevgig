@@ -1,0 +1,199 @@
+.ctn {
+    width: 290px;
+    margin: auto;
+}
+
+.settingPages {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.backToSettings,
+.currentPage {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 15px;
+}
+
+.backToSettings {
+    text-decoration: none;
+    color: #000000;
+}
+
+.currentPage {
+    color: #97979D;
+}
+
+.notify_sect {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.notify_title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.jobNotify_title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.notifyTagsTitle {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.32px;
+    color: #000000;
+    margin-bottom: 0px;
+    width: 200px;
+}
+
+.notify_alert p {
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.32px;
+    color: #000000;
+    margin: 0px;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+
+.notify_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    gap: 20px;
+}
+
+
+.notifyTagsDesc {
+    margin-top: 7px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    line-height: 20px;
+    color: #797979;
+}
+
+.notify_alert {
+    margin-top: 25px;
+    padding-left: 15px;
+}
+
+.notify_alert h5 {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    color: black;
+}
+
+.notify_alert p {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.32px;
+    color: #797979;
+    margin-top: 10px;
+}
+
+.switch {
+    font-weight: 400;
+    font-size: 14px;
+    color: #1E1E1E;
+    margin-top: 10px;
+    letter-spacing: 0.32px;
+}
+
+@media (min-width: 768px) {
+
+    .ctn {
+        width: 700px;
+        /*margin-top: 130px;*/
+        /*!* padding: 0px 0px 40px 30px; *!*/
+        /*width: 80.75dvw;*/
+    }
+
+    .backToSettings,
+    .currentPage {
+        font-size: 16px;
+    }
+
+    .notify_title p,
+    .jobNotify_title p {
+        font-size: 16px;
+    }
+
+    h5 {
+        font-size: 14px;
+    }
+
+    .notify_alert {
+        margin-top: 15px;
+    }
+
+    .notify_alert h5 {
+        font-size: 14px;
+    }
+
+    .notify_alert p {
+        margin-bottom: 8px;
+        font-size: 14px;
+
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .ctn {
+        /*margin: auto;*/
+        /*margin-top: 80px;*/
+        /*width: 90dvw;*/
+    }
+
+    .notify_sect {
+        margin-top: 15px;
+    }
+
+    h5 {
+        font-size: 13.6px;
+        margin-top: 15px;
+    }
+
+    .notify_info {
+        gap: 50px;
+    }
+
+    .notify_info p {
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 22px;
+    }
+
+    .jobNotify_title {
+        margin-top: 25px;
+    }
+
+    .switch {
+        font-size: 12px;
+    }
+
+    .notify_alert p {
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 22px;
+    }
+
+}
