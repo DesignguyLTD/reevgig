@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
     },
 });
 
-axiosInstance.defaults.headers.common.Authorization = 'Bearer Api-Key kt2k4wM5.7Yxzp6cz0RhhP4ggXsWFbHgZGBUwkHon'
+axiosInstance.defaults.headers.common.Authorization = 'Bearer Api-Key XvtAppIE.RwyVYIdeZkjErNjhIwBKxZaTA5WWstJE';
 
 axiosInstance.interceptors.response.use(
     (response) => response,

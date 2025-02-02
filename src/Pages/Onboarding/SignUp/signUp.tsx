@@ -196,12 +196,11 @@ const SignUp = () => {
             await  createData( {
                 "first_name": "test",
                 "last_name": "test",
-                "email": "philipoluseyi@gmail.com",
+                "email": "stalliongfx@gmail.com",
                 "password": "Seyi123$",
-                "username": "Akin125",
+                "username": "Arcane125",
                 "user_type": "CLIENT",
                 "country": "string",
-                "image": "string"
             });
 
         } catch (error) {
