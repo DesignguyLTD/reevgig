@@ -107,7 +107,10 @@
     align-items: center;
     gap: 20px;
     margin-bottom: 30px;
-
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInBounce 0.5s forwards;
+    /*margin-top: -150px;*/
 }
 
 .serchText2 {
@@ -534,6 +537,14 @@
     margin: 50px 0;
 }
 
+.btn1Container {
+    transition: transform 0.5s ease-in-out;
+}
+
+.pushedUp {
+    transform: translateY(-200px); /* Adjust based on the height of the search component */
+}
+
 @media (min-width: 425px) {
     .heroCtn {
         width: 89%;
@@ -908,5 +919,21 @@
         top: -16px;
         right: 0;
         left: 30px;
+    }
+}
+
+
+
+@keyframes fadeInBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }

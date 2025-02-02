@@ -36,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelect, headings }) => {
         </div>
       </div>
       {isOpen && (
-        <div>
+        <div className={styling.items_container}>
           {options.map((option) => (
             <div
               className={styling.items}

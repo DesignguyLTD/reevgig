@@ -1,15 +1,15 @@
 import React, {useEffect, useRef} from 'react';
 import styles from './LandingPage.module.css';
-import Header from "../../stories/Header/header";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Search from "../../Components/LandingPage/Search/search";
 import CardI from "../../stories/Cards/Card-I";
 import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
+import {useNavigate} from "react-router-dom";
 
 const LandingPage = () => {
     const CTA = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
     const [isOpen, setIsOpen] = React.useState(false);
-
+  const nav = useNavigate();
     const handleClickOutside = (event: MouseEvent) => {
         if (
             CTA.current &&
@@ -134,8 +134,6 @@ const LandingPage = () => {
 
     return (
         <>
-            <Header auth={true}/>
-
             <div className={styles.mainCtn}>
                 <div className={styles.heroCtnMain}>
                     <div className={styles.heroCtn}>
@@ -151,22 +149,25 @@ const LandingPage = () => {
                                 className={styles.heroTextBG2}>hardware engineers </span><br className={styles.br2}/> to
                                 bring your ideas to life.
                             </div>
-                            {!isOpen &&
-                                <div className={styles.btn1}>
-                                    <ButtonII size={'large'} primary={true} hasIcon={true}
-                                              icon={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727781978/Reev/1st%20oct/Frame_1618869363_t6u1mi.svg'}
-                                              isLabelVisible={true} invert={'invert'}
-                                              label={'Explore Freelance Talents'} onClick={CTABtn}/>
-                                </div>
+                            <div className={`${styles.btn1Container} ${isOpen ? styles.pushedUp : ''}`}>
+                                {!isOpen &&
+                                    <div className={styles.btn1}>
+                                        <ButtonII size={'large'} primary={true} hasIcon={true}
+                                                  icon={'https://res.cloudinary.com/do5wu6ikf/image/upload/v1727781978/Reev/1st%20oct/Frame_1618869363_t6u1mi.svg'}
+                                                  isLabelVisible={true} invert={'invert'}
+                                                  label={'Explore Freelance Talents'} onClick={CTABtn}/>
+                                    </div>
 
-                            }
+                                }
+                            </div>
+
                         </div>
 
 
                     </div>
 
                     {isOpen &&
-                        <div className={styles.serachCtnMain} ref={CTA}>
+                        <div className={`${styles.serachCtnMain} ${styles.bounce}`} ref={CTA}>
                             <div className={styles.serchTextCtn}>
                                 <div className={styles.serchText1}>Decentralized Freelancing</div>
                                 <div className={styles.serchText2}>No racial profiling, just business, <br/>safe
@@ -174,8 +175,7 @@ const LandingPage = () => {
                                 </div>
                             </div>
                             <div className={styles.SearchCtn}>
-                                <Search onSearch={() => {
-                                }}/>
+                          <Search onSearch={(query) => nav(`/results?search=${query}`)}/>
                             </div>
                         </div>
                     }
@@ -223,7 +223,7 @@ const LandingPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.clientBtn}>
+                            <div className={styles.clientBtn} onClick={()=>nav('/signup')}>
                                 Find Talents
                             </div>
                         </div>
@@ -306,7 +306,7 @@ const LandingPage = () => {
                                     </div>
 
                                 </div>
-                                <div className={styles.talentBtn}>
+                                <div className={styles.talentBtn} onClick={()=>nav('/signup')}>
                                     Find Opportunities
                                 </div>
                             </div>

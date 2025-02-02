@@ -1,41 +1,55 @@
 @import url(https://fonts.cdnfonts.com/css/pp-neue-montreal);
 
 * {
-    font-family: 'PP Neue Montreal';
+  font-family: "PP Neue Montreal";
 }
 
 .container {
-    border: 1px solid #D9D9D9;
-    width: 300px;
-    border-bottom: none;
-    border-left: none;
-    background-color: white;
-
+  border: 1px solid #d9d9d9;
+  width: 379px;
+  border-bottom: none;
+  border-left: none;
+  background-color: white;
+  border-top: none;
 }
 
 .filter_ctn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18.5px 24px;
-    border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18.5px 14px;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 .filter {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #27272780;
 }
 
 .clear {
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 33.94px;
+  font-size: 12px;
+  color: #27272780;
+  border: none;
+  background: none;
+  margin-right: 10px;
+}
+
+.drop_container {
+  padding-left: 14px;
 }
 
 .dummy {
-    border-bottom: 1px solid #d9d9d9;
-    display: flex;
-    justify-content: end;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: end;
+  height: 89.94px;
+  align-items: center;
 }
