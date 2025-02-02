@@ -12,6 +12,7 @@ import PaymentPage from "./Pages/paymentPage/paymentPage";
 import ProfileMain from "./Pages/Profile/ProfileMain";
 import React, { Suspense } from "react";
 import ResetPassword from "./Pages/Onboarding/resetPassword/resetPassword";
+import Talent from './Pages/DashBoard/savedTalents/talent'
 import SearchResults from "./Pages/SearchResults/searchResults";
 import Settings from "./Pages/DashBoard/settings/settings";
 import SignUp from "./Pages/Onboarding/SignUp/signUp";
