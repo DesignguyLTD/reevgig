@@ -1,6 +1,6 @@
 import React from "react";
-// import Payment from "../DashBoard/planAndBillings/paymentCard/paymentCard";
-// import PaymentTransact from "../DashBoard/planAndBillings/paymentTransaction/paymentTransact";
+import Payment from "../DashBoard/planAndBillings/paymentCard/paymentCard";
+import PaymentTransact from "../DashBoard/planAndBillings/paymentTransaction/paymentTransact";
 
 const PaymentPage = () => {
   const [currentPage, setCurrentPage] = React.useState<string>(
@@ -12,16 +12,15 @@ const PaymentPage = () => {
     return x;
   };
   return (
-    <div></div>
-    // <div>
-    //   {currentPage === "withdraw" ? (
-    //     <>
-    //       <Payment getActivePage={getActivePage} />
-    //     </>
-    //   ) : (
-    //     <PaymentTransact getActivePage={getActivePage} />
-    //   )}
-    // </div>
+    <div>
+      {currentPage === "withdraw" ? (
+        <>
+          <Payment getActivePage={getActivePage} />
+        </>
+      ) : (
+        <PaymentTransact getActivePage={getActivePage} />
+      )}
+    </div>
   );
 };
 
