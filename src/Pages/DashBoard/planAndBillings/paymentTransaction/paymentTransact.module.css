@@ -1,87 +1,113 @@
-.ctn {
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    width: 280px;
-}
-
-.walletBillingCtn {
-    display: flex;
+.PaymentTopCtn {
+    display: inline-flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-.billingCtn {
+    align-items: center;
+    width: 100%;
     padding: 10px;
-    background: #FFF3CC;
-    text-align: left;
-    border-radius: 10px;
-    border: 1px solid #D4A200;
+    gap: 15px;
 }
 
-.walletCtn {
+.PaymentMiddleCtn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     padding: 10px;
-    width: 260px;
-    background: #03A86226;
-    opacity: 15;
-    text-align: left;
-    border-radius: 10px;
-    border: 1px solid #009B59;
+    gap: 15px;
 }
 
-.billingCtn {
-    padding: 10px;
-    width: 260px;
-    background: #FFF3CC;
-    text-align: left;
-    border-radius: 10px;
-    border: 1px solid #D4A200;
+.PaymentTransact {
+    width: 90%;
 }
 
-.levelUpIcon {
-    background: #03A862;
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
-    padding: 10px;
+
+.PaymentTopOne {
+    padding: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 155, 89);
+    border-radius: 12.61px;
+    background: rgba(3, 168, 98, 0.15);
+    gap: 15px;
+
 }
 
-.wallet {
-    background: #03A862;
-    width: 15px;
-    height: 15px;
-    border-radius: 50px;
-    padding: 10px;
+.PaymentTopTwo {
+    padding: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(212, 162, 0);
+    border-radius: 12.61px;
+    background: rgb(255, 243, 204);
+    gap: 15px;
+
 }
 
-.walletBtn,
-.addMoneyBtn {
-    display: flex;
+.PaymentTopOneHeaderCtn {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PaymentTopOneAdd {
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
     gap: 5px;
-    color: black;
-    background: none;
-    padding: 0px;
-    border: none;
+    color: rgb(69, 69, 69);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
+    text-align: left;
 }
 
-.billingMethod {
-    width: 200px;
-}
-
-.billingMethod h5 {
+.PaymentTopOneText {
+    /* body2 */
+    color: rgb(121, 121, 121);
+    font-family: PP Neue Montreal;
     font-size: 14px;
-    margin: 20px 0px 10px 0px;
-    color: #797979;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
 }
 
-.billingMethod p {
-    line-height: 18px;
+.PaymentTopOneAmount {
+    /* H5 medium */
+    color: rgb(39, 39, 39);
+    font-family: PP Neue Montreal;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PaymentMiddleToast {
+    border-radius: 8px;
+    background: #fbe2b9;
+    color: rgb(51, 39, 0);
+    font-family: Roboto;
     font-size: 12px;
-}
-
-.addMoneySect {
-    display: flex;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 0;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -104,293 +130,152 @@
 .withdrawBtn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #FEC200;
-    padding-top: 20px;
+    width: 90%;
+    gap: 3px;
+    padding: 5px;
 }
 
-.paymentAssurance {
-    display: flex;
+.PaymentMiddleBtn {
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
-    color: black;
-    padding: 2px;
-    margin: 20px 0px 0px 0px;
-    background: #FFF3CC;
-}
-
-.assuranceText {
-    font-size: 7px;
-}
-
-.projectCtn {
-    overflow-x: auto;
-    max-width: 100%;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 800px;
-    margin-bottom: 30px;
-}
-
-thead {
-    background: #2B2B2B;
-    color: white;
-}
-
-th {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-weight: normal;
-    font-size: 14px;
-}
-
-td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #E5E5E5;
-    font-size: 14px;
-    margin-right: 90px;
-    width: 10px;
-    line-height: 20px;
-}
-
-.nameAndDesc {
-    line-height: 20px;
-}
-
-.desc {
-    font-size: 10px;
-    color: #97959D;
-}
-
-.paymentStatusCtn {
-    width: 10px;
-}
-
-.paymentStatus {
-    border-radius: 15px;
+    color: rgb(254, 194, 0);
+    font-family: PP Neue Montreal;
+    font-size: 16px;
     font-weight: 400;
-    padding: 5px 15px;
-    width: 55px;
-    display: flex;
+    line-height: 20.05px;
+    letter-spacing: -0.36px;
+    text-align: left;
+    border-radius: 160px;
+    padding: 10px;
+    cursor: pointer;
+    gap: 7px;
     justify-content: center;
-    align-items: center;
-
+    width: 121px;
+    background: rgb(39, 39, 39);
 }
 
-.paid {
-    background-color: #1A932E2E;
-    color: #1A932E;
-}
-
-.pending {
-    background-color: #E2B1332E;
-    color: #DFA510;
-}
-
-.withheld {
-    background-color: #EE201C2E;
-    color: #EE201C;
-}
-
-.reversed {
-    background: #007AFF26;
-    color: #007AFF;
-}
-
-.transactionDate {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0px 20px 0px;
+.PaymentBottomCtn {
     width: 100%;
-    border-collapse: collapse;
-    min-width: 800px;
 }
 
-select {
-    border: none;
-    background: none;
-    outline: none;
-}
-
-/* .downloadIcon {
-    cursor: pointer;
-    position: absolute;
-}
-
-.menu {
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
-    position: relative;
-    left: 30px;
-}
-
-.menu p {
-    cursor: pointer;
-    padding: 10px;
-    color: white;
-} */
-
-.transactAndPaginationPages {
-    display: flex;
+.PaymentBottomTransaction {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    margin: 20px 0;
 }
 
-.transactionPage {
-    display: flex;
-    gap: 10px;
+.PaymentBottomTransactionText {
+    color: rgb(0, 0, 0);
+    font-family: PP Neue Montreal;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.PaymentBottomDaysText {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    color: rgb(6, 6, 6);
+    font-family: PP Neue Montreal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    text-align: left;
     align-items: center;
-    color: #7C8493;
-    font-size: 10px;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-right: 10px;
+    cursor: pointer;
 }
 
-.selectedTransactPage {
-    padding: 2px 4px 2px 4px;
-    border: 1px solid #D6DDEB;
+.PaymentBottomDaysText img {
+    width: 14px;
+    height: 14px;
 }
-
-.paginationControls {
-    display: flex;
-    align-items: center;
-    font-size: 10px;
-}
-
-.pageControlBtn {
-    background: none;
-    padding: 5px 8px;
-    border: none;
-}
-
-.pageIndex {
-    display: flex;
-    gap: 1px;
-}
-
-.currentpageIndex {
-    background: black;
-    color: #D4A200;
-    padding: 5px 8px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-}
-
-.nextpageIndex {
-    padding: 10px 15px;
-}
-
 
 @media (min-width: 768px) {
-    .ctn {
-        width: 665px;
-    }
 
-    .billingCtn,
-    .walletCtn {
-        padding: 20px 50px 20px 20px;
-        width: 590px;
-    }
-
-    .delCard {
-        width: 590px;
-    }
-
-    .withdrawBtnCtn {
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 10px;
-    }
-
-    .paymentAssurance {
-        gap: 30px;
+    .PaymentMiddleBtn {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        color: rgb(254, 194, 0);
+        font-family: PP Neue Montreal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20.05px;
+        letter-spacing: -0.36px;
+        text-align: left;
+        border-radius: 160px;
         padding: 10px;
-        margin: 20px 0px 0px 0px;
+        cursor: pointer;
+        gap: 7px;
+        width: 121px;
+        background: rgb(39, 39, 39);
+        justify-content: center;
     }
 
-    .assuranceText {
-        font-size: 15px;
+    .PaymentMiddleCtn {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px;
+        gap: 15px;
     }
 
-    .transactAndPaginationPages {
-        gap: 0px;
+    .PaymentTopCtn {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px;
+        gap: 20px;
     }
 
-    .transactionDate {
-        width: 95%;
-        border-collapse: inherit;
-        min-width: 600px;
+    .PaymentTopTwo, .PaymentTopOne {
+        max-width: 550px;
+        width: 100%;
     }
 
-    .transactionPage {
+    .PaymentMiddleToast {
         font-size: 14px;
     }
 
-    .selectedTransactPage {
-        padding: 8px 12px 8px 12px;
-    }
-
-    .pageControlBtn {
-        padding: 8px 12px;
-    }
-
-    .currentpageIndex {
-        padding: 10px 15px;
-    }
 }
 
+
 @media (min-width: 1024px) {
-    .ctn {
-        width: 780px;
-        border: 1px solid #0000001A;
-        padding: 20px;
+
+    .PaymentBottomCtn {
+        width: 81%;
+        max-width: 1440px;
     }
 
-    .walletBillingCtn {
-        display: flex;
-        justify-content: space-between;
+    .PaymentMiddleToast {
+        font-size: 16px;
+    }
+
+    .PaymentTopCtn {
+        display: inline-flex;
         flex-direction: row;
-    }
-
-    .billingCtn,
-    .walletCtn {
-        padding: 20px;
-        width: 350px;
-    }
-
-    .delCard {
-        width: 340px;
-    }
-
-    .paymentAssurance {
-        gap: 30px;
-        width: 700px;
-    }
-
-    .assuranceText {
-        letter-spacing: 1px;
-    }
-
-    .projectCtn {
-        overflow-x: hidden;
-        max-width: 100%;
-    }
-
-    table {
+        align-items: flex-start;
         width: 100%;
-        min-width: unset;
+        padding: 10px;
+        gap: 25px;
     }
 
-
-    .transactionDate {
-        width: 97%;
-        border-collapse: collapse;
-        min-width: 600px;
+    .PaymentTopTwo, .PaymentTopOne {
+        max-width: 700px;
+        width: 100%;
     }
+
 }
