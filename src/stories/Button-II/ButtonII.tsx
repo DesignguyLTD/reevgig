@@ -35,7 +35,7 @@ interface ButtonIIProps {
     /**
      * Optional click handler function to be executed when the button is clicked.
      */
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
     icon?: string;
     invert?: string;

@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <AppWrapper />
     <ToastContainer
-      position="top-right"
+      position="bottom-right"
       autoClose={5000}
       hideProgressBar={false}
       newestOnTop={false}
@@ -24,10 +24,11 @@ root.render(
       pauseOnHover
       theme="dark"
       style={{
-        fontFamily: "Poppins",
-        fontSize: "12px",
+          zIndex: 1000,
+        fontFamily: "monospace",
+        fontSize: "14px",
         fontWeight: 300,
-        letterSpacing: "1px",
+        letterSpacing: "2px",
       }}
     />
   </React.StrictMode>

@@ -17,4 +17,15 @@ export const createData = async (data: any) => {
     } catch (error) {
         throw new Error('Error creating data');
     }
+}
+
+
+
+export const userLogin = async (data: any) => {
+    try {
+        const response = await axiosInstance.post('/user/token/', data); // Endpoint for creating data
+        return response.data;
+    } catch (error) {
+        throw new Error('Error logging in');
+    }
 };

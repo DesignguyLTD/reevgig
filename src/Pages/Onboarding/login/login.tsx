@@ -6,6 +6,8 @@ import {Link, useNavigate} from "react-router-dom";
 import CheckBox from "../../../stories/CheckBox/checkbox";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
 import Header from "../../../stories/Header/header";
+import useAuthStore from "../../../store/AuthStore";
+import {toast} from "react-toastify";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -72,17 +74,7 @@ const Login = () => {
         setStage(stage + 1);
     }
 
-    const handleSubmit = () => {
-        const isFormValid = validateForm();
 
-        if (isFormValid) {
-            handleNext()
-        }
-
-        if (stage === 2 && isFormValid) {
-            navigate('/')
-        }
-    }
 
 
     const handleBack = () => {
@@ -98,6 +90,35 @@ const Login = () => {
             [e.target.name]: value,
         });
     };
+
+    const { loading, error, userLogin } = useAuthStore();
+    const handleLogin = async () => {
+        const isFormValid = validateForm();
+
+        if (isFormValid) {
+            try {
+                await userLogin(formValues);
+                toast.success('Login successful!');
+                navigate('/overview');
+            } catch (error) {
+                toast.error((error as { message?: string })?.message || 'Login failed');
+            }
+        }
+    };
+
+    // console.log(data)
+
+    const handleSubmit = async () => {
+        const isFormValid = validateForm();
+
+        if (isFormValid) {
+            if (stage === 1) {
+                handleNext();
+            } else if (stage === 2) {
+                await handleLogin();
+            }
+        }
+    }
 
     return (
         <>
@@ -182,7 +203,7 @@ const Login = () => {
 
                         <div className={login.btn}>
                             <ButtonII
-                                label='Log in'
+                                label={loading? 'Loading.....' : 'Login'}
                                 primary={true}
                                 hasIcon={false}
                                 disabled={false}

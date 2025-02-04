@@ -12,12 +12,17 @@ import RadioTextIcon from "../../../Components/RadioTextIcon/RadioTextIcon";
 import {countries} from "./countries";
 import signUp from "./signUp.module.css";
 import useAuthStore from "../../../store/AuthStore";
+import {toast} from "react-toastify";
 
 const SignUp = () => {
     const [selectedOption, setSelectedOption] = React.useState("");
     const [stage, setStage] = React.useState(1);
     const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedOption(e.target.value);
+        setSelectedOption(e.target.value.toUpperCase());
+        setFormValues((prevState) => ({
+            ...prevState,
+            user_type: e.target.value.toUpperCase(),
+        }));
         localStorage.setItem("userType", e.target.value);
     };
 
@@ -46,25 +51,30 @@ const SignUp = () => {
     };
 
     interface FormValues {
-        firstName: string;
-        lastName: string;
+        first_name: string;
+        last_name: string;
+        username: string;
         email: string;
         password: string;
         country: string;
         sendMails: string;
         TermsAndConditon: string;
         phone: string;
+        user_type: string
     }
 
+
     const defaultFormValues: FormValues = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
+        username: '',
         email: "",
         password: "",
         country: "",
         sendMails: "",
         TermsAndConditon: "",
         phone: "",
+        user_type: ""
     };
 
     const [formValues, setFormValues] = useState<FormValues>(() => {
@@ -76,9 +86,11 @@ const SignUp = () => {
     delete formValuesCopy.password;
     localStorage.setItem("signUpForm", JSON.stringify(formValuesCopy));
 
+
     const [formErrors, setFormErrors] = useState({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
+        username: '',
         email: "",
         password: "",
         country: "",
@@ -105,8 +117,9 @@ const SignUp = () => {
 
     const validateForm = () => {
         let newErrors = {
-            firstName: "",
-            lastName: "",
+            first_name: "",
+            last_name: "",
+            username: '',
             email: "",
             password: "",
             country: "",
@@ -116,14 +129,20 @@ const SignUp = () => {
         };
 
         // Validate first name
-        if (!formValues.firstName) {
-            newErrors.firstName = "First name is required";
+        if (!formValues.first_name) {
+            newErrors.first_name = "First name is required";
         }
 
         // Validate last name
-        if (!formValues.lastName) {
-            newErrors.lastName = "Last name is required";
+        if (!formValues.last_name) {
+            newErrors.last_name = "Last name is required";
         }
+
+        // Validate last name
+        if (!formValues.username) {
+            newErrors.username = "Username is required";
+        }
+
 
         // Validate email
         if (!formValues.email) {
@@ -167,46 +186,36 @@ const SignUp = () => {
         // If all values are valid, return true
         return !Object.values(newErrors).some((error) => error !== "");
     };
-
+    console.log(formValues);
     // const checkValidity = () => {
     //     return validateForm();
     // }
+    const { loading, error, createData } = useAuthStore();
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
         const isFormValid = validateForm();
 
         if (isFormValid) {
-            console.log(formValues);
-            handleNext();
+            // console.log(formValues);
+            try {
+                const isSuccess = await createData(formValues); // Call createData and check for success
+                if (isSuccess) {
+                    toast.success('Data created successfully!');
+                    handleNext(); // Proceed to the next step only if successful
+                } else {
+                    toast.error('Failed to create data'); // Handle failure case
+                }
+            } catch (error) {
+                console.error('Error submitting data:', error);
+                toast.error((error as { message?: string })?.message || 'Error submitting data');
+            }
         }
     };
 
-
-    const { data, loading, error, createData } = useAuthStore((state) => state);
-
+    console.log( loading, error);
 
 
-    console.log(data, loading, error)
-
-
-  const cc = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            // Pass both data and params to createData
-            await  createData( {
-                "first_name": "test",
-                "last_name": "test",
-                "email": "stalliongfx@gmail.com",
-                "password": "Seyi123$",
-                "username": "Arcane125",
-                "user_type": "CLIENT",
-                "country": "string",
-            });
-
-        } catch (error) {
-            console.error('Error submitting data:', error);
-        }
-    };
 
 
     return (
@@ -221,7 +230,7 @@ const SignUp = () => {
                         <div className={signUp.RadioCont}>
                             <RadioTextIcon
                                 name="userType"
-                                value="Client"
+                                value="CLIENT"
                                 Icon="https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/client_bihjii.svg"
                                 text1=" I’m a client, hiring"
                                 text2=" for a project"
@@ -232,7 +241,7 @@ const SignUp = () => {
 
                             <RadioTextIcon
                                 name="userType"
-                                value="Freelancer"
+                                value="FREELANCER"
                                 Icon="https://res.cloudinary.com/do5wu6ikf/image/upload/v1719703652/Reev/freelancer_jngxqi.svg"
                                 text1=" I’m a freelancer,"
                                 text2="looking for work"
@@ -300,10 +309,10 @@ const SignUp = () => {
                                     placeholder="John"
                                     size="small"
                                     onChange={handleInputChange}
-                                    name={"firstName"}
-                                    error={!!formErrors.firstName}
-                                    errorMessage={formErrors.firstName}
-                                    value={formValues.firstName}
+                                    name={"first_name"}
+                                    error={!!formErrors.first_name}
+                                    errorMessage={formErrors.first_name}
+                                    value={formValues.first_name}
                                 />
                                 <Input
                                     isTextArea={false}
@@ -312,12 +321,25 @@ const SignUp = () => {
                                     placeholder="Doe"
                                     size="small"
                                     onChange={handleInputChange}
-                                    name={"lastName"}
-                                    error={!!formErrors.lastName}
-                                    errorMessage={formErrors.lastName}
-                                    value={formValues.lastName}
+                                    name={"last_name"}
+                                    error={!!formErrors.last_name}
+                                    errorMessage={formErrors.last_name}
+                                    value={formValues.last_name}
                                 />
                             </div>
+
+                            <Input
+                                isTextArea={false}
+                                type={"text"}
+                                label="Username"
+                                placeholder="Arcane1234$"
+                                size="small"
+                                onChange={handleInputChange}
+                                name={"username"}
+                                error={!!formErrors.username}
+                                errorMessage={formErrors.username}
+                                value={formValues.username}
+                            />
 
                             <Input
                                 isTextArea={false}
@@ -391,10 +413,10 @@ const SignUp = () => {
                                     primary={true}
                                     hasIcon={false}
                                     disabled={false}
-                                    onClick={handleSubmit}
+                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSubmit(e)}
                                     isLabelVisible={true}
                                 />
-                                <button onClick={(e)=>cc(e)}>cc</button>
+                                {/*<button onClick={(e)=>cc(e)}>cc</button>*/}
                             </div>
                         </form>
 
