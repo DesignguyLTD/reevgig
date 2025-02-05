@@ -1,14 +1,20 @@
 import { create } from 'zustand';
-import { createData, fetchData, userLogin } from '../api/Services/Auth';
+import {createData, fetchData, userLogin, userReset} from '../api/Services/Auth';
 
 
 interface Store {
-    data: any[]; // Replace `any` with a specific type if possible
+    isAuthenticated: boolean;
+    isAuthChecked: boolean;
+    data: any[];
     loading: boolean;
+    token: string | null;
     error: string | null;
     fetchData: () => Promise<void>;
-    createData:(data: any) => Promise<boolean>;
+    createData: (data: any) => Promise<boolean>;
     userLogin: (data: { email: string; password: string }) => Promise<void>;
+    userReset: (data: { email: string }) => Promise<void>;
+    checkAuth: () => void;
+    logout: () => void;
 }
 
 interface AuthResponse {
@@ -19,6 +25,25 @@ const useAuthStore = create<Store>((set) => ({
     data: [],
     loading: false,
     error: null,
+    isAuthenticated: false,
+    isAuthChecked: false,
+    token: null,
+
+    // Check authentication status on page load
+    checkAuth: () => {
+        const token = localStorage.getItem('REEVTK');
+        set((state) => {
+            if (state.token === token && state.isAuthChecked) {
+                // No need to update if the token and auth check status are already correct
+                return state;
+            }
+            return {
+                isAuthenticated: !!token,
+                token,
+                isAuthChecked: true,
+            };
+        });
+    },
 
     fetchData: async () => {
         set({ loading: true, error: null });
@@ -50,10 +75,26 @@ const useAuthStore = create<Store>((set) => ({
             localStorage.setItem('REEVTK', response.token);
 
             // Update store state
-            set({ data: [response], loading: false });
+            set({ data: [response], isAuthenticated: true, token: response.token, loading: false });
         } catch (error: any) {
             set({ error: error.message, loading: false });
         }
+    },
+
+    userReset: async (data) => {
+        set({ loading: true, error: null });
+        try {
+            const response: AuthResponse = await userReset(data); // API call
+             // Update store state
+            set({ data: [response], isAuthenticated: true, token: response.token, loading: false });
+        } catch (error: any) {
+            set({ error: error.message, loading: false });
+        }
+    },
+
+    logout: () => {
+        localStorage.removeItem('REEVTK');
+        set({ isAuthenticated: false, token: null });
     },
 }));
 

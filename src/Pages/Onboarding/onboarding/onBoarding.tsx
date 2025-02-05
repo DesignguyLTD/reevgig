@@ -42,7 +42,8 @@ const OnBoarding = () => {
 
 
     let navigate = useNavigate();
-    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
+    const ut = localStorage.getItem('userType') ??  'Client';
+   const UserType = ut.charAt(0).toUpperCase() + ut.slice(1).toLowerCase();
     const [stage, setStage] = React.useState(1);
     const [doneStage, setDoneStage] = React.useState({stage1: false, stage2: false, stage3: false});
     const [avatar, setAvatar] = useState<string>("https://res.cloudinary.com/do5wu6ikf/image/upload/v1721847923/Reev/Avatar09fff_wn6wgf.svg");

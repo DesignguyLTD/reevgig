@@ -29,3 +29,28 @@ export const userLogin = async (data: any) => {
         throw new Error('Error logging in');
     }
 };
+
+export const userReset = async (data: any) => {
+    try {
+        const response = await axiosInstance.post('/user/password-reset/', data); // Endpoint for creating data
+        return response.data;
+    } catch (error) {
+        throw new Error('Error Resetting');
+    }
+};
+
+export const userConfirmReset = async (data: { token: string; uidb64: string; dataP: {} }) => {
+    try {
+        // Construct the URL dynamically using template literals
+        const url = `/password-reset-confirm/${data.token}/${data.uidb64}`;
+
+        // Make the POST request
+        const response = await axiosInstance.post(url,
+            data.dataP, // Include other data in the request body
+        );
+
+        return response.data;
+    } catch (error) {
+        throw new Error('Error Resetting Password');
+    }
+};

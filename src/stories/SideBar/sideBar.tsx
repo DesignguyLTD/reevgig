@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import styles from './sideBar.module.css';
 import {Link, useNavigate} from "react-router-dom";
 import ProfileNav from "../../Components/DashBoard/ProfileNav";
+import LogoutPopup from '../../../src/Components/Auth/LogoutPopup';
+import useAuthStore from "../../store/AuthStore";
 
 interface SidebarProps {
     collapse?: boolean;
@@ -74,12 +76,27 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
     }, [isProfileOpen]);
 
     let navigate = useNavigate();
-    const handleNavigation = () => {
-        navigate('/saved');
+
+    const logout = useAuthStore((state: any) => state?.logout);
+
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleLogout = () => {
+        logout(); // Call the logout function
+        navigate('/login');
+        setIsPopupOpen(false);
     };
+
+
+
+
+
 
     return (
         <>
+
+
             <div className={styles.upperNav}>
                 <div style={{cursor: 'pointer'}} onClick={handleNavSearchDisplay}>
                     <img
@@ -128,6 +145,10 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                 </div>
             </div>
 
+            <div>
+                <LogoutPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}
+                             onConfirm={handleLogout}/>
+            </div>
             <div style={{position: 'relative'}}>
                 <div ref={navSearchRef}
                      className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${show ? styles.show : ''}`}>
@@ -348,18 +369,20 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                             }}
                         >
                             {isOpen ? (
-                                <div className={styles.dodo}>
+                                <div className={styles.dodo} onClick={() => setIsPopupOpen(true)}>
                                     <i className="fi fi-sr-exit"></i>
                                     Log out
                                 </div>
                             ) : (
-                                <div className={styles.dodom}>
+                                <div className={styles.dodom} onClick={() => setIsPopupOpen(true)}>
                                     <i className="fi fi-sr-exit"></i>
                                     <span className={styles.tooltiptext}>Log out</span>
                                 </div>
                             )}
                         </li>
                     </ul>
+
+
                 </div>
             </div>
         </>
