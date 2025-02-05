@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect} from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Login from './Pages/Onboarding/login/login';
 import OnBoarding from './Pages/Onboarding/onboarding/onBoarding';
@@ -20,10 +20,9 @@ import Talent from './Pages/DashBoard/savedTalents/talent';
 import { FullSlide } from './stories/Fullslider/fullSlide';
 import FreelancerApplication from './Pages/freelancerApplication/freelancerApplication';
 import GeneralLayout from './GeneralLayout';
-import useAuthStore from "./store/AuthStore";
-import ProtectedRoute from "./ProtectedRoute";
-import ProtectedResetPassword from "./Pages/Onboarding/resetPassword/ProtectedResetPassword";
-
+import useAuthStore from './store/AuthStore';
+import ProtectedRoute from './ProtectedRoute';
+import ProtectedResetPassword from './Pages/Onboarding/resetPassword/ProtectedResetPassword';
 
 const LandingPage = React.lazy(() => import('./Pages/LandingPage/LandingPage'));
 
@@ -32,18 +31,28 @@ const App: React.FC = () => {
     const checkAuth = useAuthStore((state) => state.checkAuth);
     const isAuthChecked = useAuthStore((state) => state.isAuthChecked);
 
-    // Check authentication status on app load
     useEffect(() => {
         checkAuth();
     }, [checkAuth]);
-    const ut = localStorage.getItem('userType') ??  'Client';
+
+    const ut = localStorage.getItem('userType') ?? 'Client';
     const userType = ut.charAt(0).toUpperCase() + ut.slice(1).toLowerCase();
 
+    const noSidebarRoutes = [
+        '/onboarding',
+        '/signup',
+        '/login',
+        '/resetpassword',
+        '/talents',
+        '/results',
+        '/password-reset-confirm',
+    ];
 
-    // Define routes where the sidebar should not be shown
-    const noSidebarRoutes = ['/', '/onboarding', '/signup', '/login', '/resetpassword', '/talents', '/results', '/password-reset-confirm/:uidb64/:token'];
+    // Modified check for root path
+    const shouldUseGeneralLayout =
+        location.pathname === '/' ||
+        noSidebarRoutes.some((route) => location.pathname.startsWith(route));
 
-    // Wait for auth check to complete before rendering
     if (!isAuthChecked) {
         return (
             <div className="loading">
@@ -69,32 +78,10 @@ const App: React.FC = () => {
                     </div>
                 }
             >
-                {!noSidebarRoutes.includes(location.pathname) ? (
-                    <DashboardLayout>
-                        <Routes>
-                            <Route element={<ProtectedRoute />}>
-                                <Route path="/accountSettings" element={<AccountSettings />} />
-                                <Route path="/notification" element={<NotificationPage />} />
-                                <Route path="/applicantprofile" element={<ApplicantProfilePage />} />
-                                <Route path="/jobapplication" element={<JobApplicationPage />} />
-                                <Route path="/overview" element={<OverviewPage userType={userType} />} />
-                                <Route path="/profile" element={<ProfileMain userType={userType} />} />
-                                <Route path="/postproject" element={<Jobs userType={userType} />} />
-                                <Route path="/message" element={<h1>Development in progress ....</h1>} />
-                                <Route path="/saved" element={<Talent />} />
-                                <Route path="/freelancer-application" element={<FreelancerApplication />} />
-                                <Route path="/help" element={<h1>Development in progress ....</h1>} />
-                                <Route path="/payment" element={<PaymentPage />} />
-                                <Route path="/settings" element={<Settings />} />
-                            </Route>
-                            <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>} />
-                        </Routes>
-                    </DashboardLayout>
-                ) : (
+                {shouldUseGeneralLayout ? (
                     <GeneralLayout>
                         <Routes>
                             <Route path="/password-reset-confirm/:uidb64/:token" element={<ProtectedResetPassword />} />
-
                             <Route
                                 path="/talents"
                                 element={
@@ -109,7 +96,7 @@ const App: React.FC = () => {
                                     />
                                 }
                             />
-                            <Route path="/results" element={<SearchResults />} />
+                                <Route path="/results" element={<SearchResults />} />
                             <Route path="/" element={<LandingPage />} />
                             <Route path="/signup" element={<SignUp />} />
                             <Route path="/login" element={<Login />} />
@@ -118,6 +105,28 @@ const App: React.FC = () => {
                             <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>} />
                         </Routes>
                     </GeneralLayout>
+                ) : (
+                    <DashboardLayout>
+                        <Routes>
+                            <Route element={<ProtectedRoute />}>
+                                {/* Dashboard routes remain the same */}
+                                <Route path="/accountSettings" element={<AccountSettings />} />
+                                <Route path="/notification" element={<NotificationPage />} />
+                                <Route path="/applicantprofile" element={<ApplicantProfilePage />} />
+                                <Route path="/jobapplication" element={<JobApplicationPage />} />
+                                <Route path="/overview" element={<OverviewPage userType={userType} />} />
+                                <Route path="/profile" element={<ProfileMain userType={userType} />} />
+                                <Route path="/postproject" element={<Jobs userType={userType} />} />
+                                <Route path="/message" element={<h1>Development in progress ....</h1>} />
+                                <Route path="/saved" element={<Talent />} />
+                                <Route path="/freelancer-application" element={<FreelancerApplication />} />
+                                <Route path="/help" element={<h1>Development in progress ....</h1>} />
+                                <Route path="/payment" element={<PaymentPage />} />
+                                <Route path="/settings" element={<Settings />} />
+                                <Route path="*" element={<h1>404 page <Link to={'/'}>Home</Link></h1>} />
+                            </Route>
+                        </Routes>
+                    </DashboardLayout>
                 )}
             </Suspense>
         </div>

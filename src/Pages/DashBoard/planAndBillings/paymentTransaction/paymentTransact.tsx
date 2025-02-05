@@ -14,14 +14,7 @@ interface PaymentTransProps {
 const PaymentTransact = ({getActivePage}: PaymentTransProps) => {
 
     useEffect(() => {
-        toast.info('Be rest assured that your payment is safe in your wallet till the project is completed', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-        });
+        toast.info('Be rest assured that your payment is safe in your wallet till the project is completed');
     }, []);
 
     return (

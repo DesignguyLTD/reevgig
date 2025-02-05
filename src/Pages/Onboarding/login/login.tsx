@@ -99,7 +99,7 @@ const Login = () => {
             try {
                 await userLogin(formValues);
                 toast.success('Login successful!');
-                navigate('/overview');
+                navigate('/');
             } catch (error) {
                 toast.error((error as { message?: string })?.message || 'Login failed');
             }
