@@ -35,6 +35,13 @@ const App: React.FC = () => {
         checkAuth();
     }, [checkAuth]);
 
+    const { data, loading, error, fetchData } = useAuthStore();
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
+
     const ut = localStorage.getItem('userType') ?? 'Client';
     const userType = ut.charAt(0).toUpperCase() + ut.slice(1).toLowerCase();
 

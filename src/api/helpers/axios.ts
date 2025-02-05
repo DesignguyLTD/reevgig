@@ -7,7 +7,49 @@ const axiosInstance = axios.create({
     },
 });
 
-axiosInstance.defaults.headers.common.Authorization = 'Bearer Api-Key XvtAppIE.RwyVYIdeZkjErNjhIwBKxZaTA5WWstJE';
+const tk = localStorage.getItem('REEVTK') ?? localStorage.getItem('REEVTK');
+
+const authConfig = {
+    "/user/token/": "Bearer",
+    "/user/create/": "Bearer",
+    "user/password-reset/": "Bearer",
+    "/user/password-reset-confirm/:uidb64/token/": "Bearer",
+    "user/resend_activation/": "Bearer",
+    "/user/me/": "Token",
+    '/user/profile/': 'Token'
+    //What you need to now is to specify the endpoint that requires the apiKey or Token. Thanks
+};
+
+axiosInstance.interceptors.request.use(
+    (config) => {
+        const apiKey = "Api-Key XvtAppIE.RwyVYIdeZkjErNjhIwBKxZaTA5WWstJE";
+        const token = tk;
+
+        // Ensure headers exist
+        config.headers = config.headers || {};
+
+        // Loop through authConfig to find a matching endpoint
+        for (const [endpoint, authType] of Object.entries(authConfig)) {
+            if (config.url?.includes(endpoint)) {
+                if (authType === "Bearer") {
+                    config.headers.Authorization = `Bearer ${apiKey}`;
+                } else if (authType === "Token") {
+                    config.headers.Authorization = `Token ${token}`;
+                }  else if (authType === "Both") {
+                    config.headers.Authorization = `Token ${token} Bearer ${apiKey}`;
+                }
+                break;
+            }
+        }
+
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+
 
 axiosInstance.interceptors.response.use(
     (response) => response,
@@ -17,4 +59,9 @@ axiosInstance.interceptors.response.use(
     }
 );
 
+
 export default axiosInstance;
+
+
+
+

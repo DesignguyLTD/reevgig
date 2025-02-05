@@ -2,12 +2,22 @@ import axiosInstance from "../helpers/axios";
 
 export const fetchData = async () => {
     try {
-        const response = await axiosInstance.get('/data'); // Endpoint to fetch data
+        const response = await axiosInstance.get('/user/me/'); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error fetching data');
+        throw new Error('Error fetching user data');
     }
 };
+
+export const fetchProfileData = async () => {
+    try {
+        const response = await axiosInstance.get('/user/profile/'); // Endpoint to fetch data
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching user data');
+    }
+};
+
 
 
 export const createData = async (data: any) => {

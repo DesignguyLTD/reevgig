@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import {createData, fetchData, userLogin, userReset} from '../api/Services/Auth';
+import {createData, fetchData, fetchProfileData, userLogin, userReset} from '../api/Services/Auth';
 
 
 interface Store {
@@ -46,6 +46,16 @@ const useAuthStore = create<Store>((set) => ({
     },
 
     fetchData: async () => {
+        set({ loading: true, error: null });
+        try {
+            const response = await fetchData(); // API call
+            set({ data: response, loading: false });
+        } catch (error: any) {
+            set({ error: error.message, loading: false });
+        }
+    },
+
+    fetchProfileData: async () => {
         set({ loading: true, error: null });
         try {
             const response = await fetchData(); // API call
