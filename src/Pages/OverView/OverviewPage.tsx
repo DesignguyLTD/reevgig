@@ -54,42 +54,47 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
             <div className={style.overview}>
               <div className={style.EstiActiveCont}>
                 <div className={style.EstimateCont}>
-                  <div className={style.Estimate}>
-                    <img
-                      src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752189/Reev/Frame_1171275861_qbbiiv.svg"
-                      alt="earn"
-                    />
-                    <div className={style.earnText}>Total money earned</div>
-                    <div className={style.earnValue}>$53,00989</div>
-                    <div className={style.increaseText}>
-                      <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Frame_1171275867_mjlidk.svg"
-                        alt="increase"
-                      />
-                      12% increase from last month
-                    </div>
-                  </div>
-                  <div
-                    className={style.Estimate}
-                    style={{ background: "rgba(240, 194, 116, 0.15)" }}
-                  >
-                    <img
-                      src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/client_ibnny6.svg"
-                      alt="earn"
-                    />
-                    <div className={style.earnText}>Clients</div>
-                    <div className={style.earnValue}>
-                      101 <span>/120</span>
-                    </div>
-                    <div className={style.increaseText}>
-                      <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Frame_1171275867_mjlidk.svg"
-                        alt="increase"
-                      />
-                      2% increase from last month
-                    </div>
-                  </div>
+                  {userType === 'Freelancer' ?
+                      <>
+                        <div><img
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1731883902/Reev/17th%20Nov/Project_List_ivjphi.svg"
+                            alt="graph 1"/></div>
+                        <div><img className={style.graph2}
+                                  src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1731890603/Reev/17th%20Nov/fProject_List_xmju23.svg"
+                                  alt="graph 2"/></div>
+                      </>
+                      :
+
+                      <>
+                        <div className={style.Estimate}>
+                          <img
+                              src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752189/Reev/Frame_1171275861_qbbiiv.svg"
+                              alt="earn"/>
+                          <div className={style.earnText}>Total money earned</div>
+                          <div className={style.earnValue}>$53,00989</div>
+                          <div className={style.increaseText}><img
+                              src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Frame_1171275867_mjlidk.svg"
+                              alt="increase"/>12% increase from last month
+                          </div>
+                        </div>
+                        <div className={style.Estimate}
+                             style={{background: 'rgba(240, 194, 116, 0.15)'}}>
+                          <img
+                              src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/client_ibnny6.svg"
+                              alt="earn"/>
+                          <div className={style.earnText}>Clients</div>
+                          <div className={style.earnValue}>101 <span>/120</span></div>
+                          <div className={style.increaseText}>
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Frame_1171275867_mjlidk.svg"
+                                alt="increase"/>2% increase from last month
+                          </div>
+                        </div>
+                      </>
+                  }
+
                 </div>
+
                 <div className={style.ActiveProjectCont}>
                   <div className={style.ActiveProject}>
                     <div className={style.ActiveProjectText}>
@@ -98,13 +103,13 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                     </div>
                     <div className={style.ActiveProjectBtn}>
                       <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Add_kzvi5c.svg"
-                        alt="Add"
+                          src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Add_kzvi5c.svg"
+                          alt="Add"
                       />
                       Add New Project
                     </div>
                   </div>
-                  <ResponsiveTable />
+                  <ResponsiveTable/>
                 </div>
               </div>
               {/*<div className={style.ProfileCont}>*/}
@@ -114,18 +119,18 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
           )}
 
           {header === "Job" && (
-            <div className={style.JobCtn}>
-              <JobApplication userType={""} />
-              <JobApplication userType={""} />
-              <JobApplication userType={""} />
-              <JobApplication userType={""} />
-            </div>
+              <div className={style.JobCtn}>
+                <JobApplication userType={""}/>
+                <JobApplication userType={""}/>
+                <JobApplication userType={""}/>
+                <JobApplication userType={""}/>
+              </div>
           )}
         </div>
       </div>
     </div>
 
-    // </div>
+      // </div>
   );
 };
 
