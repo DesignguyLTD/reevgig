@@ -32,7 +32,7 @@ export const postProfileData = async (data: any) => {
         const response = await axiosInstance.post('/user/profile/', data); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error fetching user data');
+        throw new Error('Error creating data');
     }
 };
 

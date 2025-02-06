@@ -253,7 +253,7 @@ const OnBoarding = () => {
     }
 
     const [loadingSubmit, setLoadingSubmit] = useState(false);
-
+    const [loadingClientSubmit, setLoadingClientSubmit] = useState(false);
 
     const handleForm3Submit = async () => {
         try {
@@ -310,6 +310,47 @@ const OnBoarding = () => {
         }
     };
 
+    const handleClientsSubmit = async () => {
+        setLoadingClientSubmit(true);
+        try {
+
+
+            const updatedFormData = {
+                ...formValues,
+                interests: tags,
+            };
+
+
+            console.log(updatedFormData);
+
+            try {
+                const isSuccess = await postProfileData(updatedFormData); // Call PatchData and check for success
+                if (isSuccess) {
+                    setStage(stage + 1);
+                    handleDone();
+                    toast.success('profile successfully!');
+                    setLoadingClientSubmit(false);
+                    // setLoadingSubmit(false);
+                    setUploadImage('');
+                } else {
+                    toast.error('Failed to Upload profile Data'); // Handle failure case
+                    setLoadingClientSubmit(false);
+                    setUploadImage('');
+                    // setLoadingSubmit(false);
+                }
+            } catch (error) {
+                setLoadingClientSubmit(false);
+                setUploadImage('');
+                console.error('Error submitting data:', error);
+                toast.error((error as { message?: string })?.message || 'Error submitting data');
+            }
+        } catch (error) {
+            setLoadingClientSubmit(false);
+            console.error('An error occurred:', error);
+            toast.error('An error occurred during submission');
+        }
+    };
+
     const handleNext = () => {
         if (stage !== 4) {
             if (stage === 2) {
@@ -324,8 +365,8 @@ const OnBoarding = () => {
                     if (!isTagValid) {
                         VibrateDiv2();
                     } else {
-                        setStage(stage + 1);
-                        handleDone();
+                    //     clients submission
+                        handleClientsSubmit();
                     }
                 }
             } else if (stage === 3 && UserType === 'Freelancer') {
@@ -900,7 +941,7 @@ const OnBoarding = () => {
 
                         <div className={styles.btnCont}>
                             <ButtonII
-                                label='Save         '
+                                label={ loadingClientSubmit ? 'Loading...' : ' Save' }
                                 primary={true}
                                 hasIcon={false}
                                 disabled={false}
