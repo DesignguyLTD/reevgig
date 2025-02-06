@@ -9,9 +9,27 @@ export const fetchData = async () => {
     }
 };
 
+export const PatchData = async (data: any) => {
+    try {
+        const response = await axiosInstance.patch('/user/me/', data); // Endpoint to fetch data
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching user data');
+    }
+};
+
 export const fetchProfileData = async () => {
     try {
         const response = await axiosInstance.get('/user/profile/'); // Endpoint to fetch data
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching user data');
+    }
+};
+
+export const postProfileData = async (data: any) => {
+    try {
+        const response = await axiosInstance.post('/user/profile/', data); // Endpoint to fetch data
         return response.data;
     } catch (error) {
         throw new Error('Error fetching user data');

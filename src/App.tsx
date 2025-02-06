@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import {Link, Route, Routes, useLocation, useNavigate} from 'react-router-dom';
 import Login from './Pages/Onboarding/login/login';
 import OnBoarding from './Pages/Onboarding/onboarding/onBoarding';
 import ResetPassword from './Pages/Onboarding/resetPassword/resetPassword';
@@ -24,9 +24,11 @@ import useAuthStore from './store/AuthStore';
 import ProtectedRoute from './ProtectedRoute';
 import ProtectedResetPassword from './Pages/Onboarding/resetPassword/ProtectedResetPassword';
 
+
 const LandingPage = React.lazy(() => import('./Pages/LandingPage/LandingPage'));
 
 const App: React.FC = () => {
+    const nav = useNavigate();
     const location = useLocation();
     const checkAuth = useAuthStore((state) => state.checkAuth);
     const isAuthChecked = useAuthStore((state) => state.isAuthChecked);
@@ -41,6 +43,13 @@ const App: React.FC = () => {
         fetchData();
     }, [fetchData]);
 
+
+    const userProfileData = [];
+
+    useEffect(() => {
+      if(userProfileData.length === 0){
+          nav('/onboarding');      }
+    }, [nav, userProfileData.length]);
 
     const ut = localStorage.getItem('userType') ?? 'Client';
     const userType = ut.charAt(0).toUpperCase() + ut.slice(1).toLowerCase();

@@ -5,31 +5,56 @@ import Input from "../../../stories/FieldInput-I/input";
 import Dropdown from "../../../stories/OtherInputsType/dropdown/dropdown";
 import PhoneInput from "../../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import {ButtonII} from "../../../stories/Button-II/ButtonII";
-import {states} from "./state";
-import {cities} from "./city";
 import TagUi from "../../../Components/TagUI/tagUI";
 import SuccessModal from "../../../Components/modals/successModal/successModal";
 import TagInput from "../../../Components/TagInput/tagInput";
-
 import {Experience, recommendedLanguages, recommendedSkills, tagData} from "./dataset";
 import FileUpload from "../../../Components/FileUpload/fileUpload";
-import Header from "../../../stories/Header/header";
+import {uploadToCloudinary} from "../../../api/UploadToCloudinary";
+import {toast} from "react-toastify";
+import {PatchData, postProfileData} from "../../../api/Services/Auth";
+
+
+// {
+//     "display_name": "string",
+//     "state": "string",
+//     "city": "string",
+//     "contact_number": "string",
+//     "professional_role": "string",
+//     "experience_level": "Beginner",
+//     "language_spoken": {
+//     "additionalProp1": "string",
+//         "additionalProp2": "string",
+//         "additionalProp3": "string"
+// },
+//     "skills": {
+//     "additionalProp1": "string",
+//         "additionalProp2": "string",
+//         "additionalProp3": "string"
+// },
+//     "interests": {
+//     "additionalProp1": "string",
+//         "additionalProp2": "string",
+//         "additionalProp3": "string"
+// },
+//     "company_name": "string"
+// }
 
 const OnBoarding = () => {
     interface FormValues {
-        DisplayName: string;
-        State: string;
-        City: string;
-        ContactNumber: string;
+        display_name: string;
+        state: string;
+        city: string;
+        contact_number: string;
         countryCode: string;
-        avater: string;
+        avatar: string;
     }
 
     interface FormValues2 {
-        ProfessionalRole: string;
-        Experience: string;
-        LanguageSpoken: string[];
-        SkillSet: string[];
+        professional_role: string;
+        experience_level: string;
+        language_spoken: string[];
+        skills: string[];
         PortfolioLink_1: string;
         PortfolioLink_2: string;
     }
@@ -49,11 +74,11 @@ const OnBoarding = () => {
     const [avatar, setAvatar] = useState<string>("https://res.cloudinary.com/do5wu6ikf/image/upload/v1721847923/Reev/Avatar09fff_wn6wgf.svg");
     const [langtags, setLangTags] = useState<string[]>(() => {
         const savedFormValues2 = localStorage.getItem('onboardingForm2');
-        return savedFormValues2 ? JSON.parse(savedFormValues2).LanguageSpoken : [];
+        return savedFormValues2 ? JSON.parse(savedFormValues2).language_spoken : [];
     });
     const [skilltags, setSkilltags] = useState<string[]>(() => {
             const savedFormValues2 = localStorage.getItem('onboardingForm2');
-            return savedFormValues2 ? JSON.parse(savedFormValues2).SkillSet : [];
+            return savedFormValues2 ? JSON.parse(savedFormValues2).skills : [];
         }
     );
     const [tags, setTags] = useState(() => {
@@ -73,22 +98,22 @@ const OnBoarding = () => {
     );
 
     const defaultFormValues2: FormValues2 = {
-        ProfessionalRole: '',
-        Experience: '',
-        LanguageSpoken: [],
-        SkillSet: [],
+        professional_role: '',
+        experience_level: '',
+        language_spoken: [],
+        skills: [],
         PortfolioLink_1: '',
         PortfolioLink_2: '',
     };
 
 
     const defaultFormValues: FormValues = {
-        DisplayName: '',
-        State: '',
-        City: '',
-        ContactNumber: '',
+        display_name: '',
+        state: '',
+        city: '',
+        contact_number: '',
         countryCode: '',
-        avater: '',
+        avatar: '',
     };
 
     const defaultFormValues3: FormValues3 = {
@@ -103,11 +128,10 @@ const OnBoarding = () => {
 
 
     const [formErrors, setFormErrors] = useState({
-        DisplayName: '',
-        State: '',
-        City: '',
-        ContactNumber: '',
-        avater: ''
+        display_name: '',
+        state: '',
+        city: '',
+        contact_number: '',
     });
 
 
@@ -116,10 +140,10 @@ const OnBoarding = () => {
         return savedFormValues2 ? JSON.parse(savedFormValues2) : defaultFormValues2;
     });
     const [formErrors2, setFormErrors2] = useState({
-        ProfessionalRole: '',
-        Experience: '',
-        LanguageSpoken: '',
-        SkillSet: '',
+        professional_role: '',
+        experience_level: '',
+        language_spoken: '',
+        skills: '',
         PortfolioLink_1: '',
         PortfolioLink_2: '',
     });
@@ -139,14 +163,14 @@ const OnBoarding = () => {
     useEffect(() => {
         setFormValues2(prevValues => ({
             ...prevValues,
-            LanguageSpoken: langtags
+            language_spoken: langtags
         }));
     }, [langtags]);
 
     useEffect(() => {
         setFormValues2(prevValues => ({
             ...prevValues,
-            SkillSet: skilltags
+            skills: skilltags
         }));
     }, [skilltags]);
 
@@ -169,7 +193,7 @@ const OnBoarding = () => {
     useEffect(() => {
         setFormValues(prevValues => ({
             ...prevValues,
-            avater: avatar
+            avatar: avatar
         }));
     }, [avatar]);
 
@@ -228,6 +252,64 @@ const OnBoarding = () => {
         return false;
     }
 
+    const [loadingSubmit, setLoadingSubmit] = useState(false);
+
+
+    const handleForm3Submit = async () => {
+        try {
+            let ValidId;
+            let ValidCV;
+            const fileDataURI = localStorage.getItem('fileLabelurlvalidID');
+            const fileName = localStorage.getItem('filenamevalidID');
+            if (fileDataURI && fileName) {
+                ValidId = await getUploadURL(fileDataURI, fileName);
+            }
+
+            const fileDataURIBith = localStorage.getItem('fileLabelurlvalidCV');
+            const fileNameBirth = localStorage.getItem('filenamevalidCV');
+            if (fileDataURIBith && fileNameBirth) {
+                ValidCV = await getUploadURL(fileDataURIBith, fileNameBirth);
+            }
+
+            const updatedFormData = {
+                ...formValues,
+                ...formValues2,
+                ...formValues3,
+                UserVerification: ValidId,
+                CV_PDF: ValidCV,
+            };
+
+
+            console.log(updatedFormData);
+
+            try {
+                const isSuccess = await postProfileData(updatedFormData); // Call PatchData and check for success
+                if (isSuccess) {
+                    setStage(stage + 1);
+                    handleDone();
+                    toast.success('Image Uploaded successfully!');
+                    setImageLoading(false);
+                    // setLoadingSubmit(false);
+                    setUploadImage('');
+                } else {
+                    toast.error('Failed to Upload Image'); // Handle failure case
+                    setImageLoading(false);
+                    setUploadImage('');
+                    // setLoadingSubmit(false);
+                }
+            } catch (error) {
+                setImageLoading(false);
+                setUploadImage('');
+                console.error('Error submitting data:', error);
+                toast.error((error as { message?: string })?.message || 'Error submitting image');
+            }
+        } catch (error) {
+            setLoadingSubmit(false);
+            console.error('An error occurred:', error);
+            toast.error('An error occurred during submission');
+        }
+    };
+
     const handleNext = () => {
         if (stage !== 4) {
             if (stage === 2) {
@@ -250,8 +332,8 @@ const OnBoarding = () => {
                 const formValues3 = validateForm3();
                 console.log(formValues3, 'formValues3');
                 if (formValues3) {
-                    setStage(stage + 1);
-                    handleDone();
+                    handleForm3Submit();
+
                 }
 
             } else {
@@ -305,18 +387,18 @@ const OnBoarding = () => {
         label: string;
     }
 
-    const handleDropdown = (option: DropdownOption) => {
-        setFormValues((prevState) => ({
-            ...prevState,
-            State: option.value,
-            City: option.value,
-        }));
-    };
+    // const handleDropdown = (option: DropdownOption) => {
+    //     setFormValues((prevState) => ({
+    //         ...prevState,
+    //         state: option.value,
+    //         city: option.value,
+    //     }));
+    // };
 
     const handleDropdown2 = (option: DropdownOption) => {
         setFormValues2((prevState) => ({
             ...prevState,
-            Experience: option.value,
+            experience_level: option.value,
 
         }));
     };
@@ -324,27 +406,27 @@ const OnBoarding = () => {
 
     const validateForm1 = () => {
         let newErrors = {
-            DisplayName: '',
-            State: '',
-            City: '',
-            ContactNumber: '',
-            avater: ''
+            display_name: '',
+            state: '',
+            city: '',
+            contact_number: '',
+            avatar: ''
         };
 
-        if (!formValues.DisplayName) {
-            newErrors.DisplayName = 'Display name is required';
+        if (!formValues.display_name) {
+            newErrors.display_name = 'Display name is required';
         }
 
-        if (!formValues.State) {
-            newErrors.State = 'State is required';
+        if (!formValues.state) {
+            newErrors.state = 'State is required';
         }
 
-        if (!formValues.City) {
-            newErrors.City = 'City is required';
+        if (!formValues.city) {
+            newErrors.city = 'City is required';
         }
 
-        if (!formValues.ContactNumber) {
-            newErrors.ContactNumber = 'Contact Number is required';
+        if (!formValues.contact_number) {
+            newErrors.contact_number = 'Contact Number is required';
         }
 
 
@@ -356,10 +438,10 @@ const OnBoarding = () => {
 
     const validateForm2 = () => {
         let newErrors = {
-            ProfessionalRole: '',
-            Experience: '',
-            LanguageSpoken: '',
-            SkillSet: '',
+            professional_role: '',
+            experience_level: '',
+            language_spoken: '',
+            skills: '',
             PortfolioLink_1: '',
             PortfolioLink_2: '',
         };
@@ -373,20 +455,20 @@ const OnBoarding = () => {
             '(\\#[-a-z\\d_]*)?$', 'i' // fragment locator
         );
 
-        if (!formValues2.ProfessionalRole) {
-            newErrors.ProfessionalRole = 'Professional Role is required';
+        if (!formValues2.professional_role) {
+            newErrors.professional_role = 'Professional Role is required';
         }
 
-        if (!formValues2.Experience) {
-            newErrors.Experience = 'Experience is required';
+        if (!formValues2.experience_level) {
+            newErrors.experience_level = 'Experience is required';
         }
 
-        if (!formValues2.LanguageSpoken.length) {
-            newErrors.LanguageSpoken = 'Language Spoken is required';
+        if (!formValues2.language_spoken.length) {
+            newErrors.language_spoken = 'Language Spoken is required';
         }
 
-        if (!formValues2.SkillSet.length) {
-            newErrors.SkillSet = 'Skill Set is required';
+        if (!formValues2.skills.length) {
+            newErrors.skills = 'Skill Set is required';
         }
 
         if (!formValues2.PortfolioLink_1 || !urlPattern.test(formValues2.PortfolioLink_1)) {
@@ -397,7 +479,7 @@ const OnBoarding = () => {
             newErrors.PortfolioLink_2 = 'Valid Portfolio Link 2 is required';
         }
 
-        setFormErrors2(newErrors);
+        setFormErrors2(newErrors as any);
 
         // If all values are valid, return true
         return !Object.values(newErrors).some(error => error !== '');
@@ -476,16 +558,56 @@ const OnBoarding = () => {
     };
 
 
+    const [loadingCloud, setLoadingCloud] = useState(false);
+    const [uploadStatus, setUploadStatus] = useState<string | null>(null);
+
+
+    const getUploadURL = (fileURL: string | null, fileName: string): Promise<string> => {
+        setLoadingCloud(true);
+        return new Promise((resolve, reject) => {
+            if (fileURL) {
+                setUploadStatus('Uploading...');
+                uploadToCloudinary(fileURL, fileName)
+                    .then((url: string) => {
+                        setLoadingCloud(false);
+                        setUploadStatus('Upload successful');
+                        resolve(url);
+                    })
+                    .catch((error: unknown) => {
+                        console.error('Error uploading file:', error);
+                        setUploadStatus('Upload failed');
+                        setLoadingCloud(false);
+                        reject(error);
+                    });
+            } else {
+                console.log('File undefined');
+                reject('File undefined');
+            }
+        });
+    };
+
+    const[uploadImage, setUploadImage] = useState('');
+
+
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const file = e.target.files?.[0];
         if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
             const maxSize = (1024 * 1024) / 2; // 0.5 MB
             if (file.size > maxSize) {
-                compressImage(file).then(({compressedImage, size}) => {
+                compressImage(file).then(({ compressedImage, size }) => {
                     setAvatar(compressedImage);
                     setCompressedSize(size);
-                    console.log(compressedSize ? compressedSize / 1024 / 1024 : 'n', file.size / 1024 / 1024)
+                    const fileDataURI = compressedImage;
+                    const fileName = file.name;
+                    const localURLName = 'DPName';
+                    const localFileName = 'DPfilename';
 
+                    // Save file data URI to localStorage
+                    localStorage.setItem(localURLName, fileDataURI);
+                    localStorage.setItem(localFileName, fileName);
+                    localStorage.setItem('AvatarImage', compressedImage);
+                    console.log(compressedSize ? compressedSize / 1024 / 1024 : 'n', file.size / 1024 / 1024);
+                    setUploadImage(compressedImage);
                 });
             } else {
                 const reader = new FileReader();
@@ -493,16 +615,26 @@ const OnBoarding = () => {
                     if (reader.result) {
                         setAvatar(reader.result as string);
                         setCompressedSize(file.size);
+                        const fileDataURI = reader.result as string;
+                        const fileName = file.name;
+                        const localURLName = 'DPName';
+                        const localFileName = 'DPfilename';
+
+                        // Save file data URI to localStorage
+                        localStorage.setItem(localURLName, fileDataURI);
+                        localStorage.setItem(localFileName, fileName);
+                        setUploadImage(reader.result as string);
                     }
                 };
                 reader.readAsDataURL(file);
             }
         } else {
             console.log('Please upload a PNG or JPG image.');
+            setUploadImage('failed');
         }
         localStorage.setItem('AvatarImage', avatar);
+        setUploadImage('failed');
     };
-
     const compressImage = (file: File): Promise<{ compressedImage: string; size: number }> => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -540,6 +672,54 @@ const OnBoarding = () => {
             reader.readAsDataURL(file);
         });
     };
+
+
+    const [imageLoading, setImageLoading] = useState<boolean>(false);
+    const handleDPSubmit = async () => {
+        setImageLoading(true);
+        try {
+            let DP;
+            const fileDataURI = localStorage.getItem('DPName');
+            const fileName = localStorage.getItem('DPfilename');
+            if (fileDataURI && fileName) {
+                DP = await getUploadURL(fileDataURI, fileName);
+            }
+
+            const updatedFormData = {
+                image: DP,
+            };
+
+            console.log(updatedFormData);
+
+            try {
+                const isSuccess = await PatchData(updatedFormData); // Call PatchData and check for success
+                if (isSuccess) {
+                    toast.success('Image Uploaded successfully!');
+                    setImageLoading(false);
+                    // setLoadingSubmit(false);
+                    setUploadImage('');
+                } else {
+                    toast.error('Failed to Upload Image'); // Handle failure case
+                    setImageLoading(false);
+                    setUploadImage('');
+                    // setLoadingSubmit(false);
+                }
+            } catch (error) {
+                setImageLoading(false);
+                setUploadImage('');
+                console.error('Error submitting data:', error);
+                toast.error((error as { message?: string })?.message || 'Error submitting image');
+            }
+        } catch (error) {
+            // setLoadingSubmit(false);
+            setImageLoading(false);
+            setUploadImage('');
+            console.error('An error occurred:', error);
+            toast.error('An error occurred during submission');
+        }
+    };
+
+
 
 
     const handleTagClick = (index: number) => {
@@ -616,13 +796,21 @@ const OnBoarding = () => {
                 {stage === 1 &&
                     <div className={styles.stageCont}>
                         <div className={styles.avaterCont}>
+
                             <div>
                                 <img src={avatar} alt="avater" className={styles.avaterimg}/>
                             </div>
 
                             <div className={styles.camera}>
-                                <input type="file" style={{opacity: '0', width: '100%', height: '100%'}}
-                                       onChange={handleImageChange} accept="image/png, image/jpeg"/>
+                                {uploadImage === '' ? (
+                                    <input type="file" style={{opacity: '0', width: '100%', height: '100%'}}
+                                           onChange={handleImageChange} accept="image/png, image/jpeg"/>
+                                ) : (
+                                    <button className={styles.ProfileImgsaveBtn} onClick={handleDPSubmit}
+                                            disabled={imageLoading}>
+                                        {imageLoading ? 'Loading...' : 'Save'}
+                                    </button>
+                                )}
                             </div>
 
                         </div>
@@ -630,20 +818,30 @@ const OnBoarding = () => {
                         <form className={styles.formContainer}>
                             <Input isTextArea={false} type={'text'} label='Display name'
                                    placeholder='others will see this name'
-                                   size='small' onChange={handleInputChange} name={'DisplayName'}
-                                   error={!!formErrors.DisplayName}
-                                   errorMessage={formErrors.DisplayName}
-                                   value={formValues.DisplayName}
+                                   size='small' onChange={handleInputChange} name={'display_name'}
+                                   error={!!formErrors.display_name}
+                                   errorMessage={formErrors.display_name}
+                                   value={formValues.display_name}
                             />
 
-                            <Dropdown options={states} defaultText='United State'
-                                      label='State/county' size='small' onChange={handleDropdown}
-                                      error={!!formErrors.State}
-                                      errorMessage={formErrors.State}/>
+                            <Input isTextArea={false} type={'text'}  label='State/county'
+                                   placeholder='State/county'
+                                   size='small' onChange={handleInputChange} name={'state'}
+                                   error={!!formErrors.state}
+                                   errorMessage={formErrors.state}
+                                   value={formValues.state}
+                            />
 
-                            <Dropdown options={cities} defaultText='United State'
-                                      label='City' size='small' onChange={handleDropdown} error={!!formErrors.City}
-                                      errorMessage={formErrors.City}/>
+                            <Input isTextArea={false} type={'text'} label='City'
+                                   placeholder='City'
+                                   size='small' onChange={handleInputChange} name={'city'}
+                                   error={!!formErrors.city}
+                                   errorMessage={formErrors.city}
+                                   value={formValues.city}
+                            />
+
+
+
 
                             <PhoneInput
                                 size={'small'}
@@ -654,9 +852,9 @@ const OnBoarding = () => {
                                 onChange={handleInputChange}
                                 placeholder={'Phone Number'}
                                 type={'text'}
-                                name={'ContactNumber'} error={!!formErrors.ContactNumber}
-                                errorMessage={formErrors.ContactNumber}
-                                value={formValues.ContactNumber}/>
+                                name={'contact_number'} error={!!formErrors.contact_number}
+                                errorMessage={formErrors.contact_number}
+                                value={formValues.contact_number}/>
 
 
                             <div className={styles.btn} ref={targetDivRef}>
@@ -742,26 +940,26 @@ const OnBoarding = () => {
 
                         <Input isTextArea={false} type={'text'} label='Professional Role'
                                placeholder='PCB Design, Project Management, Drone Development'
-                               size='small' onChange={handleInputChange2} name={'ProfessionalRole'}
-                               error={!!formErrors2.ProfessionalRole}
-                               errorMessage={formErrors2.ProfessionalRole}
-                               value={formValues2.ProfessionalRole}
+                               size='small' onChange={handleInputChange2} name={'professional_role'}
+                               error={!!formErrors2.professional_role}
+                               errorMessage={formErrors2.professional_role}
+                               value={formValues2.professional_role}
                         />
 
                         <Dropdown options={Experience} defaultText='Expert'
                                   label='Experience' size='small' onChange={handleDropdown2}
-                                  error={!!formErrors2.Experience}
-                                  errorMessage={formErrors2.Experience}/>
+                                  error={!!formErrors2.experience_level}
+                                  errorMessage={formErrors2.experience_level}/>
 
                         <TagInput
-                            error={!!formErrors2.LanguageSpoken}
-                            errorMessage={formErrors2.LanguageSpoken}
+                            error={!!formErrors2.language_spoken}
+                            errorMessage={formErrors2.language_spoken}
                             label={'Language Spoken'} recommendedTags={recommendedLanguages}
                             placeholder={'Enter preferred Languages'} maxTags={5} setTags={setLangTags}
                             tags={langtags}/>
                         <TagInput
-                            error={!!formErrors2.SkillSet}
-                            errorMessage={formErrors2.SkillSet}
+                            error={!!formErrors2.skills}
+                            errorMessage={formErrors2.skills}
                             label='Skill Set' recommendedTags={recommendedSkills}
                             placeholder={'Enter preferred Languages'} maxTags={10} setTags={setSkilltags}
                             tags={skilltags}/>
@@ -813,7 +1011,7 @@ const OnBoarding = () => {
                         <div className={styles.randCont}>
                             <div className={styles.fileHeader}>Valid Identification</div>
 
-                            <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'pngjpg'}
+                            <FileUpload vibrate={targetDivRef3} file={first} setFile={setFirst} id={'validID'}
                                         label={'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}
                                         allowedTypes={['image/png', 'image/jpeg']}/>
 
@@ -829,7 +1027,7 @@ const OnBoarding = () => {
                                    errorMessage={formErrors3.CVName}
                                    value={formValues3.CVName}
                             />
-                            <FileUpload vibrate={targetDivRef4} setFile={setSecond} file={second} id={'pdfdocx'}
+                            <FileUpload vibrate={targetDivRef4} setFile={setSecond} file={second} id={'validCV'}
                                         label={'Drag and Drop to Upload your CV/Resume'}
                                         allowedTypes={['application/pdf']}/>
 
@@ -840,7 +1038,7 @@ const OnBoarding = () => {
                         <br/>
                         <div className={styles.btnCont}>
                             <ButtonII
-                                label='Save'
+                                label= {loadingCloud? 'Saving Files...' : loadingSubmit ? 'Uploading...' : ' Save' }
                                 primary={true}
                                 hasIcon={false}
                                 disabled={false}

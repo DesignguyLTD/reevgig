@@ -1,5 +1,13 @@
 import { create } from 'zustand';
-import {createData, fetchData, fetchProfileData, userLogin, userReset} from '../api/Services/Auth';
+import {
+    createData,
+    fetchData,
+    fetchProfileData,
+    PatchData,
+    postProfileData,
+    userLogin,
+    userReset
+} from '../api/Services/Auth';
 
 
 interface Store {
@@ -11,10 +19,12 @@ interface Store {
     error: string | null;
     fetchData: () => Promise<void>;
     createData: (data: any) => Promise<boolean>;
+    PatchData: (data: any) => Promise<boolean>;
     userLogin: (data: { email: string; password: string }) => Promise<void>;
     userReset: (data: { email: string }) => Promise<void>;
     checkAuth: () => void;
     logout: () => void;
+    postProfileData: (data: any) => Promise<boolean>;
 }
 
 interface AuthResponse {
@@ -62,6 +72,30 @@ const useAuthStore = create<Store>((set) => ({
             set({ data: response, loading: false });
         } catch (error: any) {
             set({ error: error.message, loading: false });
+        }
+    },
+
+    PatchData: async (data) => {
+        set({ loading: true, error: null });
+        try {
+            const response = await PatchData(data); // Call the API
+            set((state) => ({ data: [...state.data, response], loading: false }));
+            return true; // Indicate success
+        } catch (error: any) {
+            set({ error: error.message, loading: false });
+            return false; // Indicate failure
+        }
+    },
+
+    postProfileData: async (data) => {
+        set({ loading: true, error: null });
+        try {
+            const response = await postProfileData(data); // Call the API
+            set((state) => ({ data: [...state.data, response], loading: false }));
+            return true; // Indicate success
+        } catch (error: any) {
+            set({ error: error.message, loading: false });
+            return false; // Indicate failure
         }
     },
 

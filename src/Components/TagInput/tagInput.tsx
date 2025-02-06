@@ -22,7 +22,7 @@ const TagInput: React.FC<TagInputProps> = ({
                                                label,
                                                tags,
                                                setTags,
-                                               recommendedTags,
+                                               recommendedTags =[],
                                                maxTags = 5,
                                                placeholder = "Enter Your Language"
                                            }) => {
@@ -62,7 +62,7 @@ const TagInput: React.FC<TagInputProps> = ({
             <div className={styles.tags} style={{border: error ? 'red 1px solid' : ''}}>
 
 
-                {tags.map((tag, index) => (
+                {tags?.map((tag, index) => (
                     <div key={index} className={styles.tag}>
                         {tag}
                         <button onClick={() => removeTag(tag)}>

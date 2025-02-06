@@ -71,13 +71,13 @@
     padding: 10px;
     background: rgb(39, 39, 39);
     color: rgb(217, 217, 217);
-    font-family: Mulish;
+    font-family: Mulish, Poppins;
     font-size: 12.91px;
     font-weight: 400;
     line-height: 19.37px;
     letter-spacing: 0;
     text-align: center;
-    width: 240px;
+    width: 100%;
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -224,6 +224,25 @@
     letter-spacing: 2px;
 }
 
+.loadingSpinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media (min-width: 768px) {
 
     .removeIcon {
@@ -282,7 +301,7 @@
     }
 
     .fileUploaded {
-        width: 480px;
+        /*width: 480px;*/
     }
 
     .fileUploadedCont {
@@ -325,6 +344,6 @@
     }
 
     .fileUploaded {
-        width: 500px;
+        /*width: 500px;*/
     }
 }

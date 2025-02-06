@@ -127,10 +127,23 @@
 
 
 .headerText {
-    max-width: 90%;
-    width: 100%;
+    max-width: 261px;
+    width: 93%;
     margin: 0 auto;
     padding: 8px;
+}
+
+.ProfileImgsaveBtn{
+    position: absolute;
+    top: 50%;
+    background: #000000;
+    font-family: "Satoshi Variable";
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 12px;
+    border: 1px solid white;
+    color: white;
 }
 
 .headerText h1 {
@@ -242,7 +255,7 @@
     }
 
     .headerText {
-        /*max-width: 506px;*/
+        max-width: 506px;
         width: 100%;
         margin: 0 auto;
 
@@ -300,8 +313,8 @@
 
 
     .headerText {
-        max-width: 600px;
-        width: 100%;
+        max-width: 532px;
+        width: 90%;
         margin: 0 auto;
 
     }

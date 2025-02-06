@@ -63,6 +63,14 @@ const FileUpload: React.FC<FileUploadProps> = ({vibrate, allowedTypes, id, label
             reader.onloadend = () => {
                 if (reader.result) {
                     setFile(reader.result as string);
+                    const fileDataURI = reader.result as string;
+                    const fileName = file.name;
+                    const localURLName = `fileLabelurl${id}`;
+                    const localFileName =  `filename${id}`;
+
+                    // Save file data URI to localStorage
+                    localStorage.setItem(localURLName, fileDataURI);
+                    localStorage.setItem(localFileName, fileName);
                 }
             };
             reader.readAsDataURL(file);
@@ -116,18 +124,20 @@ const FileUpload: React.FC<FileUploadProps> = ({vibrate, allowedTypes, id, label
                     />
                     <p className={styles.firstText}>{label ? label : 'Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)'}</p>
                     {loading && <p>Loading...</p>}
+                    <div className={styles.secText}>File should be in {filteredTypes.join(', ')} format and not more
+                        than 5MB
+                    </div>
                 </div>)
             }
 
             {file && <div className={styles.fileUploadedCont}>
-                <p className={styles.fileUploaded}>{truncateFileName(fileLabel, 20)} <img onClick={removeFile}
+                <p className={styles.fileUploaded}>{truncateFileName(fileLabel, 35)} <img onClick={removeFile}
                                                                                           src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/close_2_lu7wkf.svg"
                                                                                           alt="close"/></p>
-                <div className={styles.yellowunderline}></div>
+                {loading && <div className={styles.loadingSpinner} style={{ animationDuration: '5s' }}></div>}
             </div>}
             <br/>
-            <div className={styles.secText}>File should be in {filteredTypes.join(', ')} format and not more than 5mb
-            </div>
+
             {error && <div className={styles.error}>{error}</div>}
         </div>
     );
