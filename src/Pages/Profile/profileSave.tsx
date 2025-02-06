@@ -14,6 +14,9 @@ import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import TagInput from "../../Components/TagInput/tagInput";
 import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
+import {postProfileData} from "../../api/Services/Auth";
+import {toast} from "react-toastify";
+import {uploadToCloudinary} from "../../api/UploadToCloudinary";
 
 interface Props {
   page: number;
@@ -23,16 +26,26 @@ interface Props {
 
 const ProfileSave = ({ page, setPage, userType }: Props) => {
   interface FormValues {
-    DisplayName: string;
-    Firstname: string;
-    Lastname: string;
+    display_name: string;
+    first_name: string;
+    last_name: string;
     email: string;
-    Country: string;
-    State: string;
-    City: string;
-    contactNumber: string;
+    country: string;
+    state: string;
+    city: string;
+    contact_number: string;
     countryCode: string;
     avatar: string;
+    bio: string;
+    interests: string[];
+    skills: string[];
+    language_spoken: string[];
+    UserVerification: string;
+    CVFIle: string;
+    PortfolioLink_1: string;
+    PortfolioLink_2:string;
+    CVName: string;
+
   }
 
   interface OptionType {
@@ -42,9 +55,9 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
 
   // const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    setPage(1);
-  };
+
+
+
 
   const imageList: string[] = [
     "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611444/Group_9_Copy_2_iqlh3i.svg",
@@ -64,16 +77,25 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
   const [selectImages, setSelectImages] = useState<string>(imageList[2]);
 
   const defaultFormValues: FormValues = {
-    DisplayName: "",
-    Firstname: "",
-    Lastname: "",
+    display_name: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    Country: "",
-    State: "",
-    City: "",
-    contactNumber: "",
+    country: "",
+    state: "",
+    city: "",
+    contact_number: "",
     countryCode: "",
     avatar: imageList[6],
+    bio: '',
+    interests: [],
+    skills: [],
+    language_spoken: [],
+    UserVerification: '',
+    CVFIle: '',
+    PortfolioLink_1: '',
+    PortfolioLink_2: '',
+    CVName: '',
   };
 
   const [formValues, setFormValues] = useState<FormValues>(() => {
@@ -104,10 +126,10 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     if (savedData) {
       const parsedData = JSON.parse(savedData) as FormValues;
       setFormValues(parsedData);
-      setCountryCode(parsedData.Country);
-      setStateCode(parsedData.State);
+      setCountryCode(parsedData.country);
+      setStateCode(parsedData.state);
       setPhoneNumber(parsedData.email);
-      setPhoneNumber(parsedData.contactNumber);
+      setPhoneNumber(parsedData.contact_number);
     }
 
     const countryList = Country.getAllCountries().map((country) => ({
@@ -145,7 +167,7 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     const countryCode = options.value;
     setFormValues((prevValues) => ({
       ...prevValues,
-      Country: options.label,
+      country: options.label,
     }));
     setCountryCode(countryCode);
     setStateCode(null);
@@ -192,8 +214,8 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
 
     setFormValues((prevValues) => ({
       ...prevValues,
-      State: option.label,
-      City: "",
+      state: option.label,
+      city: "",
     }));
 
     setStateCode(stateCodes);
@@ -208,7 +230,7 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
 
       setFormValues((prevValues) => ({
         ...prevValues,
-        City: cityList[0].label,
+        city: cityList[0].label,
       }));
 
       setCities(cityList);
@@ -221,7 +243,7 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       countryCode: selectedPhoneCode,
-      contactNumber: phoneNumber,
+      contact_number: phoneNumber,
     }));
 
     setPhoneCode((prevState) =>
@@ -264,12 +286,17 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
 
   const [profileLang, setprofileLang] = useState<string[]>(() => {
     const savedFormValues2 = localStorage.getItem("ProfileForm");
-    return savedFormValues2 ? JSON.parse(savedFormValues2).profileLang : [];
+    return savedFormValues2 ? JSON.parse(savedFormValues2).language_spoken : [];
   });
 
   const [profileIntrest, setprofileIntrest] = useState<string[]>(() => {
     const savedFormValues2 = localStorage.getItem("ProfileForm");
-    return savedFormValues2 ? JSON.parse(savedFormValues2).profileIntrest : [];
+    return savedFormValues2 ? JSON.parse(savedFormValues2).interests : [];
+  });
+
+  const [profileSkills, setprofileSkills] = useState<string[]>(() => {
+    const savedFormValues2 = localStorage.getItem("ProfileForm");
+    return savedFormValues2 ? JSON.parse(savedFormValues2).skills : [];
   });
 
   const [first, setFirst] = useState<string | null>(() => {
@@ -277,6 +304,13 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     return savedFormValues2
       ? JSON.parse(savedFormValues2).UserVerification
       : "";
+  });
+
+  const [second, setSecond] = useState<string | null>(() => {
+    const savedFormValues2 = localStorage.getItem("ProfileForm");
+    return savedFormValues2
+        ? JSON.parse(savedFormValues2).CVFIle
+        : "";
   });
 
   const targetDivRef3 = useRef<HTMLDivElement>(null);
@@ -292,10 +326,143 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
 
   // VibrateDiv3()
 
+  useEffect(() => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      language_spoken: profileLang
+    }));
+  }, [profileLang]);
+
+  useEffect(() => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      skills: profileSkills
+    }));
+  }, [profileSkills]);
+
+  useEffect(() => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      interests: profileIntrest
+    }));
+  }, [profileIntrest]);
+
+  // const handlePublicSubmit =()=>{
+  //
+  // }
+
+
+  const [loadingCloud, setLoadingCloud] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState<string | null>(null);
+
+
+  const getUploadURL = (fileURL: string | null, fileName: string): Promise<string> => {
+    setLoadingCloud(true);
+    return new Promise((resolve, reject) => {
+      if (fileURL) {
+        setUploadStatus('Uploading...');
+        uploadToCloudinary(fileURL, fileName)
+            .then((url: string) => {
+              setLoadingCloud(false);
+              setUploadStatus('Upload successful');
+              resolve(url);
+            })
+            .catch((error: unknown) => {
+              console.error('Error uploading file:', error);
+              setUploadStatus('Upload failed');
+              setLoadingCloud(false);
+              reject(error);
+            });
+      } else {
+        console.log('File undefined');
+        reject('File undefined');
+      }
+    });
+  };
+
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
+
+  const [imageLoading, setImageLoading] = useState<boolean>(false);
+
+  const[uploadImage, setUploadImage] = useState('');
+
+  const handleSubmitedit = async () => {
+    setLoadingSubmit(true);
+
+    try {
+      let ValidId;
+      let ValidCV;
+      const fileDataURI = localStorage.getItem('fileLabelurleditID');
+      const fileName = localStorage.getItem('filenameeditID');
+      if (fileDataURI && fileName) {
+        ValidId = await getUploadURL(fileDataURI, fileName);
+      }
+
+      const fileDataURIBith = localStorage.getItem('fileLabelurleditCV');
+      const fileNameBirth = localStorage.getItem('filenameeditCV');
+      if (fileDataURIBith && fileNameBirth) {
+        ValidCV = await getUploadURL(fileDataURIBith, fileNameBirth);
+      }
+
+      const updatedFormData = {
+        UserVerification: ValidId,
+        CVFIle: ValidCV,
+      };
+
+      Object.keys(formValues).forEach(key => {
+        if (formValues[key as keyof FormValues] !== defaultFormValues[key as keyof FormValues] &&
+            !(
+                (key === 'interests' || key === 'language_spoken' || key === 'skills') &&
+                formValues[key as keyof FormValues].length === 0
+            )) {
+          (updatedFormData as any)[key as keyof FormValues] = formValues[key as keyof FormValues];
+        }
+      });
+
+
+
+      console.log(updatedFormData);
+
+      try {
+        const isSuccess = await postProfileData(updatedFormData); // Call PatchData and check for success
+        if (isSuccess) {
+          toast.success('Image Uploaded successfully!');
+          setImageLoading(false);
+          setLoadingSubmit(false);
+          setUploadImage('');
+          setPage(1);
+        } else {
+          toast.error('Failed to Upload Image'); // Handle failure case
+          setImageLoading(false);
+          setUploadImage('');
+          setLoadingSubmit(false);
+        }
+      } catch (error) {
+        setImageLoading(false);
+        setUploadImage('');
+        setLoadingSubmit(false);
+
+        console.error('Error submitting data:', error);
+        toast.error((error as { message?: string })?.message || 'Error submitting image');
+      }
+    } catch (error) {
+      setLoadingSubmit(false);
+
+      console.error('An error occurred:', error);
+      toast.error('An error occurred during submission');
+    }
+  };
+
+
+  const handleSubmit = () => {
+    handleSubmitedit();
+  };
+
+
   return (
     <>
       <Helmet>
-        <title>Profile Editor</title>
+        <title>Profile</title>
         <meta
           name="description"
           content="This content of the profile from the onboarding that can be edited"
@@ -372,14 +539,17 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                   label="Display Name"
                   size="small"
                   isTextArea={false}
-                  name="DisplayName"
-                  value={formValues.DisplayName}
+                  name="display_name"
+                  value={formValues.display_name}
                   placeholder="Others will see this name"
                   onChange={handleInputChange}
                 />
                 <br />
                 <Input
                   size="small"
+                  value={formValues.bio}
+                  onChange={handleInputChange}
+                  name='bio'
                   isTextArea={true}
                   placeholder="I am a"
                   label="About me (professional info only)"
@@ -398,39 +568,56 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                     tags={profileLang}
                   />
                 </div>
+                {userType === "Freelancer" && (
+                    <div>
+                      <TagInput
+                          label="Skills"
+                          recommendedTags={recommendedIntrests}
+                          placeholder={"Enter Skills"}
+                          maxTags={2}
+                          setTags={setprofileSkills}
+                          tags={profileSkills}
+                      />
+                    </div>
+                )}
 
-                <div>
-                  <TagInput
-                    label="Intrests"
-                    recommendedTags={recommendedIntrests}
-                    placeholder={"Enter Intrests"}
-                    maxTags={2}
-                    setTags={setprofileIntrest}
-                    tags={profileIntrest}
-                  />
-                </div>
+                {userType === "Client" && (
+                    <div>
+                      <TagInput
+                          label="Intrests"
+                          recommendedTags={recommendedIntrests}
+                          placeholder={"Enter Intrests"}
+                          maxTags={2}
+                          setTags={setprofileIntrest}
+                          tags={profileIntrest}
+                      />
+                    </div>
+                )}
+
+
               </div>
 
               {userType === "Freelancer" && (
-                <div>
-                  <Input
-                    isTextArea={false}
-                    type={"text"}
-                    label="CV/Resume Name"
-                    placeholder="Circuit Design CV"
-                    size="small"
-                    name={"CVName"}
+                  <div>
+                    <Input
+                        isTextArea={false}
+                        type={"text"}
+                        label="CV/Resume Name"
+                        placeholder="Circuit Design CV"
+                        size="small"
+                        value={formValues.CVName}
+
+                        onChange={handleInputChange}
+                        name={"CVName"}
                   />
                   <br />
                   <FileUpload
                     vibrate={targetDivRef3}
                     file={first}
                     setFile={setFirst}
-                    id={"pngjpg"}
-                    label={
-                      "Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)"
-                    }
-                    allowedTypes={["image/png", "image/jpeg"]}
+                    id={"editCV"}
+                    label={'Drag and Drop to Upload your CV/Resume'}
+                    allowedTypes={['application/pdf']}
                   />
 
                   <br />
@@ -441,7 +628,10 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                     label="Portfolio Link 1"
                     placeholder="pinterest.com/portfoliolink"
                     size="small"
-                    name={"CVName"}
+                    onChange={handleInputChange}
+                    name={"PortfolioLink_1"}
+                    value={formValues.PortfolioLink_1}
+
                   />
                   <br />
                   <Input
@@ -450,7 +640,10 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                     label="Portfolio Link 1"
                     placeholder="pinterest.com/portfoliolink"
                     size="small"
-                    name={"CVName"}
+                    onChange={handleInputChange}
+                    name={"PortfolioLink_2"}
+                    value={formValues.PortfolioLink_2}
+
                   />
                 </div>
               )}
@@ -462,21 +655,21 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                 <div className={style.name}>
                   <div>
                     <Input
-                      value={formValues.Firstname}
+                      value={formValues.first_name}
                       label="First Name"
                       isTextArea={false}
-                      name="Firstname"
+                      name="first_name"
                       placeholder="First name"
                       onChange={handleInputChange}
                     />
                   </div>
                   <div>
                     <Input
-                      value={formValues.Lastname}
+                      value={formValues.last_name}
                       label="Last Name"
                       size="small"
                       isTextArea={false}
-                      name="Lastname"
+                      name="last_name"
                       placeholder="Last name"
                       onChange={handleInputChange}
                     />
@@ -527,7 +720,10 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                   <div className="dropdown">
                     <Dropdown
                       label="City"
-                      onChange={(option: OptionType) => null}
+                      onChange={(option: OptionType) => setFormValues((prevValues) => ({
+                        ...prevValues,
+                        city: option.label,
+                      }))}
                       options={cities}
                       defaultText={"Choose City"}
                       size="small"
@@ -551,7 +747,7 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                       setPhoneNumber(e.target.value);
                       setFormValues((prevValues) => ({
                         ...prevValues,
-                        contactNumber: e.target.value,
+                        contact_number: e.target.value,
                       }));
                     }}
                   />
@@ -561,9 +757,9 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
                 <br />
                 <FileUpload
                   vibrate={targetDivRef3}
-                  file={first}
-                  setFile={setFirst}
-                  id={"pngjpg"}
+                  file={second}
+                  setFile={setSecond}
+                  id={"editID"}
                   label={
                     "Drag and Drop to Upload your Valid ID card (National ID, Driver’s license, International Passport)"
                   }
@@ -577,8 +773,8 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
             <ButtonII
               hasIcon={false}
               isLabelVisible={true}
-              label={"Save and Continue"}
-              onClick={handleNavigate}
+              label=  {loadingCloud? 'Saving Files...' : loadingSubmit ? 'Uploading...' : "Save and Continue" }
+              onClick={handleSubmit}
               primary={true}
               size="medium"
             />

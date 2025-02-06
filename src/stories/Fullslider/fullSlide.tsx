@@ -109,128 +109,187 @@ export const FullSlide = ({
             </div>
 
             <div className={styling.content}>
-              <div
-                  className={styling.first_side}
-                  style={{marginBottom: "2rem"}}>
-                <div className={styling.slider}>
-                  <PictureSlider
-                      images={[
-                        `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                        `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                        `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                        `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                        `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                        `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
-                      ]}
-                  />
-                </div>
-                <div className={styling.desc}>
-                  <h2>Description</h2>
-                  <div className={styling.desc_words}>
-                    <p className={styling.passage}>
-                      Here at Velstar, we don't just make websites, we create
-                      exceptional digital experiences that consumers love. Our
-                      team of designers, developers, strategists, and creators
-                      work together to push brands to the next level. From
-                      Platform Migration, User Experience & User Interface Design,
-                      to Digital Marketing, we have a proven track record in
-                      delivering outstanding eCommerce solutions and driving sales
-                      for our clients. <br/> Here at Velstar, we don't just make
-                      websites, we create exceptional digital experiences that
-                      consumers love. Our team of designers, developers,
-                      strategists, and creators work together to push brands to
-                      the next level. From Platform Migration, User Experience &
-                      User Interface Design, to Digital Marketing, we have a
-                      proven track record in delivering outstanding eCommerce
-                      solutions and driving sales for our clients.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className={styling.second_side}>
-                {/* This is the rating */}
-                <div className={styling.rate_ctn}>
-                  <div>
-                    <p className={styling.rtn}>Rate</p>
-                    <p className={styling.mny}>$50,000 - $80,000</p>
-                    <p className={styling.rtn}>Monthly</p>
-                  </div>
-                  <div className={styling.hr}></div>
-                  <div className={styling.skill_ctn}>
-                    <p className={styling.skill}>Skills</p>
-                    <div className={styling.hold_skill}>
-                      <p className={styling.sk_set}>JavaScript</p>
-                      <p className={styling.sk_set}>3D Modelling</p>
+                <div
+                    className={styling.first_side}
+                    style={{marginBottom: "2rem"}}>
+                    <div className={styling.slider}>
+                        <PictureSlider
+                            images={[
+                                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                                `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727798570/Pexels_Photo_by_Athena_Sandrini_ezoter.svg`,
+                            ]}
+                        />
                     </div>
-                  </div>
-                </div>
-
-                {/* This is the overview */}
-                <Overview
-                    projectNumber="55+"
-                    experienceNumber="3 years"
-                    skillLevel="Beginner"
-                    joinedSince="July 2015"
-                    ratingNumber="4.8"
-                    Languages={["English", "Yoruba"]}
-                />
-
-                {/* for the resume */}
-
-                <div className={styling.resume}>
-                  <div>
-                    <h2>View my Resume</h2>
-                    <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                        }}>
-                      <img
-                          src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728239943/Vector_4_vugymp.svg"
-                          alt=""
-                      />
-                      <p>Jerom Bells.pdf</p>
+                    <div className={styling.desc}>
+                        <h2>Description</h2>
+                        <div className={styling.desc_words}>
+                            <p className={styling.passage}>
+                                Here at Velstar, we don't just make websites, we create
+                                exceptional digital experiences that consumers love. Our
+                                team of designers, developers, strategists, and creators
+                                work together to push brands to the next level. From
+                                Platform Migration, User Experience & User Interface Design,
+                                to Digital Marketing, we have a proven track record in
+                                delivering outstanding eCommerce solutions and driving sales
+                                for our clients. <br/> Here at Velstar, we don't just make
+                                websites, we create exceptional digital experiences that
+                                consumers love. Our team of designers, developers,
+                                strategists, and creators work together to push brands to
+                                the next level. From Platform Migration, User Experience &
+                                User Interface Design, to Digital Marketing, we have a
+                                proven track record in delivering outstanding eCommerce
+                                solutions and driving sales for our clients.
+                            </p>
+                        </div>
                     </div>
-                  </div>
-                  <button className={styling.resume_upload}>
-                    <img
-                        src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728239942/download_mkreok.svg"
-                        alt=""
-                    />
-                  </button>
+                    <div className={styling.below}>
+                        <div className={styling.review}>
+                            <Reviews
+                                five={100}
+                                four={300}
+                                three={150}
+                                two={20}
+                                one={8}
+                                star={[
+                                    `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
+                                    `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
+                                ]}
+                                starPoint={4.9}
+                            />
+                        </div>
+
+                        <div className={styling.responseDiv}>
+                            <Response
+                                userName={"User's Name"}
+                                review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
+                                timePeriod={"2 weeks ago"}
+                                star={[
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                ]}
+                                starNumber={4}
+                                sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
+                                sellerName="Seller's name"
+                            />
+                        </div>
+
+                        <div className={styling.responseDivTwo}>
+                            <Response
+                                userName={"User's Name"}
+                                review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
+                                timePeriod={"2 weeks ago"}
+                                star={[
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
+                                ]}
+                                starNumber={4}
+                                sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
+                                sellerName="Seller's name"
+                            />
+                        </div>
+                        <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
+                            <p>See more</p>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728397633/arrow-right1_hktwcu.svg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
                 </div>
+                <div className={styling.second_side}>
+                    {/* This is the rating */}
+                    <div className={styling.rate_ctn}>
+                        <div>
+                            <p className={styling.rtn}>Rate</p>
+                            <p className={styling.mny}>$50,000 - $80,000</p>
+                            <p className={styling.rtn}>Monthly</p>
+                        </div>
+                        <div className={styling.hr}></div>
+                        <div className={styling.skill_ctn}>
+                            <p className={styling.skill}>Skills</p>
+                            <div className={styling.hold_skill}>
+                                <p className={styling.sk_set}>JavaScript</p>
+                                <p className={styling.sk_set}>3D Modelling</p>
+                            </div>
+                        </div>
+                    </div>
 
-                {/* This is for the portfolio */}
-
-                <div className={styling.resume}>
-                  <div>
-                    <h2>Portfolio</h2>
-
-                    <p
-                        style={{
-                          color: "#007AFF",
-                        }}>
-                      http://porfoliolink.com
-                    </p>
-                  </div>
-                  <button className={styling.resume_upload}>
-                    <img
-                        src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1737325936/Frame_1618869429_ammuuf.svg"
-                        alt=""
+                    {/* This is the overview */}
+                    <Overview
+                        projectNumber="55+"
+                        experienceNumber="3 years"
+                        skillLevel="Beginner"
+                        joinedSince="July 2015"
+                        ratingNumber="4.8"
+                        Languages={["English", "Yoruba"]}
                     />
-                  </button>
-                </div>
 
-                {/* this is the cards section */}
+                    {/* for the resume */}
 
-                <div className={styling.recommended}>
-                  <h1>Recommended For You</h1>
-                  <div className={styling.recommend}>
-                    <CardsOne
-                        profileImage={
-                          "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
-                        }
+                    <div className={styling.resume}>
+                        <div>
+                            <h2>View my Resume</h2>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                }}>
+                                <img
+                                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728239943/Vector_4_vugymp.svg"
+                                    alt=""
+                                />
+                                <p>Jerom Bells.pdf</p>
+                            </div>
+                        </div>
+                        <button className={styling.resume_upload}>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728239942/download_mkreok.svg"
+                                alt=""
+                            />
+                        </button>
+                    </div>
+
+                    {/* This is for the portfolio */}
+
+                    <div className={styling.resume}>
+                        <div>
+                            <h2>Portfolio</h2>
+
+                            <p
+                                style={{
+                                    color: "#007AFF",
+                                }}>
+                                http://porfoliolink.com
+                            </p>
+                        </div>
+                        <button className={styling.resume_upload}>
+                            <img
+                                src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1737325936/Frame_1618869429_ammuuf.svg"
+                                alt=""
+                            />
+                        </button>
+                    </div>
+
+                    {/* this is the cards section */}
+
+                    <div className={styling.recommended}>
+                        <h1>Recommended For You</h1>
+                        <div className={styling.recommend}>
+                            <CardsOne
+                                profileImage={
+                                    "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
+                                }
                         companyName={"Recruiter/Company's name"}
                         timeFrame={"Part Time"}
                         mainSkill={"Circuit Design"}
@@ -272,68 +331,10 @@ export const FullSlide = ({
               </div>
             </div>
 
-            <div className={styling.below}>
-              <div className={styling.review}>
-                <Reviews
-                    five={700}
-                    four={300}
-                    three={150}
-                    two={20}
-                    one={8}
-                    star={[
-                      `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
-                      `https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg`,
-                    ]}
-                    starPoint={4.9}
-                />
-              </div>
 
-              <div className={styling.responseDiv}>
-                <Response
-                    userName={"User's Name"}
-                    review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
-                    timePeriod={"2 weeks ago"}
-                    star={[
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                    ]}
-                    starNumber={4}
-                    sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
-                    sellerName="Seller's name"
-                />
-              </div>
-
-              <div className={styling.responseDivTwo}>
-                <Response
-                    userName={"User's Name"}
-                    review="Great work! I wanted a video to showcase my fitness app and the designer delivered an excellent job and on time. highly satisfied. thank you!"
-                    timePeriod={"2 weeks ago"}
-                    star={[
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                      "https://res.cloudinary.com/dvjx9x8l9/image/upload/v1727817652/Frame_rpzopj.svg",
-                    ]}
-                    starNumber={4}
-                    sellerImage="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1722611446/Group_16_Copy_2_n0jltw.svg"
-                    sellerName="Seller's name"
-                />
-              </div>
-              <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
-                <p>See more</p>
-                <img
-                    src="https://res.cloudinary.com/dvjx9x8l9/image/upload/v1728397633/arrow-right1_hktwcu.svg"
-                    alt=""
-                />
-              </div>
-            </div>
           </div>
           <div>
-            <Footer/>
+            {/*<Footer/>*/}
           </div>
         </div>
       </>

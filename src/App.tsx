@@ -44,7 +44,7 @@ const App: React.FC = () => {
     }, [fetchData]);
 
 
-    const userProfileData = [];
+    const userProfileData = ['dd','dd'];
 
     useEffect(() => {
       if(userProfileData.length === 0){

@@ -19,8 +19,6 @@ const Profile = ({ setPage, userType }: Props) => {
     toast.warn(
       "Your personal information will not be visible to the public, this is for KYC purposes",
       {
-        position: "top-right",
-        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -170,7 +168,7 @@ const Profile = ({ setPage, userType }: Props) => {
                 </div>
 
                 <div className={style.bottomIntrests}>
-                  <div className={style.topUserNametext}>Intrests</div>
+                  <div className={style.topUserNametext}>{userType === "Freelancer" ? 'Skills' : 'Intrests'}</div>
                   <div className={style.profileTagsCtn}>
                     <div className={style.profileTags}>Hardware</div>
                     <div className={style.profileTags}>PHP</div>
