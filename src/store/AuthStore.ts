@@ -3,7 +3,7 @@ import {
     createData,
     fetchData,
     fetchProfileData,
-    PatchData,
+    PatchData, patchProfileData,
     postProfileData,
     userLogin,
     userReset
@@ -25,6 +25,7 @@ interface Store {
     checkAuth: () => void;
     logout: () => void;
     postProfileData: (data: any) => Promise<boolean>;
+    patchProfileData: (data: any) => Promise<boolean>;
 }
 
 interface AuthResponse {
@@ -98,6 +99,19 @@ const useAuthStore = create<Store>((set) => ({
             return false; // Indicate failure
         }
     },
+
+    patchProfileData: async (data) => {
+        set({ loading: true, error: null });
+        try {
+            const response = await patchProfileData(data); // Call the API
+            set((state) => ({ data: [...state.data, response], loading: false }));
+            return true; // Indicate success
+        } catch (error: any) {
+            set({ error: error.message, loading: false });
+            return false; // Indicate failure
+        }
+    },
+
 
     createData: async (data) => {
         set({ loading: true, error: null });

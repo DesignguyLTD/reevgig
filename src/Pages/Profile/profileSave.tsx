@@ -14,7 +14,7 @@ import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import TagInput from "../../Components/TagInput/tagInput";
 import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
-import {postProfileData} from "../../api/Services/Auth";
+import {patchProfileData} from "../../api/Services/Auth";
 import {toast} from "react-toastify";
 import {uploadToCloudinary} from "../../api/UploadToCloudinary";
 
@@ -424,7 +424,7 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
       console.log(updatedFormData);
 
       try {
-        const isSuccess = await postProfileData(updatedFormData); // Call PatchData and check for success
+        const isSuccess = await patchProfileData(updatedFormData); // Call PatchData and check for success
         if (isSuccess) {
           toast.success('Image Uploaded successfully!');
           setImageLoading(false);

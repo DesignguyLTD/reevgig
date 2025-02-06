@@ -37,6 +37,16 @@ export const postProfileData = async (data: any) => {
 };
 
 
+export const patchProfileData = async (data: any) => {
+    try {
+        const response = await axiosInstance.patch('/user/profile/', data); // Endpoint to fetch data
+        return response.data;
+    } catch (error) {
+        throw new Error('Error editing data');
+    }
+};
+
+
 
 export const createData = async (data: any) => {
     try {
