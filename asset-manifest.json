@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/reevgig/static/css/main.cf38c990.css",
-    "main.js": "/reevgig/static/js/main.9a37d39c.js",
+    "main.css": "/reevgig/static/css/main.6ddc927f.css",
+    "main.js": "/reevgig/static/js/main.bd524a93.js",
     "static/css/593.55b6aefe.chunk.css": "/reevgig/static/css/593.55b6aefe.chunk.css",
     "static/js/593.960cbb18.chunk.js": "/reevgig/static/js/593.960cbb18.chunk.js",
     "static/js/453.989f038b.chunk.js": "/reevgig/static/js/453.989f038b.chunk.js",
     "index.html": "/reevgig/index.html",
-    "main.cf38c990.css.map": "/reevgig/static/css/main.cf38c990.css.map",
-    "main.9a37d39c.js.map": "/reevgig/static/js/main.9a37d39c.js.map",
+    "main.6ddc927f.css.map": "/reevgig/static/css/main.6ddc927f.css.map",
+    "main.bd524a93.js.map": "/reevgig/static/js/main.bd524a93.js.map",
     "593.55b6aefe.chunk.css.map": "/reevgig/static/css/593.55b6aefe.chunk.css.map",
     "593.960cbb18.chunk.js.map": "/reevgig/static/js/593.960cbb18.chunk.js.map",
     "453.989f038b.chunk.js.map": "/reevgig/static/js/453.989f038b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf38c990.css",
-    "static/js/main.9a37d39c.js"
+    "static/css/main.6ddc927f.css",
+    "static/js/main.bd524a93.js"
   ]
 }
