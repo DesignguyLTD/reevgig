@@ -27,7 +27,6 @@ axiosInstance.interceptors.request.use(
 
         // Ensure headers exist
         config.headers = config.headers || {};
-
         // Loop through authConfig to find a matching endpoint
         for (const [endpoint, authType] of Object.entries(authConfig)) {
             if (config.url?.includes(endpoint)) {

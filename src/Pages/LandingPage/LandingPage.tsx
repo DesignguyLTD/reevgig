@@ -162,9 +162,9 @@ const LandingPage = () => {
     // const userProfileData = ['dd','dd'];
 
     useEffect(() => {
-        if(!ProfileData){
+        if(ProfileData?.display_name === ''){
             nav('/onboarding');      }
-    }, [nav, ProfileData.length]);
+    }, [nav, ProfileData.display_name]);
 
     return (
         <>

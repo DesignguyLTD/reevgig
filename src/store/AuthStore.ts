@@ -61,6 +61,7 @@ const useAuthStore = create<Store>((set) => ({
         });
     },
 
+
     fetchData: async () => {
         set({ loading: true, error: null });
         try {

@@ -41,6 +41,30 @@ import useAuthStore from "../../../store/AuthStore";
 //     "company_name": "string"
 // }
 
+interface FormValues {
+    display_name: string;
+    state: string;
+    city: string;
+    contact_number: string;
+    countryCode: string;
+    avatar: string;
+}
+
+interface FormValues2 {
+    professional_role: string;
+    experience_level: string;
+    language_spoken: string[];
+    skills: string[];
+
+    portfolio: any[];
+}
+
+interface FormValues3 {
+    CVName: string;
+    identity: any[];
+    resume: any[];
+}
+
 const OnBoarding = () => {
 
     const { userData, loading, error, fetchData } = useAuthStore() as {
@@ -55,29 +79,7 @@ const OnBoarding = () => {
         fetchData();
         localStorage.setItem('userType', userData?.user_type || '');
     }, [fetchData, userData?.user_type]);
-    interface FormValues {
-        display_name: string;
-        state: string;
-        city: string;
-        contact_number: string;
-        countryCode: string;
-        avatar: string;
-    }
 
-    interface FormValues2 {
-        professional_role: string;
-        experience_level: string;
-        language_spoken: string[];
-        skills: string[];
-
-        portfolio: any[];
-    }
-
-    interface FormValues3 {
-        CVName: string;
-        identity: any[];
-        resume: any[];
-    }
 
 
     let navigate = useNavigate();

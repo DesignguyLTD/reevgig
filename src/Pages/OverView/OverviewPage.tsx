@@ -2,6 +2,7 @@ import JobApplication from "../../Components/DashBoard/JobApplication";
 import React from "react";
 import ResponsiveTable from "../DashBoard/playGround";
 import style from "./OverviewPage.module.css";
+import {useNavigate} from "react-router-dom";
 
 interface OverviewPageProps {
   userType: string;
@@ -12,7 +13,7 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
   const handleHeader = (value: string) => {
     setHeader(value);
   };
-  
+  const nav = useNavigate();
   return (
     <div>
       {/*<div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>*/}
@@ -101,7 +102,7 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                       Active Projects{" "}
                       <span className={style.ActiveProjectSpan}>(12)</span>
                     </div>
-                    <div className={style.ActiveProjectBtn}>
+                    <div className={style.ActiveProjectBtn} onClick={()=>{nav('/postproject')}}>
                       <img
                           src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/Add_kzvi5c.svg"
                           alt="Add"

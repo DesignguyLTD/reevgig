@@ -95,6 +95,9 @@ const SearchResults = () => {
         <br/>
         <br/>
         <br/>
+        <br/>
+        <br/>
+        
 
         <Search value={searchQuery} onSearch={handleSearch}/>
 

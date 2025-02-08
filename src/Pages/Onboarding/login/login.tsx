@@ -101,7 +101,7 @@ const Login = () => {
                if(isSuccess){
                    toast.success('Login successful!');
                    navigate('/');
-                   // window.location.reload();
+                   window.location.reload();
                }else{
                    toast.error('Login Failed! Try again.');
                }

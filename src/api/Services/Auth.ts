@@ -5,7 +5,7 @@ export const fetchData = async () => {
         const response = await axiosInstance.get('/user/me/'); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error fetching user data');
+        throw new Error('Error getting user data');
     }
 };
 
@@ -14,7 +14,7 @@ export const PatchData = async (data: any) => {
         const response = await axiosInstance.patch('/user/me/', data); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error fetching user data');
+        throw new Error('Error editing user data');
     }
 };
 
@@ -23,7 +23,7 @@ export const fetchProfileData = async () => {
         const response = await axiosInstance.get('/user/profile/'); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error fetching user data');
+        throw new Error('Error getting user profile');
     }
 };
 
@@ -32,7 +32,7 @@ export const postProfileData = async (data: any) => {
         const response = await axiosInstance.post('/user/profile/', data); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error creating data');
+        throw new Error('Error creating user profile');
     }
 };
 
@@ -42,7 +42,7 @@ export const patchProfileData = async (data: any) => {
         const response = await axiosInstance.patch('/user/profile/', data); // Endpoint to fetch data
         return response.data;
     } catch (error) {
-        throw new Error('Error editing data');
+        throw new Error('Error editing user profile');
     }
 };
 
@@ -53,7 +53,7 @@ export const createData = async (data: any) => {
         const response = await axiosInstance.post('/user/create/', data); // Endpoint for creating data
         return response.data;
     } catch (error) {
-        throw new Error('Error creating data');
+        throw new Error('Error creating user');
     }
 }
 
@@ -64,7 +64,7 @@ export const userLogin = async (data: any) => {
         const response = await axiosInstance.post('/user/token/', data); // Endpoint for creating data
         return response.data;
     } catch (error) {
-        throw new Error('Error logging in');
+        throw new Error('Error logging user In');
     }
 };
 
@@ -73,7 +73,7 @@ export const userReset = async (data: any) => {
         const response = await axiosInstance.post('/user/password-reset/', data); // Endpoint for creating data
         return response.data;
     } catch (error) {
-        throw new Error('Error Resetting');
+        throw new Error('Error Resetting Password');
     }
 };
 

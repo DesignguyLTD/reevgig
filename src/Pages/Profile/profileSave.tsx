@@ -581,6 +581,7 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
           setImageLoading(false);
           // setLoadingSubmit(false);
           setUploadImage('');
+          window.location.reload();
         } else {
           toast.error('Failed to Upload Image'); // Handle failure case
           setImageLoading(false);
