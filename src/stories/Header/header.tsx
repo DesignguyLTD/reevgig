@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import style from './header.module.css';
+import useAuthStore from "../../store/AuthStore";
 
 interface HeaderProps {
     /**
@@ -23,6 +24,19 @@ const Header = ({auth}: HeaderProps) => {
     const handleDashNav = () => {
         navigate('/overview')
     }
+
+    const { userData, loading, error, fetchData } = useAuthStore() as {
+        userData: any;
+        loading: boolean;
+        error: any;
+        fetchData: () => void;
+        fetchProfileData: () => void;
+    };
+
+    useEffect(() => {
+        fetchData();
+        localStorage.setItem('userType', userData?.user_type || '');
+    }, [fetchData]);
 
     return (
         <nav className={style.navContainer}>
@@ -75,6 +89,7 @@ const Header = ({auth}: HeaderProps) => {
                         <div className={style.menuTabDesk}>
                             <div className={style.Item2}>
                                 <img
+                                    onClick={()=> {navigate('/notification')}}
                                     className={style.notiIcon}
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/Frame_b7xxaj.svg"
                                     alt="Notification"
@@ -82,6 +97,7 @@ const Header = ({auth}: HeaderProps) => {
                             </div>
                             <div className={style.Item2}>
                                 <img
+                                    onClick={()=> {navigate('/message')}}
                                     className={style.messageIcon}
                                     src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715019/Reev/Frame-mail_tn9jmf.svg"
                                     alt="Message"
@@ -96,9 +112,9 @@ const Header = ({auth}: HeaderProps) => {
                             </div>
                             <div onClick={handleDashNav} className={style.Item2}>
                                 <img
-                                    className={style.averterIcon}
-                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1718715021/Reev/avater_do28oz.svg"
-                                    alt="Avatar"
+                                    src={userData?.image || "https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"}
+                                    alt="user"
+                                    style={{width: '30px', height: "30px", borderRadius: '50%'}}
                                 />
                             </div>
                         </div>
