@@ -5,6 +5,7 @@ import Search from "../../Components/LandingPage/Search/search";
 import CardI from "../../stories/Cards/Card-I";
 import FAQ from "../../Components/LandingPage/FAQ/FAQComponent";
 import {useNavigate} from "react-router-dom";
+import useAuthStore from "../../store/AuthStore";
 
 const LandingPage = () => {
     const CTA = useRef<HTMLDivElement | null>(null); // Ref for profile dropdown
@@ -131,6 +132,39 @@ const LandingPage = () => {
         setIsOpen(!isOpen);
     };
 
+    const { userData, loading, error, fetchData } = useAuthStore() as {
+        userData: any;
+        loading: boolean;
+        error: any;
+        fetchData: () => void;
+        fetchProfileData: () => void;
+    };
+
+    useEffect(() => {
+        fetchData();
+        localStorage.setItem('userType', userData?.user_type || '');
+    }, [fetchData, userData?.user_type]);
+
+
+
+    const { ProfileData,   fetchProfileData } = useAuthStore() as {
+        ProfileData: any;
+        loading: boolean;
+        error: any;
+        fetchData: () => void;
+        fetchProfileData: () => void;
+    };
+
+    useEffect(() => {
+        fetchProfileData();
+    }, [fetchProfileData]);
+
+    // const userProfileData = ['dd','dd'];
+
+    useEffect(() => {
+        if(ProfileData.length === 0){
+            nav('/onboarding');      }
+    }, [nav, ProfileData.length]);
 
     return (
         <>

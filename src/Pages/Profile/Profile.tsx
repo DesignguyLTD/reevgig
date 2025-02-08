@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ButtonII } from "../../stories/Button-II/ButtonII";
 import FileDisplay from "./FileDisplay";
 import { toast } from "react-toastify";
+import useAuthStore from "../../store/AuthStore";
 
 interface Props {
   page: number;
@@ -83,6 +84,34 @@ const Profile = ({ setPage, userType }: Props) => {
     setPage(2);
   };
 
+
+  const { ProfileData, loading, error, fetchProfileData } = useAuthStore() as {
+    ProfileData: any;
+    loading: boolean;
+    error: any;
+    fetchData: () => void;
+    fetchProfileData: () => void;
+  };
+
+  useEffect(() => {
+    fetchProfileData();
+  }, [fetchProfileData]);
+
+
+  const { userData, fetchData } = useAuthStore() as {
+    userData: any;
+    loading: boolean;
+    error: any;
+    fetchData: () => void;
+    fetchProfileData: () => void;
+  };
+
+  useEffect(() => {
+    fetchData();
+    localStorage.setItem('userType', userData?.user_type || '');
+  }, [fetchData]);
+
+
   return (
     <>
       <section className={style.container}>
@@ -119,15 +148,15 @@ const Profile = ({ setPage, userType }: Props) => {
               <div className={style.topCtn}>
                 <div className={style.topAvatar}>
                   <img
-                    style={{ width: "55px", height: "55px" }}
-                    src={finalValue.avatar}
-                    alt="Avatar"
+                      src={userData?.image || "https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"}
+                      alt="user"
+                      style={{width: '80px', height: "80px", borderRadius: '50%'}}
                   />
                 </div>
                 <div className={style.topUserCtn}>
                   <div className={style.topUserName}>
-                    <div className={style.topUserNametext}>Username</div>
-                    <div className={style.topUserNameSubtext}>Akin125</div>
+                    <div className={style.topUserNametext}>Display Name</div>
+                    <div className={style.topUserNameSubtext}>{ProfileData?.display_name || '-'}</div>
                   </div>
                   <div className={style.topUserStatus}>
                     <div className={style.topUserNametext}>Status</div>
@@ -136,42 +165,54 @@ const Profile = ({ setPage, userType }: Props) => {
                         {userType === "Freelancer" ? "Freelancer" : "Recruiter"}
                       </div>
                       <div className={style.topUserStatusBtn2}>
-                        Verified{" "}
-                        <img
-                          src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354102/Reev/8th%20oct/Vector_cqm2en.svg"
-                          alt="verified"
-                        />
+                        {ProfileData?.verification_status || '-'}{" "}
+                        {ProfileData?.verification_status === 'verified' &&
+                            <img
+                                src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354102/Reev/8th%20oct/Vector_cqm2en.svg"
+                                alt="verified"
+                            />
+                        }
+
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className={style.midCtn}>
-                <div className={style.topUserNametext}>
+              <div className={style.topUserNametext}>
                   About me (Professional info only)
                 </div>
                 <div className={style.midSubtext}>
-                  For 10 years, I’ve specialised in interface, experience &
-                  interaction design as well as working in user research and
-                  product strategy for product agencies, big tech companies &
-                  start-ups.
+                  {ProfileData?.bio || '-'}
                 </div>
               </div>
               <div className={style.bottomCtn}>
                 <div className={style.bottomLanguage}>
                   <div className={style.topUserNametext}>Language Spoken</div>
                   <div className={style.profileTagsCtn}>
-                    <div className={style.profileTags}>English</div>
-                    <div className={style.profileTags}>Spanish</div>
-                    <div className={style.profileTags}>Yoruba</div>
+                    {ProfileData?.language_spoken?.map((item: string, index: number) => (
+                        <div key={index} className={style.profileTags}>{item}</div>
+                    ))}
                   </div>
                 </div>
 
                 <div className={style.bottomIntrests}>
                   <div className={style.topUserNametext}>{userType === "Freelancer" ? 'Skills' : 'Intrests'}</div>
                   <div className={style.profileTagsCtn}>
-                    <div className={style.profileTags}>Hardware</div>
-                    <div className={style.profileTags}>PHP</div>
+
+                    {userType === "Freelancer" ?
+                       <>
+                         {ProfileData?.skills?.map((item: string, index: number) => (
+                             <div key={index} className={style.profileTags}>{item}</div>
+                         ))}
+                       </>
+                        :
+                        <>
+                          {ProfileData?.interests?.filter((interest: { isActive: boolean }) => interest.isActive).map((item: { content: string }, index: number) => (
+                              <div key={index} className={style.profileTags}>{item.content}</div>
+                          ))}
+                        </>}
+
                   </div>
                 </div>
               </div>
@@ -181,8 +222,24 @@ const Profile = ({ setPage, userType }: Props) => {
                   <div className={style.bottomLanguage}>
                     <div className={style.topUserNametext}>Your CV/Resume</div>
                     <div className={style.profileTagsCtn}>
-                      <FileDisplay />
-                      <FileDisplay />
+                      {Object.keys(ProfileData?.resume || {}).length === 0 ?
+                          <div>
+                            -
+                          </div>
+                          :
+
+                          <>
+                            {ProfileData?.resume?.map((item: string, index: number) => (
+                                <div key={index}
+                                     onClick={() => window.open(item.startsWith('http') ? item : `https://${item}`, '_blank')}
+                                     className={style.profileLinks}>
+                                  <FileDisplay/>
+                                </div>
+                            ))}
+
+                          </>
+                      }
+
                     </div>
                   </div>
 
@@ -191,21 +248,33 @@ const Profile = ({ setPage, userType }: Props) => {
                       Your Portfolio Link
                     </div>
                     <div className={style.profileTagsCtn}>
-                      <div className={style.profileLinks}>
-                        pinterest.com/portfoliolink
-                      </div>
-                      <div className={style.profileLinks}>
-                        pinterest.com/portfoliolink
-                      </div>
+
+                      {Object.keys(ProfileData?.portfolio || {}).length === 0 ?
+                          <div>
+                            -
+
+                          </div>
+                          :
+
+                          <>
+                            {ProfileData?.portfolio?.map((item: string, index: number) => (
+                                <div key={index} onClick={() => window.open(item.startsWith('http') ? item : `https://${item}`, '_blank')} className={style.profileLinks}>
+                                  {item}
+                                </div>
+                            ))}
+
+                          </>
+                      }
+
                     </div>
                   </div>
                 </div>
               )}
 
               <div className={style.continue}>
-                <br />
+                <br/>
                 <ButtonII
-                  hasIcon={false}
+                    hasIcon={false}
                   isLabelVisible={true}
                   label="Edit Profile"
                   primary={true}
@@ -220,9 +289,9 @@ const Profile = ({ setPage, userType }: Props) => {
                 <div className={style.PersonaltopCtnMain}>
                   <div className={style.topAvatar}>
                     <img
-                      style={{ width: "60px", height: "60px" }}
-                      src={finalValue.avatar}
-                      alt="Avatar"
+                        src={userData?.image || "https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"}
+                        alt="user"
+                        style={{width: '80px', height: "80px", borderRadius: '50%'}}
                     />
                   </div>
                   <div className={style.PersonaltopUserCtn}>
@@ -231,7 +300,7 @@ const Profile = ({ setPage, userType }: Props) => {
                         First name
                       </div>
                       <div className={style.PersonaltopUserNameSubtext}>
-                        Odediran
+                        {userData?.last_name || '-'}
                       </div>
                     </div>
 
@@ -240,7 +309,8 @@ const Profile = ({ setPage, userType }: Props) => {
                         Last name
                       </div>
                       <div className={style.PersonaltopUserNameSubtext}>
-                        Philip
+                        {userData?.first_name || '-'}
+
                       </div>
                     </div>
 
@@ -249,7 +319,7 @@ const Profile = ({ setPage, userType }: Props) => {
                         Gender
                       </div>
                       <div className={style.PersonaltopUserNameSubtext}>
-                        Male
+                        {'-'}
                       </div>
                     </div>
                   </div>
@@ -261,7 +331,7 @@ const Profile = ({ setPage, userType }: Props) => {
                   <div className={style.PersonaltopUserName}>
                     <div className={style.PersonaltopUserNametext}>Email</div>
                     <div className={style.PersonaltopUserNameSubtext}>
-                      Philipoluseyi@gmail.com
+                      {userData?.email || '-'}
                     </div>
                   </div>
 
@@ -270,14 +340,16 @@ const Profile = ({ setPage, userType }: Props) => {
                       Phone number
                     </div>
                     <div className={style.PersonaltopUserNameSubtext}>
-                      +234 701 689 6419
+                      {ProfileData?.contact_number || '-'}
                     </div>
                   </div>
 
                   <div className={style.PersonaltopUserName}>
                     <div className={style.PersonaltopUserNametext}>Address</div>
                     <div className={style.PersonaltopUserNameSubtext}>
-                      4517 Washington Ave. Manchester, Kentucky 39495
+                      {ProfileData?.city || '-'},{' '}
+                      {ProfileData?.state || '-'},{' '}
+                      {userData?.country || '-'}.
                     </div>
                   </div>
                 </div>
@@ -299,21 +371,28 @@ const Profile = ({ setPage, userType }: Props) => {
                     Valid Identification Document
                   </div>
                   <div className={style.PersonalVerifyStatusCtn}>
-                    <div className={style.PersonalVerifyDoc}>
-                      National ID{" "}
-                      <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/ep_picture-filled_bk8wgo.svg"
-                        alt="ID"
-                      />
-                    </div>
-                    <br />
+                    {Object.keys(ProfileData?.identity || {}).length === 0 ?
+                        <div>
+
+                        </div> :
+
+                        <div className={style.PersonalVerifyDoc}>
+                          National ID{" "}
+                          <img
+                              src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1728354101/Reev/8th%20oct/ep_picture-filled_bk8wgo.svg"
+                              alt="ID"
+                          />
+                        </div>
+                    }
+
+                    <br/>
                     <img
-                      src={
-                        userType === "Freelancer"
-                          ? verifiedImg.verified
-                          : verifiedImg.unverified
-                      }
-                      alt="verified state"
+                        src={
+                          ProfileData?.verification_status === "Pending"
+                              ? verifiedImg.unverified
+                              : verifiedImg.verified
+                        }
+                        alt="verified state"
                     />
                   </div>
                 </div>

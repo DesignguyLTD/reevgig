@@ -14,13 +14,16 @@ interface Store {
     isAuthenticated: boolean;
     isAuthChecked: boolean;
     data: any[];
+    userData: any[],
+    ProfileData:any[],
     loading: boolean;
     token: string | null;
     error: string | null;
     fetchData: () => Promise<void>;
+    fetchProfileData: () => Promise<void>;
     createData: (data: any) => Promise<boolean>;
     PatchData: (data: any) => Promise<boolean>;
-    userLogin: (data: { email: string; password: string }) => Promise<void>;
+    userLogin: (data: { email: string; password: string }) => Promise<boolean>;
     userReset: (data: { email: string }) => Promise<void>;
     checkAuth: () => void;
     logout: () => void;
@@ -34,6 +37,8 @@ interface AuthResponse {
 
 const useAuthStore = create<Store>((set) => ({
     data: [],
+    userData: [],
+    ProfileData:[],
     loading: false,
     error: null,
     isAuthenticated: false,
@@ -60,7 +65,7 @@ const useAuthStore = create<Store>((set) => ({
         set({ loading: true, error: null });
         try {
             const response = await fetchData(); // API call
-            set({ data: response, loading: false });
+            set({ userData: response, loading: false });
         } catch (error: any) {
             set({ error: error.message, loading: false });
         }
@@ -69,8 +74,8 @@ const useAuthStore = create<Store>((set) => ({
     fetchProfileData: async () => {
         set({ loading: true, error: null });
         try {
-            const response = await fetchData(); // API call
-            set({ data: response, loading: false });
+            const response = await fetchProfileData(); // API call
+            set({ ProfileData: response, loading: false });
         } catch (error: any) {
             set({ error: error.message, loading: false });
         }
@@ -134,8 +139,10 @@ const useAuthStore = create<Store>((set) => ({
 
             // Update store state
             set({ data: [response], isAuthenticated: true, token: response.token, loading: false });
+            return true; // Indicate success
         } catch (error: any) {
             set({ error: error.message, loading: false });
+            return false; // Indicate failure
         }
     },
 
@@ -151,7 +158,7 @@ const useAuthStore = create<Store>((set) => ({
     },
 
     logout: () => {
-        localStorage.removeItem('REEVTK');
+        localStorage.clear();
         set({ isAuthenticated: false, token: null });
     },
 }));

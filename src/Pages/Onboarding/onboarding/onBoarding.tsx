@@ -13,6 +13,7 @@ import FileUpload from "../../../Components/FileUpload/fileUpload";
 import {uploadToCloudinary} from "../../../api/UploadToCloudinary";
 import {toast} from "react-toastify";
 import {PatchData, postProfileData} from "../../../api/Services/Auth";
+import useAuthStore from "../../../store/AuthStore";
 
 
 // {
@@ -41,6 +42,19 @@ import {PatchData, postProfileData} from "../../../api/Services/Auth";
 // }
 
 const OnBoarding = () => {
+
+    const { userData, loading, error, fetchData } = useAuthStore() as {
+        userData: any;
+        loading: boolean;
+        error: any;
+        fetchData: () => void;
+        fetchProfileData: () => void;
+    };
+
+    useEffect(() => {
+        fetchData();
+        localStorage.setItem('userType', userData?.user_type || '');
+    }, [fetchData, userData?.user_type]);
     interface FormValues {
         display_name: string;
         state: string;
@@ -55,14 +69,14 @@ const OnBoarding = () => {
         experience_level: string;
         language_spoken: string[];
         skills: string[];
-        PortfolioLink_1: string;
-        PortfolioLink_2: string;
+
+        portfolio: any[];
     }
 
     interface FormValues3 {
-        UserVerification: string | null;
         CVName: string;
-        CV_PDF: string | null;
+        identity: any[];
+        resume: any[];
     }
 
 
@@ -102,8 +116,7 @@ const OnBoarding = () => {
         experience_level: '',
         language_spoken: [],
         skills: [],
-        PortfolioLink_1: '',
-        PortfolioLink_2: '',
+        portfolio: [],
     };
 
 
@@ -117,9 +130,9 @@ const OnBoarding = () => {
     };
 
     const defaultFormValues3: FormValues3 = {
-        UserVerification: '',
+        identity: [],
+        resume: [],
         CVName: '',
-        CV_PDF: '',
     };
     const [formValues, setFormValues] = useState<FormValues>(() => {
         const savedFormValues = localStorage.getItem('onboardingForm');
@@ -153,9 +166,9 @@ const OnBoarding = () => {
         return savedFormValues3 ? JSON.parse(savedFormValues3) : defaultFormValues3;
     });
     const [formErrors3, setFormErrors3] = useState({
-        UserVerification: '',
+        identity: '',
         CVName: '',
-        CV_PDF: '',
+        resume: '',
     });
 
     const [compressedSize, setCompressedSize] = useState<number | null>(null);
@@ -177,8 +190,8 @@ const OnBoarding = () => {
     useEffect(() => {
         setFormValues3(prevValues => ({
             ...prevValues,
-            UserVerification: first,
-            CV_PDF: second
+            identity: first ? [first] : [],
+            resume: second ? [second] : []
         }));
     }, [first, second]);
 
@@ -275,8 +288,8 @@ const OnBoarding = () => {
                 ...formValues,
                 ...formValues2,
                 ...formValues3,
-                UserVerification: ValidId,
-                CV_PDF: ValidCV,
+                identity: [ValidId],
+                resume: [ValidCV],
             };
 
 
@@ -407,10 +420,23 @@ const OnBoarding = () => {
     };
 
     const handleInputChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name } = e.target;
+
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-        setFormValues2({
-            ...formValues2,
-            [e.target.name]: value,
+        setFormValues2((prevValues) => {
+            const updatedPortfolio = Array.isArray(prevValues.portfolio) ? [...prevValues.portfolio] : [];
+            if (name === "portfolio1" || name === "portfolio2") {
+                const portfolioIndex = name === "portfolio1" ? 0 : 1;
+                updatedPortfolio[portfolioIndex] = value;
+                return {
+                    ...prevValues,
+                    portfolio: updatedPortfolio,
+                };
+            }
+            return {
+                ...prevValues,
+                [name]: value,
+            };
         });
     };
 
@@ -512,11 +538,11 @@ const OnBoarding = () => {
             newErrors.skills = 'Skill Set is required';
         }
 
-        if (!formValues2.PortfolioLink_1 || !urlPattern.test(formValues2.PortfolioLink_1)) {
+        if (!formValues2?.portfolio?.[0] || !urlPattern.test(formValues2?.portfolio?.[0])) {
             newErrors.PortfolioLink_1 = 'Valid Portfolio Link 1 is required';
         }
 
-        if (!formValues2.PortfolioLink_2 || !urlPattern.test(formValues2.PortfolioLink_2)) {
+        if (!formValues2?.portfolio?.[1] || !urlPattern.test(formValues2?.portfolio?.[1])) {
             newErrors.PortfolioLink_2 = 'Valid Portfolio Link 2 is required';
         }
 
@@ -529,14 +555,14 @@ const OnBoarding = () => {
     const validateForm3 = () => {
 
         let newErrors = {
-            UserVerification: '',
+            identity: '',
             CVName: '',
-            CV_PDF: '',
+            resume: '',
         };
 
 
-        if (!formValues3.UserVerification) {
-            newErrors.UserVerification = 'Verification is required';
+        if (!formValues3.identity) {
+            newErrors.identity = 'Verification is required';
             VibrateDiv3()
         }
 
@@ -545,8 +571,8 @@ const OnBoarding = () => {
 
         }
 
-        if (!formValues3.CV_PDF) {
-            newErrors.CV_PDF = 'CV/Resume  is required';
+        if (!formValues3.resume) {
+            newErrors.resume = 'CV/Resume  is required';
             VibrateDiv4()
         }
 
@@ -965,7 +991,7 @@ const OnBoarding = () => {
                 {(stage === 3 && UserType === 'Client') &&
                     <div>
                         <SuccessModal Btnlabel2={'Find Freelancer'} Btnlabel1={'View Dashboard'} Forward={() => {
-                            navigate('/')
+                            navigate('/overview')
                         }} Backward={() => {
                             navigate('/')
                         }} text={'Congratulations! \n' +
@@ -1008,17 +1034,17 @@ const OnBoarding = () => {
                         <br/>
 
                         <Input isTextArea={false} type={'text'} label='Prortfolio Link 1' placeholder='Add URL Link'
-                               size='small' onChange={handleInputChange2} name={'PortfolioLink_1'}
+                               size='small' onChange={handleInputChange2} name={'portfolio1'}
                                error={!!formErrors2.PortfolioLink_1}
                                errorMessage={formErrors2.PortfolioLink_1}
-                               value={formValues2.PortfolioLink_1}
+                               value={formValues2?.portfolio?.[0]}
                         />
 
                         <Input isTextArea={false} type={'text'} label='Portfolio Link 2' placeholder='Add URL Link'
-                               size='small' onChange={handleInputChange2} name={'PortfolioLink_2'}
+                               size='small' onChange={handleInputChange2} name={'portfolio2'}
                                error={!!formErrors2.PortfolioLink_2}
                                errorMessage={formErrors2.PortfolioLink_2}
-                               value={formValues2.PortfolioLink_2}
+                               value={formValues2?.portfolio?.[1]}
                         />
 
                         <br/>
@@ -1102,9 +1128,9 @@ const OnBoarding = () => {
                 {(stage === 4 && UserType === 'Freelancer') &&
                     <div>
                         <SuccessModal Btnlabel2={'Find Client'} Btnlabel1={'View Dashboard'} Forward={() => {
-                            navigate('/')
+                            navigate('/overview')
                         }} Backward={() => {
-                            navigate('/dashboard')
+                            navigate('/')
                         }} text={'Congratulations! \n' +
                             'Your profile is complete'}/>
                     </div>

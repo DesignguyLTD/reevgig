@@ -1,5 +1,5 @@
 import { City, Country, State } from "country-state-city";
-import React, { useEffect, useRef, useState } from "react";
+import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 import {
   recommendedIntrests,
   recommendedLanguages,
@@ -14,9 +14,11 @@ import PhoneInput from "../../stories/OtherInputsType/PhoneInput/PhoneInput";
 import TagInput from "../../Components/TagInput/tagInput";
 import style from "./profile.module.css";
 import styles from "../OverView/OverviewPage.module.css";
-import {patchProfileData} from "../../api/Services/Auth";
+import stylesOn from '../Onboarding/onboarding/onBoarding.module.css';
+import {PatchData, patchProfileData} from "../../api/Services/Auth";
 import {toast} from "react-toastify";
 import {uploadToCloudinary} from "../../api/UploadToCloudinary";
+import useAuthStore from "../../store/AuthStore";
 
 interface Props {
   page: number;
@@ -40,12 +42,9 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     interests: string[];
     skills: string[];
     language_spoken: string[];
-    UserVerification: string;
-    CVFIle: string;
-    PortfolioLink_1: string;
-    PortfolioLink_2:string;
-    CVName: string;
-
+    identity: any[];
+    resume: any[];
+    portfolio: any[];
   }
 
   interface OptionType {
@@ -91,17 +90,12 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     interests: [],
     skills: [],
     language_spoken: [],
-    UserVerification: '',
-    CVFIle: '',
-    PortfolioLink_1: '',
-    PortfolioLink_2: '',
-    CVName: '',
+    identity: [],
+    resume: [],
+    portfolio: [],
   };
 
-  const [formValues, setFormValues] = useState<FormValues>(() => {
-    const savedFormValues = localStorage.getItem("profileForm");
-    return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
-  });
+  const [formValues, setFormValues] = useState<FormValues>(defaultFormValues);
 
   let formValuesCopy: Partial<typeof formValues> = { ...formValues };
   localStorage.setItem("profileForm", JSON.stringify(formValuesCopy));
@@ -157,10 +151,21 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+    setFormValues((prevValues) => {
+      if (name === "portfolio1" || name === "portfolio2") {
+        const portfolioIndex = name === "portfolio1" ? 0 : 1;
+        const updatedPortfolio = [...prevValues.portfolio];
+        updatedPortfolio[portfolioIndex] = value;
+        return {
+          ...prevValues,
+          portfolio: updatedPortfolio,
+        };
+      }
+      return {
+        ...prevValues,
+        [name]: value,
+      };
+    });
   };
 
   const handleCountry = (options: OptionType) => {
@@ -277,6 +282,8 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     setSelectImages(image);
     console.log(selectImages);
   };
+
+  // console.log(formValues)
 
   const [header, setHeader] = React.useState("Public");
 
@@ -404,21 +411,28 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
         ValidCV = await getUploadURL(fileDataURIBith, fileNameBirth);
       }
 
-      const updatedFormData = {
-        UserVerification: ValidId,
-        CVFIle: ValidCV,
-      };
+      const updatedFormData: Partial<FormValues> = {};
 
       Object.keys(formValues).forEach(key => {
         if (formValues[key as keyof FormValues] !== defaultFormValues[key as keyof FormValues] &&
             !(
-                (key === 'interests' || key === 'language_spoken' || key === 'skills') &&
-                formValues[key as keyof FormValues].length === 0
-            )) {
+                (key === 'interests' || key === 'language_spoken' || key === 'skills' || key === 'portfolio') &&
+                Array.isArray(formValues[key as keyof FormValues]) &&
+                formValues[key as keyof FormValues]?.length === 0
+            ) &&
+            key !== 'identity' && key !== 'resume' &&
+            formValues[key as keyof FormValues] !== null) {
           (updatedFormData as any)[key as keyof FormValues] = formValues[key as keyof FormValues];
         }
       });
 
+      if (ValidId) {
+        updatedFormData.identity = [ValidId];
+      }
+
+      if (ValidCV) {
+        updatedFormData.resume = [ValidCV];
+      }
 
 
       console.log(updatedFormData);
@@ -458,6 +472,148 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
     handleSubmitedit();
   };
 
+  const [avatar, setAvatar] = useState<string>("https://res.cloudinary.com/do5wu6ikf/image/upload/v1721847923/Reev/Avatar09fff_wn6wgf.svg");
+  const [compressedSize, setCompressedSize] = useState<number | null>(null);
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const file = e.target.files?.[0];
+    if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
+      const maxSize = (1024 * 1024) / 2; // 0.5 MB
+      if (file.size > maxSize) {
+        compressImage(file).then(({ compressedImage, size }) => {
+          setAvatar(compressedImage);
+          setCompressedSize(size);
+          const fileDataURI = compressedImage;
+          const fileName = file.name;
+          const localURLName = 'DPName';
+          const localFileName = 'DPfilename';
+
+          // Save file data URI to localStorage
+          localStorage.setItem(localURLName, fileDataURI);
+          localStorage.setItem(localFileName, fileName);
+          localStorage.setItem('AvatarImage', compressedImage);
+          console.log(compressedSize ? compressedSize / 1024 / 1024 : 'n', file.size / 1024 / 1024);
+          setUploadImage(compressedImage);
+        });
+      } else {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          if (reader.result) {
+            setAvatar(reader.result as string);
+            setCompressedSize(file.size);
+            const fileDataURI = reader.result as string;
+            const fileName = file.name;
+            const localURLName = 'DPName';
+            const localFileName = 'DPfilename';
+
+            // Save file data URI to localStorage
+            localStorage.setItem(localURLName, fileDataURI);
+            localStorage.setItem(localFileName, fileName);
+            setUploadImage(reader.result as string);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    } else {
+      console.log('Please upload a PNG or JPG image.');
+      setUploadImage('failed');
+    }
+    localStorage.setItem('AvatarImage', avatar);
+    setUploadImage('failed');
+  };
+  const compressImage = (file: File): Promise<{ compressedImage: string; size: number }> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        const img = new Image();
+        img.src = e.target?.result as string;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            // Compress image
+            const quality = 0.4; // Adjust quality (0.0 to 1.0)
+            const compressedDataURL = canvas.toDataURL('image/jpeg', quality);
+            console.log(compressedDataURL, 'compressedDataURL')
+
+            // Convert data URL to Blob to get the size
+            fetch(compressedDataURL)
+                .then(res => res.blob())
+                .then(blob => {
+                  resolve({compressedImage: compressedDataURL, size: blob.size});
+                  // console.log(blob.size/1024/1024, 'mb',compressedDataURL.length/1024, 'kb')
+                });
+          } else {
+            reject(new Error('Failed to get canvas context'));
+          }
+        };
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleDPSubmit = async () => {
+    setImageLoading(true);
+    try {
+      let DP;
+      const fileDataURI = localStorage.getItem('DPName');
+      const fileName = localStorage.getItem('DPfilename');
+      if (fileDataURI && fileName) {
+        DP = await getUploadURL(fileDataURI, fileName);
+      }
+
+      const updatedFormData = {
+        image: DP,
+      };
+
+      console.log(updatedFormData);
+
+      try {
+        const isSuccess = await PatchData(updatedFormData); // Call PatchData and check for success
+        if (isSuccess) {
+          toast.success('Image Uploaded successfully!');
+          setImageLoading(false);
+          // setLoadingSubmit(false);
+          setUploadImage('');
+        } else {
+          toast.error('Failed to Upload Image'); // Handle failure case
+          setImageLoading(false);
+          setUploadImage('');
+          // setLoadingSubmit(false);
+        }
+      } catch (error) {
+        setImageLoading(false);
+        setUploadImage('');
+        console.error('Error submitting data:', error);
+        toast.error((error as { message?: string })?.message || 'Error submitting image');
+      }
+    } catch (error) {
+      // setLoadingSubmit(false);
+      setImageLoading(false);
+      setUploadImage('');
+      console.error('An error occurred:', error);
+      toast.error('An error occurred during submission');
+    }
+  };
+
+  const { userData, fetchData } = useAuthStore() as {
+    userData: any;
+    loading: boolean;
+    error: any;
+    fetchData: () => void;
+    fetchProfileData: () => void;
+  };
+
+  useEffect(() => {
+    fetchData();
+    localStorage.setItem('userType', userData?.user_type || '');
+  }, [fetchData]);
 
   return (
     <>
@@ -512,179 +668,176 @@ const ProfileSave = ({ page, setPage, userType }: Props) => {
         </div>
         <div className={style.holder_two}>
           {header === "Public" ? (
-            <div>
-              <div className={style.avatar_container}>
-                <p className={style.avatar}>Display Avatar</p>
-                <p className={style.secondary} style={{ paddingTop: "-10px" }}>
-                  Select to change
-                </p>
-                <div className={style.avatar_selection}>
-                  <div className={style.main_container}>
-                    <img src={selectImages} alt="Avatar" />
-                  </div>
-                  <div className={style.thumbnail}>
-                    {imageList.map((image, index) => (
-                      <img
-                        key={index}
-                        src={image}
-                        alt={`avatar ${index + 1}`}
-                        onClick={() => handleAvatarChange(image)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className={style.contain}>
-                <Input
-                  label="Display Name"
-                  size="small"
-                  isTextArea={false}
-                  name="display_name"
-                  value={formValues.display_name}
-                  placeholder="Others will see this name"
-                  onChange={handleInputChange}
-                />
-                <br />
-                <Input
-                  size="small"
-                  value={formValues.bio}
-                  onChange={handleInputChange}
-                  name='bio'
-                  isTextArea={true}
-                  placeholder="I am a"
-                  label="About me (professional info only)"
-                  labelSub="Do not share any information that would show your race or personal location"
-                />
-                <br />
+              <div>
+                <div className={stylesOn.avaterCont}>
 
-                <div>
-                  <TagInput
-                    subLabel2={"Popular Languages spoken"}
-                    label="Language"
-                    recommendedTags={recommendedLanguages}
-                    placeholder={"Enter preferred Languages"}
-                    maxTags={3}
-                    setTags={setprofileLang}
-                    tags={profileLang}
-                  />
-                </div>
-                {userType === "Freelancer" && (
-                    <div>
-                      <TagInput
-                          label="Skills"
-                          recommendedTags={recommendedIntrests}
-                          placeholder={"Enter Skills"}
-                          maxTags={2}
-                          setTags={setprofileSkills}
-                          tags={profileSkills}
-                      />
-                    </div>
-                )}
-
-                {userType === "Client" && (
-                    <div>
-                      <TagInput
-                          label="Intrests"
-                          recommendedTags={recommendedIntrests}
-                          placeholder={"Enter Intrests"}
-                          maxTags={2}
-                          setTags={setprofileIntrest}
-                          tags={profileIntrest}
-                      />
-                    </div>
-                )}
-
-
-              </div>
-
-              {userType === "Freelancer" && (
                   <div>
-                    <Input
-                        isTextArea={false}
-                        type={"text"}
-                        label="CV/Resume Name"
-                        placeholder="Circuit Design CV"
-                        size="small"
-                        value={formValues.CVName}
+                    <img src={userData?.image || avatar} alt="avater" className={stylesOn.avaterimg}/>
+                  </div>
 
-                        onChange={handleInputChange}
-                        name={"CVName"}
-                  />
-                  <br />
-                  <FileUpload
-                    vibrate={targetDivRef3}
-                    file={first}
-                    setFile={setFirst}
-                    id={"editCV"}
-                    label={'Drag and Drop to Upload your CV/Resume'}
-                    allowedTypes={['application/pdf']}
-                  />
+                  <div className={stylesOn.camera}>
+                    {uploadImage === '' ? (
+                        <input type="file" style={{opacity: '0', width: '100%', height: '100%'}}
+                               onChange={handleImageChange} accept="image/png, image/jpeg"/>
+                    ) : (
+                        <button className={stylesOn.ProfileImgsaveBtn} onClick={handleDPSubmit}
+                                disabled={imageLoading}>
+                          {imageLoading ? 'Loading...' : 'Save'}
+                        </button>
+                    )}
+                  </div>
 
-                  <br />
-                  <br />
+                </div>
+                <div className={style.contain}>
                   <Input
-                    isTextArea={false}
-                    type={"text"}
-                    label="Portfolio Link 1"
-                    placeholder="pinterest.com/portfoliolink"
-                    size="small"
-                    onChange={handleInputChange}
-                    name={"PortfolioLink_1"}
-                    value={formValues.PortfolioLink_1}
-
-                  />
-                  <br />
-                  <Input
-                    isTextArea={false}
-                    type={"text"}
-                    label="Portfolio Link 1"
-                    placeholder="pinterest.com/portfoliolink"
-                    size="small"
-                    onChange={handleInputChange}
-                    name={"PortfolioLink_2"}
-                    value={formValues.PortfolioLink_2}
-
-                  />
-                </div>
-              )}
-            </div>
-          ) : (
-            // personal
-            <div>
-              <div className={style.contain}>
-                <div className={style.name}>
-                  <div>
-                    <Input
-                      value={formValues.first_name}
-                      label="First Name"
-                      isTextArea={false}
-                      name="first_name"
-                      placeholder="First name"
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      value={formValues.last_name}
-                      label="Last Name"
+                      label="Display Name"
                       size="small"
                       isTextArea={false}
-                      name="last_name"
-                      placeholder="Last name"
+                      name="display_name"
+                      value={formValues.display_name}
+                      placeholder="Others will see this name"
                       onChange={handleInputChange}
+                  />
+                  <br/>
+                  <Input
+                      size="small"
+                      value={formValues.bio}
+                      onChange={handleInputChange}
+                      name='bio'
+                      isTextArea={true}
+                      placeholder="I am a"
+                      label="About me (professional info only)"
+                      labelSub="Do not share any information that would show your race or personal location"
+                  />
+                  <br/>
+
+                  <div>
+                    <TagInput
+                        subLabel2={"Popular Languages spoken"}
+                        label="Language"
+                        recommendedTags={recommendedLanguages}
+                        placeholder={"Enter preferred Languages"}
+                        maxTags={3}
+                        setTags={setprofileLang}
+                        tags={profileLang}
                     />
                   </div>
+                  {userType === "Freelancer" && (
+                      <div>
+                        <TagInput
+                            label="Skills"
+                            recommendedTags={recommendedIntrests}
+                            placeholder={"Enter Skills"}
+                            maxTags={2}
+                            setTags={setprofileSkills}
+                            tags={profileSkills}
+                        />
+                      </div>
+                  )}
+
+                  {userType === "Client" && (
+                      <div>
+                        <TagInput
+                            label="Intrests"
+                            recommendedTags={recommendedIntrests}
+                            placeholder={"Enter Intrests"}
+                            maxTags={2}
+                            setTags={setprofileIntrest}
+                            tags={profileIntrest}
+                        />
+                      </div>
+                  )}
+
+
                 </div>
-                <div>
-                  <Input
-                    value={formValues.email}
-                    label="Work email address"
-                    size="small"
-                    type="email"
-                    isTextArea={false}
-                    name="email"
-                    onChange={handleInputChange}
-                  />
+
+                {userType === "Freelancer" && (
+                    <div>
+                      <Input
+                          isTextArea={false}
+                          type={"text"}
+                          label="CV/Resume Name"
+                          placeholder="Circuit Design CV"
+                          size="small"
+                          value={formValues?.resume?.[0] || ""}
+                          onChange={handleInputChange}
+                          name={"CVName"}
+                      />
+                      <br/>
+                      <FileUpload
+                          vibrate={targetDivRef3}
+                          file={first}
+                          setFile={setFirst}
+                          id={"editCV"}
+                          label={'Drag and Drop to Upload your CV/Resume'}
+                          allowedTypes={['application/pdf']}
+                      />
+
+                      <br/>
+                      <br/>
+                      <Input
+                          isTextArea={false}
+                          type={"text"}
+                          label="Portfolio Link 1"
+                          placeholder="pinterest.com/portfoliolink"
+                          size="small"
+                          onChange={handleInputChange}
+                          name={"portfolio1"}
+                          value={formValues?.portfolio?.[0]}
+
+                      />
+                      <br/>
+                      <Input
+                          isTextArea={false}
+                          type={"text"}
+                          label="Portfolio Link 2"
+                          placeholder="pinterest.com/portfoliolink"
+                          size="small"
+                          onChange={handleInputChange}
+                          name={"portfolio2"}
+                          value={formValues?.portfolio?.[1]}
+
+                      />
+                    </div>
+                )}
+              </div>
+          ) : (
+              // personal
+              <div>
+                <div className={style.contain}>
+                  <div className={style.name}>
+                    <div>
+                      <Input
+                          value={formValues.first_name}
+                          label="First Name"
+                          isTextArea={false}
+                          name="first_name"
+                          placeholder="First name"
+                          onChange={handleInputChange}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                          value={formValues.last_name}
+                          label="Last Name"
+                          size="small"
+                          isTextArea={false}
+                          name="last_name"
+                          placeholder="Last name"
+                          onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                  {/*<Input*/}
+                  {/*  value={formValues.email}*/}
+                  {/*  label="Work email address"*/}
+                  {/*  size="small"*/}
+                  {/*  type="email"*/}
+                  {/*  isTextArea={false}*/}
+                  {/*  name="email"*/}
+                  {/*  onChange={handleInputChange}*/}
+                  {/*/>*/}
                 </div>
 
                 {/* this is the code for the country */}

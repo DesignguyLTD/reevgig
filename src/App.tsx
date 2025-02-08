@@ -37,19 +37,7 @@ const App: React.FC = () => {
         checkAuth();
     }, [checkAuth]);
 
-    const { data, loading, error, fetchData } = useAuthStore();
 
-    useEffect(() => {
-        fetchData();
-    }, [fetchData]);
-
-
-    const userProfileData = ['dd','dd'];
-
-    useEffect(() => {
-      if(userProfileData.length === 0){
-          nav('/onboarding');      }
-    }, [nav, userProfileData.length]);
 
     const ut = localStorage.getItem('userType') ?? 'Client';
     const userType = ut.charAt(0).toUpperCase() + ut.slice(1).toLowerCase();

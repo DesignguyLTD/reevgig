@@ -4,8 +4,8 @@ import style from '../src/Pages/OverView/OverviewPage.module.css'
 
 
 const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
-    const UserType = localStorage.getItem('userType') ? localStorage.getItem('userType') : 'Client';
-
+    const ut = localStorage.getItem('userType') ?? 'Client';
+    const userType = ut.charAt(0).toUpperCase() + ut.slice(1).toLowerCase();
     const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);
     const getSidebarState = (x: boolean): boolean => {
         setIsSidebarOpen(x);
@@ -14,7 +14,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({children}) =>
 
     return (
         <div className="dashboard-layout">
-            <Sidebar UserType={UserType} logo={'/'} getSidebarState={getSidebarState}/>
+            <Sidebar UserType={userType} logo={'/'} getSidebarState={getSidebarState}/>
             <div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>
                 {children} {/* Render the nested routes inside */}
                 {/*<div>Page loader</div>*/}

@@ -89,6 +89,19 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
     };
 
 
+    const { userData, loading, error, fetchData } = useAuthStore() as {
+        userData: any;
+        loading: boolean;
+        error: any;
+        fetchData: () => void;
+        fetchProfileData: () => void;
+    };
+
+    useEffect(() => {
+        fetchData();
+        localStorage.setItem('userType', userData?.user_type || '');
+    }, [fetchData]);
+
 
 
 
@@ -126,20 +139,21 @@ const Sidebar: React.FC<SidebarProps> = ({collapse, logo, getSidebarState, getPa
                     </Link>
 
 
-                    <div ref={profileRef} className={styles.Userbtn} onClick={handleProfile}>
+                    <div  className={styles.Userbtn} onClick={handleProfile}>
                         <img
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"
+                            src={userData?.image || "https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"}
                             alt="user"
+                            style={{width: '35px', height:"35px", borderRadius: '50%'}}
                         />
-                        <div className={styles.userName}>Seyi Ode</div>
+                        <div className={styles.userName}>{userData?.first_name} {userData?.last_name}</div>
                         <img
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/icons_up_csqnun.svg"
                             alt="upIcon"
                         />
                     </div>
                     {isProfileOpen && (
-                        <div className={styles.profile}>
-                            <ProfileNav/>
+                        <div ref={profileRef} className={styles.profile}>
+                            <ProfileNav data={userData}/>
                         </div>
                     )}
                 </div>

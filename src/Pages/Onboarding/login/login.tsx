@@ -97,9 +97,15 @@ const Login = () => {
 
         if (isFormValid) {
             try {
-                await userLogin(formValues);
-                toast.success('Login successful!');
-                navigate('/');
+               const isSuccess = await userLogin(formValues);
+               if(isSuccess){
+                   toast.success('Login successful!');
+                   navigate('/');
+                   // window.location.reload();
+               }else{
+                   toast.error('Login Failed! Try again.');
+               }
+
             } catch (error) {
                 toast.error((error as { message?: string })?.message || 'Login failed');
             }

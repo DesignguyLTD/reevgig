@@ -2,21 +2,24 @@ import React from 'react';
 import style from "./Profile.module.css";
 import {useNavigate} from "react-router-dom";
 
-const ProfileNav = () => {
+const ProfileNav = ({data} :any) => {
 
     let navigate = useNavigate();
     const handleNavigation = () => {
-        // navigate('/edit');
+        navigate('/profile');
     }
     return (
         <div>
             <div className={style.ProfileCont}>
                 <div className={style.profileEdit}>
-                    <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"
-                         alt="ProfilePic"/>
+                    <img
+                        src={data?.image || "https://res.cloudinary.com/do5wu6ikf/image/upload/v1725695190/Reev/Frame_stfpal.svg"}
+                        alt="user"
+                        style={{width: '80px', height: "80px", borderRadius: '50%'}}
+                    />
                     <div className={style.Usertext}>
-                        <div className={style.UserName}>Seyi Odediran</div>
-                        <div className={style.userLocation}>NG, Osun</div>
+                        <div className={style.UserName}>{data?.first_name} {data?.last_name}</div>
+                        <div className={style.userLocation}>{data?.country}</div>
                     </div>
 
                     <div className={style.editBtn} onClick={handleNavigation}>
