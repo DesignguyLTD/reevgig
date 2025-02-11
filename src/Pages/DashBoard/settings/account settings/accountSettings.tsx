@@ -9,6 +9,7 @@ import Sidebar from "../../../../stories/SideBar/sideBar";
 import cloudImages from "../../../../assets";
 import style from "../../../OverView/OverviewPage.module.css";
 import styles from "./accountSettings.module.css";
+import Seo from "../../../../Components/SEO/Seo";
 
 const AccountSettings: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -17,6 +18,17 @@ const AccountSettings: React.FC = () => {
   const [city, setCity] = useState<string>("");
   const [state, setState] = useState<string>("");
   const [phoneCode, setPhoneCode] = useState<string>("");
+
+  <Seo
+    title={"Account Settings | Reevgig"}
+    description={
+      "Manage your account settings on Reevgig. Update your profile, change your password, and customize your account details securely."
+    }
+    type="website"
+    og_title="Manage Your Account Settings | Reevgig"
+    og_desc="Update your profile, change your password, and manage your account settings securely on Reevgig."
+    site_name={"Reevgig"}
+  />;
 
   const [accountData, setAccountData] = useState({
     displayName: "",

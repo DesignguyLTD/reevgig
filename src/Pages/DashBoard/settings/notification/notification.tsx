@@ -6,6 +6,7 @@ import Toggle from "../../../../stories/ToggleBtn/toggle";
 import cloudImages from "../../../../assets";
 import style from "../../../OverView/OverviewPage.module.css";
 import styles from "./notification.module.css";
+import Seo from "../../../../Components/SEO/Seo";
 
 const notificationTypes = [
   {
@@ -27,6 +28,17 @@ const notificationTypes = [
 ];
 
 const Notification = () => {
+  <Seo
+    title={"Manage Your Notifications | Reevgig"}
+    description={
+      "Customize your notification settings to receive career tips, job recommendations, and feedback requests tailored to your preferences on Reevgig."
+    }
+    type="website"
+    og_desc="Stay updated with career tips, recommended jobs, and user feedback requests. Customize your notification preferences on Reevgig for a personalized experience."
+    og_title="Manage Your Notifications | Reevgig"
+    site_name={"Reevgig"}
+  />;
+
   const [toggleState, setToggleState] = useState([false, false, false, false]);
 
   const [isSidebarOpen, setIsSidebarOpen] = React.useState<boolean>(false);

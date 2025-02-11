@@ -2,6 +2,7 @@ import JobApplication from "../../Components/DashBoard/JobApplication";
 import React from "react";
 import ResponsiveTable from "../DashBoard/playGround";
 import style from "./OverviewPage.module.css";
+import Seo from "../../Components/SEO/Seo";
 
 interface OverviewPageProps {
   userType: string;
@@ -12,7 +13,17 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
   const handleHeader = (value: string) => {
     setHeader(value);
   };
-  
+
+  <Seo
+    title={"Dashboard Overview | Manage Projects & Job Applications – Reevgig"}
+    description={
+      "Get a complete view of your projects, job applications, and earnings with Reevgig's dashboard. Track progress and optimize workflow."
+    }
+    site_name={"Reevgig"}
+    og_title="Dashboard Overview | Reevgig"
+    og_desc="Track your earnings, clients, and job applications with Reevgig's all-in-one dashboard. Manage active projects and streamline hiring efficiently."
+  />;
+
   return (
     <div>
       {/*<div className={`${style.container} ${isSidebarOpen ? style.shifted : ''}`}>*/}
@@ -25,8 +36,7 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                 color: header === "Overview" ? "black" : "",
                 borderBottom: header === "Overview" ? "solid 2px black" : "",
               }}
-              onClick={() => handleHeader("Overview")}
-            >
+              onClick={() => handleHeader("Overview")}>
               {userType === "Freelancer" ? "Active Projects" : "Overview"}
             </div>
             <div
@@ -35,8 +45,7 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                 color: header === "Job" ? "black" : "",
                 borderBottom: header === "Job" ? "solid 2px black" : "",
               }}
-              onClick={() => handleHeader("Job")}
-            >
+              onClick={() => handleHeader("Job")}>
               {userType === "Freelancer" ? "My Gigs" : " Job Applications"}
             </div>
           </div>
@@ -71,8 +80,7 @@ const OverviewPage = ({ userType }: OverviewPageProps) => {
                   </div>
                   <div
                     className={style.Estimate}
-                    style={{ background: "rgba(240, 194, 116, 0.15)" }}
-                  >
+                    style={{ background: "rgba(240, 194, 116, 0.15)" }}>
                     <img
                       src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725752188/Reev/client_ibnny6.svg"
                       alt="earn"

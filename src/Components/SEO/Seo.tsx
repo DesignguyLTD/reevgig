@@ -7,6 +7,9 @@ interface SeoProps {
   type?: string;
   name?: string;
   image?: string;
+  og_title?: string;
+  og_desc?: string;
+  site_name: string;
 }
 const Seo: React.FC<SeoProps> = ({
   title,
@@ -14,6 +17,9 @@ const Seo: React.FC<SeoProps> = ({
   type = "website",
   name,
   image,
+  og_title,
+  og_desc,
+  site_name = "Reevgig",
 }) => {
   return (
     <>
@@ -21,11 +27,11 @@ const Seo: React.FC<SeoProps> = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta property="og:type" content={type} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={og_title} />
         <meta property="og:url" content="" />
         <meta property="og:image" content={image} />
-        <meta property="og:site_name" content="Reevgig" />
-        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={site_name} />
+        <meta property="og:description" content={og_desc} />
 
         {name && <meta name="twitter:creator" content={name} />}
         <meta name="twitter:title" content={title} />
