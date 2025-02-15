@@ -1,5 +1,5 @@
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {recommendedLanguages, recommendedSkills} from "../Onboarding/onboarding/dataset";
 import TagInput from "../../Components/TagInput/tagInput";
 import style from './jobs.module.css'
@@ -8,20 +8,35 @@ import RadioButton from "../../stories/RadioButton/RadioButton";
 
 interface skillInt {
     handlePopUp?: () => void;
+    setFormValues3: (values: any) => void;
+    formValues3?: any;
 }
 
-export default function JobSkills({handlePopUp}: skillInt) {
+export default function JobSkills({handlePopUp, setFormValues3, formValues3}: skillInt) {
 
-    const [skilltags1, setSkilltags1] = useState<string[]>(() => {
-            const savedFormValues1 = localStorage.getItem('JobSkills');
-            return savedFormValues1 ? JSON.parse(savedFormValues1).SkillSet1 : [];
-        }
-    );
-    const [skilltags2, setSkilltags2] = useState<string[]>(() => {
-            const savedFormValues2 = localStorage.getItem('JobSkills');
-            return savedFormValues2 ? JSON.parse(savedFormValues2).SkillSet2 : [];
-        }
-    );
+const [skilltags1, setSkilltags1] = useState<string[]>(() => {
+    const savedFormValues1 = localStorage.getItem('JobSkills');
+    return savedFormValues1 ? JSON.parse(savedFormValues1) : [];
+});
+
+const [skilltags2, setSkilltags2] = useState<string[]>(() => {
+    const savedFormValues2 = localStorage.getItem('JoblangSkills');
+    return savedFormValues2 ? JSON.parse(savedFormValues2) : [];
+});
+
+   // useEffect(() => {
+    localStorage.setItem('JobSkills', JSON.stringify(skilltags1));
+    localStorage.setItem('JoblangSkills', JSON.stringify(skilltags2));
+// }, [skilltags1, skilltags2]);
+
+ useEffect(() => {
+    setFormValues3((prevValues: any) => ({
+        ...prevValues,
+        languages: skilltags2,
+        skills: skilltags1,
+    }));
+}, [skilltags1, skilltags2]);
+
 
 
     interface OptionType {
@@ -29,11 +44,17 @@ export default function JobSkills({handlePopUp}: skillInt) {
         label: string;
     }
 
-    const [selectedValue, setSelectedValue] = useState<string>("");
+    const [selectedValue, setSelectedValue] = useState<string>(formValues3?.experience_level || "");
 
     const handleRadioChange = (value: string) => {
         setSelectedValue(value);
+        setFormValues3((prevValues: any) => ({
+            ...prevValues,
+            experience_level: value
+        }));
     };
+
+
 
 
     return <div className={style.skillCont}>
@@ -45,8 +66,12 @@ export default function JobSkills({handlePopUp}: skillInt) {
                     What category fits this job
                 </p>
                 <Dropdown onChange={(option: OptionType) => {
-                }} options={[{value: 'Hardware', label: 'Hardware'}, {value: 'Circuit', label: 'Circuit'}]}
-                          defaultText={"Select"} label={''}/>
+                    setFormValues3((prevValues: any) => ({
+                        ...prevValues,
+                        job_category: option.value
+                    }));
+                }} defaultText={formValues3?.job_category || "Select"}  options={[{value: 'Hardware', label: 'Hardware'}, {value: 'Circuit', label: 'Circuit'}]}
+                          label={''}/>
             </div>
             <div className={style.jobskillsRadio}>
                 <p className={style.level}>
@@ -83,9 +108,13 @@ export default function JobSkills({handlePopUp}: skillInt) {
                 <p className={style.level}>
                     Years of Experience
                 </p>
-                <Dropdown label={''} onChange={(option: OptionType) => {
+                <Dropdown defaultText={formValues3?.experience_years || "Select"}   label={''} onChange={(option: OptionType) => {
+                    setFormValues3((prevValues: any) => ({
+                        ...prevValues,
+                        experience_years: option.value
+                    }));
                 }} options={[{value: '>1 Year', label: '>1 Year'}, {value: '2 Years', label: '2 Years'}]}
-                          defaultText={"Select"}/>
+                          />
             </div>
 
             <div>

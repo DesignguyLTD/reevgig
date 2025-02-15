@@ -64,7 +64,7 @@ const TagInput: React.FC<TagInputProps> = ({
 
                 {tags?.map((tag, index) => (
                     <div key={index} className={styles.tag}>
-                        {tag}
+                        {tag  || ''}
                         <button onClick={() => removeTag(tag)}>
                             <img
                                 src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1721834248/Reev/Vector_close_gvi0ib.svg"
@@ -73,7 +73,7 @@ const TagInput: React.FC<TagInputProps> = ({
                     </div>
                 ))}
 
-                {tags.length < maxTags &&
+                {tags?.length < maxTags &&
 
                     <>
                         <input

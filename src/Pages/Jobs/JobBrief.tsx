@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import CounterInput from "./CounterInput";
 import CounterTextarea from "./CounterTextarea";
@@ -11,6 +11,9 @@ import {recommendedSkills} from "../Onboarding/onboarding/dataset";
 interface jobProps {
     setActiveComponent?: (component: string) => void;
     userType: string;
+    setFormValues: (values: any) => void;
+    formValues?: { search: string[]; project_title: string; project_description: string };
+
 }
 
 interface UploadedFile {
@@ -20,9 +23,9 @@ interface UploadedFile {
 }
 
 
-export default function JobBrief({setActiveComponent, userType}: jobProps) {
-    const [text, setText] = useState<string>("");
-    const [textarea, setTextArea] = useState<string>("");
+export default function JobBrief({setActiveComponent, userType, setFormValues, formValues}: jobProps) {
+    const [text, setText] = useState<string>(formValues?.project_title || "");
+    const [textarea, setTextArea] = useState<string>(formValues?.project_title || "");
     const [fileUploaded, setFileUploaded] = useState<UploadedFile[]>([]);
 
     const handleTextChange = (value: string) => {
@@ -44,10 +47,24 @@ export default function JobBrief({setActiveComponent, userType}: jobProps) {
         }
     }
     const [searchTag, setSearchTag] = useState<string[]>(() => {
-            const savedFormValues1 = localStorage.getItem('searchTag');
-            return savedFormValues1 ? JSON.parse(savedFormValues1).SkillSet1 : [];
-        }
-    );
+        const savedFormValues1 = localStorage.getItem('searchTag');
+        return savedFormValues1 ? JSON.parse(savedFormValues1) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('searchTag', JSON.stringify(searchTag));
+    }, [searchTag]);
+
+
+    useEffect(() => {
+        setFormValues((prevValues: any) => ({
+            ...prevValues,
+            search: searchTag,
+            project_title: text,
+            project_description: textarea
+        }));
+    }, [searchTag, text, textarea]);
+
 
     return (
         <>
@@ -62,7 +79,7 @@ export default function JobBrief({setActiveComponent, userType}: jobProps) {
                                 label={
                                     "Keep it short and simple - this will help us match you to the right category."
                                 }
-                                value={text}
+                                value={formValues?.project_title || ""}
                                 onChange={handleTextChange}
                                 placeholder="Example: Passionate Web Developer ready to bring your ideas to life."
                             />
@@ -76,7 +93,8 @@ export default function JobBrief({setActiveComponent, userType}: jobProps) {
                                 label={
                                     "This will help get your brief to the right client. Specifics help here."
                                 }
-                                value={textarea}
+                                value={formValues?.project_description || "" }
+
                                 onChange={handleTextAreaChange}
                                 placeholder="I can..."
                             />

@@ -8,6 +8,8 @@ import RadioBtnTwo from "../../stories/RadioButton/RadioBtnTwo";
 import {ButtonII} from "../../stories/Button-II/ButtonII";
 import Dropdown from "../../stories/OtherInputsType/dropdown/dropdown";
 import PaymentSkills from "./PaymentSkills";
+import {toast} from "react-toastify";
+import {postProjectData} from "../../api/Services/project";
 
 
 interface OptionType {
@@ -81,13 +83,18 @@ interface FormValues3 {
     experience_years: string;
     job_category: string;
     promotion_type: string;
-    boost_duration: string;
+    boost_duration: number;
     freelancers: number[];
 }
 
 export default function Jobs({userType}: propsType) {
 
-
+    const defaultFormValues: FormValues = {
+        project_title: "",
+        project_description: "",
+        search: [],
+        project_images: [],
+    };
 
     const defaultFormValues2: FormValues2 = {
         project_type: '',
@@ -99,12 +106,7 @@ export default function Jobs({userType}: propsType) {
     };
 
 
-    const defaultFormValues: FormValues = {
-        project_title: "",
-        project_description: "",
-        search: [],
-        project_images: [],
-    };
+
 
     const defaultFormValues3: FormValues3 = {
         experience_level: "",
@@ -113,7 +115,7 @@ export default function Jobs({userType}: propsType) {
         experience_years:"",
         job_category: "",
         promotion_type: "",
-        boost_duration: "",
+        boost_duration: 0,
         freelancers: [],
     };
 
@@ -121,7 +123,6 @@ export default function Jobs({userType}: propsType) {
         const savedFormValues = localStorage.getItem('poatajob1');
         return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
     });
-
 
     const [formErrors, setFormErrors] = useState({
         project_type: '',
@@ -156,7 +157,7 @@ export default function Jobs({userType}: propsType) {
         experience_years:"",
         job_category: "",
         promotion_type: "",
-        boost_duration: "",
+        boost_duration: 0,
         freelancers: '',
     });
 
@@ -250,7 +251,7 @@ export default function Jobs({userType}: propsType) {
             experience_years:"",
             job_category: "",
             promotion_type: "",
-            boost_duration: "",
+            boost_duration: 0,
             freelancers: '',
         };
 
@@ -282,10 +283,10 @@ export default function Jobs({userType}: propsType) {
             newErrors.promotion_type = 'Field is required';
         }
 
-        if (!formValues3.boost_duration) {
-            newErrors.boost_duration = 'Field is required';
-
-        }
+        // if (!formValues3.boost_duration) {
+        //     newErrors.boost_duration = 'Field is required';
+        //
+        // }
 
 
 
@@ -295,6 +296,9 @@ export default function Jobs({userType}: propsType) {
         return !Object.values(newErrors).some(error => error !== '');
     };
 
+    // localStorage.setItem('poatajob1', JSON.stringify(formValues));
+    // localStorage.setItem('poatajob2', JSON.stringify(formValues2));
+    // localStorage.setItem('poatajob3', JSON.stringify(formValues2));
 
     const handleSubmit = () => {
         const isFormValid = validateForm1();
@@ -312,10 +316,14 @@ export default function Jobs({userType}: propsType) {
     const [activeComponent, setActiveComponent] = useState("jobs_brief");
     const [popModal, setPopModal] = useState<boolean>(false);
 
-    const [selectedValue1, setSelectedValue1] = useState<string>('Paid Listing');
+    const [selectedValue1, setSelectedValue1] = useState<string>(formValues3?.promotion_type || "");
 
     const handleRadioChange1 = (value: string) => {
         setSelectedValue1(value);
+        setFormValues3((prevValues: any) => ({
+            ...prevValues,
+            promotion_type: value
+        }));
     };
 
 
@@ -335,28 +343,82 @@ export default function Jobs({userType}: propsType) {
     const renderComponent = () => {
         switch (activeComponent) {
             case "jobs_brief":
-                return <JobBrief userType={userType} setActiveComponent={setActiveComponent}/>;
+                return <JobBrief formValues={formValues} setFormValues={setFormValues}  userType={userType} setActiveComponent={setActiveComponent}/>;
             case "jobs_timeline":
-                return <JobTimeline setActiveComponent={setActiveComponent}/>;
+                return <JobTimeline  formValues2={formValues2} setFormValues2={setFormValues2} setActiveComponent={setActiveComponent}/>;
             case "jobs_skills":
-                return <JobSkills handlePopUp={handlePopUp}/>;
+                return <JobSkills formValues3={formValues3}  setFormValues3={setFormValues3} handlePopUp={handlePopUp}/>;
             case "payment_skills":
                 return <PaymentSkills setActiveComponent={setActiveComponent}/>;
             default:
-                return <JobBrief userType={userType}/>;
+                return <JobBrief  formValues={formValues} setFormValues={setFormValues} userType={userType}/>;
+        }
+    };
+
+    const [loadingSub, setLoadingSub] =useState(false)
+
+    const handleJobSubmit = async () => {
+        setLoadingSub(true)
+        try {
+            const updatedFormData = {
+                ...formValues,
+                ...formValues2,
+                ...formValues3
+            };
+
+            console.log(updatedFormData);
+
+            try {
+                const isSuccess = await postProjectData(updatedFormData); // Call PatchData and check for success
+                if (isSuccess) {
+                    toast.success('Project Uploaded successfully!');
+                    // setImageLoading(false);
+                    setLoadingSub(false)
+                    setPopModal(false)
+
+                    // setLoadingSubmit(false);
+                    // setUploadImage('');
+                    // window.location.reload();
+                } else {
+                    toast.error('Failed to Upload Project'); // Handle failure case
+                    // setImageLoading(false);
+                    // setUploadImage('');
+                    setLoadingSub(false)
+
+                    // setLoadingSubmit(false);
+                }
+            } catch (error) {
+                // setImageLoading(false);
+                // setUploadImage('');
+                setLoadingSub(false)
+
+                console.error('Error submitting Project:', error);
+                toast.error((error as { message?: string })?.message || 'Error submitting Project');
+            }
+        } catch (error) {
+            // setLoadingSubmit(false);
+            // setImageLoading(false);
+            // setUploadImage('');
+            console.error('An error occurred:', error);
+            toast.error('An error occurred during submission');
         }
     };
 
     const handlePayment = () => {
-        setPopModal(false)
         if (selectedValue1 === 'Paid Listing') {
-            setActiveComponent('payment_skills')
+            // Paidlisting submit
+
+            setActiveComponent('payment_skills');
 
         } else {
-            setActiveComponent('jobs_brief')
+            // freelisting submit
+            setActiveComponent('jobs_brief');
+            handleJobSubmit();
         }
 
     }
+
+    console.log(formValues, 'test')
 
     return (
         <div className={styles.cover_all}>
@@ -423,12 +485,19 @@ export default function Jobs({userType}: propsType) {
                                 <p style={{textAlign: 'center'}} className={style.level}>
                                     Choose period to Boost Post
                                 </p>
-                                <Dropdown onChange={(option: OptionType) => {
-                                }} options={[{value: '1 Month', label: '1 Month'}, {
-                                    value: '6 Months',
-                                    label: '6 Months'
-                                }]}
-                                          width='280px' defaultText={"3 Days"} label={''}/>
+                                <div style={{textAlign: 'center', alignItems: 'center', width: '100%', display: 'inline-flex', flexDirection: 'column'}}>
+                                    <Dropdown onChange={(option: OptionType) => {
+                                        setFormValues3((prevValues: any) => ({
+                                            ...prevValues,
+                                            boost_duration:parseInt(option.value.split(' ')[0], 10)
+                                        }));
+                                    }} options={[{value: '1 Month', label: '1 Month'}, {
+                                        value: '6 Months',
+                                        label: '6 Months'
+                                    }]}
+                                              width='280px' defaultText={"Select"} label={''}/>
+                                </div>
+
                             </div>
 
                         }
@@ -438,7 +507,7 @@ export default function Jobs({userType}: propsType) {
                             <ButtonII
                                 hasIcon={false}
                                 isLabelVisible={true}
-                                label="Post a Job"
+                                label={loadingSub ? 'Loading....' : "Post a Job"}
                                 primary={true}
                                 size="medium"
                                 onClick={handlePayment}

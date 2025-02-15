@@ -64,13 +64,6 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
         }
     };
 
-    const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
-        event.preventDefault();
-        setIsDragging(true);
-    };
-
-    const handleDragLeave = () => setIsDragging(false);
-
     const validateFiles = (filesToValidate: File[]) => {
         setLoading(true);
         setError("");
@@ -98,10 +91,13 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     if (reader.result) {
+                        const fileDataURI = reader.result as string;
+                        const uniqueKey = `${Date.now()}-${Math.random()}`;
+                        localStorage.setItem(uniqueKey, JSON.stringify({ name: sanitizedFileName, dataURI: fileDataURI }));
                         validFiles.push({
-                            id: `${Date.now()}-${Math.random()}`,
+                            id: uniqueKey,
                             name: sanitizedFileName,
-                            src: reader.result as string,
+                            src: fileDataURI,
                         });
                     }
                     processedFiles++;
@@ -118,6 +114,13 @@ const FileUploadTwo: React.FC<FileUploadProps> = ({
             setLoading(false);
         }
     };
+    const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        setIsDragging(true);
+    };
+
+    const handleDragLeave = () => setIsDragging(false);
+
 
     const finalizeValidation = (validFiles: UploadedFile[], invalidFiles: string[]) => {
         if (validFiles.length > 0) {

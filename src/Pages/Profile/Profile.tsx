@@ -190,7 +190,7 @@ const Profile = ({ setPage, userType }: Props) => {
                 <div className={style.bottomLanguage}>
                   <div className={style.topUserNametext}>Language Spoken</div>
                   <div className={style.profileTagsCtn}>
-                    {ProfileData?.language_spoken?.map((item: string, index: number) => (
+                    {Array.isArray(ProfileData?.language_spoken) && ProfileData.language_spoken.map((item: string, index: number) => (
                         <div key={index} className={style.profileTags}>{item}</div>
                     ))}
                   </div>
@@ -210,6 +210,9 @@ const Profile = ({ setPage, userType }: Props) => {
                         <>
                           {ProfileData?.interests?.filter((interest: { isActive: boolean }) => interest.isActive).map((item: { content: string }, index: number) => (
                               <div key={index} className={style.profileTags}>{item.content}</div>
+                          ))}
+                          {ProfileData?.interests?.map((item: string, index: number) => (
+                              <div key={index} className={style.profileTags}>{item}</div>
                           ))}
                         </>}
 

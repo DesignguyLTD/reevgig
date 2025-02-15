@@ -6,12 +6,17 @@ import {ButtonII} from "../../stories/Button-II/ButtonII";
 
 interface jobProps {
     setActiveComponent?: (component: string) => void;
+    setFormValues2: (values: any) => void;
+    formValues2?: any;
+
 }
 
-export default function JobTimeline({setActiveComponent}: jobProps) {
-    const [selectedValue1, setSelectedValue1] = useState<string>("");
-    const [selectedValue2, setSelectedValue2] = useState<string>("");
-    const [selectedValue3, setSelectedValue3] = useState<string>("");
+export default function JobTimeline({setActiveComponent, setFormValues2, formValues2}: jobProps) {
+    const [selectedValue1, setSelectedValue1] = useState<string>(formValues2?.payment_type || "");
+    const [selectedValue2, setSelectedValue2] = useState<string>(formValues2?.project_timeline || "");
+    const [selectedValue3, setSelectedValue3] = useState<string>(formValues2?.project_type || "");
+    const [rateFrom, setRateFrom] = useState<string>(formValues2?.rate_range?.split(' - ')[0] || "");
+    const [rateTo, setRateTo] = useState<string>(formValues2?.rate_range?.split(' - ')[1] || "");
 
     const handleRadioChange1 = (value: string) => {
         setSelectedValue1(value);
@@ -26,15 +31,49 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
     };
 
     const handleNext = () => {
-        if (setActiveComponent) {
-            setActiveComponent('jobs_skills')
+        const formValues = {
+            project_type: selectedValue3,
+            payment_type: selectedValue1,
+            rate_range: selectedValue1 === 'Hourly Rate' ? `${parseFloat(rateFrom || '0').toFixed(2)} - ${parseFloat(rateTo || '0').toFixed(2)}` : parseFloat(rateFrom || '0').toFixed(2),            start_date: '',
+            end_date: '',
+            project_timeline: selectedValue2,
+        };
+
+        if (selectedValue2 !== 'Set time manually') {
+            const startDate = new Date();
+            let endDate = new Date();
+
+            switch (selectedValue2) {
+                case 'Less than a month':
+                    endDate.setMonth(startDate.getMonth() + 1);
+                    break;
+                case '1 to 3 months':
+                    endDate.setMonth(startDate.getMonth() + 3);
+                    break;
+                case '3 to 6 months':
+                    endDate.setMonth(startDate.getMonth() + 6);
+                    break;
+                case 'more than 6 months':
+                    endDate.setMonth(startDate.getMonth() + 7);
+                    break;
+            }
+
+            formValues.start_date = startDate.toISOString().split('T')[0];
+            formValues.end_date = endDate.toISOString().split('T')[0];
         }
-    }
+
+        setFormValues2(formValues);
+
+        if (setActiveComponent) {
+            setActiveComponent('jobs_skills');
+        }
+    };
 
     interface OptionType {
         value: string;
         label: string;
     }
+
 
     return (
         <>
@@ -45,8 +84,8 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                     <RadioButton
                         id={'type'}
 
-                        name={"One-time Off"}
-                        value={"One-time Off"}
+                        name={"Onetime Off"}
+                        value={"Onetime Off"}
                         selectedValue={selectedValue3}
                         onChange={handleRadioChange3}
                     />
@@ -88,13 +127,13 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                     />
 
                     <div style={{visibility: 'hidden'}}>
-                        <RadioButton
-                            id={'rate'}
-                            name={"Fixed Price"}
-                            value={"Fixed Price"}
-                            selectedValue={selectedValue1}
-                            onChange={handleRadioChange1}
-                        />
+                        {/*<RadioButton*/}
+                        {/*    id={'rate'}*/}
+                        {/*    name={"Fixed Price"}*/}
+                        {/*    value={"Fixed Price"}*/}
+                        {/*    selectedValue={selectedValue1}*/}
+                        {/*    onChange={handleRadioChange1}*/}
+                        {/*/>*/}
                     </div>
                 </div>
             </div>
@@ -103,17 +142,14 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                 <div className={style.Budget}>Set Project</div>
                 <div className={style.flexInput}>
                     <div className={style.labelInput}>
-                        <label
-                            className={style.inpurDtext}>{selectedValue1 !== 'Hourly Rate' ? 'Price' : 'From'}</label>
-                        <input placeholder="₦15,000 /hr" type="text" name="" id=""/>
+                        <label className={style.inpurDtext}>{selectedValue1 !== 'Hourly Rate' ? 'Price' : 'From'}</label>
+                        <input placeholder="₦15,000 /hr" type="text" name="" id="" value={rateFrom} onChange={(e) => setRateFrom(e.target.value)} />
                     </div>
-                    {/*<hr className={style.hr1}/>*/}
                     {selectedValue1 === 'Hourly Rate' &&
                         <div className={style.labelInput}>
                             <label className={style.inpurDtext}>To</label>
-                            <input placeholder='₦15,000 /hr' type="text" name="" id=""/>
+                            <input placeholder='₦15,000 /hr' type="text" name="" id="" value={rateTo} onChange={(e) => setRateTo(e.target.value)} />
                         </div>
-
                     }
                 </div>
             </div>
@@ -205,19 +241,23 @@ export default function JobTimeline({setActiveComponent}: jobProps) {
                     <br/>
                 </div>
 
-                {(selectedValue2 === 'Set time manually' || selectedValue2 === 'Less than a month') && (
+                {(selectedValue2 === 'Set time manually' ) && (
                     <div className={style.paymentModeCtn}>
                         <div className={style.Budget}>Set Project timeline</div>
                         <div className={style.flexInput}>
                             <div className={style.labelInput}>
                                 <label className={style.inpurDtext}>Start Date</label>
-                                <input type="date" name="" id=""/>
-                            </div>
+                                <input type="date" name="" id="" onChange={(e) => setFormValues2((prev: any) => ({
+                                    ...prev,
+                                    start_date: e.target.value
+                                }))}/></div>
 
                             <div className={style.labelInput}>
                                 <label className={style.inpurDtext}>End Date</label>
-                                <input type="date" name="" id=""/>
-                            </div>
+                                <input type="date" name="" id="" onChange={(e) => setFormValues2((prev: any) => ({
+                                    ...prev,
+                                    end_date: e.target.value
+                                }))}/></div>
                         </div>
                     </div>
                 )}
