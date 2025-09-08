@@ -80,7 +80,7 @@ export const userReset = async (data: any) => {
 export const userConfirmReset = async (data: { token: string; uidb64: string; dataP: {} }) => {
     try {
         // Construct the URL dynamically using template literals
-        const url = `/user/password-reset-confirm/${data.token}/${data.uidb64}`;
+        const url = `/user/password-reset-confirm/${data.uidb64}/${data.token}/`;
 
         // Make the POST request
         const response = await axiosInstance.post(url,

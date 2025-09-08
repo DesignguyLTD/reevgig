@@ -92,8 +92,8 @@ export default function JobTimeline({setActiveComponent, setFormValues2, formVal
 
                     <RadioButton
                         id={'type'}
-                        name={"Part Time"}
-                        value={'Part Time'}
+                        name={"Per Time"}
+                        value={'Per Time'}
                         selectedValue={selectedValue3}
                         onChange={handleRadioChange3}
                     />
@@ -112,7 +112,7 @@ export default function JobTimeline({setActiveComponent, setFormValues2, formVal
                     <RadioButton
                         id={'rate'}
 
-                        name={"Hourly rate"}
+                        name={"Hourly Rate"}
                         value={"Hourly Rate"}
                         selectedValue={selectedValue1}
                         onChange={handleRadioChange1}
